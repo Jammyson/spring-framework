@@ -520,7 +520,10 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		}
 
 		try {
-			// 调用InstantiationAwareBeanPostProcessor.postProcessBeforeInstantiation
+			/**
+			 * 这是Spring提供的第一个扩展点.调用InstantiationAwareBeanPostProcessor.postProcessBeforeInstantiation。
+			 * 它的作用是在开始创建Bean前提供一个扩展点,若扩展点的返回值不为null,将不再进行Bean的创建而是直接使用返回值作为Bean.
+			 */
 			Object bean = resolveBeforeInstantiation(beanName, mbdToUse);
 			// 如果不为null,则当成Bean直接返回
 			if (bean != null) {
