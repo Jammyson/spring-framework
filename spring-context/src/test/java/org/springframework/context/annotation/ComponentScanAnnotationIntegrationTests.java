@@ -81,7 +81,7 @@ public class ComponentScanAnnotationIntegrationTests {
 		ctx.scan(example.scannable._package.class.getPackage().getName());
 		ctx.refresh();
 		assertThat(ctx.containsBean("fooServiceImpl")).as(
-				"control scan for example.scannable package failed to register FooServiceImpl bean").isTrue();
+				"control scan for example1.scannable package failed to register FooServiceImpl bean").isTrue();
 	}
 
 	@Test

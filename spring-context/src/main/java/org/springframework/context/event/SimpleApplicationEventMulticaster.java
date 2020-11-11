@@ -39,7 +39,7 @@ import org.springframework.util.ErrorHandler;
  * <p>By default, all listeners are invoked in the calling thread.
  * This allows the danger of a rogue listener blocking the entire application,
  * but adds minimal overhead. Specify an alternative task executor to have
- * listeners executed in different threads, for example from a thread pool.
+ * listeners executed in different threads, for example1 from a thread pool.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -121,7 +121,10 @@ public class SimpleApplicationEventMulticaster extends AbstractApplicationEventM
 		return this.errorHandler;
 	}
 
-
+	/**
+	 * 推送事件
+	 * @see org.springframework.context.event.AbstractApplicationEventMulticaster.retrieveApplicationListeners
+	 */
 	@Override
 	public void multicastEvent(ApplicationEvent event) {
 		multicastEvent(event, resolveDefaultEventType(event));

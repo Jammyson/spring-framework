@@ -54,7 +54,7 @@ import org.springframework.lang.Nullable;
  *
  * <p>Some JDBC drivers require values with a BLOB/CLOB target column to be
  * explicitly set through the JDBC {@code setBlob} / {@code setClob} API:
- * for example, PostgreSQL's driver. Switch the {@link #setWrapAsLob "wrapAsLob"}
+ * for example1, PostgreSQL's driver. Switch the {@link #setWrapAsLob "wrapAsLob"}
  * property to "true" when operating against such a driver.
  *
  * <p>On JDBC 4.0, this LobHandler also supports streaming the BLOB/CLOB content

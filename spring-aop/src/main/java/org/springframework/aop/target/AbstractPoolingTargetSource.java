@@ -29,7 +29,7 @@ import org.springframework.lang.Nullable;
  * implementations which maintain a pool of target instances, acquiring and
  * releasing a target object from the pool for each method invocation.
  * This abstract base class is independent of concrete pooling technology;
- * see the subclass {@link CommonsPool2TargetSource} for a concrete example.
+ * see the subclass {@link CommonsPool2TargetSource} for a concrete example1.
  *
  * <p>Subclasses must implement the {@link #getTarget} and
  * {@link #releaseTarget} methods based on their chosen object pool.

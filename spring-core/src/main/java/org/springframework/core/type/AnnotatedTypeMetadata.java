@@ -55,6 +55,8 @@ public interface AnnotatedTypeMetadata {
 	/**
 	 * Determine whether the underlying element has an annotation or meta-annotation
 	 * of the given type defined.
+	 * <trans> 判断AnnotationMetadata中是否包含给定的注解或者以给定注解作为元注解的注解 </trans>
+	 *
 	 * <p>If this method returns {@code true}, then
 	 * {@link #getAnnotationAttributes} will return a non-null Map.
 	 * @param annotationName the fully qualified class name of the annotation
@@ -69,11 +71,18 @@ public interface AnnotatedTypeMetadata {
 	 * Retrieve the attributes of the annotation of the given type, if any (i.e. if
 	 * defined on the underlying element, as direct annotation or meta-annotation),
 	 * also taking attribute overrides on composed annotations into account.
+	 * <trans> 获取AnnotationMetadata注解元信息中给定的annotationName的所有配置参数. </trans>
+	 *
 	 * @param annotationName the fully qualified class name of the annotation
 	 * type to look for
+	 * <trans> 要获取的注解配置信息的注解全限定名称 </trans>
+	 *
 	 * @return a Map of attributes, with the attribute name as key (e.g. "value")
 	 * and the defined attribute value as Map value. This return value will be
+	 * <trans> 返回以参数名为key,配置值为value的Map</trans>
+	 *
 	 * {@code null} if no matching annotation is defined.
+	 * <trans> 如果未找到则返回null </trans>
 	 */
 	@Nullable
 	default Map<String, Object> getAnnotationAttributes(String annotationName) {

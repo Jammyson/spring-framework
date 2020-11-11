@@ -40,6 +40,9 @@ import org.springframework.util.MultiValueMap;
 
 /**
  * Internal class used to evaluate {@link Conditional} annotations.
+ * <trans>
+ *     内部使用用于处理@Conditional注解的class
+ * </trans>
  *
  * @author Phillip Webb
  * @author Juergen Hoeller
@@ -64,6 +67,12 @@ class ConditionEvaluator {
 	 * Determine if an item should be skipped based on {@code @Conditional} annotations.
 	 * The {@link ConfigurationPhase} will be deduced from the type of item (i.e. a
 	 * {@code @Configuration} class will be {@link ConfigurationPhase#PARSE_CONFIGURATION})
+	 * <Trans>
+	 *    通过是否存在@Conditional判断当前item是否应该被跳过.这是一个递归方法，第一次递归会选择不同的{@link ConfigurationPhase}，
+	 *    {@link ConfigurationPhase}将会由item的类型来决定，比如@Configuration就会选择{@link ConfigurationPhase#PARSE_CONFIGURATION})
+	 *    作为参数调用该方法。要注意，递归调用只会在class上存在@Conditional时被触发，否则将直接返回。
+	 * </Trans>
+	 *
 	 * @param metadata the meta data
 	 * @return if the item should be skipped
 	 */

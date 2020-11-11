@@ -25,7 +25,7 @@ import org.springframework.lang.Nullable;
  *
  * <p><strong>Note: </strong> implementing this contract is not required but it
  * should be implemented when the handler needs to be prioritized ahead of others.
- * For example custom (async) handlers, by default ordered after built-in
+ * For example1 custom (async) handlers, by default ordered after built-in
  * handlers, should take precedence over {@code @ResponseBody} or
  * {@code @ModelAttribute} handling, which should occur once the async value is
  * ready. By contrast, built-in (async) handlers are already ordered ahead of

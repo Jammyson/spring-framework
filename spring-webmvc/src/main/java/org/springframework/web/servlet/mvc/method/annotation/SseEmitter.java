@@ -117,7 +117,7 @@ public class SseEmitter extends ResponseBodyEmitter {
 	}
 
 	/**
-	 * Send an SSE event prepared with the given builder. For example:
+	 * Send an SSE event prepared with the given builder. For example1:
 	 * <pre>
 	 * // static import of SseEmitter
 	 * SseEmitter emitter = new SseEmitter();

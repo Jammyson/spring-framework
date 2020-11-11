@@ -38,6 +38,7 @@ import org.springframework.util.ClassUtils;
  * Represents a user-defined {@link Configuration @Configuration} class.
  * Includes a set of {@link Bean} methods, including all such methods
  * defined in the ancestry of the class, in a 'flattened-out' manner.
+ * <trans> 用于封装配置类处理完配置之后解析出来资源的类 </trans>
  *
  * @author Chris Beams
  * @author Juergen Hoeller
@@ -48,15 +49,26 @@ import org.springframework.util.ClassUtils;
  */
 final class ConfigurationClass {
 
+	/**
+	 * 封装所有class-level的注解的metadata
+	 */
 	private final AnnotationMetadata metadata;
-
+	/**
+	 * 封装class文件信息的Resource
+	 */
 	private final Resource resource;
 
 	@Nullable
 	private String beanName;
 
+	/**
+	 * 记录是否由别的ConfigurationClass使用@Import导入的
+	 */
 	private final Set<ConfigurationClass> importedBy = new LinkedHashSet<>(1);
 
+	/**
+	 * .@Bean标注的BeanMethod
+	 */
 	private final Set<BeanMethod> beanMethods = new LinkedHashSet<>();
 
 	private final Map<String, Class<? extends BeanDefinitionReader>> importedResources =
@@ -160,6 +172,9 @@ final class ConfigurationClass {
 	/**
 	 * Return whether this configuration class was registered via @{@link Import} or
 	 * automatically registered due to being nested within another configuration class.
+	 * <trans>
+	 *     返回current configurationClass是不是通过@Import或者其它配置类的内部类被注册的
+	 * </trans>
 	 * @since 3.1.1
 	 * @see #getImportedBy()
 	 */

@@ -118,8 +118,8 @@ public class UrlFilenameViewController extends AbstractUrlViewController {
 	/**
 	 * Returns view name based on the URL filename,
 	 * with prefix/suffix applied when appropriate.
-	 * @param uri the request URI; for example {@code "/index.html"}
-	 * @return the extracted URI filename; for example {@code "index"}
+	 * @param uri the request URI; for example1 {@code "/index.html"}
+	 * @return the extracted URI filename; for example1 {@code "index"}
 	 * @see #extractViewNameFromUrlPath
 	 * @see #postProcessViewName
 	 */
@@ -135,8 +135,8 @@ public class UrlFilenameViewController extends AbstractUrlViewController {
 
 	/**
 	 * Extract the URL filename from the given request URI.
-	 * @param uri the request URI; for example {@code "/index.html"}
-	 * @return the extracted URI filename; for example {@code "index"}
+	 * @param uri the request URI; for example1 {@code "/index.html"}
+	 * @return the extracted URI filename; for example1 {@code "index"}
 	 */
 	protected String extractViewNameFromUrlPath(String uri) {
 		int start = (uri.charAt(0) == '/' ? 1 : 0);
@@ -149,7 +149,7 @@ public class UrlFilenameViewController extends AbstractUrlViewController {
 	 * Build the full view name based on the given view name
 	 * as indicated by the URL path.
 	 * <p>The default implementation simply applies prefix and suffix.
-	 * This can be overridden, for example, to manipulate upper case
+	 * This can be overridden, for example1, to manipulate upper case
 	 * / lower case, etc.
 	 * @param viewName the original view name, as indicated by the URL path
 	 * @return the full view name to use

@@ -40,14 +40,14 @@ public interface ParserContext {
 
 	/**
 	 * For template expressions, returns the prefix that identifies the start of an
-	 * expression block within a string. For example: "${"
+	 * expression block within a string. For example1: "${"
 	 * @return the prefix that identifies the start of an expression
 	 */
 	String getExpressionPrefix();
 
 	/**
 	 * For template expressions, return the prefix that identifies the end of an
-	 * expression block within a string. For example: "}"
+	 * expression block within a string. For example1: "}"
 	 * @return the suffix that identifies the end of an expression
 	 */
 	String getExpressionSuffix();

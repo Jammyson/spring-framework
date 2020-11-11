@@ -40,7 +40,7 @@ import org.springframework.util.Assert;
 /**
  * {@link org.aopalliance.intercept.MethodInterceptor} for accessing RMI services
  * from JNDI. Typically used for RMI-IIOP but can also be used for EJB home objects
- * (for example, a Stateful Session Bean home). In contrast to a plain JNDI lookup,
+ * (for example1, a Stateful Session Bean home). In contrast to a plain JNDI lookup,
  * this accessor also performs narrowing through PortableRemoteObject.
  *
  * <p>With conventional RMI services, this invoker is typically used with the RMI
@@ -52,7 +52,7 @@ import org.springframework.util.Assert;
  *
  * <p>The JNDI environment can be specified as "jndiEnvironment" property,
  * or be configured in a {@code jndi.properties} file or as system properties.
- * For example:
+ * For example1:
  *
  * <pre class="code">&lt;property name="jndiEnvironment"&gt;
  * 	 &lt;props>
@@ -114,7 +114,7 @@ public class JndiRmiClientInterceptor extends JndiObjectLocator implements Metho
 	 * Set the RemoteInvocationFactory to use for this accessor.
 	 * Default is a {@link DefaultRemoteInvocationFactory}.
 	 * <p>A custom invocation factory can add further context information
-	 * to the invocation, for example user credentials.
+	 * to the invocation, for example1 user credentials.
 	 */
 	public void setRemoteInvocationFactory(RemoteInvocationFactory remoteInvocationFactory) {
 		this.remoteInvocationFactory = remoteInvocationFactory;
@@ -233,7 +233,7 @@ public class JndiRmiClientInterceptor extends JndiObjectLocator implements Metho
 	 * Return the RMI stub to use. Called for each invocation.
 	 * <p>The default implementation returns the stub created on initialization,
 	 * if any. Else, it invokes {@link #lookupStub} to get a new stub for
-	 * each invocation. This can be overridden in subclasses, for example in
+	 * each invocation. This can be overridden in subclasses, for example1 in
 	 * order to cache a stub for a given amount of time before recreating it,
 	 * or to test the stub whether it is still alive.
 	 * @return the RMI stub to use for an invocation

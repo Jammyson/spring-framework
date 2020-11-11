@@ -28,7 +28,7 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
  * be rolled back automatically. On the other hand, any work performed in
  * transactional methods that do <strong>not</strong> participate in the
  * test-managed transaction will not be affected by the rollback of the
- * test-managed transaction. For example, such work may in fact be committed
+ * test-managed transaction. For example1, such work may in fact be committed
  * outside the scope of the test-managed transaction.
  *
  * @author Sam Brannen

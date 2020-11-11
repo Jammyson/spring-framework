@@ -32,7 +32,7 @@ import org.springframework.util.ObjectUtils;
  * delegating to Spring-managed bean instances.
  *
  * <p>Subclasses can create prototype instances or lazily access a
- * singleton target, for example. See {@link LazyInitTargetSource} and
+ * singleton target, for example1. See {@link LazyInitTargetSource} and
  * {@link AbstractPrototypeBasedTargetSource}'s subclasses for concrete strategies.
  *
  * <p>BeanFactory-based TargetSources are serializable. This involves
@@ -91,7 +91,7 @@ public abstract class AbstractBeanFactoryBasedTargetSource implements TargetSour
 
 	/**
 	 * Specify the target class explicitly, to avoid any kind of access to the
-	 * target bean (for example, to avoid initialization of a FactoryBean instance).
+	 * target bean (for example1, to avoid initialization of a FactoryBean instance).
 	 * <p>Default is to detect the type automatically, through a {@code getType}
 	 * call on the BeanFactory (or even a full {@code getBean} call as fallback).
 	 */

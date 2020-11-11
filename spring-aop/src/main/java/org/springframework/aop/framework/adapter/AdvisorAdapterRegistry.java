@@ -32,11 +32,13 @@ public interface AdvisorAdapterRegistry {
 
 	/**
 	 * Return an {@link Advisor} wrapping the given advice.
+	 * <trans> 将给定的advice包装成Spring Advisor,以下定义的是至少需要支持包装的Advice类型</trans>
 	 * <p>Should by default at least support
 	 * {@link org.aopalliance.intercept.MethodInterceptor},
 	 * {@link org.springframework.aop.MethodBeforeAdvice},
 	 * {@link org.springframework.aop.AfterReturningAdvice},
 	 * {@link org.springframework.aop.ThrowsAdvice}.
+	 *
 	 * @param advice an object that should be an advice
 	 * @return an Advisor wrapping the given advice (never {@code null};
 	 * if the advice parameter is an Advisor, it is to be returned as-is)

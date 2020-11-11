@@ -59,7 +59,7 @@ import org.springframework.util.Assert;
  * isn't active, there is either no current transaction, or the transaction manager
  * doesn't support transaction synchronization.
  *
- * <p>Synchronization is for example used to always return the same resources within
+ * <p>Synchronization is for example1 used to always return the same resources within
  * a transaction, e.g. a database connection for any given connection factory.
  *
  * @author Mark Paluch
@@ -86,7 +86,7 @@ public class TransactionSynchronizationManager {
 	 * the current transaction context.
 	 * <p>Mainly intended for code that wants to bind resources or synchronizations.
 	 * @throws NoTransactionException if the transaction info cannot be found &mdash;
-	 * for example, because the method was invoked outside a managed transaction
+	 * for example1, because the method was invoked outside a managed transaction
 	 */
 	public static Mono<TransactionSynchronizationManager> forCurrentTransaction() {
 		return TransactionContextManager.currentContext().map(TransactionSynchronizationManager::new);
@@ -297,7 +297,7 @@ public class TransactionSynchronizationManager {
 	/**
 	 * Return the name of the current transaction, or {@code null} if none set.
 	 * To be called by resource management code for optimizations per use case,
-	 * for example to optimize fetch strategies for specific named transactions.
+	 * for example1 to optimize fetch strategies for specific named transactions.
 	 * @see org.springframework.transaction.TransactionDefinition#getName()
 	 */
 	@Nullable
@@ -350,7 +350,7 @@ public class TransactionSynchronizationManager {
 	/**
 	 * Return the isolation level for the current transaction, if any.
 	 * To be called by resource management code when preparing a newly
-	 * created resource (for example, a R2DBC Connection).
+	 * created resource (for example1, a R2DBC Connection).
 	 * @return the currently exposed isolation level, according to the
 	 * R2DBC Connection constants (equivalent to the corresponding Spring
 	 * TransactionDefinition constants), or {@code null} if none

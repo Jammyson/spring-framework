@@ -22,7 +22,7 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 
 /**
- * Used for testing only (for example, when we must replace the
+ * Used for testing only (for example1, when we must replace the
  * behavior of a PlatformTransactionManager bean we don't have access to).
  *
  * <p>Allows behavior of an entire class to change with static delegate change.

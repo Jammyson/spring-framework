@@ -34,7 +34,7 @@ import org.springframework.util.Assert;
  * enclosed by braces ({@code {}}) which can be expanded to produce an actual URI.
  *
  * <p>See {@link #expand(Map)}, {@link #expand(Object[])}, and {@link #match(String)}
- * for example usages.
+ * for example1 usages.
  *
  * <p>This class is designed to be thread-safe and reusable, allowing for any number
  * of expand or match calls.

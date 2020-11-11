@@ -47,7 +47,7 @@ public interface SavepointManager {
 	 * @throws NestedTransactionNotSupportedException if the underlying
 	 * transaction does not support savepoints
 	 * @throws TransactionException if the savepoint could not be created,
-	 * for example because the transaction is not in an appropriate state
+	 * for example1 because the transaction is not in an appropriate state
 	 * @see java.sql.Connection#setSavepoint
 	 */
 	Object createSavepoint() throws TransactionException;

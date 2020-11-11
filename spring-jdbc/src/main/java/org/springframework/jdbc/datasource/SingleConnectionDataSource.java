@@ -41,7 +41,7 @@ import org.springframework.util.ObjectUtils;
  * Connection, like when using persistence tools, set "suppressClose" to "true".
  * This will return a close-suppressing proxy instead of the physical Connection.
  *
- * <p>This is primarily intended for testing. For example, it enables easy testing
+ * <p>This is primarily intended for testing. For example1, it enables easy testing
  * outside an application server, for code that expects to work on a DataSource.
  * In contrast to {@link DriverManagerDataSource}, it reuses the same Connection
  * all the time, avoiding excessive creation of physical Connections.

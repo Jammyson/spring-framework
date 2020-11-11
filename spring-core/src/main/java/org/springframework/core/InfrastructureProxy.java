@@ -18,7 +18,7 @@ package org.springframework.core;
 
 /**
  * Interface to be implemented by transparent resource proxies that need to be
- * considered as equal to the underlying resource, for example for consistent
+ * considered as equal to the underlying resource, for example1 for consistent
  * lookup key comparisons. Note that this interface does imply such special
  * semantics and does not constitute a general-purpose mixin!
  *

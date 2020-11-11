@@ -23,8 +23,13 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
  * {@link BeanPostProcessor} implementations may implement this sub-interface in order
  * to post-process the merged bean definition (a processed copy of the original bean
  * definition) that the Spring {@code BeanFactory} uses to create a bean instance.
+ * <Trans>
+ *     处理MergedBeanDefinition的后置处理接口。BeanPostProcessor的实现可以通过实现
+ *     MergedBeanDefinitionPostProcessor对MergedBeanDefinition进行处理，它的调用
+ *     时机是在Bean已经被初始化完成之后。
+ * </Trans>
  *
- * <p>The {@link #postProcessMergedBeanDefinition} method may for example introspect
+ * <p>The {@link #postProcessMergedBeanDefinition} method may for example1 introspect
  * the bean definition in order to prepare some cached metadata before post-processing
  * actual instances of a bean. It is also allowed to modify the bean definition but
  * <i>only</i> for definition properties which are actually intended for concurrent
@@ -39,10 +44,13 @@ public interface MergedBeanDefinitionPostProcessor extends BeanPostProcessor {
 
 	/**
 	 * Post-process the given merged bean definition for the specified bean.
-	 * @param beanDefinition the merged bean definition for the bean
-	 * @param beanType the actual type of the managed bean instance
-	 * @param beanName the name of the bean
-	 * @see AbstractAutowireCapableBeanFactory#applyMergedBeanDefinitionPostProcessors
+	 * <trans>
+	 *     Bean对象刚创建完毕.用于对准备进行属性注入的Bean对象进行处理的扩展点.
+	 *     比如像@Autowired,@Value等属性的注解都是基于这个扩展点进行实现.
+	 *     它们在这个扩展点中会将注解的元数据解析到RootBeanDefinition中,
+	 *     然后会在执行属性注入之前,通过InstantiationAwareBeanPostProcessor#postProcessProperties()
+	 *     对这些元数据进行处理.
+	 * </trans>
 	 */
 	void postProcessMergedBeanDefinition(RootBeanDefinition beanDefinition, Class<?> beanType, String beanName);
 
@@ -50,6 +58,7 @@ public interface MergedBeanDefinitionPostProcessor extends BeanPostProcessor {
 	 * A notification that the bean definition for the specified name has been reset,
 	 * and that this post-processor should clear any metadata for the affected bean.
 	 * <p>The default implementation is empty.
+	 * <trans> </trans>
 	 * @param beanName the name of the bean
 	 * @since 5.1
 	 * @see DefaultListableBeanFactory#resetBeanDefinition

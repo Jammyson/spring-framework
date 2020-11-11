@@ -198,7 +198,7 @@ public class AnnotationMetadataTests {
 	private void assertMetaAnnotationOverrides(AnnotationMetadata metadata) {
 		AnnotationAttributes attributes = (AnnotationAttributes) metadata.getAnnotationAttributes(
 				TestComponentScan.class.getName(), false);
-		assertThat(attributes.getStringArray("basePackages")).containsExactly("org.example.componentscan");
+		assertThat(attributes.getStringArray("basePackages")).containsExactly("org.example1.componentscan");
 		assertThat(attributes.getStringArray("value")).isEmpty();
 		assertThat(attributes.getClassArray("basePackageClasses")).isEmpty();
 	}
@@ -524,7 +524,7 @@ public class AnnotationMetadataTests {
 		String[] basePackages() default {};
 	}
 
-	@ComposedConfigurationWithAttributeOverrides(basePackages = "org.example.componentscan")
+	@ComposedConfigurationWithAttributeOverrides(basePackages = "org.example1.componentscan")
 	public static class ComposedConfigurationWithAttributeOverridesClass {
 	}
 

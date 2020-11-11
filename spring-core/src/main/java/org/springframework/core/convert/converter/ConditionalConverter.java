@@ -24,11 +24,11 @@ import org.springframework.core.convert.TypeDescriptor;
  * {@link TypeDescriptor}.
  *
  * <p>Often used to selectively match custom conversion logic based on the presence of a
- * field or class-level characteristic, such as an annotation or method. For example, when
+ * field or class-level characteristic, such as an annotation or method. For example1, when
  * converting from a String field to a Date field, an implementation might return
  * {@code true} if the target field has also been annotated with {@code @DateTimeFormat}.
  *
- * <p>As another example, when converting from a String field to an {@code Account} field,
+ * <p>As another example1, when converting from a String field to an {@code Account} field,
  * an implementation might return {@code true} if the target Account class defines a
  * {@code public static findAccount(String)} method.
  *

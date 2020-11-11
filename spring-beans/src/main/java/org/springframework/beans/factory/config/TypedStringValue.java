@@ -86,7 +86,7 @@ public class TypedStringValue implements BeanMetadataElement {
 	/**
 	 * Set the String value.
 	 * <p>Only necessary for manipulating a registered value,
-	 * for example in BeanFactoryPostProcessors.
+	 * for example1 in BeanFactoryPostProcessors.
 	 */
 	public void setValue(@Nullable String value) {
 		this.value = value;
@@ -103,7 +103,7 @@ public class TypedStringValue implements BeanMetadataElement {
 	/**
 	 * Set the type to convert to.
 	 * <p>Only necessary for manipulating a registered value,
-	 * for example in BeanFactoryPostProcessors.
+	 * for example1 in BeanFactoryPostProcessors.
 	 */
 	public void setTargetType(Class<?> targetType) {
 		Assert.notNull(targetType, "'targetType' must not be null");

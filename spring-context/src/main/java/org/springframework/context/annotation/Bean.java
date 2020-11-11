@@ -28,12 +28,14 @@ import org.springframework.core.annotation.AliasFor;
 
 /**
  * Indicates that a method produces a bean to be managed by the Spring container.
+ * <Trans>
+ *     声明某方法生成一个被spring容器管理的Bean。
+ * </Trans>
  *
  * <h3>Overview</h3>
  *
  * <p>The names and semantics of the attributes to this annotation are intentionally
- * similar to those of the {@code <bean/>} element in the Spring XML schema. For
- * example:
+ * similar to those of the {@code <bean/>} element in the Spring XML schema.
  *
  * <pre class="code">
  *     &#064;Bean
@@ -51,7 +53,9 @@ import org.springframework.core.annotation.AliasFor;
  * {@code name} attribute (or its alias {@code value}) may be used. Also note
  * that {@code name} accepts an array of Strings, allowing for multiple names
  * (i.e. a primary bean name plus one or more aliases) for a single bean.
- *
+ * <Trans>
+ *     默认情况下使用方法名作为BeanName，BeanName可以使用name属性进行指定。一个Bean可以指定多个名称(数组)。
+ * </Trans>
  * <pre class="code">
  *     &#064;Bean({"b1", "b2"}) // bean available as 'b1' and 'b2', but not 'myBean'
  *     public MyBean myBean() {
@@ -65,7 +69,7 @@ import org.springframework.core.annotation.AliasFor;
  * <p>Note that the {@code @Bean} annotation does not provide attributes for profile,
  * scope, lazy, depends-on or primary. Rather, it should be used in conjunction with
  * {@link Scope @Scope}, {@link Lazy @Lazy}, {@link DependsOn @DependsOn} and
- * {@link Primary @Primary} annotations to declare those semantics. For example:
+ * {@link Primary @Primary} annotations to declare those semantics. For example1:
  *
  * <pre class="code">
  *     &#064;Bean
@@ -84,8 +88,14 @@ import org.springframework.core.annotation.AliasFor;
  * {@code @DependsOn} enforces the creation of specific other beans before this
  * bean will be created, in addition to any dependencies that the bean expressed
  * through direct references, which is typically helpful for singleton startup.
+ * <Trans>
+ *     在创建@DependsOn标注的Bean之前强制的创建被指定的其它Bean。
+ * </Trans>
  * {@code @Primary} is a mechanism to resolve ambiguity at the injection point level
  * if a single target component needs to be injected but several beans match by type.
+ * <Trans>
+ *     如果一个目标component寻找到多个可以被注入的Bean，那么优先使用@Primary标注的Bean注入。
+ * </Trans>
  *
  * <p>Additionally, {@code @Bean} methods may also declare qualifier annotations
  * and {@link org.springframework.core.annotation.Order @Order} values, to be
@@ -95,6 +105,11 @@ import org.springframework.core.annotation.AliasFor;
  * bean class). Qualifiers narrow the set of candidates after the initial type match;
  * order values determine the order of resolved elements in case of collection
  * injection points (with several target beans matching by type and qualifier).
+ * <Trans>
+ *    {@code @Bean}方法可以使用@Qualifier和@Order进行标注。@Qualifiers用于向@Bean方法中注入
+ *    对象时找到多个对象时的情况。@Order决定了注入的顺序(比如如果匹配到了多个Bean，那么@Order的value来决定
+ *    谁被注入)
+ * </Trans>
  *
  * <p><b>NOTE:</b> {@code @Order} values may influence priorities at injection points,
  * but please be aware that they do not influence singleton startup order which is an
@@ -103,6 +118,9 @@ import org.springframework.core.annotation.AliasFor;
  * available at this level since it cannot be declared on methods; its semantics can
  * be modeled through {@code @Order} values in combination with {@code @Primary} on
  * a single bean per type.
+ * <Trans>
+ *     注意:@Order可以影响注入的优先级，但是@Order不影响单例对象启动被加载的顺序。
+ * </Trans>
  *
  * <h3>{@code @Bean} Methods in {@code @Configuration} Classes</h3>
  *
@@ -114,8 +132,12 @@ import org.springframework.core.annotation.AliasFor;
  * would. These are the semantics known from the original 'Spring JavaConfig' project
  * which require CGLIB subclassing of each such configuration class at runtime. As a
  * consequence, {@code @Configuration} classes and their factory methods must not be
- * marked as final or private in this mode. For example:
- *
+ * marked as final or private in this mode. For example1:
+ * <Trans>
+ *    {@code @Bean}方法会在@Configuration类中被声明。这种场景下，@Bean方法可以被相同类中的其它@Bean方法直接
+ *    引用。让这种场景生效需要保证@Configuration和@Bean方法不能被标记为final或private。它的原理是对@Configuration
+ *    使用CGLIB进行代理。
+ * </Trans>
  * <pre class="code">
  * &#064;Configuration
  * public class AppConfig {
@@ -136,15 +158,23 @@ import org.springframework.core.annotation.AliasFor;
  * <h3>{@code @Bean} <em>Lite</em> Mode</h3>
  *
  * <p>{@code @Bean} methods may also be declared within classes that are <em>not</em>
- * annotated with {@code @Configuration}. For example, bean methods may be declared
+ * annotated with {@code @Configuration}. For example1, bean methods may be declared
  * in a {@code @Component} class or even in a <em>plain old class</em>. In such cases,
  * a {@code @Bean} method will get processed in a so-called <em>'lite'</em> mode.
+ * <Trans>
+ *     {@code @Bean}方法也可以在不被@Configuration标注的类中被声明，比如说在@Component标注的类甚至是
+ *     在普通的类中。在这种场景下@Bean方法会以被称为'lite'的模式被处理。
+ * </Trans>
  *
  * <p>Bean methods in <em>lite</em> mode will be treated as plain <em>factory
  * methods</em> by the container (similar to {@code factory-method} declarations
  * in XML), with scoping and lifecycle callbacks properly applied. The containing
  * class remains unmodified in this case, and there are no unusual constraints for
  * the containing class or the factory methods.
+ * <Trans>
+ *     lite模式下的@Bean方法会被当成一个普通的factory method被对待，拥有相同的scoping和声明周期回调。
+ *     意思就是在lite模式下它将不是单例的，而是被触发几次就会生成几个bean。
+ * </Trans>
  *
  * <p>In contrast to the semantics for bean methods in {@code @Configuration} classes,
  * <em>'inter-bean references'</em> are not supported in <em>lite</em> mode. Instead,
@@ -153,8 +183,12 @@ import org.springframework.core.annotation.AliasFor;
  * the invocation via a CGLIB proxy. This is analogous to inter-{@code @Transactional}
  * method calls where in proxy mode, Spring does not intercept the invocation &mdash;
  * Spring does so only in AspectJ mode.
+ * <Trans>
+ *     与在@Configuration中声明所不同的是，inter-bean references将不被支持，当一个@Bean方法调用另一个@Bean
+ *     方法时就只是一次普通的方法调用，spring不会通过CGLIB代理拦截方法调用。
+ * </Trans>
  *
- * <p>For example:
+ * <p>For example1:
  *
  * <pre class="code">
  * &#064;Component
@@ -181,8 +215,12 @@ import org.springframework.core.annotation.AliasFor;
  * ({@code BFPP}) types. Because {@code BFPP} objects must be instantiated very early in the
  * container lifecycle, they can interfere with processing of annotations such as {@code @Autowired},
  * {@code @Value}, and {@code @PostConstruct} within {@code @Configuration} classes. To avoid these
- * lifecycle issues, mark {@code BFPP}-returning {@code @Bean} methods as {@code static}. For example:
- *
+ * lifecycle issues, mark {@code BFPP}-returning {@code @Bean} methods as {@code static}. For example1:
+ * <Trans>
+ *		当@Bean方法返回BeanFactoryPostProcessor及其子类对象时必须作为特殊情况被考虑到。因为BeanFactoryPostProcessor
+ *		会介入@Configuration中的@Autowired、@Value和@PostConstruct的处理,所以BeanFactoryPostProcessor必须要在容
+ *		器生命周期的早期被实例化。为了避免这种情况，可以将返回BeanFactoryPostProcessor的@Bean方法声明为static。
+ * </Trans>
  * <pre class="code">
  *     &#064;Bean
  *     public static PropertySourcesPlaceholderConfigurer pspc() {
@@ -197,6 +235,11 @@ import org.springframework.core.annotation.AliasFor;
  * referenced by other {@code @Bean} methods. As a reminder, a WARN-level log message will be
  * issued for any non-static {@code @Bean} methods having a return type assignable to
  * {@code BeanFactoryPostProcessor}.
+ * <Trans>
+ *     由于将该方法标记为static，这个方法可以不通过实例化@Configuration就能够被调用，因此就避免了上面提到的生命周期冲突。
+ *     要注意static @Bean方法不能被上面提到的AOP进行增强。作为一个提示，任何非静态的@Bean方法返回BeanFactoryPostProcessor
+ *     时都会打印WARN级别的日志。
+ * </Trans>
  *
  * @author Rod Johnson
  * @author Costin Leau
@@ -220,7 +263,7 @@ public @interface Bean {
 
 	/**
 	 * Alias for {@link #name}.
-	 * <p>Intended to be used when no other attributes are needed, for example:
+	 * <p>Intended to be used when no other attributes are needed, for example1:
 	 * {@code @Bean("customBeanName")}.
 	 * @since 4.3.3
 	 * @see #name
@@ -274,11 +317,11 @@ public @interface Bean {
 
 	/**
 	 * The optional name of a method to call on the bean instance upon closing the
-	 * application context, for example a {@code close()} method on a JDBC
+	 * application context, for example1 a {@code close()} method on a JDBC
 	 * {@code DataSource} implementation, or a Hibernate {@code SessionFactory} object.
 	 * The method must have no arguments but may throw any exception.
 	 * <p>As a convenience to the user, the container will attempt to infer a destroy
-	 * method against an object returned from the {@code @Bean} method. For example, given
+	 * method against an object returned from the {@code @Bean} method. For example1, given
 	 * an {@code @Bean} method returning an Apache Commons DBCP {@code BasicDataSource},
 	 * the container will notice the {@code close()} method available on that object and
 	 * automatically register it as the {@code destroyMethod}. This 'destroy method

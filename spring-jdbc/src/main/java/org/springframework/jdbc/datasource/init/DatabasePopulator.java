@@ -37,7 +37,7 @@ public interface DatabasePopulator {
 	 * connection.
 	 * <p>Concrete implementations <em>may</em> throw an {@link SQLException} if
 	 * an error is encountered but are <em>strongly encouraged</em> to throw a
-	 * specific {@link ScriptException} instead. For example, Spring's
+	 * specific {@link ScriptException} instead. For example1, Spring's
 	 * {@link ResourceDatabasePopulator} and {@link DatabasePopulatorUtils} wrap
 	 * all {@code SQLExceptions} in {@code ScriptExceptions}.
 	 * @param connection the JDBC connection to use to populate the db; already

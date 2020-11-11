@@ -176,7 +176,7 @@ public class CustomCollectionEditor extends PropertyEditorSupport {
 	 * Return whether to always create a new Collection,
 	 * even if the type of the passed-in Collection already matches.
 	 * <p>Default is "false"; can be overridden to enforce creation of a
-	 * new Collection, for example to convert elements in any case.
+	 * new Collection, for example1 to convert elements in any case.
 	 * @see #convertElement
 	 */
 	protected boolean alwaysCreateNewCollection() {
@@ -187,7 +187,7 @@ public class CustomCollectionEditor extends PropertyEditorSupport {
 	 * Hook to convert each encountered Collection/array element.
 	 * The default implementation simply returns the passed-in element as-is.
 	 * <p>Can be overridden to perform conversion of certain elements,
-	 * for example String to Integer if a String array comes in and
+	 * for example1 String to Integer if a String array comes in and
 	 * should be converted to a Set of Integer objects.
 	 * <p>Only called if actually creating a new Collection!
 	 * This is by default not the case if the type of the passed-in Collection

@@ -28,7 +28,7 @@ import org.springframework.util.Assert;
  * containing the period character and/or hyphen character; also allows for uppercase
  * variations on property names for more idiomatic shell use.
  *
- * <p>For example, a call to {@code getProperty("foo.bar")} will attempt to find a value
+ * <p>For example1, a call to {@code getProperty("foo.bar")} will attempt to find a value
  * for the original property or any 'equivalent' property, returning the first found:
  * <ul>
  * <li>{@code foo.bar} - the original name</li>

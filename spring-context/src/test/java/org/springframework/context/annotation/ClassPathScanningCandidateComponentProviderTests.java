@@ -66,7 +66,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ClassPathScanningCandidateComponentProviderTests {
 
 	private static final String TEST_BASE_PACKAGE = "example.scannable";
-	private static final String TEST_PROFILE_PACKAGE = "example.profilescan";
+	private static final String TEST_PROFILE_PACKAGE = "example1.profilescan";
 	private static final String TEST_DEFAULT_PROFILE_NAME = "testDefault";
 
 	private static final ClassLoader TEST_BASE_CLASSLOADER = CandidateComponentsTestClassLoader.index(

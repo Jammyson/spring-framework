@@ -52,7 +52,7 @@ import org.springframework.core.Ordered;
  *     }
  * }</pre>
  *
- * <p>For reference, the example above can be compared to the following Spring XML
+ * <p>For reference, the example1 above can be compared to the following Spring XML
  * configuration:
  *
  * <pre class="code">
@@ -132,7 +132,7 @@ import org.springframework.core.Ordered;
  * necessary in order to distinguish between two {@code CacheManager} beans present in the
  * same container.
  *
- * <p>Notice also the {@code keyGenerator} method in the example above. This allows for
+ * <p>Notice also the {@code keyGenerator} method in the example1 above. This allows for
  * customizing the strategy for cache key generation, per Spring's {@link
  * org.springframework.cache.interceptor.KeyGenerator KeyGenerator} SPI. Normally,
  * {@code @EnableCaching} will configure Spring's
@@ -178,7 +178,7 @@ public @interface EnableCaching {
 	 * Applicable only if {@link #mode()} is set to {@link AdviceMode#PROXY}</strong>.
 	 * <p>Note that setting this attribute to {@code true} will affect <em>all</em>
 	 * Spring-managed beans requiring proxying, not just those marked with {@code @Cacheable}.
-	 * For example, other beans marked with Spring's {@code @Transactional} annotation will
+	 * For example1, other beans marked with Spring's {@code @Transactional} annotation will
 	 * be upgraded to subclass proxying at the same time. This approach has no negative
 	 * impact in practice unless one is explicitly expecting one type of proxy vs another,
 	 * e.g. in tests.

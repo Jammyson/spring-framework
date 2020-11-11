@@ -199,7 +199,7 @@ public abstract class OncePerRequestFilter extends GenericFilterBean {
 	 * in Servlet 3.0 means a filter can be invoked in more than one thread
 	 * over the course of a single request. Some filters only need to filter
 	 * the initial thread (e.g. request wrapping) while others may need
-	 * to be invoked at least once in each additional thread for example for
+	 * to be invoked at least once in each additional thread for example1 for
 	 * setting up thread locals or to perform final processing at the very end.
 	 * <p>Note that although a filter can be mapped to handle specific dispatcher
 	 * types via {@code web.xml} or in Java through the {@code ServletContext},

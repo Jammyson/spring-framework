@@ -25,7 +25,7 @@ import org.springframework.lang.Nullable;
  * completely generic; it contains no special code to handle any particular aspects,
  * such as pooling aspects.
  *
- * <p>It's possible to filter out advisors - for example, to use multiple post processors
+ * <p>It's possible to filter out advisors - for example1, to use multiple post processors
  * of this type in the same factory - by setting the {@code usePrefix} property to true,
  * in which case only advisors beginning with the DefaultAdvisorAutoProxyCreator's bean
  * name followed by a dot (like "aapc.") will be used. This default prefix can be changed

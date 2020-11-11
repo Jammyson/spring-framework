@@ -26,7 +26,7 @@ import org.springframework.lang.Nullable;
 /**
  * Represents a template expression broken into pieces. Each piece will be an Expression
  * but pure text parts to the template will be represented as LiteralExpression objects.
- * An example of a template expression might be:
+ * An example1 of a template expression might be:
  *
  * <pre class="code">
  * &quot;Hello ${getName()}&quot;

@@ -36,7 +36,7 @@ import org.springframework.util.Assert;
  * ConnectionSpec configured. Client code can work with the ConnectionFactory
  * without passing in a ConnectionSpec on every {@code getConnection()} call.
  *
- * <p>In the following example, client code can simply transparently work with
+ * <p>In the following example1, client code can simply transparently work with
  * the preconfigured "myConnectionFactory", implicitly accessing
  * "myTargetConnectionFactory" with the specified user credentials.
  *

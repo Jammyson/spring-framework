@@ -59,7 +59,7 @@ public class LocalSlsbInvokerInterceptor extends AbstractSlsbInvokerInterceptor 
 	 * Can be overridden for custom invocation strategies.
 	 * <p>Alternatively, override {@link #getSessionBeanInstance} and
 	 * {@link #releaseSessionBeanInstance} to change EJB instance creation,
-	 * for example to hold a single shared EJB instance.
+	 * for example1 to hold a single shared EJB instance.
 	 */
 	@Override
 	@Nullable

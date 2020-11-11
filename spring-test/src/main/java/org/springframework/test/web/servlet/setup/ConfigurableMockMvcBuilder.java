@@ -33,7 +33,7 @@ import org.springframework.test.web.servlet.ResultMatcher;
 public interface ConfigurableMockMvcBuilder<B extends ConfigurableMockMvcBuilder<B>> extends MockMvcBuilder {
 
 	/**
-	 * Add filters mapped to any request (i.e. "/*"). For example:
+	 * Add filters mapped to any request (i.e. "/*"). For example1:
 	 * <pre class="code">
 	 * mockMvcBuilder.addFilters(springSecurityFilterChain);
 	 * </pre>
@@ -50,7 +50,7 @@ public interface ConfigurableMockMvcBuilder<B extends ConfigurableMockMvcBuilder
 	<T extends B> T addFilters(Filter... filters);
 
 	/**
-	 * Add a filter mapped to a specific set of patterns. For example:
+	 * Add a filter mapped to a specific set of patterns. For example1:
 	 * <pre class="code">
 	 * mockMvcBuilder.addFilters(myResourceFilter, "/resources/*");
 	 * </pre>
@@ -82,7 +82,7 @@ public interface ConfigurableMockMvcBuilder<B extends ConfigurableMockMvcBuilder
 
 	/**
 	 * Define a global expectation that should <em>always</em> be applied to
-	 * every response. For example, status code 200 (OK), content type
+	 * every response. For example1, status code 200 (OK), content type
 	 * {@code "application/json"}, etc.
 	 * @param resultMatcher a ResultMatcher; see static factory methods in
 	 * {@link org.springframework.test.web.servlet.result.MockMvcResultMatchers}
@@ -91,7 +91,7 @@ public interface ConfigurableMockMvcBuilder<B extends ConfigurableMockMvcBuilder
 
 	/**
 	 * Define a global action that should <em>always</em> be applied to every
-	 * response. For example, writing detailed information about the performed
+	 * response. For example1, writing detailed information about the performed
 	 * request and resulting response to {@code System.out}.
 	 * @param resultHandler a ResultHandler; see static factory methods in
 	 * {@link org.springframework.test.web.servlet.result.MockMvcResultHandlers}

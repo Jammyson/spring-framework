@@ -25,7 +25,10 @@ import java.lang.annotation.Target;
 /**
  * Enables support for handling components marked with AspectJ's {@code @Aspect} annotation,
  * similar to functionality found in Spring's {@code <aop:aspectj-autoproxy>} XML element.
+ * <Trans> 启用支持处理@Aspect标注的components，和XML的<aop:aspectj-autoproxy>作用类似。 </Trans>
+ *
  * To be used on @{@link Configuration} classes as follows:
+ * <Trans>与@Configuration配合使用的示例</Trans>
  *
  * <pre class="code">
  * &#064;Configuration
@@ -65,10 +68,14 @@ import java.lang.annotation.Target;
  * In the scenario above, {@code @EnableAspectJAutoProxy} ensures that {@code MyAspect}
  * will be properly processed and that {@code FooService} will be proxied mixing in the
  * advice that it contributes.
+ * <Trans>上面的场景中，@EnableAspectJAutoProxy会确保MyAspect被正确的处理，FooService则会根据MyAspect的配置被代理</Trans>
  *
  * <p>Users can control the type of proxy that gets created for {@code FooService} using
- * the {@link #proxyTargetClass()} attribute. The following enables CGLIB-style 'subclass'
+ * the {@link #proxyTargetClass()} attribute.
+ * <Trans> 用户可以通过使用proxyTargetClass参数来控制创建FooService的代理方式 </Trans>
+ * The following enables CGLIB-style 'subclass'
  * proxies as opposed to the default interface-based JDK proxy approach.
+ * <Trans>下面的例子使用基于‘子类’的CGLIB-style方式来代替了默认的基于‘接口’的JDK动态代理</Trans>
  *
  * <pre class="code">
  * &#064;Configuration
@@ -79,6 +86,7 @@ import java.lang.annotation.Target;
  *
  * <p>Note that {@code @Aspect} beans may be component-scanned like any other.
  * Simply mark the aspect with both {@code @Aspect} and {@code @Component}:
+ * <Trans>以任何方式声明的以@Aspect标注的Bean都可以使得AOP生效，如下使用@Component和@Aspect的配合使用</Trans>
  *
  * <pre class="code">
  * package com.foo;
@@ -125,6 +133,13 @@ public @interface EnableAspectJAutoProxy {
 	/**
 	 * Indicate whether subclass-based (CGLIB) proxies are to be created as opposed
 	 * to standard Java interface-based proxies. The default is {@code false}.
+	 *
+	 * <Trans>
+	 *     动态代理分为两种：
+	 *     		1、以接口为基础进行动态代理，动态生成目标代理接口的实现类.比如说JDK动态代理
+	 *    		2、以类为基础进行动态代理,生成目标类的子类作为动态代理类.比如Cglib.
+	 *	   该配置的意思就是是否以类为基础进行动态代理.true为使用CGLIB进行动态代理,false为优先使用JDK动态代理，
+	 * </Trans>
 	 */
 	boolean proxyTargetClass() default false;
 
@@ -133,6 +148,10 @@ public @interface EnableAspectJAutoProxy {
 	 * for retrieval via the {@link org.springframework.aop.framework.AopContext} class.
 	 * Off by default, i.e. no guarantees that {@code AopContext} access will work.
 	 * @since 4.3.1
+	 *
+	 * <Trans>
+	 *     是否启用AopContext，声明被代理的类可以通过AopContext获取，这个配置类与Aop代理类中内部方法之间调用相关.
+	 * </Trans>
 	 */
 	boolean exposeProxy() default false;
 

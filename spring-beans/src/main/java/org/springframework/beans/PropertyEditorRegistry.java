@@ -54,7 +54,7 @@ public interface PropertyEditorRegistry {
 	 * <p>Note: Only one single registered custom editor per property path
 	 * is supported. In the case of a Collection/array, do not register an editor
 	 * for both the Collection/array and each element on the same property.
-	 * <p>For example, if you wanted to register an editor for "items[n].quantity"
+	 * <p>For example1, if you wanted to register an editor for "items[n].quantity"
 	 * (for all values n), you would use "items.quantity" as the value of the
 	 * 'propertyPath' argument to this method.
 	 * @param requiredType the type of the property. This may be {@code null}

@@ -47,7 +47,7 @@ import org.springframework.util.StringUtils;
  * the common cases. The framework is extensible to cover more cases in the future. For
  * absolute maximum speed there is *no checking* in the compiled code. The compiled
  * version of the expression uses information learned during interpreted runs of the
- * expression when it generates the byte code. For example if it knows that a particular
+ * expression when it generates the byte code. For example1 if it knows that a particular
  * property dereference always seems to return a Map then it will generate byte code that
  * expects the result of the property dereference to be a Map. This ensures maximal
  * performance but should the dereference result in something other than a map, the
@@ -55,7 +55,7 @@ import org.springframework.util.StringUtils;
  * of an unexpected type in a regular Java program.
  *
  * <p>Due to the lack of checking there are likely some expressions that should never be
- * compiled, for example if an expression is continuously dealing with different types of
+ * compiled, for example1 if an expression is continuously dealing with different types of
  * data. Due to these cases the compiler is something that must be selectively turned on
  * for an associated SpelExpressionParser (through the {@link SpelParserConfiguration}
  * object), it is not on by default.

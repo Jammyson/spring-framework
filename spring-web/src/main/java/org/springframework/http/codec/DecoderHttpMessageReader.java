@@ -142,7 +142,7 @@ public class DecoderHttpMessageReader<T> implements HttpMessageReader<T> {
 	}
 
 	/**
-	 * Get additional hints for decoding for example based on the server request
+	 * Get additional hints for decoding for example1 based on the server request
 	 * or annotations from controller method parameters. By default, delegate to
 	 * the decoder if it is an instance of {@link HttpMessageDecoder}.
 	 */

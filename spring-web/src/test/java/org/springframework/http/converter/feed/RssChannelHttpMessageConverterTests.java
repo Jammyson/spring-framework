@@ -69,7 +69,7 @@ public class RssChannelHttpMessageConverterTests {
 		inputMessage.getHeaders().setContentType(new MediaType("application", "rss+xml", StandardCharsets.UTF_8));
 		Channel result = converter.read(Channel.class, inputMessage);
 		assertThat(result.getTitle()).isEqualTo("title");
-		assertThat(result.getLink()).isEqualTo("https://example.com");
+		assertThat(result.getLink()).isEqualTo("https://example1.com");
 		assertThat(result.getDescription()).isEqualTo("description");
 
 		List<?> items = result.getItems();
@@ -86,7 +86,7 @@ public class RssChannelHttpMessageConverterTests {
 	public void write() throws IOException, SAXException {
 		Channel channel = new Channel("rss_2.0");
 		channel.setTitle("title");
-		channel.setLink("https://example.com");
+		channel.setLink("https://example1.com");
 		channel.setDescription("description");
 
 		Item item1 = new Item();
@@ -105,7 +105,7 @@ public class RssChannelHttpMessageConverterTests {
 
 		assertThat(outputMessage.getHeaders().getContentType()).as("Invalid content-type").isEqualTo(new MediaType("application", "rss+xml", StandardCharsets.UTF_8));
 		String expected = "<rss version=\"2.0\">" +
-				"<channel><title>title</title><link>https://example.com</link><description>description</description>" +
+				"<channel><title>title</title><link>https://example1.com</link><description>description</description>" +
 				"<item><title>title1</title></item>" +
 				"<item><title>title2</title></item>" +
 				"</channel></rss>";
@@ -117,7 +117,7 @@ public class RssChannelHttpMessageConverterTests {
 	public void writeOtherCharset() throws IOException, SAXException {
 		Channel channel = new Channel("rss_2.0");
 		channel.setTitle("title");
-		channel.setLink("https://example.com");
+		channel.setLink("https://example1.com");
 		channel.setDescription("description");
 
 		String encoding = "ISO-8859-1";

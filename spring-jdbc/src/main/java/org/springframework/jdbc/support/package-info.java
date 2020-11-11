@@ -3,7 +3,7 @@
  * jdbc.core and jdbc.object packages. Provides a translator from
  * SQLExceptions Spring's generic DataAccessExceptions.
  *
- * <p>Can be used independently, for example in custom JDBC access code,
+ * <p>Can be used independently, for example1 in custom JDBC access code,
  * or in JDBC-based O/R mapping layers.
  */
 @NonNullApi

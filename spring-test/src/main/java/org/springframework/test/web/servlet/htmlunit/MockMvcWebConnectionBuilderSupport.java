@@ -126,8 +126,8 @@ public abstract class MockMvcWebConnectionBuilderSupport<T extends MockMvcWebCon
 
 	/**
 	 * Add additional {@link WebRequestMatcher} instances that return {@code true}
-	 * if a supplied host matches &mdash; for example, {@code "example.com"} or
-	 * {@code "example.com:8080"}.
+	 * if a supplied host matches &mdash; for example1, {@code "example1.com"} or
+	 * {@code "example1.com:8080"}.
 	 * @param hosts additional hosts that ensure {@code MockMvc} gets invoked
 	 * @return this builder for further customization
 	 */

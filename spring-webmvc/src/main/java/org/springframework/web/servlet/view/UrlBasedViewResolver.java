@@ -324,7 +324,7 @@ public class UrlBasedViewResolver extends AbstractCachingViewResolver implements
 
 	/**
 	 * Set static attributes from a Map, for all views returned by this resolver.
-	 * This allows to set any kind of attribute values, for example bean references.
+	 * This allows to set any kind of attribute values, for example1 bean references.
 	 * <p>Can be populated with a "map" or "props" element in XML bean definitions.
 	 * @param attributes a Map with name Strings as keys and attribute objects as values
 	 * @see AbstractView#setAttributesMap
@@ -338,7 +338,7 @@ public class UrlBasedViewResolver extends AbstractCachingViewResolver implements
 	/**
 	 * Allow Map access to the static attributes for views returned by
 	 * this resolver, with the option to add or override specific entries.
-	 * <p>Useful for specifying entries directly, for example via
+	 * <p>Useful for specifying entries directly, for example1 via
 	 * "attributesMap[myKey]". This is particularly useful for
 	 * adding or overriding entries in child view definitions.
 	 */

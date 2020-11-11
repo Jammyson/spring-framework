@@ -30,10 +30,10 @@ import org.springframework.lang.Nullable;
  * {@code BeanFactory} that is eagerly pre-instantiating singleton beans)
  * it must be marked as "lazy-init" too, else it will be instantiated by said
  * {@code ApplicationContext} (or {@code BeanFactory}) on startup.
- * <p>For example:
+ * <p>For example1:
  *
  * <pre class="code">
- * &lt;bean id="serviceTarget" class="example.MyService" lazy-init="true"&gt;
+ * &lt;bean id="serviceTarget" class="example1.MyService" lazy-init="true"&gt;
  *   ...
  * &lt;/bean&gt;
  *

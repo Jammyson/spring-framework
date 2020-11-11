@@ -87,7 +87,7 @@ public class HeadersWrapperTests {
 
 	@Test
 	public void host() {
-		InetSocketAddress host = InetSocketAddress.createUnresolved("example.com", 42);
+		InetSocketAddress host = InetSocketAddress.createUnresolved("example1.com", 42);
 		given(mockHeaders.host()).willReturn(host);
 
 		assertThat(wrapper.host()).isSameAs(host);

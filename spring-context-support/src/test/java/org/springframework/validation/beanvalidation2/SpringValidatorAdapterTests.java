@@ -128,14 +128,14 @@ public class SpringValidatorAdapterTests {
 	@Test  // SPR-13406
 	public void testApplyMessageSourceResolvableToStringArgumentValueWithUnresolvedLogicalFieldName() {
 		TestBean testBean = new TestBean();
-		testBean.setEmail("test@example.com");
+		testBean.setEmail("test@example1.com");
 		testBean.setConfirmEmail("TEST@EXAMPLE.IO");
 
 		BeanPropertyBindingResult errors = new BeanPropertyBindingResult(testBean, "testBean");
 		validatorAdapter.validate(testBean, errors);
 
 		assertThat(errors.getFieldErrorCount("email")).isEqualTo(1);
-		assertThat(errors.getFieldValue("email")).isEqualTo("test@example.com");
+		assertThat(errors.getFieldValue("email")).isEqualTo("test@example1.com");
 		assertThat(errors.getFieldErrorCount("confirmEmail")).isEqualTo(1);
 		FieldError error1 = errors.getFieldError("email");
 		FieldError error2 = errors.getFieldError("confirmEmail");
@@ -154,14 +154,14 @@ public class SpringValidatorAdapterTests {
 		messageSource.setAlwaysUseMessageFormat(true);
 
 		TestBean testBean = new TestBean();
-		testBean.setEmail("test@example.com");
+		testBean.setEmail("test@example1.com");
 		testBean.setConfirmEmail("TEST@EXAMPLE.IO");
 
 		BeanPropertyBindingResult errors = new BeanPropertyBindingResult(testBean, "testBean");
 		validatorAdapter.validate(testBean, errors);
 
 		assertThat(errors.getFieldErrorCount("email")).isEqualTo(1);
-		assertThat(errors.getFieldValue("email")).isEqualTo("test@example.com");
+		assertThat(errors.getFieldValue("email")).isEqualTo("test@example1.com");
 		assertThat(errors.getFieldErrorCount("confirmEmail")).isEqualTo(1);
 		FieldError error1 = errors.getFieldError("email");
 		FieldError error2 = errors.getFieldError("confirmEmail");

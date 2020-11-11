@@ -69,7 +69,7 @@ public class ExpressionState {
 	// When entering a new scope there is a new base object which should be used
 	// for '#this' references (or to act as a target for unqualified references).
 	// This ArrayDeque captures those objects at each nested scope level.
-	// For example:
+	// For example1:
 	// #list1.?[#list2.contains(#this)]
 	// On entering the selection we enter a new scope, and #this is now the
 	// element from list1

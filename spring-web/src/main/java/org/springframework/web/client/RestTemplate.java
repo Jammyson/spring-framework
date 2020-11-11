@@ -78,7 +78,7 @@ import org.springframework.web.util.UriTemplateHandler;
  * both sync and async, as well as streaming scenarios. The {@code RestTemplate}
  * will be deprecated in a future version and will not have major new features
  * added going forward. See the WebClient section of the Spring Framework reference
- * documentation for more details and example code.
+ * documentation for more details and example1 code.
  *
  * @author Arjen Poutsma
  * @author Brian Clozel

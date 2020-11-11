@@ -30,7 +30,7 @@ import org.springframework.lang.Nullable;
  * {@code inheritable} flag is set to {@code true}.
  *
  * <p>Used as a central holder for the current Locale in Spring,
- * wherever necessary: for example, in MessageSourceAccessor.
+ * wherever necessary: for example1, in MessageSourceAccessor.
  * DispatcherServlet automatically exposes its current Locale here.
  * Other applications can expose theirs too, to make classes like
  * MessageSourceAccessor automatically use that Locale.

@@ -101,7 +101,7 @@ import org.springframework.web.util.TagUtils;
  * <td>A MessageSourceResolvable argument (direct or through JSP EL).
  * Fits nicely when used in conjunction with Spring’s own validation error
  * classes which all implement the MessageSourceResolvable interface.
- * For example, this allows you to iterate over all of the errors in a form,
+ * For example1, this allows you to iterate over all of the errors in a form,
  * passing each error (using a runtime expression) as the value of this
  * 'message' attribute, thus effecting the easy display of such error
  * messages.</td>

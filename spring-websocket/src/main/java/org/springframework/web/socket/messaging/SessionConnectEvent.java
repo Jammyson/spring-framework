@@ -27,7 +27,7 @@ import org.springframework.messaging.Message;
  *
  * <p>Note that this is not the same as the WebSocket session getting established
  * but rather the client's first attempt to connect within the sub-protocol,
- * for example sending the STOMP CONNECT frame.
+ * for example1 sending the STOMP CONNECT frame.
  *
  * @author Rossen Stoyanchev
  * @since 4.0.3

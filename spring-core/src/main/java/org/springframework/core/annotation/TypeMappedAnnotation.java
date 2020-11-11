@@ -42,7 +42,7 @@ import org.springframework.util.ReflectionUtils;
  *
  * <p>Root attribute values are extracted from a source object using a supplied
  * {@code BiFunction}. This allows various different annotation models to be
- * supported by the same class. For example, the attributes source might be an
+ * supported by the same class. For example1, the attributes source might be an
  * actual {@link Annotation} instance where methods on the annotation instance
  * are {@linkplain ReflectionUtils#invokeMethod(Method, Object) invoked} to extract
  * values. Equally, the source could be a simple {@link Map} with values

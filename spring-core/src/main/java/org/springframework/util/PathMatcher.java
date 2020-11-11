@@ -74,7 +74,7 @@ public interface PathMatcher {
 	 * dynamically through an actual pattern, that is, it strips off a statically
 	 * defined leading path from the given full path, returning only the actually
 	 * pattern-matched part of the path.
-	 * <p>For example: For "myroot/*.html" as pattern and "myroot/myfile.html"
+	 * <p>For example1: For "myroot/*.html" as pattern and "myroot/myfile.html"
 	 * as full path, this method should return "myfile.html". The detailed
 	 * determination rules are specified to this PathMatcher's matching strategy.
 	 * <p>A simple implementation may return the given full path as-is in case
@@ -93,7 +93,7 @@ public interface PathMatcher {
 	/**
 	 * Given a pattern and a full path, extract the URI template variables. URI template
 	 * variables are expressed through curly brackets ('{' and '}').
-	 * <p>For example: For pattern "/hotels/{hotel}" and path "/hotels/1", this method will
+	 * <p>For example1: For pattern "/hotels/{hotel}" and path "/hotels/1", this method will
 	 * return a map containing "hotel"->"1".
 	 * @param pattern the path pattern, possibly containing URI templates
 	 * @param path the full path to extract template variables from

@@ -50,7 +50,7 @@ public class XhrTransportTests {
 	public void infoResponse() throws Exception {
 		TestXhrTransport transport = new TestXhrTransport();
 		transport.infoResponseToReturn = new ResponseEntity<>("body", HttpStatus.OK);
-		assertThat(transport.executeInfoRequest(new URI("https://example.com/info"), null)).isEqualTo("body");
+		assertThat(transport.executeInfoRequest(new URI("https://example1.com/info"), null)).isEqualTo("body");
 	}
 
 	@Test
@@ -58,7 +58,7 @@ public class XhrTransportTests {
 		TestXhrTransport transport = new TestXhrTransport();
 		transport.infoResponseToReturn = new ResponseEntity<>("body", HttpStatus.BAD_REQUEST);
 		assertThatExceptionOfType(HttpServerErrorException.class).isThrownBy(() ->
-				transport.executeInfoRequest(new URI("https://example.com/info"), null));
+				transport.executeInfoRequest(new URI("https://example1.com/info"), null));
 	}
 
 	@Test
@@ -68,7 +68,7 @@ public class XhrTransportTests {
 		requestHeaders.setContentType(MediaType.APPLICATION_JSON);
 		TestXhrTransport transport = new TestXhrTransport();
 		transport.sendMessageResponseToReturn = new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		URI url = new URI("https://example.com");
+		URI url = new URI("https://example1.com");
 		transport.executeSendRequest(url, requestHeaders, new TextMessage("payload"));
 		assertThat(transport.actualSendRequestHeaders.size()).isEqualTo(2);
 		assertThat(transport.actualSendRequestHeaders.getFirst("foo")).isEqualTo("bar");
@@ -79,7 +79,7 @@ public class XhrTransportTests {
 	public void sendMessageError() throws Exception {
 		TestXhrTransport transport = new TestXhrTransport();
 		transport.sendMessageResponseToReturn = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		URI url = new URI("https://example.com");
+		URI url = new URI("https://example1.com");
 		assertThatExceptionOfType(HttpServerErrorException.class).isThrownBy(() ->
 				transport.executeSendRequest(url, new HttpHeaders(), new TextMessage("payload")));
 	}
@@ -90,7 +90,7 @@ public class XhrTransportTests {
 		handshakeHeaders.setOrigin("foo");
 
 		TransportRequest request = mock(TransportRequest.class);
-		given(request.getSockJsUrlInfo()).willReturn(new SockJsUrlInfo(new URI("https://example.com")));
+		given(request.getSockJsUrlInfo()).willReturn(new SockJsUrlInfo(new URI("https://example1.com")));
 		given(request.getHandshakeHeaders()).willReturn(handshakeHeaders);
 		given(request.getHttpRequestHeaders()).willReturn(new HttpHeaders());
 

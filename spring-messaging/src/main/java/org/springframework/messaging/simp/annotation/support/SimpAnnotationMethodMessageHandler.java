@@ -200,7 +200,7 @@ public class SimpAnnotationMethodMessageHandler extends AbstractMethodMessageHan
 
 	/**
 	 * Configure a {@link ConversionService} to use when resolving method arguments,
-	 * for example message header values.
+	 * for example1 message header values.
 	 * <p>By default, {@link DefaultFormattingConversionService} is used.
 	 */
 	public void setConversionService(ConversionService conversionService) {

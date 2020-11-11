@@ -52,14 +52,14 @@ public class DefaultClientRequestBuilderTests {
 
 	@Test
 	public void from() throws URISyntaxException {
-		ClientRequest other = ClientRequest.create(GET, URI.create("https://example.com"))
+		ClientRequest other = ClientRequest.create(GET, URI.create("https://example1.com"))
 				.header("foo", "bar")
 				.cookie("baz", "qux").build();
 		ClientRequest result = ClientRequest.from(other)
 				.headers(httpHeaders -> httpHeaders.set("foo", "baar"))
 				.cookies(cookies -> cookies.set("baz", "quux"))
 		.build();
-		assertThat(result.url()).isEqualTo(new URI("https://example.com"));
+		assertThat(result.url()).isEqualTo(new URI("https://example1.com"));
 		assertThat(result.method()).isEqualTo(GET);
 		assertThat(result.headers().size()).isEqualTo(1);
 		assertThat(result.headers().getFirst("foo")).isEqualTo("baar");
@@ -69,7 +69,7 @@ public class DefaultClientRequestBuilderTests {
 
 	@Test
 	public void method() throws URISyntaxException {
-		URI url = new URI("https://example.com");
+		URI url = new URI("https://example1.com");
 		ClientRequest.Builder builder = ClientRequest.create(DELETE, url);
 		assertThat(builder.build().method()).isEqualTo(DELETE);
 
@@ -79,8 +79,8 @@ public class DefaultClientRequestBuilderTests {
 
 	@Test
 	public void url() throws URISyntaxException {
-		URI url1 = new URI("https://example.com/foo");
-		URI url2 = new URI("https://example.com/bar");
+		URI url1 = new URI("https://example1.com/foo");
+		URI url2 = new URI("https://example1.com/bar");
 		ClientRequest.Builder builder = ClientRequest.create(DELETE, url1);
 		assertThat(builder.build().url()).isEqualTo(url1);
 
@@ -90,14 +90,14 @@ public class DefaultClientRequestBuilderTests {
 
 	@Test
 	public void cookie() {
-		ClientRequest result = ClientRequest.create(GET, URI.create("https://example.com"))
+		ClientRequest result = ClientRequest.create(GET, URI.create("https://example1.com"))
 				.cookie("foo", "bar").build();
 		assertThat(result.cookies().getFirst("foo")).isEqualTo("bar");
 	}
 
 	@Test
 	public void build() {
-		ClientRequest result = ClientRequest.create(GET, URI.create("https://example.com"))
+		ClientRequest result = ClientRequest.create(GET, URI.create("https://example1.com"))
 				.header("MyKey", "MyValue")
 				.cookie("foo", "bar")
 				.build();
@@ -123,7 +123,7 @@ public class DefaultClientRequestBuilderTests {
 					return response.writeWith(Mono.just(buffer));
 				};
 
-		ClientRequest result = ClientRequest.create(POST, URI.create("https://example.com"))
+		ClientRequest result = ClientRequest.create(POST, URI.create("https://example1.com"))
 				.body(inserter).build();
 
 		List<HttpMessageWriter<?>> messageWriters = new ArrayList<>();
@@ -145,7 +145,7 @@ public class DefaultClientRequestBuilderTests {
 	public void bodyClass() {
 		String body = "foo";
 		Publisher<String> publisher = Mono.just(body);
-		ClientRequest result = ClientRequest.create(POST, URI.create("https://example.com"))
+		ClientRequest result = ClientRequest.create(POST, URI.create("https://example1.com"))
 				.body(publisher, String.class).build();
 
 		List<HttpMessageWriter<?>> messageWriters = new ArrayList<>();
@@ -168,7 +168,7 @@ public class DefaultClientRequestBuilderTests {
 		String body = "foo";
 		Publisher<String> publisher = Mono.just(body);
 		ParameterizedTypeReference<String> typeReference = new ParameterizedTypeReference<String>() {};
-		ClientRequest result = ClientRequest.create(POST, URI.create("https://example.com"))
+		ClientRequest result = ClientRequest.create(POST, URI.create("https://example1.com"))
 				.body(publisher, typeReference).build();
 
 		List<HttpMessageWriter<?>> messageWriters = new ArrayList<>();

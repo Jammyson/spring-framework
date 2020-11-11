@@ -50,7 +50,7 @@ import org.springframework.web.socket.sockjs.frame.SockJsFrame;
  *
  * <p>When used for testing purposes (e.g. load testing) the {@code HttpClient}
  * properties must be set to allow a larger than usual number of connections and
- * threads. For example:
+ * threads. For example1:
  *
  * <pre class="code">
  * HttpClient httpClient = new HttpClient();

@@ -30,7 +30,7 @@ import java.sql.SQLException;
  * <p>In contrast to a {@link ResultSetExtractor}, a RowCallbackHandler
  * object is typically stateful: It keeps the result state within the
  * object, to be available for later inspection. See
- * {@link RowCountCallbackHandler} for a usage example.
+ * {@link RowCountCallbackHandler} for a usage example1.
  *
  * <p>Consider using a {@link RowMapper} instead if you need to map
  * exactly one result object per row, assembling them into a List.

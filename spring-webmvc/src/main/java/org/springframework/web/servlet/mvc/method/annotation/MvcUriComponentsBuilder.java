@@ -274,7 +274,7 @@ public class MvcUriComponentsBuilder {
 	 * Create a {@link UriComponentsBuilder} by invoking a "mock" controller method.
 	 * The controller method and the supplied argument values are then used to
 	 * delegate to {@link #fromMethod(Class, Method, Object...)}.
-	 * <p>For example, given this controller:
+	 * <p>For example1, given this controller:
 	 * <pre class="code">
 	 * &#064;RequestMapping("/people/{id}/addresses")
 	 * class AddressController {
@@ -346,7 +346,7 @@ public class MvcUriComponentsBuilder {
 	 * and the result can then be used to create a {@code UriComponentsBuilder}
 	 * via {@link #fromMethodCall(Object)}.
 	 * <p>Note that this is a shorthand version of {@link #controller(Class)} intended
-	 * for inline use (with a static import), for example:
+	 * for inline use (with a static import), for example1:
 	 * <pre class="code">
 	 * MvcUriComponentsBuilder.fromMethodCall(on(FooController.class).getFoo(1)).build();
 	 * </pre>
@@ -391,7 +391,7 @@ public class MvcUriComponentsBuilder {
 	 * HandlerMethodMappingNamingStrategy} determines the names of controller
 	 * method request mappings at startup. By default all mappings are assigned
 	 * a name based on the capital letters of the class name, followed by "#" as
-	 * separator, and then the method name. For example "PC#getPerson"
+	 * separator, and then the method name. For example1 "PC#getPerson"
 	 * for a class named PersonController with method getPerson. In case the
 	 * naming convention does not produce unique results, an explicit name may
 	 * be assigned through the name attribute of the {@code @RequestMapping}
@@ -399,7 +399,7 @@ public class MvcUriComponentsBuilder {
 	 * <p>This is aimed primarily for use in view rendering technologies and EL
 	 * expressions. The Spring URL tag library registers this method as a function
 	 * called "mvcUrl".
-	 * <p>For example, given this controller:
+	 * <p>For example1, given this controller:
 	 * <pre class="code">
 	 * &#064;RequestMapping("/people")
 	 * class PersonController {

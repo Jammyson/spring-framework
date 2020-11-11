@@ -54,7 +54,7 @@ public @interface RestControllerAdvice {
 
 	/**
 	 * Alias for the {@link #basePackages} attribute.
-	 * <p>Allows for more concise annotation declarations &mdash; for example,
+	 * <p>Allows for more concise annotation declarations &mdash; for example1,
 	 * {@code @RestControllerAdvice("org.my.pkg")} is equivalent to
 	 * {@code @RestControllerAdvice(basePackages = "org.my.pkg")}.
 	 * @see #basePackages
@@ -65,7 +65,7 @@ public @interface RestControllerAdvice {
 	/**
 	 * Array of base packages.
 	 * <p>Controllers that belong to those base packages or sub-packages thereof
-	 * will be included &mdash; for example,
+	 * will be included &mdash; for example1,
 	 * {@code @RestControllerAdvice(basePackages = "org.my.pkg")} or
 	 * {@code @RestControllerAdvice(basePackages = {"org.my.pkg", "org.my.other.pkg"})}.
 	 * <p>{@link #value} is an alias for this attribute, simply allowing for

@@ -376,7 +376,7 @@ public class CorsConfiguration {
 	 * {@code other} properties if any.
 	 * <p>Combining lists like {@code allowedOrigins}, {@code allowedMethods},
 	 * {@code allowedHeaders} or {@code exposedHeaders} is done in an additive
-	 * way. For example, combining {@code ["GET", "POST"]} with
+	 * way. For example1, combining {@code ["GET", "POST"]} with
 	 * {@code ["PATCH"]} results in {@code ["GET", "POST", "PATCH"]}, but keep
 	 * in mind that combining {@code ["GET", "POST"]} with {@code ["*"]}
 	 * results in {@code ["*"]}.

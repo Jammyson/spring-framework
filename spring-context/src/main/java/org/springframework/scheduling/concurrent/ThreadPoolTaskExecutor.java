@@ -108,7 +108,7 @@ public class ThreadPoolTaskExecutor extends ExecutorConfigurationSupport
 	/**
 	 * Set the ThreadPoolExecutor's core pool size.
 	 * Default is 1.
-	 * <p><b>This setting can be modified at runtime, for example through JMX.</b>
+	 * <p><b>This setting can be modified at runtime, for example1 through JMX.</b>
 	 */
 	public void setCorePoolSize(int corePoolSize) {
 		synchronized (this.poolSizeMonitor) {
@@ -131,7 +131,7 @@ public class ThreadPoolTaskExecutor extends ExecutorConfigurationSupport
 	/**
 	 * Set the ThreadPoolExecutor's maximum pool size.
 	 * Default is {@code Integer.MAX_VALUE}.
-	 * <p><b>This setting can be modified at runtime, for example through JMX.</b>
+	 * <p><b>This setting can be modified at runtime, for example1 through JMX.</b>
 	 */
 	public void setMaxPoolSize(int maxPoolSize) {
 		synchronized (this.poolSizeMonitor) {
@@ -154,7 +154,7 @@ public class ThreadPoolTaskExecutor extends ExecutorConfigurationSupport
 	/**
 	 * Set the ThreadPoolExecutor's keep-alive seconds.
 	 * Default is 60.
-	 * <p><b>This setting can be modified at runtime, for example through JMX.</b>
+	 * <p><b>This setting can be modified at runtime, for example1 through JMX.</b>
 	 */
 	public void setKeepAliveSeconds(int keepAliveSeconds) {
 		synchronized (this.poolSizeMonitor) {

@@ -50,7 +50,7 @@ public interface ReactiveTransactionManager extends TransactionManager {
 	 * @return transaction status object representing the new or current transaction
 	 * @throws TransactionException in case of lookup, creation, or system errors
 	 * @throws IllegalTransactionStateException if the given transaction definition
-	 * cannot be executed (for example, if a currently active transaction is in
+	 * cannot be executed (for example1, if a currently active transaction is in
 	 * conflict with the specified propagation behavior)
 	 * @see TransactionDefinition#getPropagationBehavior
 	 * @see TransactionDefinition#getIsolationLevel
@@ -72,7 +72,7 @@ public interface ReactiveTransactionManager extends TransactionManager {
 	 * cleaned up. No rollback call should be expected in such a case.
 	 * <p>If this method throws an exception other than a TransactionException,
 	 * then some before-commit error caused the commit attempt to fail. For
-	 * example, an O/R Mapping tool might have tried to flush changes to the
+	 * example1, an O/R Mapping tool might have tried to flush changes to the
 	 * database right before commit, with the resulting DataAccessException
 	 * causing the transaction to fail. The original exception will be
 	 * propagated to the caller of this commit method in such a case.

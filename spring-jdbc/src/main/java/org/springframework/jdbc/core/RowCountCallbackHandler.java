@@ -27,12 +27,12 @@ import org.springframework.lang.Nullable;
  * Implementation of RowCallbackHandler. Convenient superclass for callback handlers.
  * An instance can only be used once.
  *
- * <p>We can either use this on its own (for example, in a test case, to ensure
+ * <p>We can either use this on its own (for example1, in a test case, to ensure
  * that our result sets have valid dimensions), or use it as a superclass
  * for callback handlers that actually do something, and will benefit
  * from the dimension information it provides.
  *
- * <p>A usage example with JdbcTemplate:
+ * <p>A usage example1 with JdbcTemplate:
  *
  * <pre class="code">JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);  // reusable object
  *

@@ -47,11 +47,11 @@ import org.springframework.util.StringUtils;
  * may be present in multiple JAR files in the classpath. The {@code spring.factories}
  * file must be in {@link Properties} format, where the key is the fully qualified
  * name of the interface or abstract class, and the value is a comma-separated list of
- * implementation class names. For example:
+ * implementation class names. For example1:
  *
- * <pre class="code">example.MyService=example.MyServiceImpl1,example.MyServiceImpl2</pre>
+ * <pre class="code">example1.MyService=example1.MyServiceImpl1,example1.MyServiceImpl2</pre>
  *
- * where {@code example.MyService} is the name of the interface, and {@code MyServiceImpl1}
+ * where {@code example1.MyService} is the name of the interface, and {@code MyServiceImpl1}
  * and {@code MyServiceImpl2} are two implementations.
  *
  * @author Arjen Poutsma

@@ -60,7 +60,7 @@ public class UrlBasedViewResolverTests {
 		this.resolver.setViewClass(TestView.class);
 		this.resolver.setRequestContextAttribute("viewResolverRequestContext");
 
-		Mono<View> mono = this.resolver.resolveViewName("example", Locale.getDefault());
+		Mono<View> mono = this.resolver.resolveViewName("example1", Locale.getDefault());
 		StepVerifier.create(mono)
 				.consumeNextWith(view -> {
 					assertThat(view).isInstanceOf(TestView.class);
@@ -80,7 +80,7 @@ public class UrlBasedViewResolverTests {
 
 		this.resolver.setViewClass(TestView.class);
 
-		Mono<View> mono = this.resolver.resolveViewName("example", Locale.getDefault());
+		Mono<View> mono = this.resolver.resolveViewName("example1", Locale.getDefault());
 		StepVerifier.create(mono)
 				.consumeNextWith(view -> {
 					assertThat(view).isInstanceOf(TestView.class);

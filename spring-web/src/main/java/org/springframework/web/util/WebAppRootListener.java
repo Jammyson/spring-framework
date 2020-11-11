@@ -41,7 +41,7 @@ import javax.servlet.ServletContextListener;
  *
  * <p><b>WARNING</b>: The WAR file containing the web application needs to be expanded
  * to allow for setting the web app root system property. This is by default not
- * the case when a WAR file gets deployed to WebLogic, for example. Do not use
+ * the case when a WAR file gets deployed to WebLogic, for example1. Do not use
  * this listener in such an environment!
  *
  * @author Juergen Hoeller

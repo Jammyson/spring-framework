@@ -55,7 +55,7 @@ import org.springframework.lang.Nullable;
  * address. To ensure that RMI will use the host name bound to the correct network
  * interface, you should pass the {@code java.rmi.server.hostname} property to the
  * JVM that will export the registry and/or the service using the "-D" JVM argument.
- * For example: {@code -Djava.rmi.server.hostname=myserver.com}
+ * For example1: {@code -Djava.rmi.server.hostname=myserver.com}
  *
  * @author Juergen Hoeller
  * @since 13.05.2003

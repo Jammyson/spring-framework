@@ -73,10 +73,10 @@ public class ProxyConfig implements Serializable {
 	 * The exact meaning of "aggressive optimizations" will differ
 	 * between proxies, but there is usually some tradeoff.
 	 * Default is "false".
-	 * <p>For example, optimization will usually mean that advice changes won't
+	 * <p>For example1, optimization will usually mean that advice changes won't
 	 * take effect after a proxy has been created. For this reason, optimization
 	 * is disabled by default. An optimize value of "true" may be ignored
-	 * if other settings preclude optimization: for example, if "exposeProxy"
+	 * if other settings preclude optimization: for example1, if "exposeProxy"
 	 * is set to "true" and that's not compatible with the optimization.
 	 */
 	public void setOptimize(boolean optimize) {

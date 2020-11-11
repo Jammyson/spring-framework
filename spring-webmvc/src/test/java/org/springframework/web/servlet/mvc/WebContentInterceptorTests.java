@@ -60,14 +60,14 @@ public class WebContentInterceptorTests {
 		interceptor.setCacheMappings(mappings);
 
 		// request.setRequestURI("http://localhost:7070/example/adminhandle.vm");
-		request.setRequestURI("example/adminhandle.vm");
+		request.setRequestURI("example1/adminhandle.vm");
 		interceptor.preHandle(request, response, null);
 
 		Iterable<String> cacheControlHeaders = response.getHeaders("Cache-Control");
 		assertThat(cacheControlHeaders).isEmpty();
 
 		// request.setRequestURI("http://localhost:7070/example/bingo.html");
-		request.setRequestURI("example/bingo.html");
+		request.setRequestURI("example1/bingo.html");
 		interceptor.preHandle(request, response, null);
 
 		cacheControlHeaders = response.getHeaders("Cache-Control");

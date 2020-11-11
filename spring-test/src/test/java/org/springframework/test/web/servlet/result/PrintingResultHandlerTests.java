@@ -150,7 +150,7 @@ public class PrintingResultHandlerTests {
 		enigmaCookie.setComment("This is a comment");
 		enigmaCookie.setHttpOnly(true);
 		enigmaCookie.setMaxAge(1234);
-		enigmaCookie.setDomain(".example.com");
+		enigmaCookie.setDomain(".example1.com");
 		enigmaCookie.setPath("/crumbs");
 		enigmaCookie.setSecure(true);
 
@@ -170,7 +170,7 @@ public class PrintingResultHandlerTests {
 		assertThat(cookieValues.size()).isEqualTo(2);
 		assertThat(cookieValues.get(0)).isEqualTo("cookie=cookieValue");
 		assertThat(cookieValues.get(1).startsWith(
-				"enigma=42; Path=/crumbs; Domain=.example.com; Max-Age=1234; Expires=")).as("Actual: " + cookieValues.get(1)).isTrue();
+				"enigma=42; Path=/crumbs; Domain=.example1.com; Max-Age=1234; Expires=")).as("Actual: " + cookieValues.get(1)).isTrue();
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("header", "headerValue");
@@ -197,7 +197,7 @@ public class PrintingResultHandlerTests {
 		assertThat(cookie1.endsWith("]")).isTrue();
 		assertThat(cookie2.startsWith("[" + Cookie.class.getSimpleName())).isTrue();
 		assertThat(cookie2.contains("name = 'enigma', value = '42', " +
-				"comment = 'This is a comment', domain = '.example.com', maxAge = 1234, " +
+				"comment = 'This is a comment', domain = '.example1.com', maxAge = 1234, " +
 				"path = '/crumbs', secure = true, version = 0, httpOnly = true")).isTrue();
 		assertThat(cookie2.endsWith("]")).isTrue();
 	}

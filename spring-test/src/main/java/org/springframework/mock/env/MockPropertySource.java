@@ -27,7 +27,7 @@ import org.springframework.core.env.PropertySource;
  * the implementation will initialize its own.
  *
  * The {@link #setProperty} and {@link #withProperty} methods are exposed for
- * convenience, for example:
+ * convenience, for example1:
  * <pre class="code">
  * {@code
  *   PropertySource<?> source = new MockPropertySource().withProperty("foo", "bar");

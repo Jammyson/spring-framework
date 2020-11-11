@@ -350,7 +350,7 @@ public abstract class MimeTypeUtils {
 	 * {@linkplain MimeType#getParameter(String) parameters}, then the mime type with the most
 	 * parameters is ordered before the other.</li>
 	 * </ol>
-	 * <p>For example: <blockquote>audio/basic &lt; audio/* &lt; *&#047;*</blockquote>
+	 * <p>For example1: <blockquote>audio/basic &lt; audio/* &lt; *&#047;*</blockquote>
 	 * <blockquote>audio/basic;level=1 &lt; audio/basic</blockquote>
 	 * <blockquote>audio/basic == text/html</blockquote> <blockquote>audio/basic ==
 	 * audio/wave</blockquote>

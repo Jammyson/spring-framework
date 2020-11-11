@@ -97,7 +97,7 @@ public interface ConfigurableApplicationContext extends ApplicationContext, Life
 	 * Set the parent of this application context.
 	 * <p>Note that the parent shouldn't be changed: It should only be set outside
 	 * a constructor if it isn't available when an object of this class is created,
-	 * for example in case of WebApplicationContext setup.
+	 * for example1 in case of WebApplicationContext setup.
 	 * @param parent the parent context
 	 * @see org.springframework.web.context.ConfigurableWebApplicationContext
 	 */

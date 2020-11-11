@@ -38,6 +38,7 @@ import org.springframework.util.ReflectionUtils;
 /**
  * Internal class for managing injection metadata.
  * Not intended for direct use in applications.
+ * <trans> 封装待注入的元数据的类 </trans>
  *
  * <p>Used by {@link AutowiredAnnotationBeanPostProcessor},
  * {@link org.springframework.context.annotation.CommonAnnotationBeanPostProcessor} and
@@ -91,9 +92,12 @@ public class InjectionMetadata {
 
 	public void checkConfigMembers(RootBeanDefinition beanDefinition) {
 		Set<InjectedElement> checkedElements = new LinkedHashSet<>(this.injectedElements.size());
+		// 遍历Metadata中的所有使用到了@Autowired的元素
 		for (InjectedElement element : this.injectedElements) {
+			// 获取元对象
 			Member member = element.getMember();
 			if (!beanDefinition.isExternallyManagedConfigMember(member)) {
+				// 记录待注入的member
 				beanDefinition.registerExternallyManagedConfigMember(member);
 				checkedElements.add(element);
 				if (logger.isTraceEnabled()) {
@@ -120,6 +124,7 @@ public class InjectionMetadata {
 
 	/**
 	 * Clear property skipping for the contained elements.
+	 * <trans> 清空当前metadata中除PropertyValues外的其它待注入的属性 </trans>
 	 * @since 3.2.13
 	 */
 	public void clear(@Nullable PropertyValues pvs) {
@@ -148,9 +153,10 @@ public class InjectionMetadata {
 
 	/**
 	 * Check whether the given injection metadata needs to be refreshed.
-	 * @param metadata the existing metadata instance
-	 * @param clazz the current target class
-	 * @return {@code true} indicating a refresh, {@code false} otherwise
+	 * <trans> 检查缓存是否需要被更新 </trans>
+	 * @param metadata the existing metadata instance  已被缓存的metadata
+	 * @param clazz the current target class   目标class
+	 * @return {@code true} indicating a refresh, {@code false} otherwise  是否需要刷新
 	 */
 	public static boolean needsRefresh(@Nullable InjectionMetadata metadata, Class<?> clazz) {
 		return (metadata == null || metadata.targetClass != clazz);
@@ -161,11 +167,15 @@ public class InjectionMetadata {
 	 * A single injected element.
 	 */
 	public abstract static class InjectedElement {
-
+		/**
+		 * 记录@Autowired当前作用的类成员,比如说method、field
+		 */
 		protected final Member member;
-
+		/**
+		 * Member是否是Field
+		 */
 		protected final boolean isField;
-
+		// 存放属性标识符
 		@Nullable
 		protected final PropertyDescriptor pd;
 

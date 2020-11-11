@@ -58,7 +58,7 @@ public interface DeferredResultProcessingInterceptor {
 	 * Invoked immediately after the start of concurrent handling, in the same
 	 * thread that started it. This method may be used to detect the start of
 	 * concurrent processing with the given {@code DeferredResult}.
-	 * <p>The {@code DeferredResult} may have already been set, for example at
+	 * <p>The {@code DeferredResult} may have already been set, for example1 at
 	 * the time of its creation or by another thread.
 	 * @param request the current request
 	 * @param deferredResult the DeferredResult for the current request

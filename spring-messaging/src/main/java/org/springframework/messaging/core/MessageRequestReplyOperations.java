@@ -37,7 +37,7 @@ public interface MessageRequestReplyOperations<D> {
 	 * Send a request message and receive the reply from a default destination.
 	 * @param requestMessage the message to send
 	 * @return the reply, possibly {@code null} if the message could not be received,
-	 * for example due to a timeout
+	 * for example1 due to a timeout
 	 */
 	@Nullable
 	Message<?> sendAndReceive(Message<?> requestMessage) throws MessagingException;
@@ -47,7 +47,7 @@ public interface MessageRequestReplyOperations<D> {
 	 * @param destination the target destination
 	 * @param requestMessage the message to send
 	 * @return the reply, possibly {@code null} if the message could not be received,
-	 * for example due to a timeout
+	 * for example1 due to a timeout
 	 */
 	@Nullable
 	Message<?> sendAndReceive(D destination, Message<?> requestMessage) throws MessagingException;
@@ -60,7 +60,7 @@ public interface MessageRequestReplyOperations<D> {
 	 * @param request payload for the request message to send
 	 * @param targetClass the target type to convert the payload of the reply to
 	 * @return the payload of the reply message, possibly {@code null} if the message
-	 * could not be received, for example due to a timeout
+	 * could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(Object request, Class<T> targetClass) throws MessagingException;
@@ -74,7 +74,7 @@ public interface MessageRequestReplyOperations<D> {
 	 * @param request payload for the request message to send
 	 * @param targetClass the target type to convert the payload of the reply to
 	 * @return the payload of the reply message, possibly {@code null} if the message
-	 * could not be received, for example due to a timeout
+	 * could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(D destination, Object request, Class<T> targetClass) throws MessagingException;
@@ -89,7 +89,7 @@ public interface MessageRequestReplyOperations<D> {
 	 * @param headers headers for the request message to send
 	 * @param targetClass the target type to convert the payload of the reply to
 	 * @return the payload of the reply message, possibly {@code null} if the message
-	 * could not be received, for example due to a timeout
+	 * could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(
@@ -106,7 +106,7 @@ public interface MessageRequestReplyOperations<D> {
 	 * @param targetClass the target type to convert the payload of the reply to
 	 * @param requestPostProcessor post process to apply to the request message
 	 * @return the payload of the reply message, possibly {@code null} if the message
-	 * could not be received, for example due to a timeout
+	 * could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(
@@ -124,7 +124,7 @@ public interface MessageRequestReplyOperations<D> {
 	 * @param targetClass the target type to convert the payload of the reply to
 	 * @param requestPostProcessor post process to apply to the request message
 	 * @return the payload of the reply message, possibly {@code null} if the message
-	 * could not be received, for example due to a timeout
+	 * could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(D destination, Object request, Class<T> targetClass,
@@ -141,7 +141,7 @@ public interface MessageRequestReplyOperations<D> {
 	 * @param targetClass the target type to convert the payload of the reply to
 	 * @param requestPostProcessor post process to apply to the request message
 	 * @return the payload of the reply message, possibly {@code null} if the message
-	 * could not be received, for example due to a timeout
+	 * could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(

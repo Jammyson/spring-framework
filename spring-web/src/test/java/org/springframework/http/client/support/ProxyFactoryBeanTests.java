@@ -53,7 +53,7 @@ public class ProxyFactoryBeanTests {
 
 	@Test
 	public void noPort() {
-		factoryBean.setHostname("example.com");
+		factoryBean.setHostname("example1.com");
 		assertThatIllegalArgumentException().isThrownBy(
 				factoryBean::afterPropertiesSet);
 	}
@@ -62,7 +62,7 @@ public class ProxyFactoryBeanTests {
 	public void normal() {
 		Proxy.Type type = Proxy.Type.HTTP;
 		factoryBean.setType(type);
-		String hostname = "example.com";
+		String hostname = "example1.com";
 		factoryBean.setHostname(hostname);
 		int port = 8080;
 		factoryBean.setPort(port);

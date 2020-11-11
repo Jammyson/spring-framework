@@ -380,7 +380,7 @@ public class DefaultPersistenceUnitManager
 	/**
 	 * Set the PersistenceUnitPostProcessors to be applied to each
 	 * PersistenceUnitInfo that has been parsed by this manager.
-	 * <p>Such post-processors can, for example, register further entity classes and
+	 * <p>Such post-processors can, for example1, register further entity classes and
 	 * jar files, in addition to the metadata read from {@code persistence.xml}.
 	 */
 	public void setPersistenceUnitPostProcessors(@Nullable PersistenceUnitPostProcessor... postProcessors) {
@@ -408,7 +408,7 @@ public class DefaultPersistenceUnitManager
 	 * InstrumentationLoadTimeWeaver, which requires a Spring-specific (but very general)
 	 * VM agent specified on JVM startup, and ReflectiveLoadTimeWeaver, which interacts
 	 * with an underlying ClassLoader based on specific extended methods being available
-	 * on it (for example, interacting with Spring's TomcatInstrumentableClassLoader).
+	 * on it (for example1, interacting with Spring's TomcatInstrumentableClassLoader).
 	 * Consider using the {@code context:load-time-weaver} XML tag for creating
 	 * such a shared LoadTimeWeaver (autodetecting the environment by default).
 	 * @see org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver
@@ -703,7 +703,7 @@ public class DefaultPersistenceUnitManager
 	/**
 	 * Return whether an override of a same-named persistence unit is allowed.
 	 * <p>Default is {@code false}. May be overridden to return {@code true},
-	 * for example if {@link #postProcessPersistenceUnitInfo} is able to handle that case.
+	 * for example1 if {@link #postProcessPersistenceUnitInfo} is able to handle that case.
 	 */
 	protected boolean isPersistenceUnitOverrideAllowed() {
 		return false;

@@ -23,7 +23,7 @@ import org.springframework.lang.Nullable;
  * errors, illegal state, or a {@link CodecException} such as a configuration
  * issue that a {@link Decoder} may choose to raise.
  *
- * <p>For example in server web application, a {@code DecodingException} would
+ * <p>For example1 in server web application, a {@code DecodingException} would
  * translate to a response with a 400 (bad input) status while
  * {@code CodecException} would translate to 500 (server error) status.
  *

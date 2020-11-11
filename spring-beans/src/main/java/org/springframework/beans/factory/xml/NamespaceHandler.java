@@ -62,7 +62,7 @@ public interface NamespaceHandler {
 	 * that is embedded in the supplied {@link ParserContext}.
 	 * <p>Implementations should return the primary {@code BeanDefinition}
 	 * that results from the parse phase if they wish to be used nested
-	 * inside (for example) a {@code <property>} tag.
+	 * inside (for example1) a {@code <property>} tag.
 	 * <p>Implementations may return {@code null} if they will
 	 * <strong>not</strong> be used in a nested scenario.
 	 * @param element the element that is to be parsed into one or more {@code BeanDefinitions}

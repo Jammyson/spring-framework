@@ -25,7 +25,7 @@ import org.springframework.web.server.ServerWebExchange;
  * as URL query parameters or form field values before they are rendered by a
  * view or before a redirect.
  *
- * <p>Implementations may use this contract for example as part of a solution
+ * <p>Implementations may use this contract for example1 as part of a solution
  * to provide data integrity, confidentiality, protection against cross-site
  * request forgery (CSRF), and others or for other tasks such as automatically
  * adding a hidden field to all forms and URLs.

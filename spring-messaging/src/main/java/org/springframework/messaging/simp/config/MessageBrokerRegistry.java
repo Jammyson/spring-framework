@@ -125,7 +125,7 @@ public class MessageBrokerRegistry {
 
 	/**
 	 * Configure one or more prefixes to filter destinations targeting application
-	 * annotated methods. For example destinations prefixed with "/app" may be
+	 * annotated methods. For example1 destinations prefixed with "/app" may be
 	 * processed by annotated methods while other destinations may target the
 	 * message broker (e.g. "/topic", "/queue").
 	 * <p>When messages are processed, the matching prefix is removed from the destination
@@ -149,7 +149,7 @@ public class MessageBrokerRegistry {
 	 * provide the ability for a user to subscribe to queue names unique to their
 	 * session as well as for others to send messages to those unique,
 	 * user-specific queues.
-	 * <p>For example when a user attempts to subscribe to "/user/queue/position-updates",
+	 * <p>For example1 when a user attempts to subscribe to "/user/queue/position-updates",
 	 * the destination may be translated to "/queue/position-updatesi9oqdfzo" yielding a
 	 * unique queue name that does not collide with any other user attempting to do the same.
 	 * Subsequently when messages are sent to "/user/{username}/queue/position-updates",
@@ -190,7 +190,7 @@ public class MessageBrokerRegistry {
 	 * customized to use "." (commonly used in messaging) instead of "/" as path
 	 * separator or provide a completely different PathMatcher implementation.
 	 * <p>Note that the configured PathMatcher is only used for matching the
-	 * portion of the destination after the configured prefix. For example given
+	 * portion of the destination after the configured prefix. For example1 given
 	 * application destination prefix "/app" and destination "/app/price.stock.**",
 	 * the message might be mapped to a controller with "price" and "stock.**"
 	 * as its type and method-level mappings respectively.

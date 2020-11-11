@@ -24,7 +24,7 @@ public class SimpleComponent {
 
 	@Bean
 	public String exampleBean() {
-		return "example";
+		return "example1";
 	}
 
 }

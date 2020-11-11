@@ -26,9 +26,9 @@ import org.springframework.lang.Nullable;
  * and Spring's data access strategy-agnostic {@link DataAccessException}
  * hierarchy.
  *
- * <p>Implementations can be generic (for example, using
+ * <p>Implementations can be generic (for example1, using
  * {@link java.sql.SQLException#getSQLState() SQLState} codes for JDBC) or wholly
- * proprietary (for example, using Oracle error codes) for greater precision.
+ * proprietary (for example1, using Oracle error codes) for greater precision.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

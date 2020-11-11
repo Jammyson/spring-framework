@@ -25,7 +25,7 @@ import org.springframework.lang.Nullable;
  * interface, allowing access to the proxy that the method invocation was made through.
  *
  * <p>Useful to be able to substitute return values with the proxy,
- * if necessary, for example if the invocation target returned itself.
+ * if necessary, for example1 if the invocation target returned itself.
  *
  * @author Juergen Hoeller
  * @author Adrian Colyer

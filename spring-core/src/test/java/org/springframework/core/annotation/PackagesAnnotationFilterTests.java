@@ -51,28 +51,28 @@ public class PackagesAnnotationFilterTests {
 
 	@Test
 	public void matchesWhenInPackageReturnsTrue() {
-		PackagesAnnotationFilter filter = new PackagesAnnotationFilter("com.example");
-		assertThat(filter.matches("com.example.Component")).isTrue();
+		PackagesAnnotationFilter filter = new PackagesAnnotationFilter("com.example1");
+		assertThat(filter.matches("com.example1.Component")).isTrue();
 	}
 
 	@Test
 	public void matchesWhenNotInPackageReturnsFalse() {
-		PackagesAnnotationFilter filter = new PackagesAnnotationFilter("com.example");
+		PackagesAnnotationFilter filter = new PackagesAnnotationFilter("com.example1");
 		assertThat(filter.matches("org.springframework.sterotype.Component")).isFalse();
 	}
 
 	@Test
 	public void matchesWhenInSimilarPackageReturnsFalse() {
-		PackagesAnnotationFilter filter = new PackagesAnnotationFilter("com.example");
+		PackagesAnnotationFilter filter = new PackagesAnnotationFilter("com.example1");
 		assertThat(filter.matches("com.examples.Component")).isFalse();
 	}
 
 	@Test
 	public void equalsAndHashCode() {
-		PackagesAnnotationFilter filter1 = new PackagesAnnotationFilter("com.example",
+		PackagesAnnotationFilter filter1 = new PackagesAnnotationFilter("com.example1",
 				"org.springframework");
 		PackagesAnnotationFilter filter2 = new PackagesAnnotationFilter(
-				"org.springframework", "com.example");
+				"org.springframework", "com.example1");
 		PackagesAnnotationFilter filter3 = new PackagesAnnotationFilter("com.examples");
 		assertThat(filter1.hashCode()).isEqualTo(filter2.hashCode());
 		assertThat(filter1).isEqualTo(filter1).isEqualTo(filter2).isNotEqualTo(filter3);

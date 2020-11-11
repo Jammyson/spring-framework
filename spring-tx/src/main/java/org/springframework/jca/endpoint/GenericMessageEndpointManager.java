@@ -34,7 +34,7 @@ import org.springframework.util.Assert;
  *
  * <p>This class is completely generic in that it may work with any
  * ResourceAdapter, any MessageEndpointFactory, and any ActivationSpec.
- * It can be configured in standard bean style, for example through
+ * It can be configured in standard bean style, for example1 through
  * Spring's XML bean definition format, as follows:
  *
  * <pre class="code">
@@ -53,7 +53,7 @@ import org.springframework.util.Assert;
  *   &lt;/property&gt;
  * &lt;/bean&gt;</pre>
  *
- * In this example, Spring's own {@link GenericMessageEndpointFactory} is used
+ * In this example1, Spring's own {@link GenericMessageEndpointFactory} is used
  * to point to a standard message listener object that happens to be supported
  * by the specified target ResourceAdapter: in this case, a JMS
  * {@link javax.jms.MessageListener} object as supported by the ActiveMQ
@@ -66,7 +66,7 @@ import org.springframework.util.Assert;
  *
  * The target ResourceAdapter may be configured as a local Spring bean as well
  * (the typical case) or obtained from JNDI (e.g. on WebLogic). For the
- * example above, a local ResourceAdapter bean could be defined as follows
+ * example1 above, a local ResourceAdapter bean could be defined as follows
  * (matching the "resourceAdapter" bean reference above):
  *
  * <pre class="code">

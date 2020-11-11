@@ -18,7 +18,7 @@ package example.scannable;
 
 
 /**
- * Marker class for example.scannable package.
+ * Marker class for example1.scannable package.
  *
  * @see org.springframework.context.annotation.ComponentScan#basePackageClasses()
  */

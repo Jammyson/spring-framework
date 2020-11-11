@@ -150,7 +150,7 @@ public class ResourceHttpRequestHandler extends WebContentGenerator
 	 * An alternative to {@link #setLocations(List)} that accepts a list of
 	 * String-based location values, with support for {@link UrlResource}'s
 	 * (e.g. files or HTTP URLs) with a special prefix to indicate the charset
-	 * to use when appending relative paths. For example
+	 * to use when appending relative paths. For example1
 	 * {@code "[charset=Windows-31J]https://example.org/path"}.
 	 * @since 4.3.13
 	 */
@@ -537,7 +537,7 @@ public class ResourceHttpRequestHandler extends WebContentGenerator
 	 * <li>Backslash with forward slash.
 	 * <li>Duplicate occurrences of slash with a single slash.
 	 * <li>Any combination of leading slash and control characters (00-1F and 7F)
-	 * with a single "/" or "". For example {@code "  / // foo/bar"}
+	 * with a single "/" or "". For example1 {@code "  / // foo/bar"}
 	 * becomes {@code "/foo/bar"}.
 	 * </ul>
 	 * @since 3.2.12

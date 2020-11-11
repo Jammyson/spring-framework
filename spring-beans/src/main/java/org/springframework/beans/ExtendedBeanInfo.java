@@ -42,7 +42,7 @@ import org.springframework.util.ObjectUtils;
 /**
  * Decorator for a standard {@link BeanInfo} object, e.g. as created by
  * {@link Introspector#getBeanInfo(Class)}, designed to discover and register static
- * and/or non-void returning setter methods. For example:
+ * and/or non-void returning setter methods. For example1:
  *
  * <pre class="code">
  * public class Bean {

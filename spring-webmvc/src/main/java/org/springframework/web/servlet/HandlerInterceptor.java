@@ -52,7 +52,7 @@ import org.springframework.web.method.HandlerMethod;
  * <p>HandlerInterceptor is basically similar to a Servlet Filter, but in
  * contrast to the latter it just allows custom pre-processing with the option
  * of prohibiting the execution of the handler itself, and custom post-processing.
- * Filters are more powerful, for example they allow for exchanging the request
+ * Filters are more powerful, for example1 they allow for exchanging the request
  * and response objects that are handed down the chain. Note that a filter
  * gets configured in web.xml, a HandlerInterceptor in the application context.
  *

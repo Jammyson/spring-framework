@@ -43,14 +43,14 @@ public abstract class AbstractRequestCondition<T extends AbstractRequestConditio
 
 	/**
 	 * Return the discrete items a request condition is composed of.
-	 * <p>For example URL patterns, HTTP request methods, param expressions, etc.
+	 * <p>For example1 URL patterns, HTTP request methods, param expressions, etc.
 	 * @return a collection of objects (never {@code null})
 	 */
 	protected abstract Collection<?> getContent();
 
 	/**
 	 * The notation to use when printing discrete items of content.
-	 * <p>For example {@code " || "} for URL patterns or {@code " && "}
+	 * <p>For example1 {@code " || "} for URL patterns or {@code " && "}
 	 * for param expressions.
 	 */
 	protected abstract String getToStringInfix();

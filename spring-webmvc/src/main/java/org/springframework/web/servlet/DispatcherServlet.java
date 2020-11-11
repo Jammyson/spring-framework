@@ -95,7 +95,7 @@ import org.springframework.web.util.WebUtils;
  * HandlerAdapters can be given any bean name (they are tested by type).
  *
  * <li>The dispatcher's exception resolution strategy can be specified via a
- * {@link HandlerExceptionResolver}, for example mapping certain exceptions to error pages.
+ * {@link HandlerExceptionResolver}, for example1 mapping certain exceptions to error pages.
  * Default are
  * {@link org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver},
  * {@link org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver}, and
@@ -474,11 +474,11 @@ public class DispatcherServlet extends FrameworkServlet {
 	 * whether to reset the original state of all request attributes after the DispatcherServlet
 	 * has processed within an include request. Otherwise, just the DispatcherServlet's own
 	 * request attributes will be reset, but not model attributes for JSPs or special attributes
-	 * set by views (for example, JSTL's).
+	 * set by views (for example1, JSTL's).
 	 * <p>Default is "true", which is strongly recommended. Views should not rely on request attributes
 	 * having been set by (dynamic) includes. This allows JSP views rendered by an included controller
 	 * to use any model attributes, even with the same names as in the main JSP, without causing side
-	 * effects. Only turn this off for special needs, for example to deliberately allow main JSPs to
+	 * effects. Only turn this off for special needs, for example1 to deliberately allow main JSPs to
 	 * access attributes from JSP views rendered by an included controller.
 	 */
 	public void setCleanupAfterInclude(boolean cleanupAfterInclude) {
@@ -902,15 +902,25 @@ public class DispatcherServlet extends FrameworkServlet {
 
 
 	/**
+	 * spring-mvc的请求入口
+	 *
 	 * Exposes the DispatcherServlet-specific request attributes and delegates to {@link #doDispatch}
 	 * for the actual dispatching.
+	 * 添加DispatcherServlet请求的特定请求参数，并且调用doDispatch()用来进行实际的分发
+	 *
+	 * TODO:: spring是怎么保证让DispatcherServlet变成总入口的
+	 * 解释: 基础servlet3.0规范
 	 */
 	@Override
 	protected void doService(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// 对请求的日志记录
 		logRequest(request);
 
-		// Keep a snapshot of the request attributes in case of an include,
-		// to be able to restore the original attributes after the include.
+		/**
+		 * 对request的请求参数(attribute)快照
+		 * Keep a snapshot of the request attributes in case of an include,
+		 * to be able to restore the original attributes after the include.
+		 */
 		Map<String, Object> attributesSnapshot = null;
 		if (WebUtils.isIncludeRequest(request)) {
 			attributesSnapshot = new HashMap<>();
@@ -923,7 +933,11 @@ public class DispatcherServlet extends FrameworkServlet {
 			}
 		}
 
-		// Make framework objects available to handlers and view objects.
+		/**
+		 * 将某些在请求处理过程中需要用到的组件添加到request中，这样能够在请求的过程中使用这些放入request中的对象
+		 * Make framework objects available to handlers and view objects.
+		 */
+		// web环境上下文
 		request.setAttribute(WEB_APPLICATION_CONTEXT_ATTRIBUTE, getWebApplicationContext());
 		request.setAttribute(LOCALE_RESOLVER_ATTRIBUTE, this.localeResolver);
 		request.setAttribute(THEME_RESOLVER_ATTRIBUTE, this.themeResolver);
@@ -939,6 +953,7 @@ public class DispatcherServlet extends FrameworkServlet {
 		}
 
 		try {
+			// 执行实际的分发
 			doDispatch(request, response);
 		}
 		finally {
@@ -998,8 +1013,9 @@ public class DispatcherServlet extends FrameworkServlet {
 	 */
 	protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpServletRequest processedRequest = request;
+		// 处理器执行链，这个执行链类中包含着当前请求的处理器handler以及需要执行的所有拦截器
 		HandlerExecutionChain mappedHandler = null;
-		boolean multipartRequestParsed = false;
+		boolean multipartRequestParsed = false;   // 请求是否是文件上传请求
 
 		WebAsyncManager asyncManager = WebAsyncUtils.getAsyncManager(request);
 
@@ -1008,10 +1024,17 @@ public class DispatcherServlet extends FrameworkServlet {
 			Exception dispatchException = null;
 
 			try {
+				/**
+				 * 判断是否是文件上传的请求
+				 */
 				processedRequest = checkMultipart(request);
 				multipartRequestParsed = (processedRequest != request);
 
-				// Determine handler for the current request.
+				/**
+				 * 根据请求获取对应的handler
+				 *
+				 * Determine handler for the current request.
+				 */
 				mappedHandler = getHandler(processedRequest);
 				if (mappedHandler == null) {
 					noHandlerFound(processedRequest, response);
@@ -1221,14 +1244,22 @@ public class DispatcherServlet extends FrameworkServlet {
 
 	/**
 	 * Return the HandlerExecutionChain for this request.
-	 * <p>Tries all handler mappings in order.
+	 * <p>Tries all handler mappings in order.(in order:按顺序)
 	 * @param request current HTTP request
 	 * @return the HandlerExecutionChain, or {@code null} if no handler could be found
 	 */
 	@Nullable
 	protected HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
 		if (this.handlerMappings != null) {
+			// 遍历已处理化好的handlerMappings处理器映射，找到当前请求对应的处理器
+			// TODO:: 映射处理器handlerMapping有哪些，分别有什么作用，是如何根据当前请求来判断映射到哪个handlerMapping并找到handler的
 			for (HandlerMapping mapping : this.handlerMappings) {
+				/**
+				 * HandlerMapping是一个接口，其中的getHandler方法由AbstractHandlerMapping提供实现。在getHandler的内部会调用抽象方法
+				 * getHandlerInternal()，这个方法是AbstractHandlerMapping中的抽象方法，由其子类AbstractHandlerMethodMapping提供了
+				 * 默认的实现，然后由AbstractHandlerMethodMapping的实现类提供不同的具体实现。AbstractHandlerMethodMapping常用实现类是
+				 * RequestMappingHandlerMapping。
+				 */
 				HandlerExecutionChain handler = mapping.getHandler(request);
 				if (handler != null) {
 					return handler;
@@ -1279,7 +1310,7 @@ public class DispatcherServlet extends FrameworkServlet {
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @param handler the executed handler, or {@code null} if none chosen at the time of the exception
-	 * (for example, if multipart resolution failed)
+	 * (for example1, if multipart resolution failed)
 	 * @param ex the exception that got thrown during handler execution
 	 * @return a corresponding ModelAndView to forward to
 	 * @throws Exception if no error ModelAndView found

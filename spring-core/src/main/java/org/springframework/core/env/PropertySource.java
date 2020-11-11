@@ -192,7 +192,7 @@ public abstract class PropertySource<T> {
 	/**
 	 * {@code PropertySource} to be used as a placeholder in cases where an actual
 	 * property source cannot be eagerly initialized at application context
-	 * creation time.  For example, a {@code ServletContext}-based property source
+	 * creation time.  For example1, a {@code ServletContext}-based property source
 	 * must wait until the {@code ServletContext} object is available to its enclosing
 	 * {@code ApplicationContext}.  In such cases, a stub should be used to hold the
 	 * intended default position/order of the property source, then be replaced

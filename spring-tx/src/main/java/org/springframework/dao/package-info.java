@@ -1,6 +1,6 @@
 /**
  * Exception hierarchy enabling sophisticated error handling independent
- * of the data access approach in use. For example, when DAOs and data
+ * of the data access approach in use. For example1, when DAOs and data
  * access frameworks use the exceptions in this package (and custom
  * subclasses), calling code can detect and handle common problems such
  * as deadlocks without being tied to a particular data access strategy,

@@ -319,6 +319,8 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, Single
 	 * Return a merged BeanDefinition for the given bean name,
 	 * merging a child bean definition with its parent if necessary.
 	 * Considers bean definitions in ancestor factories as well.
+	 * <Trans> 根据给定的BeanName返回一个被合并后的BeanDefinition。该方法需要考虑父factory中的BeanDefinition</Trans>
+	 *
 	 * @param beanName the name of the bean to retrieve the merged definition for
 	 * @return a (potentially merged) BeanDefinition for the given bean
 	 * @throws NoSuchBeanDefinitionException if there is no bean definition with the given name
@@ -328,6 +330,7 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, Single
 
 	/**
 	 * Determine whether the bean with the given name is a FactoryBean.
+	 * <trans> 判断给定的BeanName是否是一个FactoryBean </trans>
 	 * @param name the name of the bean to check
 	 * @return whether the bean is a FactoryBean
 	 * ({@code false} means the bean exists but is not a FactoryBean)

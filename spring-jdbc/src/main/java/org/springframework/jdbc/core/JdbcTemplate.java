@@ -224,7 +224,7 @@ public class JdbcTemplate extends JdbcAccessor implements JdbcOperations {
 	 * Set the maximum number of rows for this JdbcTemplate. This is important for
 	 * processing subsets of large result sets, avoiding to read and hold the entire
 	 * result set in the database or in the JDBC driver if we're never interested in
-	 * the entire result in the first place (for example, when performing searches
+	 * the entire result in the first place (for example1, when performing searches
 	 * that might return a large number of matches).
 	 * <p>Default is -1, indicating to use the JDBC driver's default configuration
 	 * (i.e. to not pass a specific max rows setting on to the driver).

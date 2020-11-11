@@ -40,7 +40,7 @@ public interface DatabaseMetaDataCallback {
 	 * @throws SQLException if a SQLException is encountered getting
 	 * column values (that is, there's no need to catch SQLException)
 	 * @throws MetaDataAccessException in case of other failures while
-	 * extracting meta-data (for example, reflection failure)
+	 * extracting meta-data (for example1, reflection failure)
 	 */
 	Object processMetaData(DatabaseMetaData dbmd) throws SQLException, MetaDataAccessException;
 

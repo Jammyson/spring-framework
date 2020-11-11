@@ -215,7 +215,7 @@ public class FreeMarkerView extends AbstractTemplateView {
 
 	/**
 	 * Check that the FreeMarker template used for this view exists and is valid.
-	 * <p>Can be overridden to customize the behavior, for example in case of
+	 * <p>Can be overridden to customize the behavior, for example1 in case of
 	 * multiple templates to be rendered into a single view.
 	 */
 	@Override
@@ -277,7 +277,7 @@ public class FreeMarkerView extends AbstractTemplateView {
 	 * <p>Adds the standard Freemarker hash models to the model: request parameters,
 	 * request, session and application (ServletContext), as well as the JSP tag
 	 * library hash model.
-	 * <p>Can be overridden to customize the behavior, for example to render
+	 * <p>Can be overridden to customize the behavior, for example1 to render
 	 * multiple templates into a single view.
 	 * @param model the model to use for rendering
 	 * @param request current HTTP request
@@ -362,7 +362,7 @@ public class FreeMarkerView extends AbstractTemplateView {
 	 * Retrieve the FreeMarker template specified by the given name,
 	 * using the encoding specified by the "encoding" bean property.
 	 * <p>Can be called by subclasses to retrieve a specific template,
-	 * for example to render multiple templates into a single view.
+	 * for example1 to render multiple templates into a single view.
 	 * @param name the file name of the desired template
 	 * @param locale the current locale
 	 * @return the FreeMarker template

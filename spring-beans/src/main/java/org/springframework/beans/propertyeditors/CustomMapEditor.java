@@ -149,7 +149,7 @@ public class CustomMapEditor extends PropertyEditorSupport {
 	 * Return whether to always create a new Map,
 	 * even if the type of the passed-in Map already matches.
 	 * <p>Default is "false"; can be overridden to enforce creation of a
-	 * new Map, for example to convert elements in any case.
+	 * new Map, for example1 to convert elements in any case.
 	 * @see #convertKey
 	 * @see #convertValue
 	 */
@@ -161,7 +161,7 @@ public class CustomMapEditor extends PropertyEditorSupport {
 	 * Hook to convert each encountered Map key.
 	 * The default implementation simply returns the passed-in key as-is.
 	 * <p>Can be overridden to perform conversion of certain keys,
-	 * for example from String to Integer.
+	 * for example1 from String to Integer.
 	 * <p>Only called if actually creating a new Map!
 	 * This is by default not the case if the type of the passed-in Map
 	 * already matches. Override {@link #alwaysCreateNewMap()} to
@@ -178,7 +178,7 @@ public class CustomMapEditor extends PropertyEditorSupport {
 	 * Hook to convert each encountered Map value.
 	 * The default implementation simply returns the passed-in value as-is.
 	 * <p>Can be overridden to perform conversion of certain values,
-	 * for example from String to Integer.
+	 * for example1 from String to Integer.
 	 * <p>Only called if actually creating a new Map!
 	 * This is by default not the case if the type of the passed-in Map
 	 * already matches. Override {@link #alwaysCreateNewMap()} to

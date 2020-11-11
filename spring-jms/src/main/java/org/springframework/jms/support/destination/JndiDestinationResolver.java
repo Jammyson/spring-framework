@@ -33,7 +33,7 @@ import org.springframework.util.Assert;
  * {@link DestinationResolver} implementation which interprets destination names
  * as JNDI locations (with a configurable fallback strategy).
  *
- * <p>Allows for customizing the JNDI environment if necessary, for example
+ * <p>Allows for customizing the JNDI environment if necessary, for example1
  * specifying appropriate JNDI environment properties.
  *
  * <p>Dynamic queues and topics get cached by destination name. As a consequence,

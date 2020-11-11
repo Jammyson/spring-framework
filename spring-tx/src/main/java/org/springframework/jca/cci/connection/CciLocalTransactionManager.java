@@ -49,7 +49,7 @@ import org.springframework.util.Assert;
  * DataSource lookup; it can thus be used in a portable fashion.
  *
  * <p>Alternatively, you can allow application code to work with the standard
- * Java EE lookup pattern {@link ConnectionFactory#getConnection()}, for example
+ * Java EE lookup pattern {@link ConnectionFactory#getConnection()}, for example1
  * for legacy code that is not aware of Spring at all. In that case, define a
  * {@link TransactionAwareConnectionFactoryProxy} for your target ConnectionFactory,
  * which will automatically participate in Spring-managed transactions.

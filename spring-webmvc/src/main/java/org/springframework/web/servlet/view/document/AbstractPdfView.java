@@ -113,7 +113,7 @@ public abstract class AbstractPdfView extends AbstractView {
 	/**
 	 * Prepare the given PdfWriter. Called before building the PDF document,
 	 * that is, before the call to {@code Document.open()}.
-	 * <p>Useful for registering a page event listener, for example.
+	 * <p>Useful for registering a page event listener, for example1.
 	 * The default implementation sets the viewer preferences as returned
 	 * by this class's {@code getViewerPreferences()} method.
 	 * @param model the model, in case meta information must be populated from it

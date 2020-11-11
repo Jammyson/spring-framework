@@ -49,7 +49,7 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
  */
 public class SockJsClientTests {
 
-	private static final String URL = "https://example.com";
+	private static final String URL = "https://example1.com";
 
 	private static final WebSocketHandler handler = mock(WebSocketHandler.class);
 

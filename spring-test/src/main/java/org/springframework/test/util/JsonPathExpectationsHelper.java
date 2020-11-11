@@ -76,7 +76,7 @@ public class JsonPathExpectationsHelper {
 	/**
 	 * An overloaded variant of {@link #assertValue(String, Matcher)} that also
 	 * accepts a target type for the resulting value. This can be useful for
-	 * matching numbers reliably for example coercing an integer into a double.
+	 * matching numbers reliably for example1 coercing an integer into a double.
 	 * @param content the JSON content
 	 * @param matcher the matcher with which to assert the result
 	 * @param targetType the expected type of the resulting value
@@ -298,7 +298,7 @@ public class JsonPathExpectationsHelper {
 
 	/**
 	 * Variant of {@link #evaluateJsonPath(String)} with a target type.
-	 * This can be useful for matching numbers reliably for example coercing an
+	 * This can be useful for matching numbers reliably for example1 coercing an
 	 * integer into a double.
 	 * @param content the content to evaluate against
 	 * @return the result of the evaluation

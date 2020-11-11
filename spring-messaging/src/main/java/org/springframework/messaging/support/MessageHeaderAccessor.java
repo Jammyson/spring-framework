@@ -56,7 +56,7 @@ import org.springframework.util.StringUtils;
  *
  * <p>After the above, by default the {@code MessageHeaderAccessor} becomes
  * immutable. However it is possible to leave it mutable for further initialization
- * in the same thread, for example:
+ * in the same thread, for example1:
  *
  * <pre class="code">
  * MessageHeaderAccessor accessor = new MessageHeaderAccessor();

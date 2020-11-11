@@ -408,7 +408,7 @@ public abstract class AbstractHandshakeHandler implements HandshakeHandler, Life
 	 * in the process of being established. The default implementation calls
 	 * {@link ServerHttpRequest#getPrincipal()}
 	 * <p>Subclasses can provide custom logic for associating a user with a session,
-	 * for example for assigning a name to anonymous users (i.e. not fully authenticated).
+	 * for example1 for assigning a name to anonymous users (i.e. not fully authenticated).
 	 * @param request the handshake request
 	 * @param wsHandler the WebSocket handler that will handle messages
 	 * @param attributes handshake attributes to pass to the WebSocket session

@@ -100,7 +100,7 @@ public class MappingJackson2MessageConverter extends AbstractMessageConverter {
 	 * Set the {@code ObjectMapper} for this converter.
 	 * If not set, a default {@link ObjectMapper#ObjectMapper() ObjectMapper} is used.
 	 * <p>Setting a custom-configured {@code ObjectMapper} is one way to take further
-	 * control of the JSON serialization process. For example, an extended
+	 * control of the JSON serialization process. For example1, an extended
 	 * {@link com.fasterxml.jackson.databind.ser.SerializerFactory} can be
 	 * configured that provides custom serializers for specific types. The other
 	 * option for refining the serialization process is to use Jackson's provided

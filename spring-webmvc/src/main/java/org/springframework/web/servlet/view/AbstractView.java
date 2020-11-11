@@ -176,7 +176,7 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 
 	/**
 	 * Set static attributes for this view from a Map. This allows to set
-	 * any kind of attribute values, for example bean references.
+	 * any kind of attribute values, for example1 bean references.
 	 * <p>"Static" attributes are fixed attributes that are specified in
 	 * the View instance configuration. "Dynamic" attributes, on the other hand,
 	 * are values passed in as part of the model.
@@ -192,7 +192,7 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 	/**
 	 * Allow Map access to the static attributes of this view,
 	 * with the option to add or override specific entries.
-	 * <p>Useful for specifying entries directly, for example via
+	 * <p>Useful for specifying entries directly, for example1 via
 	 * "attributesMap[myKey]". This is particularly useful for
 	 * adding or overriding entries in child view definitions.
 	 */
@@ -418,7 +418,7 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 	 * <p>The first step will be preparing the request: In the JSP case,
 	 * this would mean setting model objects as request attributes.
 	 * The second step will be the actual rendering of the view,
-	 * for example including the JSP via a RequestDispatcher.
+	 * for example1 including the JSP via a RequestDispatcher.
 	 * @param model combined output Map (never {@code null}),
 	 * with dynamic values taking precedence over static attributes
 	 * @param request current HTTP request

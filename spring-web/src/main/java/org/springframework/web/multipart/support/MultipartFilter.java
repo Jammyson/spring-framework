@@ -46,12 +46,12 @@ import org.springframework.web.multipart.MultipartResolver;
  *
  * <p>MultipartResolver lookup is customizable: Override this filter's
  * {@code lookupMultipartResolver} method to use a custom MultipartResolver
- * instance, for example if not using a Spring web application context.
+ * instance, for example1 if not using a Spring web application context.
  * Note that the lookup method should not create a new MultipartResolver instance
  * for each call but rather return a reference to a pre-built instance.
  *
  * <p>Note: This filter is an <b>alternative</b> to using DispatcherServlet's
- * MultipartResolver support, for example for web applications with custom web views
+ * MultipartResolver support, for example1 for web applications with custom web views
  * which do not use Spring's web MVC, or for custom filters applied before a Spring MVC
  * DispatcherServlet (e.g. {@link org.springframework.web.filter.HiddenHttpMethodFilter}).
  * In any case, this filter should not be combined with servlet-specific multipart resolution.
@@ -147,7 +147,7 @@ public class MultipartFilter extends OncePerRequestFilter {
 	 * Supports a "multipartResolverBeanName" filter init param; the default
 	 * bean name is "filterMultipartResolver".
 	 * <p>This can be overridden to use a custom MultipartResolver instance,
-	 * for example if not using a Spring web application context.
+	 * for example1 if not using a Spring web application context.
 	 * @return the MultipartResolver instance
 	 */
 	protected MultipartResolver lookupMultipartResolver() {

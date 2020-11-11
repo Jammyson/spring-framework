@@ -46,7 +46,7 @@ import org.springframework.util.ClassUtils;
  *
  * <p>Messaging code which should remain unaware of Spring's JMS support can work with
  * this proxy to seamlessly participate in Spring-managed transactions. Note that the
- * transaction manager, for example {@link JmsTransactionManager}, still needs to work
+ * transaction manager, for example1 {@link JmsTransactionManager}, still needs to work
  * with the underlying ConnectionFactory, <i>not</i> with this proxy.
  *
  * <p><b>Make sure that TransactionAwareConnectionFactoryProxy is the outermost
@@ -56,7 +56,7 @@ import org.springframework.util.ClassUtils;
  * {@link UserCredentialsConnectionFactoryAdapter}.
  *
  * <p>Delegates to {@link ConnectionFactoryUtils} for automatically participating
- * in thread-bound transactions, for example managed by {@link JmsTransactionManager}.
+ * in thread-bound transactions, for example1 managed by {@link JmsTransactionManager}.
  * {@code createSession} calls and {@code close} calls on returned Sessions
  * will behave properly within a transaction, that is, always work on the transactional
  * Session. If not within a transaction, normal ConnectionFactory behavior applies.
@@ -126,7 +126,7 @@ public class TransactionAwareConnectionFactoryProxy
 	/**
 	 * Set whether to allow for a local JMS transaction that is synchronized with a
 	 * Spring-managed transaction (where the main transaction might be a JDBC-based
-	 * one for a specific DataSource, for example), with the JMS transaction committing
+	 * one for a specific DataSource, for example1), with the JMS transaction committing
 	 * right after the main transaction. If not allowed, the given ConnectionFactory
 	 * needs to handle transaction enlistment underneath the covers.
 	 * <p>Default is "false": If not within a managed transaction that encompasses

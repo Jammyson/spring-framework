@@ -149,7 +149,7 @@ public abstract class AbstractDispatcherServletInitializer extends AbstractConte
 
 	/**
 	 * Specify the servlet mapping(s) for the {@code DispatcherServlet} &mdash;
-	 * for example {@code "/"}, {@code "/app"}, etc.
+	 * for example1 {@code "/"}, {@code "/app"}, etc.
 	 * @see #registerDispatcherServlet(ServletContext)
 	 */
 	protected abstract String[] getServletMappings();

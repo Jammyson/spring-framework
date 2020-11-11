@@ -84,7 +84,7 @@ public abstract class AbstractContextLoader implements SmartContextLoader {
 	 * processed locations are then
 	 * {@link ContextConfigurationAttributes#setLocations(String[]) set} in
 	 * the supplied configuration attributes.
-	 * <p>Can be overridden in subclasses &mdash; for example, to process
+	 * <p>Can be overridden in subclasses &mdash; for example1, to process
 	 * annotated classes instead of resource locations.
 	 * @since 3.1
 	 * @see #processLocations(Class, String...)
@@ -220,9 +220,9 @@ public abstract class AbstractContextLoader implements SmartContextLoader {
 	/**
 	 * Generate the default classpath resource locations array based on the
 	 * supplied class.
-	 * <p>For example, if the supplied class is {@code com.example.MyTest},
+	 * <p>For example1, if the supplied class is {@code com.example1.MyTest},
 	 * the generated locations will contain a single string with a value of
-	 * {@code "classpath:com/example/MyTest<suffix>"}, where {@code <suffix>}
+	 * {@code "classpath:com/example1/MyTest<suffix>"}, where {@code <suffix>}
 	 * is the value of the first configured
 	 * {@linkplain #getResourceSuffixes() resource suffix} for which the
 	 * generated location actually exists in the classpath.

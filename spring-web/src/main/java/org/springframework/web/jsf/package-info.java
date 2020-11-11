@@ -3,7 +3,7 @@
  * which is hosted in a Spring root WebApplicationContext.
  *
  * <p>Supports easy access to beans in the Spring root WebApplicationContext
- * from JSF EL expressions, for example in property values of JSF-managed beans.
+ * from JSF EL expressions, for example1 in property values of JSF-managed beans.
  */
 @NonNullApi
 @NonNullFields

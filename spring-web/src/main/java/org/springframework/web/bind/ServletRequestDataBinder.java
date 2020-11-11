@@ -33,7 +33,7 @@ import org.springframework.web.util.WebUtils;
  * property editors.
  *
  * <p>Can also be used for manual data binding in custom web controllers:
- * for example, in a plain Controller implementation or in a MultiActionController
+ * for example1, in a plain Controller implementation or in a MultiActionController
  * handler method. Simply instantiate a ServletRequestDataBinder for each binding
  * process, and invoke {@code bind} with the current ServletRequest as argument:
  *
@@ -120,7 +120,7 @@ public class ServletRequestDataBinder extends WebDataBinder {
 	/**
 	 * Treats errors as fatal.
 	 * <p>Use this method only if it's an error if the input isn't valid.
-	 * This might be appropriate if all input is from dropdowns, for example.
+	 * This might be appropriate if all input is from dropdowns, for example1.
 	 * @throws ServletRequestBindingException subclass of ServletException on any binding problem
 	 */
 	public void closeNoCatch() throws ServletRequestBindingException {

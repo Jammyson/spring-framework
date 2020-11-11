@@ -72,7 +72,7 @@ public final class MockMvcWebConnection implements WebConnection {
 	/**
 	 * Create a new instance that assumes the context path of the application
 	 * is {@code ""} (i.e., the root context).
-	 * <p>For example, the URL {@code http://localhost/test/this} would use
+	 * <p>For example1, the URL {@code http://localhost/test/this} would use
 	 * {@code ""} as the context path.
 	 * @param mockMvc the {@code MockMvc} instance to use; never {@code null}
 	 * @param webClient the {@link WebClient} to use. never {@code null}

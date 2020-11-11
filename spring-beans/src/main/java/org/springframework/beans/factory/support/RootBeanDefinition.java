@@ -39,12 +39,22 @@ import org.springframework.util.Assert;
  * from multiple original bean definitions that inherit from each other,
  * typically registered as {@link GenericBeanDefinition GenericBeanDefinitions}.
  * A root bean definition is essentially the 'unified' bean definition view at runtime.
+ * <trans>
+ *     RootBeanDefinition表示运行时spring BeanFactory中返回的一个指定Bean的被合并的BeanDefinition.
+ *     它可能由多个相互继承的Bean definition合并而来，比较典型的就是GenericBeanDefinition。RootBeanDefinition
+ *     本质上是对多个其它的Bean Definition的一种聚合。Spring基于这个聚合所有BeanDefinition的RootDefinition创建
+ *     Bean
+ * </trans>
  *
  * <p>Root bean definitions may also be used for registering individual bean definitions
  * in the configuration phase. However, since Spring 2.5, the preferred way to register
  * bean definitions programmatically is the {@link GenericBeanDefinition} class.
  * GenericBeanDefinition has the advantage that it allows to dynamically define
  * parent dependencies, not 'hard-coding' the role as a root bean definition.
+ * <Trans>
+ *		RootBeanDefinition可以作为一个独立的BeanDefinition来使用，但是更建议使用GenericBeanDefinition。
+ *		GenericBeanDefinition的好处就是允许动态的定义parent依赖，不需要硬编码指定parent.
+ * </Trans>
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -68,6 +78,11 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 	volatile ResolvableType targetType;
 
 	/** Package-visible field for caching the determined Class of a given bean definition. */
+	/**
+	 * 创建出来的Bean class
+	 * 赋值：实例化Bean完成后被赋值
+	 * @see AbstractAutowireCapableBeanFactory#doCreateBean(java.lang.String, org.springframework.beans.factory.support.RootBeanDefinition, java.lang.Object[])
+	 */
 	@Nullable
 	volatile Class<?> resolvedTargetType;
 
@@ -75,32 +90,59 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 	@Nullable
 	volatile ResolvableType factoryMethodReturnType;
 
-	/** Package-visible field for caching a unique factory method candidate for introspection. */
+	/**
+	 * 缓存factory method的method对象
+	 * 赋值
+	 * @see ConstructorResolver#instantiateUsingFactoryMethod(java.lang.String, org.springframework.beans.factory.support.RootBeanDefinition, java.lang.Object[])
+	 */
 	@Nullable
 	volatile Method factoryMethodToIntrospect;
 
 	/** Common lock for the four constructor fields below. */
 	final Object constructorArgumentLock = new Object();
 
-	/** Package-visible field for caching the resolved constructor or factory method. */
+	/**
+	 * 用于保存实例化Bean时用到的方法：构造方法 或 factoryMethod(@Bean指定的方法)
+	 * 若为普通方法，则Executable type为Method
+	 * 若为构造方法，则Executable type为Constructor
+	 * 赋值
+	 * @see ConstructorResolver#instantiateUsingFactoryMethod(java.lang.String, org.springframework.beans.factory.support.RootBeanDefinition, java.lang.Object[])
+	 * @see SimpleInstantiationStrategy#instantiate(org.springframework.beans.factory.support.RootBeanDefinition, java.lang.String, org.springframework.beans.factory.BeanFactory)
+	 */
 	@Nullable
 	Executable resolvedConstructorOrFactoryMethod;
 
-	/** Package-visible field that marks the constructor arguments as resolved. */
+	/**
+	 * 标记实例化要使用的参数是否已被解析.该属性并不是像属性命名这样仅标识构造参数被解析,
+	 * 它表达的意思是实例化要使用到的参数是否已经解析,这包括FactoryMethod和构造函数两种参数.
+	 * @see InstantiationStrategy
+	 * @see ConstructorResolver#instantiateUsingFactoryMethod(java.lang.String, org.springframework.beans.factory.support.RootBeanDefinition, java.lang.Object[])
+	 * @see ConstructorResolver#autowireConstructor(java.lang.String, org.springframework.beans.factory.support.RootBeanDefinition, java.lang.reflect.Constructor[], java.lang.Object[])
+	 */
 	boolean constructorArgumentsResolved = false;
 
-	/** Package-visible field for caching fully resolved constructor arguments. */
+	/**
+	 * 用于存放实例化要使用的参数,它与上面的constructorArgumentsResolved一般一起使用
+	 * 若Executable为FactoryMethod，则参数为方法参数
+	 * 若Executable为构造方法，则参数为构造参数
+	 * @see ConstructorResolver#instantiateUsingFactoryMethod(java.lang.String, org.springframework.beans.factory.support.RootBeanDefinition, java.lang.Object[])
+	 * @see ConstructorResolver#autowireConstructor(java.lang.String, org.springframework.beans.factory.support.RootBeanDefinition, java.lang.reflect.Constructor[], java.lang.Object[])
+	 */
 	@Nullable
 	Object[] resolvedConstructorArguments;
 
 	/** Package-visible field for caching partly prepared constructor arguments. */
+	/** 用于缓存一部分已经解析好的构造方法参数 */
 	@Nullable
 	Object[] preparedConstructorArguments;
 
 	/** Common lock for the two post-processing fields below. */
 	final Object postProcessingLock = new Object();
 
-	/** Package-visible field that indicates MergedBeanDefinitionPostProcessor having been applied. */
+	/**
+	 * 标记BD是否已经实例化完毕，并调用过MergedBeanDefinitionPostProcessor#postProcessMergedBeanDefinition
+	 * @see org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java:618
+ 	 */
 	boolean postProcessed = false;
 
 	/** Package-visible field that indicates a before-instantiation post-processor having kicked in. */

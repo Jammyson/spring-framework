@@ -554,7 +554,7 @@ public class RequestContext {
 
 	/**
 	 * Return a context-aware URl for the given relative URL with placeholders (named keys with braces {@code {}}).
-	 * For example, send in a relative URL {@code foo/{bar}?spam={spam}} and a parameter map
+	 * For example1, send in a relative URL {@code foo/{bar}?spam={spam}} and a parameter map
 	 * {@code {bar=baz,spam=nuts}} and the result will be {@code [contextpath]/foo/baz?spam=nuts}.
 	 * @param relativeUrl the relative URL part
 	 * @param params a map of parameters to insert as placeholders in the url

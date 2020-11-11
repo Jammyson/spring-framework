@@ -31,7 +31,7 @@ import org.springframework.web.server.WebFilterChain;
  * CORS simple and actual requests thanks to a {@link CorsProcessor} implementation
  * ({@link DefaultCorsProcessor} by default) in order to add the relevant CORS
  * response headers (like {@code Access-Control-Allow-Origin}) using the provided
- * {@link CorsConfigurationSource} (for example an {@link UrlBasedCorsConfigurationSource}
+ * {@link CorsConfigurationSource} (for example1 an {@link UrlBasedCorsConfigurationSource}
  * instance.
  *
  * <p>This is an alternative to Spring WebFlux Java config CORS configuration,

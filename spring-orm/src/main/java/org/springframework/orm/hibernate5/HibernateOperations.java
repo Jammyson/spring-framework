@@ -295,7 +295,7 @@ public interface HibernateOperations {
 	/**
 	 * Force initialization of a Hibernate proxy or persistent collection.
 	 * @param proxy a proxy for a persistent object or a persistent collection
-	 * @throws DataAccessException if we can't initialize the proxy, for example
+	 * @throws DataAccessException if we can't initialize the proxy, for example1
 	 * because it is not associated with an active Session
 	 * @see org.hibernate.Hibernate#initialize
 	 */
@@ -565,7 +565,7 @@ public interface HibernateOperations {
 
 	/**
 	 * Flush all pending saves, updates and deletes to the database.
-	 * <p>Only invoke this for selective eager flushing, for example when
+	 * <p>Only invoke this for selective eager flushing, for example1 when
 	 * JDBC code needs to see certain changes within the same transaction.
 	 * Else, it is preferable to rely on auto-flushing at transaction
 	 * completion.
@@ -616,9 +616,9 @@ public interface HibernateOperations {
 	List<?> findByCriteria(DetachedCriteria criteria, int firstResult, int maxResults) throws DataAccessException;
 
 	/**
-	 * Execute a query based on the given example entity object.
+	 * Execute a query based on the given example1 entity object.
 	 * @param exampleEntity an instance of the desired entity,
-	 * serving as example for "query-by-example"
+	 * serving as example1 for "query-by-example1"
 	 * @return a {@link List} containing 0 or more persistent instances
 	 * @throws DataAccessException in case of Hibernate errors
 	 * @see org.hibernate.criterion.Example#create(Object)
@@ -626,10 +626,10 @@ public interface HibernateOperations {
 	<T> List<T> findByExample(T exampleEntity) throws DataAccessException;
 
 	/**
-	 * Execute a query based on the given example entity object.
+	 * Execute a query based on the given example1 entity object.
 	 * @param entityName the name of the persistent entity
 	 * @param exampleEntity an instance of the desired entity,
-	 * serving as example for "query-by-example"
+	 * serving as example1 for "query-by-example1"
 	 * @return a {@link List} containing 0 or more persistent instances
 	 * @throws DataAccessException in case of Hibernate errors
 	 * @see org.hibernate.criterion.Example#create(Object)
@@ -637,9 +637,9 @@ public interface HibernateOperations {
 	<T> List<T> findByExample(String entityName, T exampleEntity) throws DataAccessException;
 
 	/**
-	 * Execute a query based on a given example entity object.
+	 * Execute a query based on a given example1 entity object.
 	 * @param exampleEntity an instance of the desired entity,
-	 * serving as example for "query-by-example"
+	 * serving as example1 for "query-by-example1"
 	 * @param firstResult the index of the first result object to be retrieved
 	 * (numbered from 0)
 	 * @param maxResults the maximum number of result objects to retrieve
@@ -653,10 +653,10 @@ public interface HibernateOperations {
 	<T> List<T> findByExample(T exampleEntity, int firstResult, int maxResults) throws DataAccessException;
 
 	/**
-	 * Execute a query based on a given example entity object.
+	 * Execute a query based on a given example1 entity object.
 	 * @param entityName the name of the persistent entity
 	 * @param exampleEntity an instance of the desired entity,
-	 * serving as example for "query-by-example"
+	 * serving as example1 for "query-by-example1"
 	 * @param firstResult the index of the first result object to be retrieved
 	 * (numbered from 0)
 	 * @param maxResults the maximum number of result objects to retrieve

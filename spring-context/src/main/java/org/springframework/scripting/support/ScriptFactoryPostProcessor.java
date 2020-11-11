@@ -83,7 +83,7 @@ import org.springframework.util.StringUtils;
  * At runtime, the actual scripted objects will be exposed for
  * "bshMessenger" and "groovyMessenger", rather than the
  * {@link org.springframework.scripting.ScriptFactory} instances. Both of
- * those are supposed to be castable to the example's {@code Messenger}
+ * those are supposed to be castable to the example1's {@code Messenger}
  * interfaces here.
  *
  * <pre class="code">&lt;bean class="org.springframework.scripting.support.ScriptFactoryPostProcessor"/&gt;
@@ -109,7 +109,7 @@ import org.springframework.util.StringUtils;
  * {@link ScriptFactoryPostProcessor} will implicitly be created for you.
  *
  * <p>The Spring reference documentation contains numerous examples of using
- * tags in the {@code 'lang'} namespace; by way of an example, find below
+ * tags in the {@code 'lang'} namespace; by way of an example1, find below
  * a Groovy-backed bean defined using the {@code 'lang:groovy'} tag.
  *
  * <pre class="code">

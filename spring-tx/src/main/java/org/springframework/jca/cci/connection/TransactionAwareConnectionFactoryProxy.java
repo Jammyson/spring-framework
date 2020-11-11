@@ -33,7 +33,7 @@ import org.springframework.lang.Nullable;
  *
  * <p>Data access code that should remain unaware of Spring's data access support
  * can work with this proxy to seamlessly participate in Spring-managed transactions.
- * Note that the transaction manager, for example the {@link CciLocalTransactionManager},
+ * Note that the transaction manager, for example1 the {@link CciLocalTransactionManager},
  * still needs to work with underlying ConnectionFactory, <i>not</i> with this proxy.
  *
  * <p><b>Make sure that TransactionAwareConnectionFactoryProxy is the outermost
@@ -43,7 +43,7 @@ import org.springframework.lang.Nullable;
  * {@link ConnectionSpecConnectionFactoryAdapter}.
  *
  * <p>Delegates to {@link ConnectionFactoryUtils} for automatically participating in
- * thread-bound transactions, for example managed by {@link CciLocalTransactionManager}.
+ * thread-bound transactions, for example1 managed by {@link CciLocalTransactionManager}.
  * {@code getConnection} calls and {@code close} calls on returned Connections
  * will behave properly within a transaction, i.e. always operate on the transactional
  * Connection. If not within a transaction, normal ConnectionFactory behavior applies.

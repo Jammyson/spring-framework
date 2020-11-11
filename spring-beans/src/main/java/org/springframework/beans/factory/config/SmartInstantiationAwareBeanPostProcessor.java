@@ -81,8 +81,17 @@ public interface SmartInstantiationAwareBeanPostProcessor extends InstantiationA
 	 * for the affected bean has been built for a call to this method already,
 	 * it will be exposes as final bean reference by default).
 	 * <p>The default implementation returns the given {@code bean} as-is.
-	 * @param bean the raw bean instance
-	 * @param beanName the name of the bean
+	 *
+	 * <trans>
+	 * 	 暴露early bean reference和处理完毕的BeanDefinition,提供扩展点.(实例化完毕、未进行初始化的Bean也被称为early bean reference.).
+	 * 	 spring对此方法的返回值虽不强制、但必须遵守的要求:方法返回值应该 直接指向原有Bean对象 或者 间接持有指向原有Bean对象的引用.
+	 * 	 保证spring能够对Bean进行正确的属性注入和初始化操作.
+	 * 	 一个典型的该方法的实现就是AOP:AOP返回的代理引用,从效果上看可以等效于指向原始Bean对象,因为AOP的代理对象它持有
+	 * 	 指向原始对象的引用.
+	 * </trans>
+	 *
+	 * @param bean the raw bean instance   原始Bean对象
+	 * @param beanName the name of the bean   BeanName
 	 * @return the object to expose as bean reference
 	 * (typically with the passed-in bean instance as default)
 	 * @throws org.springframework.beans.BeansException in case of errors

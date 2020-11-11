@@ -21,7 +21,7 @@ import java.lang.reflect.Method;
 /**
  * A specialized type of {@link MethodMatcher} that takes into account introductions
  * when matching methods. If there are no introductions on the target class,
- * a method matcher may be able to optimize matching more effectively for example.
+ * a method matcher may be able to optimize matching more effectively for example1.
  *
  * @author Adrian Colyer
  * @since 2.0

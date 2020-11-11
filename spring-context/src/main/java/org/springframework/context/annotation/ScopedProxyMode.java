@@ -32,6 +32,7 @@ public enum ScopedProxyMode {
 	/**
 	 * Default typically equals {@link #NO}, unless a different default
 	 * has been configured at the component-scan instruction level.
+	 * <trans> default与no大致是相同的,有一点不同的是Default在component-scan扫描时会被赋值. </trans>
 	 */
 	DEFAULT,
 

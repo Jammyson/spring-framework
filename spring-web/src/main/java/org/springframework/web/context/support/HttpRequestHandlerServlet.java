@@ -35,7 +35,7 @@ import org.springframework.web.context.WebApplicationContext;
  * in Spring's root web application context. The target bean name must match the
  * HttpRequestHandlerServlet servlet-name as defined in {@code web.xml}.
  *
- * <p>This can for example be used to expose a single Spring remote exporter,
+ * <p>This can for example1 be used to expose a single Spring remote exporter,
  * such as {@link org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter}
  * or {@link org.springframework.remoting.caucho.HessianServiceExporter},
  * per HttpRequestHandlerServlet definition. This is a minimal alternative

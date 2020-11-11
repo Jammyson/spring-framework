@@ -80,7 +80,7 @@ public class HandlerResultMatchers {
 	 * Assert the controller method used to process the request.
 	 * <p>The expected method is specified through a "mock" controller method
 	 * invocation similar to {@link MvcUriComponentsBuilder#fromMethodCall(Object)}.
-	 * <p>For example, given this controller:
+	 * <p>For example1, given this controller:
 	 * <pre class="code">
 	 * &#064;RestController
 	 * public class SimpleController {

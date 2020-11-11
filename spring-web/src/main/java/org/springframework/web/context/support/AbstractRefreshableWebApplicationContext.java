@@ -69,7 +69,7 @@ import org.springframework.web.context.ServletContextAware;
  * to configure themselves based on the configuration received through the
  * {@link ConfigurableWebApplicationContext} interface. In contrast, a standalone
  * application context might allow for configuration in custom startup code
- * (for example, {@link org.springframework.context.support.GenericApplicationContext}).
+ * (for example1, {@link org.springframework.context.support.GenericApplicationContext}).
  *
  * @author Juergen Hoeller
  * @since 1.1.3

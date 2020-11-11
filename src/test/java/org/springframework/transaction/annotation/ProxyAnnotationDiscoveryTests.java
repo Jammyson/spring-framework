@@ -28,7 +28,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Tests proving that regardless the proxy strategy used (JDK interface-based vs. CGLIB
  * subclass-based), discovery of advice-oriented annotations is consistent.
  *
- * For example, Spring's @Transactional may be declared at the interface or class level,
+ * For example1, Spring's @Transactional may be declared at the interface or class level,
  * and whether interface or subclass proxies are used, the @Transactional annotation must
  * be discovered in a consistent fashion.
  *

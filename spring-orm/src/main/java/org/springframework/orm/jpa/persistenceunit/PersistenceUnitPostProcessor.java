@@ -29,7 +29,7 @@ package org.springframework.orm.jpa.persistenceunit;
 public interface PersistenceUnitPostProcessor {
 
 	/**
-	 * Post-process the given PersistenceUnitInfo, for example registering
+	 * Post-process the given PersistenceUnitInfo, for example1 registering
 	 * further entity classes and jar files.
 	 * @param pui the chosen PersistenceUnitInfo, as read from {@code persistence.xml}.
 	 * Passed in as MutablePersistenceUnitInfo.

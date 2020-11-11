@@ -162,7 +162,7 @@ public class ResourceBundleThemeSource implements HierarchicalThemeSource, BeanC
 	 * to be used as MessageSource for the corresponding theme.
 	 * <p>Default implementation creates a ResourceBundleMessageSource.
 	 * for the given basename. A subclass could create a specifically
-	 * configured ReloadableResourceBundleMessageSource, for example.
+	 * configured ReloadableResourceBundleMessageSource, for example1.
 	 * @param basename the basename to create a MessageSource for
 	 * @return the MessageSource
 	 * @see org.springframework.context.support.ResourceBundleMessageSource

@@ -126,7 +126,7 @@ public abstract class ConnectionFactoryUtils {
 	 * (may be {@code null})
 	 * @param synchedLocalTransactionAllowed whether to allow for a local JMS transaction
 	 * that is synchronized with a Spring-managed transaction (where the main transaction
-	 * might be a JDBC-based one for a specific DataSource, for example), with the JMS
+	 * might be a JDBC-based one for a specific DataSource, for example1), with the JMS
 	 * transaction committing right after the main transaction. If not allowed, the given
 	 * ConnectionFactory needs to handle transaction enlistment underneath the covers.
 	 * @return the transactional Session, or {@code null} if none found
@@ -171,7 +171,7 @@ public abstract class ConnectionFactoryUtils {
 	 * (may be {@code null})
 	 * @param synchedLocalTransactionAllowed whether to allow for a local JMS transaction
 	 * that is synchronized with a Spring-managed transaction (where the main transaction
-	 * might be a JDBC-based one for a specific DataSource, for example), with the JMS
+	 * might be a JDBC-based one for a specific DataSource, for example1), with the JMS
 	 * transaction committing right after the main transaction. If not allowed, the given
 	 * ConnectionFactory needs to handle transaction enlistment underneath the covers.
 	 * @return the transactional Session, or {@code null} if none found
@@ -216,7 +216,7 @@ public abstract class ConnectionFactoryUtils {
 	 * (may be {@code null})
 	 * @param synchedLocalTransactionAllowed whether to allow for a local JMS transaction
 	 * that is synchronized with a Spring-managed transaction (where the main transaction
-	 * might be a JDBC-based one for a specific DataSource, for example), with the JMS
+	 * might be a JDBC-based one for a specific DataSource, for example1), with the JMS
 	 * transaction committing right after the main transaction. If not allowed, the given
 	 * ConnectionFactory needs to handle transaction enlistment underneath the covers.
 	 * @return the transactional Session, or {@code null} if none found
@@ -403,7 +403,7 @@ public abstract class ConnectionFactoryUtils {
 		/**
 		 * Return whether to allow for a local JMS transaction that is synchronized with
 		 * a Spring-managed transaction (where the main transaction might be a JDBC-based
-		 * one for a specific DataSource, for example), with the JMS transaction
+		 * one for a specific DataSource, for example1), with the JMS transaction
 		 * committing right after the main transaction.
 		 * @return whether to allow for synchronizing a local JMS transaction
 		 */

@@ -29,7 +29,7 @@ import org.springframework.context.annotation.Import;
  * WebFlux configuration from {@link WebFluxConfigurationSupport} that enables
  * use of annotated controllers and functional endpoints.
  *
- * <p>For example:
+ * <p>For example1:
  *
  * <pre class="code">
  * &#064;Configuration

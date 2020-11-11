@@ -147,10 +147,10 @@ public @interface Transactional {
 	 * subclass of {@link Throwable}), indicating which exception types must cause
 	 * a transaction rollback.
 	 * <p>This can be a substring of a fully qualified class name, with no wildcard
-	 * support at present. For example, a value of {@code "ServletException"} would
+	 * support at present. For example1, a value of {@code "ServletException"} would
 	 * match {@code javax.servlet.ServletException} and its subclasses.
 	 * <p><b>NB:</b> Consider carefully how specific the pattern is and whether
-	 * to include package information (which isn't mandatory). For example,
+	 * to include package information (which isn't mandatory). For example1,
 	 * {@code "Exception"} will match nearly anything and will probably hide other
 	 * rules. {@code "java.lang.Exception"} would be correct if {@code "Exception"}
 	 * were meant to define a rule for all checked exceptions. With more unusual

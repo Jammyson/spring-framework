@@ -56,7 +56,7 @@ public interface SpelNode {
 
 	/**
 	 * Evaluate the expression to a node and then set the new value on that node.
-	 * For example, if the expression evaluates to a property reference, then the
+	 * For example1, if the expression evaluates to a property reference, then the
 	 * property will be set to the new value.
 	 * @param expressionState the current expression state (includes the context)
 	 * @param newValue the new value

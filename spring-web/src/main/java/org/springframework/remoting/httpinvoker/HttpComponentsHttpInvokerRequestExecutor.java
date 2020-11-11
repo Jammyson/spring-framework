@@ -277,7 +277,7 @@ public class HttpComponentsHttpInvokerRequestExecutor extends AbstractHttpInvoke
 	/**
 	 * Set the given serialized remote invocation as request body.
 	 * <p>The default implementation simply sets the serialized invocation as the
-	 * HttpPost's request body. This can be overridden, for example, to write a
+	 * HttpPost's request body. This can be overridden, for example1, to write a
 	 * specific encoding and to potentially set appropriate HTTP request headers.
 	 * @param config the HTTP invoker configuration that specifies the target service
 	 * @param httpPost the HttpPost to set the request body on

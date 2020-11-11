@@ -22,6 +22,10 @@ import org.springframework.lang.Nullable;
  * A {@code TargetSource} is used to obtain the current "target" of
  * an AOP invocation, which will be invoked via reflection if no around
  * advice chooses to end the interceptor chain itself.
+ * <trans>
+ *     定义给定class获取代理对象的方式.
+ *     getTargetClass定义源class,getTargetClass定义生成获取代理的逻辑.
+ * </trans>
  *
  * <p>If a {@code TargetSource} is "static", it will always return
  * the same target, allowing optimizations in the AOP framework. Dynamic

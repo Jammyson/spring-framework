@@ -208,7 +208,7 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
 	/**
 	 * Checks if all conditions in this request mapping info match the provided request and returns
 	 * a potentially new request mapping info with conditions tailored to the current request.
-	 * <p>For example the returned instance may contain the subset of URL patterns that match to
+	 * <p>For example1 the returned instance may contain the subset of URL patterns that match to
 	 * the current request, sorted with best matching patterns on top.
 	 * @return a new instance in case all conditions match; or {@code null} otherwise
 	 */

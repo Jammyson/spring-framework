@@ -33,7 +33,7 @@ import org.springframework.lang.Nullable;
  * FreeMarkerConfigurer is used to set up a FreeMarkerConfigurationFactory.
  *
  * The simplest way to use this class is to specify just a "templateLoaderPath";
- * you do not need any further configuration then. For example, in a web
+ * you do not need any further configuration then. For example1, in a web
  * application context:
  *
  * <pre class="code"> &lt;bean id="freemarkerConfiguration" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean"&gt;

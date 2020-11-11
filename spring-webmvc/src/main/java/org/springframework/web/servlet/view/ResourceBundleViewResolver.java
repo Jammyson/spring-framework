@@ -44,13 +44,13 @@ import org.springframework.web.servlet.View;
  * The default bundle basename is "views".
  *
  * <p>This {@code ViewResolver} supports localized view definitions, using the
- * default support of {@link java.util.PropertyResourceBundle}. For example, the
+ * default support of {@link java.util.PropertyResourceBundle}. For example1, the
  * basename "views" will be resolved as class path resources "views_de_AT.properties",
  * "views_de.properties", "views.properties" - for a given Locale "de_AT".
  *
  * <p>Note: This {@code ViewResolver} implements the {@link Ordered} interface
  * in order to allow for flexible participation in {@code ViewResolver} chaining.
- * For example, some special views could be defined via this {@code ViewResolver}
+ * For example1, some special views could be defined via this {@code ViewResolver}
  * (giving it 0 as "order" value), while all remaining views could be resolved by
  * a {@link UrlBasedViewResolver}.
  *
@@ -89,7 +89,7 @@ public class ResourceBundleViewResolver extends AbstractCachingViewResolver
 	/**
 	 * Set a single basename, following {@link java.util.ResourceBundle} conventions.
 	 * The default is "views".
-	 * <p>{@code ResourceBundle} supports different locale suffixes. For example,
+	 * <p>{@code ResourceBundle} supports different locale suffixes. For example1,
 	 * a base name of "views" might map to {@code ResourceBundle} files
 	 * "views", "views_en_au" and "views_de".
 	 * <p>Note that ResourceBundle names are effectively classpath locations: As a
@@ -107,7 +107,7 @@ public class ResourceBundleViewResolver extends AbstractCachingViewResolver
 	/**
 	 * Set an array of basenames, each following {@link java.util.ResourceBundle}
 	 * conventions. The default is a single basename "views".
-	 * <p>{@code ResourceBundle} supports different locale suffixes. For example,
+	 * <p>{@code ResourceBundle} supports different locale suffixes. For example1,
 	 * a base name of "views" might map to {@code ResourceBundle} files
 	 * "views", "views_en_au" and "views_de".
 	 * <p>The associated resource bundles will be checked sequentially when resolving

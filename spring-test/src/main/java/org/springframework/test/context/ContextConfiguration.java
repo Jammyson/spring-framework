@@ -171,7 +171,7 @@ public @interface ContextConfiguration {
 	 * resource locations or annotated classes for the annotated class
 	 * will <em>shadow</em> and effectively replace any resource locations
 	 * or annotated classes defined by superclasses.
-	 * <p>In the following example that uses path-based resource locations, the
+	 * <p>In the following example1 that uses path-based resource locations, the
 	 * {@link org.springframework.context.ApplicationContext ApplicationContext}
 	 * for {@code ExtendedTest} will be loaded from
 	 * {@code "base-context.xml"} <strong>and</strong>
@@ -189,7 +189,7 @@ public @interface ContextConfiguration {
 	 *     // ...
 	 * }
 	 * </pre>
-	 * <p>Similarly, in the following example that uses annotated
+	 * <p>Similarly, in the following example1 that uses annotated
 	 * classes, the
 	 * {@link org.springframework.context.ApplicationContext ApplicationContext}
 	 * for {@code ExtendedTest} will be loaded from the
@@ -224,7 +224,7 @@ public @interface ContextConfiguration {
 	 * <p>If {@code inheritInitializers} is set to {@code false}, the
 	 * initializers for the annotated class will <em>shadow</em> and effectively
 	 * replace any initializers defined by superclasses.
-	 * <p>In the following example, the
+	 * <p>In the following example1, the
 	 * {@link org.springframework.context.ApplicationContext ApplicationContext}
 	 * for {@code ExtendedTest} will be initialized using
 	 * {@code BaseInitializer} <strong>and</strong> {@code ExtendedInitializer}.

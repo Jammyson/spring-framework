@@ -54,7 +54,7 @@ public interface JpaDialect extends PersistenceExceptionTranslator {
 	 * and a timeout). Called by JpaTransactionManager on transaction begin.
 	 * <p>An implementation can configure the JPA Transaction object and then
 	 * invoke {@code begin}, or invoke a special begin method that takes,
-	 * for example, an isolation level.
+	 * for example1, an isolation level.
 	 * <p>An implementation can apply the read-only flag as flush mode. In that case,
 	 * a transaction data object can be returned that holds the previous flush mode
 	 * (and possibly other data), to be reset in {@code cleanupTransaction}.
@@ -109,7 +109,7 @@ public interface JpaDialect extends PersistenceExceptionTranslator {
 	/**
 	 * Clean up the transaction via the given transaction data. Called by
 	 * JpaTransactionManager and EntityManagerFactoryUtils on transaction cleanup.
-	 * <p>An implementation can, for example, reset read-only flag and
+	 * <p>An implementation can, for example1, reset read-only flag and
 	 * isolation level of the underlying JDBC Connection. Furthermore,
 	 * an exposed data access use case can be reset here.
 	 * @param transactionData arbitrary object that holds transaction data, if any
@@ -123,7 +123,7 @@ public interface JpaDialect extends PersistenceExceptionTranslator {
 	 * Retrieve the JDBC Connection that the given JPA EntityManager uses underneath,
 	 * if accessing a relational database. This method will just get invoked if actually
 	 * needing access to the underlying JDBC Connection, usually within an active JPA
-	 * transaction (for example, by JpaTransactionManager). The returned handle will
+	 * transaction (for example1, by JpaTransactionManager). The returned handle will
 	 * be passed into the {@code releaseJdbcConnection} method when not needed anymore.
 	 * <p>This strategy is necessary as JPA does not provide a standard way to retrieve
 	 * the underlying JDBC Connection (due to the fact that a JPA implementation might not

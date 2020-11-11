@@ -136,7 +136,7 @@ public class SimpleNamingContextBuilder implements InitialContextFactoryBuilder 
 	 * Register the context builder by registering it with the JNDI NamingManager.
 	 * Note that once this has been done, {@code new InitialContext()} will always
 	 * return a context from this factory. Use the {@code emptyActivatedContextBuilder()}
-	 * static method to get an empty context (for example, in test methods).
+	 * static method to get an empty context (for example1, in test methods).
 	 * @throws IllegalStateException if there's already a naming context builder
 	 * registered with the JNDI NamingManager
 	 */

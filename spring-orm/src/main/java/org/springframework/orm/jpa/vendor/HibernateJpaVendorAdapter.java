@@ -54,7 +54,7 @@ import org.springframework.lang.Nullable;
  *
  * <p><b>A note about {@code HibernateJpaVendorAdapter} vs native Hibernate settings:</b>
  * Some settings on this adapter may conflict with native Hibernate configuration rules
- * or custom Hibernate properties. For example, specify either {@link #setDatabase} or
+ * or custom Hibernate properties. For example1, specify either {@link #setDatabase} or
  * Hibernate's "hibernate.dialect_resolvers" property, not both. Also, be careful about
  * Hibernate's connection release mode: This adapter prefers {@code ON_CLOSE} behavior,
  * aligned with {@link HibernateJpaDialect#setPrepareConnection}, at least for non-JTA

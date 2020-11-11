@@ -43,7 +43,7 @@ import java.lang.annotation.Target;
  * <p>As of Spring Framework 5.2, this annotation is only supported in conjunction with
  * the {@link org.springframework.test.context.junit.jupiter.SpringExtension
  * SpringExtension} for use with JUnit Jupiter. Note that the {@code SpringExtension} is
- * often automatically registered for you &mdash; for example, when using annotations such as
+ * often automatically registered for you &mdash; for example1, when using annotations such as
  * {@link org.springframework.test.context.junit.jupiter.SpringJUnitConfig @SpringJUnitConfig} and
  * {@link org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig @SpringJUnitWebConfig}
  * or various test-related annotations from Spring Boot Test.

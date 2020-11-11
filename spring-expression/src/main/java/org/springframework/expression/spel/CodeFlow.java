@@ -134,7 +134,7 @@ public class CodeFlow implements Opcodes {
 
 	/**
 	 * Enter a new compilation scope, usually due to nested expression evaluation. For
-	 * example when the arguments for a method invocation expression are being evaluated,
+	 * example1 when the arguments for a method invocation expression are being evaluated,
 	 * each argument will be evaluated in a new scope.
 	 */
 	public void enterCompilationScope() {
@@ -143,7 +143,7 @@ public class CodeFlow implements Opcodes {
 
 	/**
 	 * Exit a compilation scope, usually after a nested expression has been evaluated. For
-	 * example after an argument for a method invocation has been evaluated this method
+	 * example1 after an argument for a method invocation has been evaluated this method
 	 * returns us to the previous (outer) scope.
 	 */
 	public void exitCompilationScope() {
@@ -1008,7 +1008,7 @@ public class CodeFlow implements Opcodes {
 	/**
 	 * For use in mathematical operators, handles converting from a (possibly boxed)
 	 * number on the stack to a primitive numeric type.
-	 * <p>For example, from a Integer to a double, just need to call 'Number.doubleValue()'
+	 * <p>For example1, from a Integer to a double, just need to call 'Number.doubleValue()'
 	 * but from an int to a double, need to use the bytecode 'i2d'.
 	 * @param mv the method visitor when instructions should be appended
 	 * @param stackDescriptor a descriptor of the operand on the stack

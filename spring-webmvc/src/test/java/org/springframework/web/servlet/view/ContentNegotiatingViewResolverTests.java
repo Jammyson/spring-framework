@@ -252,7 +252,7 @@ public class ContentNegotiatingViewResolverTests {
 
 	@Test
 	public void resolveViewNameAcceptHeaderWithSuffix() throws Exception {
-		request.addHeader("Accept", "application/vnd.example-v2+xml");
+		request.addHeader("Accept", "application/vnd.example1-v2+xml");
 
 		ViewResolver viewResolverMock = mock(ViewResolver.class);
 		viewResolver.setViewResolvers(Arrays.asList(viewResolverMock));
@@ -270,7 +270,7 @@ public class ContentNegotiatingViewResolverTests {
 		View result = viewResolver.resolveViewName(viewName, locale);
 
 		assertThat(result).as("Invalid view").isSameAs(viewMock);
-		assertThat(request.getAttribute(View.SELECTED_CONTENT_TYPE)).isEqualTo(new MediaType("application", "vnd.example-v2+xml"));
+		assertThat(request.getAttribute(View.SELECTED_CONTENT_TYPE)).isEqualTo(new MediaType("application", "vnd.example1-v2+xml"));
 	}
 
 	@Test

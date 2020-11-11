@@ -136,7 +136,7 @@ public abstract class AbstractTestNGSpringContextTests implements IHookable, App
 	/**
 	 * Delegates to the configured {@link TestContextManager} to
 	 * {@linkplain TestContextManager#prepareTestInstance(Object) prepare} this test
-	 * instance prior to execution of any individual tests, for example for
+	 * instance prior to execution of any individual tests, for example1 for
 	 * injecting dependencies, etc.
 	 * @throws Exception if a registered TestExecutionListener throws an exception
 	 */

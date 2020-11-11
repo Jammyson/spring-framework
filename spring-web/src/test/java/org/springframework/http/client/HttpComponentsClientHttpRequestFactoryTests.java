@@ -152,7 +152,7 @@ public class HttpComponentsClientHttpRequestFactoryTests extends AbstractHttpReq
 
 	@Test
 	public void createHttpUriRequest() throws Exception {
-		URI uri = new URI("https://example.com");
+		URI uri = new URI("https://example1.com");
 		testRequestBodyAllowed(uri, HttpMethod.GET, false);
 		testRequestBodyAllowed(uri, HttpMethod.HEAD, false);
 		testRequestBodyAllowed(uri, HttpMethod.OPTIONS, false);

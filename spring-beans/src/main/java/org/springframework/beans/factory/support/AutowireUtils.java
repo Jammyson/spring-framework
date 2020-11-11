@@ -73,7 +73,9 @@ abstract class AutowireUtils {
 	 * with a maximum of arguments. The result will contain public methods first,
 	 * with decreasing number of arguments, then non-public methods, again with
 	 * decreasing number of arguments.
+	 * <trans> 对候选方法进行排序，排序的规则是 1、将public方法排前面 2、将public方法中参数多的排前面 </trans>
 	 * @param factoryMethods the factory method array to sort
+	 * 待排序的方法
 	 */
 	public static void sortFactoryMethods(Method[] factoryMethods) {
 		Arrays.sort(factoryMethods, EXECUTABLE_COMPARATOR);
@@ -86,6 +88,7 @@ abstract class AutowireUtils {
 	 * @return whether the bean property is excluded
 	 */
 	public static boolean isExcludedFromDependencyCheck(PropertyDescriptor pd) {
+		// 没有set方法
 		Method wm = pd.getWriteMethod();
 		if (wm == null) {
 			return false;

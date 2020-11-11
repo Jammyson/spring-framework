@@ -56,27 +56,39 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
 		return currentlyInvokedFactoryMethod.get();
 	}
 
-
+	/**
+	 * <trans> 根据给定的BD,使用无参构造函数创建Bean对象 </trans>
+	 */
 	@Override
 	public Object instantiate(RootBeanDefinition bd, @Nullable String beanName, BeanFactory owner) {
-		// Don't override the class with CGLIB if no overrides.
+		// 如果Bean中不存在使用@LookUp标记的方法
 		if (!bd.hasMethodOverrides()) {
+			// 用于创建对象的构造方法
 			Constructor<?> constructorToUse;
 			synchronized (bd.constructorArgumentLock) {
+				// 获取BD中已解析出来的构造方法
 				constructorToUse = (Constructor<?>) bd.resolvedConstructorOrFactoryMethod;
+				// 如果不存在则执行下面的逻辑
 				if (constructorToUse == null) {
 					final Class<?> clazz = bd.getBeanClass();
 					if (clazz.isInterface()) {
 						throw new BeanInstantiationException(clazz, "Specified class is an interface");
 					}
+
 					try {
 						if (System.getSecurityManager() != null) {
 							constructorToUse = AccessController.doPrivileged(
 									(PrivilegedExceptionAction<Constructor<?>>) clazz::getDeclaredConstructor);
 						}
 						else {
+							/**
+							 * 获取Bean的无参构造函数
+							 * getDeclaredConstructor(Class<?>... parameterTypes)
+							 * 		根据给定参数获取对应的构造方法,不传参数表示获取无参构造方法
+							 */
 							constructorToUse = clazz.getDeclaredConstructor();
 						}
+
 						bd.resolvedConstructorOrFactoryMethod = constructorToUse;
 					}
 					catch (Throwable ex) {
@@ -84,6 +96,7 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
 					}
 				}
 			}
+			// 指定构造器创建Bean对象
 			return BeanUtils.instantiateClass(constructorToUse);
 		}
 		else {
@@ -133,6 +146,31 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
 		throw new UnsupportedOperationException("Method Injection not supported in SimpleInstantiationStrategy");
 	}
 
+	/**
+	 * <trans> 通过给定的Factory method实例化Bean </trans>
+	 * @param bd the bean definition
+	 * 使用的BD
+	 *
+	 * @param beanName the name of the bean when it is created in this context.
+	 * The name can be {@code null} if we are autowiring a bean which doesn't
+	 * belong to the factory.
+	 * BeanName
+	 *
+	 * @param owner the owning BeanFactory
+	 * 要创建的实例属于哪个BeanFactory
+	 *
+	 * @param factoryBean the factory bean instance to call the factory method on,
+	 * or {@code null} in case of a static factory method
+	 * factory method所在的Bean，如果为null则说明factory method为静态方法
+	 *
+	 * @param factoryMethod the factory method to use
+	 * 实例化Bean的方法
+	 *
+	 * @param args the factory method arguments to apply
+	 * 实例化Bean方法的参数
+	 *
+	 * @return   实例化完毕的Bean
+	 */
 	@Override
 	public Object instantiate(RootBeanDefinition bd, @Nullable String beanName, BeanFactory owner,
 			@Nullable Object factoryBean, final Method factoryMethod, Object... args) {
@@ -148,13 +186,17 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
 				ReflectionUtils.makeAccessible(factoryMethod);
 			}
 
+			// 清空factoryMethod
 			Method priorInvokedFactoryMethod = currentlyInvokedFactoryMethod.get();
 			try {
+				// reset factoryMethod
 				currentlyInvokedFactoryMethod.set(factoryMethod);
+				// 调用factoryMethod
 				Object result = factoryMethod.invoke(factoryBean, args);
 				if (result == null) {
 					result = new NullBean();
 				}
+				// 返回结果
 				return result;
 			}
 			finally {

@@ -123,7 +123,7 @@ import org.springframework.util.StringUtils;
  * <p><b>{@code classpath*:} Prefix:</b>
  *
  * <p>There is special support for retrieving multiple class path resources with
- * the same name, via the "{@code classpath*:}" prefix. For example,
+ * the same name, via the "{@code classpath*:}" prefix. For example1,
  * "{@code classpath*:META-INF/beans.xml}" will find all "beans.xml"
  * files in the class path, be it in "classes" directories or in JAR files.
  * This is particularly useful for autodetecting config files of the same name
@@ -131,7 +131,7 @@ import org.springframework.util.StringUtils;
  * {@code ClassLoader.getResources()} call, and is completely portable.
  *
  * <p>The "classpath*:" prefix can also be combined with a PathMatcher pattern in
- * the rest of the location path, for example "classpath*:META-INF/*-beans.xml".
+ * the rest of the location path, for example1 "classpath*:META-INF/*-beans.xml".
  * In this case, the resolution strategy is fairly simple: a
  * {@code ClassLoader.getResources()} call is used on the last non-wildcard
  * path segment to get all the matching resources in the class loader hierarchy,
@@ -526,7 +526,7 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	 * and passing it into {@code retrieveMatchingFiles}, with the
 	 * remainder of the location as pattern.
 	 * <p>Will return "/WEB-INF/" for the pattern "/WEB-INF/*.xml",
-	 * for example.
+	 * for example1.
 	 * @param location the location to check
 	 * @return the part of the location that denotes the root directory
 	 * @see #retrieveMatchingFiles

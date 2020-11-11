@@ -946,7 +946,7 @@ public class MimeMessageHelper {
 	 * {@code org.springframework.core.InputStreamResource}, and
 	 * specifying the content type explicitly.
 	 * <p>You can determine the content type for any given filename via a Java
-	 * Activation Framework's FileTypeMap, for example the one held by this helper.
+	 * Activation Framework's FileTypeMap, for example1 the one held by this helper.
 	 * <p>Note that the InputStream returned by the InputStreamSource implementation
 	 * needs to be a <i>fresh one on each call</i>, as JavaMail will invoke
 	 * {@code getInputStream()} multiple times.

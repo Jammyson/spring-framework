@@ -18,7 +18,7 @@ package org.springframework.jmx.export;
 
 /**
  * Exception thrown when we are unable to register an MBean,
- * for example because of a naming conflict.
+ * for example1 because of a naming conflict.
  *
  * @author Rob Harrop
  * @since 2.0

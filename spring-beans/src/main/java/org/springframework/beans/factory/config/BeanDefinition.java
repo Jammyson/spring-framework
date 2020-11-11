@@ -30,6 +30,13 @@ import org.springframework.lang.Nullable;
  * {@link BeanFactoryPostProcessor} to introspect and modify property values
  * and other bean metadata.
  *
+ *  <Trans>
+ *      BeanDefinition描述一个Bean的实例，比如实例属性值、构造参数值以及在具体实现中
+ *      需要用到的信息。
+ * 		当前接口只是一个最小粒度的接口，它的主要意图是提供允许BeanFactoryPostProcessor
+ *      对BeanDefinition进行属性或其它Bean的元信息进行修改的能力。
+ *  </Trans>
+ *
  * @author Juergen Hoeller
  * @author Rob Harrop
  * @since 19.03.2004
@@ -158,6 +165,9 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	String[] getDependsOn();
 
 	/**
+	 * 设置是否作为自动装配的候选对象;如果配置为false那么该BeanDefinition对应的Bean就不作为
+	 * 自动装配的对象,也就是说不进行自动装配
+	 *
 	 * Set whether this bean is a candidate for getting autowired into some other bean.
 	 * <p>Note that this flag is designed to only affect type-based autowiring.
 	 * It does not affect explicit references by name, which will get resolved even
@@ -172,6 +182,8 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	boolean isAutowireCandidate();
 
 	/**
+	 * 自动装配情况下,如果同一个类找到了多个Bean,那么该设置就是设置优先级,谁先注入.
+	 *
 	 * Set whether this bean is a primary autowire candidate.
 	 * <p>If this value is {@code true} for exactly one bean among multiple
 	 * matching candidates, it will serve as a tie-breaker.
@@ -231,6 +243,8 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	 * Return the property values to be applied to a new instance of the bean.
 	 * <p>The returned instance can be modified during bean factory post-processing.
 	 * @return the MutablePropertyValues object (never {@code null})
+	 *
+	 * <trans>记录在实例化Bean时会用到的PropertyValue</trans>
 	 */
 	MutablePropertyValues getPropertyValues();
 

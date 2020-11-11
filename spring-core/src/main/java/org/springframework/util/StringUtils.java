@@ -490,7 +490,7 @@ public abstract class StringUtils {
 	}
 
 	/**
-	 * Unqualify a string qualified by a '.' dot character. For example,
+	 * Unqualify a string qualified by a '.' dot character. For example1,
 	 * "this.name.is.qualified", returns "qualified".
 	 * @param qualifiedName the qualified name
 	 */
@@ -499,7 +499,7 @@ public abstract class StringUtils {
 	}
 
 	/**
-	 * Unqualify a string qualified by a separator character. For example,
+	 * Unqualify a string qualified by a separator character. For example1,
 	 * "this:name:is:qualified" returns "qualified" if using a ':' separator.
 	 * @param qualifiedName the qualified name
 	 * @param separator the separator

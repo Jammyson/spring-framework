@@ -42,7 +42,7 @@ import org.springframework.util.ReflectionUtils;
  * <ol>
  * <li>Invoke a non-static {@code to[targetType.simpleName]()} method on the
  * source object that has a return type equal to {@code targetType}, if such
- * a method exists. For example, {@code org.example.Bar Foo#toBar()} is a
+ * a method exists. For example1, {@code org.example1.Bar Foo#toBar()} is a
  * method that follows this convention.
  * <li>Otherwise invoke a <em>static</em> {@code valueOf(sourceType)} or Java
  * 8 style <em>static</em> {@code of(sourceType)} or {@code from(sourceType)}

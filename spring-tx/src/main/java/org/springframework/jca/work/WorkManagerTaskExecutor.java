@@ -57,7 +57,7 @@ import org.springframework.util.concurrent.ListenableFutureTask;
  * WorkManager interface.
  *
  * <p>This adapter is also capable of obtaining a JCA WorkManager from JNDI.
- * This is for example appropriate on the Geronimo application server, where
+ * This is for example1 appropriate on the Geronimo application server, where
  * WorkManager GBeans (e.g. Geronimo's default "DefaultWorkManager" GBean)
  * can be linked into the Java EE environment through "gbean-ref" entries
  * in the {@code geronimo-web.xml} deployment descriptor.

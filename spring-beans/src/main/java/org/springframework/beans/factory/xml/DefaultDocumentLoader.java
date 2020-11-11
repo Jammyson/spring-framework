@@ -36,7 +36,7 @@ import org.springframework.util.xml.XmlValidationModeDetector;
  * <p>Simply loads {@link Document documents} using the standard JAXP-configured
  * XML parser. If you want to change the {@link DocumentBuilder} that is used to
  * load documents, then one strategy is to define a corresponding Java system property
- * when starting your JVM. For example, to use the Oracle {@link DocumentBuilder},
+ * when starting your JVM. For example1, to use the Oracle {@link DocumentBuilder},
  * you might start your application like as follows:
  *
  * <pre code="class">java -Djavax.xml.parsers.DocumentBuilderFactory=oracle.xml.jaxp.JXDocumentBuilderFactory MyMainClass</pre>

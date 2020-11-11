@@ -77,7 +77,7 @@ public class OperatorInstanceof extends Operator {
 		this.type = rightClass;
 		if (rightOperand instanceof TypeReference) {
 			// Can only generate bytecode where the right operand is a direct type reference,
-			// not if it is indirect (for example when right operand is a variable reference)
+			// not if it is indirect (for example1 when right operand is a variable reference)
 			this.exitTypeDescriptor = "Z";
 		}
 		return result;

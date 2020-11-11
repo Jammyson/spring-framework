@@ -37,6 +37,11 @@ import org.springframework.util.Assert;
  * Convenient adapter for programmatic registration of annotated bean classes.
  * This is an alternative to {@link ClassPathBeanDefinitionScanner}, applying
  * the same resolution of annotations but for explicitly registered classes only.
+ * <Trans>
+ *     用于处理代码中使用注解标识为Bean的处理器，属于ClassPathBeanDefinitionScanner的替代品。
+ *     ClassPathBeanDefinitionScanner与AnnotatedBeanDefinitionReader使用相同策略处理注解，
+ *     但是AnnotatedBeanDefinitionReader只处理明确给定的class(如传入进来的配置类@Configuration)。
+ * </Trans>
  *
  * @author Juergen Hoeller
  * @author Chris Beams
@@ -73,17 +78,35 @@ public class AnnotatedBeanDefinitionReader {
 	/**
 	 * Create a new {@code AnnotatedBeanDefinitionReader} for the given registry and using
 	 * the given {@link Environment}.
+	 * <trans>
+	 *     为给定的BeanDefinitionRegistry和Environment创建AnnotatedBeanDefinitionReader
+	 * </trans>
+	 *
 	 * @param registry the {@code BeanFactory} to load bean definitions into,
 	 * in the form of a {@code BeanDefinitionRegistry}
+	 * <trans>
+	 *     以BeanDefinitionRegistry形式来使用的用于存放加载的BD的BeanFactory
+	 * </trans>
+	 *
 	 * @param environment the {@code Environment} to use when evaluating bean definition
 	 * profiles.
+	 * <trans>
+	 *     计算BD的profile将会使用到的Environment，默认情况下为StandardEnvironment.
+	 * </trans>
+	 *
 	 * @since 3.1
 	 */
 	public AnnotatedBeanDefinitionReader(BeanDefinitionRegistry registry, Environment environment) {
 		Assert.notNull(registry, "BeanDefinitionRegistry must not be null");
 		Assert.notNull(environment, "Environment must not be null");
 		this.registry = registry;
+		/**
+		 * <trans> 初始化用于处理@Conditional的类 </trans>
+ 		 */
 		this.conditionEvaluator = new ConditionEvaluator(registry, environment, null);
+		/**
+		 * <trans>将所有与处理注解相关的后置处理器都注册到给定的BeanDefinitionRegistry中.</trans>
+		 */
 		AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);
 	}
 
@@ -128,11 +151,17 @@ public class AnnotatedBeanDefinitionReader {
 	 * Register one or more annotated classes to be processed.
 	 * <p>Calls to {@code register} are idempotent; adding the same
 	 * annotated class more than once has no additional effect.
+	 * <trans>
+	 *     处理annotatedClasses.register()方法是幂等的(添加多个相同的class
+	 * 	   对象不会有影响)
+	 * </trans>
+	 *
 	 * @param annotatedClasses one or more annotated classes,
 	 * e.g. {@link Configuration @Configuration} classes
 	 */
 	public void register(Class<?>... annotatedClasses) {
 		for (Class<?> annotatedClass : annotatedClasses) {
+			// 注册给定的annotatedClasses为BD到BeanFactory中
 			registerBean(annotatedClass);
 		}
 	}
@@ -141,6 +170,9 @@ public class AnnotatedBeanDefinitionReader {
 	 * Register a bean from the given bean class, deriving its metadata from
 	 * class-declared annotations.
 	 * @param annotatedClass the class of the bean
+	 * <Trans>
+	 *     从给定的class声明的类级别注解获取元数据,并将给定的class注册为bean.
+	 * </Trans>
 	 */
 	public void registerBean(Class<?> annotatedClass) {
 		doRegisterBean(annotatedClass, null, null, null, null);
@@ -228,38 +260,61 @@ public class AnnotatedBeanDefinitionReader {
 	 */
 	public <T> void registerBean(Class<T> annotatedClass, @Nullable String name, @Nullable Supplier<T> supplier,
 			BeanDefinitionCustomizer... customizers) {
-
 		doRegisterBean(annotatedClass, name, null, supplier, customizers);
 	}
 
 	/**
 	 * Register a bean from the given bean class, deriving its metadata from
 	 * class-declared annotations.
+	 * <Trans>
+	 * 	 从给定的class声明的类级别注解获取元数据,并将给定的class注册为bean.
+	 * </Trans>
+	 *
 	 * @param annotatedClass the class of the bean
+	 *
 	 * @param name an explicit name for the bean
+	 *
 	 * @param supplier a callback for creating an instance of the bean
 	 * (may be {@code null})
+	 * <Trans> bean实例化后的回调 </Trans>
+	 *
 	 * @param qualifiers specific qualifier annotations to consider, if any,
 	 * in addition to qualifiers at the bean class level
+	 * <Trans> 对某些特殊注解的处理，始于一个适配的扩展参数 </Trans>
+	 *
 	 * @param customizers one or more callbacks for customizing the factory's
 	 * {@link BeanDefinition}, e.g. setting a lazy-init or primary flag
+	 * <Trans> annotatedClass生成BD后的后置处理 </Trans>
+	 *
 	 * @since 5.0
 	 */
 	private <T> void doRegisterBean(Class<T> annotatedClass, @Nullable String name,
 			@Nullable Class<? extends Annotation>[] qualifiers, @Nullable Supplier<T> supplier,
 			@Nullable BeanDefinitionCustomizer[] customizers) {
-
+        // 生成Bean Definition
 		AnnotatedGenericBeanDefinition abd = new AnnotatedGenericBeanDefinition(annotatedClass);
+		// 对@Conditional的处理，判断当前Bean是否跳过注册.
 		if (this.conditionEvaluator.shouldSkip(abd.getMetadata())) {
 			return;
 		}
 
+		// 向BD中注册创建实例的回调
 		abd.setInstanceSupplier(supplier);
+
+		// 处理@Scope
+		// scopeMetadataResolver默认实现为org.springframework.context.annotation.AnnotationScopeMetadataResolver
 		ScopeMetadata scopeMetadata = this.scopeMetadataResolver.resolveScopeMetadata(abd);
+		// 为BD设置scope(如singleton,prototype等)
 		abd.setScope(scopeMetadata.getScopeName());
+
+		// 为BD指定beanName
+		// beanNameGenerator默认实现为org.springframework.context.annotation.AnnotationBeanNameGenerator
 		String beanName = (name != null ? name : this.beanNameGenerator.generateBeanName(abd, this.registry));
 
+		// 处理其它Common注解并将配置设置到BD中，如@Lazy，@DependsOn，@Primary等
 		AnnotationConfigUtils.processCommonDefinitionAnnotations(abd);
+
+		// 对特殊注解的处理
 		if (qualifiers != null) {
 			for (Class<? extends Annotation> qualifier : qualifiers) {
 				if (Primary.class == qualifier) {
@@ -273,14 +328,21 @@ public class AnnotatedBeanDefinitionReader {
 				}
 			}
 		}
+
+		// BD的后置处理
 		if (customizers != null) {
 			for (BeanDefinitionCustomizer customizer : customizers) {
 				customizer.customize(abd);
 			}
 		}
 
+		// 包装BD
 		BeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(abd, beanName);
+
+		// 处理ScopedProxyMode,如果ScopeProxyMode不为NO，则使用ScopedProxyFactoryBean包装BD，然后返回definitionHolder
 		definitionHolder = AnnotationConfigUtils.applyScopedProxyMode(scopeMetadata, definitionHolder, this.registry);
+
+		// 注册BD到BeanDefinitionRegistry中，并设置别名
 		BeanDefinitionReaderUtils.registerBeanDefinition(definitionHolder, this.registry);
 	}
 

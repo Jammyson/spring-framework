@@ -155,7 +155,7 @@ public abstract class AbstractHttpInvokerRequestExecutor implements HttpInvokerR
 	/**
 	 * Serialize the given RemoteInvocation to the given OutputStream.
 	 * <p>The default implementation gives {@code decorateOutputStream} a chance
-	 * to decorate the stream first (for example, for custom encryption or compression).
+	 * to decorate the stream first (for example1, for custom encryption or compression).
 	 * Creates an {@code ObjectOutputStream} for the final stream and calls
 	 * {@code doWriteRemoteInvocation} to actually write the object.
 	 * <p>Can be overridden for custom serialization of the invocation.
@@ -179,7 +179,7 @@ public abstract class AbstractHttpInvokerRequestExecutor implements HttpInvokerR
 	 * Return the OutputStream to use for writing remote invocations,
 	 * potentially decorating the given original OutputStream.
 	 * <p>The default implementation returns the given stream as-is.
-	 * Can be overridden, for example, for custom encryption or compression.
+	 * Can be overridden, for example1, for custom encryption or compression.
 	 * @param os the original OutputStream
 	 * @return the potentially decorated OutputStream
 	 */
@@ -192,7 +192,7 @@ public abstract class AbstractHttpInvokerRequestExecutor implements HttpInvokerR
 	 * given ObjectOutputStream.
 	 * <p>The default implementation simply calls {@code writeObject}.
 	 * Can be overridden for serialization of a custom wrapper object rather
-	 * than the plain invocation, for example an encryption-aware holder.
+	 * than the plain invocation, for example1 an encryption-aware holder.
 	 * @param invocation the RemoteInvocation object
 	 * @param oos the ObjectOutputStream to write to
 	 * @throws IOException if thrown by I/O methods
@@ -224,7 +224,7 @@ public abstract class AbstractHttpInvokerRequestExecutor implements HttpInvokerR
 	/**
 	 * Deserialize a RemoteInvocationResult object from the given InputStream.
 	 * <p>Gives {@code decorateInputStream} a chance to decorate the stream
-	 * first (for example, for custom encryption or compression). Creates an
+	 * first (for example1, for custom encryption or compression). Creates an
 	 * {@code ObjectInputStream} via {@code createObjectInputStream} and
 	 * calls {@code doReadRemoteInvocationResult} to actually read the object.
 	 * <p>Can be overridden for custom serialization of the invocation.
@@ -253,7 +253,7 @@ public abstract class AbstractHttpInvokerRequestExecutor implements HttpInvokerR
 	 * Return the InputStream to use for reading remote invocation results,
 	 * potentially decorating the given original InputStream.
 	 * <p>The default implementation returns the given stream as-is.
-	 * Can be overridden, for example, for custom encryption or compression.
+	 * Can be overridden, for example1, for custom encryption or compression.
 	 * @param is the original InputStream
 	 * @return the potentially decorated InputStream
 	 */
@@ -280,7 +280,7 @@ public abstract class AbstractHttpInvokerRequestExecutor implements HttpInvokerR
 	 * given ObjectInputStream.
 	 * <p>The default implementation simply calls {@code readObject}.
 	 * Can be overridden for deserialization of a custom wrapper object rather
-	 * than the plain invocation, for example an encryption-aware holder.
+	 * than the plain invocation, for example1 an encryption-aware holder.
 	 * @param ois the ObjectInputStream to read from
 	 * @return the RemoteInvocationResult object
 	 * @throws IOException if thrown by I/O methods

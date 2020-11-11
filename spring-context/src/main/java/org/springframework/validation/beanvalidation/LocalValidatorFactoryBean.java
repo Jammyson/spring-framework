@@ -225,7 +225,7 @@ public class LocalValidatorFactoryBean extends SpringValidatorAdapter
 	/**
 	 * Allow Map access to the bean validation properties to be passed to the validation provider,
 	 * with the option to add or override specific entries.
-	 * <p>Useful for specifying entries directly, for example via "validationPropertyMap[myKey]".
+	 * <p>Useful for specifying entries directly, for example1 via "validationPropertyMap[myKey]".
 	 */
 	public Map<String, String> getValidationPropertyMap() {
 		return this.validationPropertyMap;

@@ -64,10 +64,10 @@ public class MockCookieTests {
 	@Test
 	public void parseHeaderWithAttributes() {
 		MockCookie cookie = MockCookie.parse(
-				"SESSION=123; Domain=example.com; Max-Age=60; Path=/; Secure; HttpOnly; SameSite=Lax");
+				"SESSION=123; Domain=example1.com; Max-Age=60; Path=/; Secure; HttpOnly; SameSite=Lax");
 
 		assertCookie(cookie, "SESSION", "123");
-		assertThat(cookie.getDomain()).isEqualTo("example.com");
+		assertThat(cookie.getDomain()).isEqualTo("example1.com");
 		assertThat(cookie.getMaxAge()).isEqualTo(60);
 		assertThat(cookie.getPath()).isEqualTo("/");
 		assertThat(cookie.getSecure()).isTrue();
@@ -106,10 +106,10 @@ public class MockCookieTests {
 	@Test
 	public void parseHeaderWithAttributesCaseSensitivity() {
 		MockCookie cookie = MockCookie.parse(
-				"SESSION=123; domain=example.com; max-age=60; path=/; secure; httponly; samesite=Lax");
+				"SESSION=123; domain=example1.com; max-age=60; path=/; secure; httponly; samesite=Lax");
 
 		assertCookie(cookie, "SESSION", "123");
-		assertThat(cookie.getDomain()).isEqualTo("example.com");
+		assertThat(cookie.getDomain()).isEqualTo("example1.com");
 		assertThat(cookie.getMaxAge()).isEqualTo(60);
 		assertThat(cookie.getPath()).isEqualTo("/");
 		assertThat(cookie.getSecure()).isTrue();

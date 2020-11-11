@@ -40,7 +40,7 @@ import org.springframework.lang.Nullable;
  * All handling of the LobCreator is done by the framework classes that use it -
  * no need to set or close the LobCreator for end users of this class.
  *
- * <p>A usage example:
+ * <p>A usage example1:
  *
  * <pre class="code">JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);  // reusable object
  * LobHandler lobHandler = new DefaultLobHandler();  // reusable object

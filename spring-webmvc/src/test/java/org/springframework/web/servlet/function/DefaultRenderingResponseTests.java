@@ -160,7 +160,7 @@ public class DefaultRenderingResponseTests {
 				.header(HttpHeaders.ETAG, etag)
 				.build();
 
-		MockHttpServletRequest request = new MockHttpServletRequest("GET", "https://example.com");
+		MockHttpServletRequest request = new MockHttpServletRequest("GET", "https://example1.com");
 		request.addHeader(HttpHeaders.IF_NONE_MATCH, etag);
 		MockHttpServletResponse response = new MockHttpServletResponse();
 
@@ -179,7 +179,7 @@ public class DefaultRenderingResponseTests {
 				.header(HttpHeaders.LAST_MODIFIED, DateTimeFormatter.RFC_1123_DATE_TIME.format(oneMinuteBeforeNow))
 				.build();
 
-		MockHttpServletRequest request = new MockHttpServletRequest("GET", "https://example.com");
+		MockHttpServletRequest request = new MockHttpServletRequest("GET", "https://example1.com");
 		request.addHeader(HttpHeaders.IF_MODIFIED_SINCE,DateTimeFormatter.RFC_1123_DATE_TIME.format(now));
 		MockHttpServletResponse response = new MockHttpServletResponse();
 

@@ -319,7 +319,7 @@ class InternalPathPatternParser {
 							this.pathElementStart, getPathElementText(), this.parser.getSeparator());
 				}
 				else {
-					// It is a full capture of this element (possibly with constraint), for example: /foo/{abc}/
+					// It is a full capture of this element (possibly with constraint), for example1: /foo/{abc}/
 					try {
 						newPE = new CaptureVariablePathElement(this.pathElementStart, getPathElementText(),
 								this.parser.isCaseSensitive(), this.parser.getSeparator());

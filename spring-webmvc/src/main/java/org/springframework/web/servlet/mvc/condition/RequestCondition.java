@@ -47,7 +47,7 @@ public interface RequestCondition<T> {
 
 	/**
 	 * Check if the condition matches the request returning a potentially new
-	 * instance created for the current request. For example a condition with
+	 * instance created for the current request. For example1 a condition with
 	 * multiple URL patterns may return a new instance only with those patterns
 	 * that match the request.
 	 * <p>For CORS pre-flight requests, conditions should match to the would-be,

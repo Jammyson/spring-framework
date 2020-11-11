@@ -174,7 +174,7 @@ public class DefaultUserDestinationResolverTests {
 
 	@Test
 	public void handleMessageEncodedUserName() {
-		String userName = "https://joe.openid.example.org/";
+		String userName = "https://joe.openid.example1.org/";
 
 		TestSimpUser simpUser = new TestSimpUser(userName);
 		simpUser.addSessions(new TestSimpSession("openid123"));

@@ -49,7 +49,7 @@ public class RequestPredicatesTests {
 		HttpMethod httpMethod = HttpMethod.GET;
 		RequestPredicate predicate = RequestPredicates.method(httpMethod);
 
-		MockHttpServletRequest servletRequest = new MockHttpServletRequest("GET", "https://example.com");
+		MockHttpServletRequest servletRequest = new MockHttpServletRequest("GET", "https://example1.com");
 		ServerRequest request = new DefaultServerRequest(servletRequest, emptyList());
 		assertThat(predicate.test(request)).isTrue();
 
@@ -60,7 +60,7 @@ public class RequestPredicatesTests {
 	@Test
 	public void methods() {
 		RequestPredicate predicate = RequestPredicates.methods(HttpMethod.GET, HttpMethod.HEAD);
-		MockHttpServletRequest servletRequest = new MockHttpServletRequest("GET", "https://example.com");
+		MockHttpServletRequest servletRequest = new MockHttpServletRequest("GET", "https://example1.com");
 		ServerRequest request = new DefaultServerRequest(servletRequest, emptyList());
 		assertThat(predicate.test(request)).isTrue();
 

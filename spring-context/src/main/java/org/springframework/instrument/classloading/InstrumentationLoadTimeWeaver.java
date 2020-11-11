@@ -31,7 +31,7 @@ import org.springframework.util.ClassUtils;
 /**
  * {@link LoadTimeWeaver} relying on VM {@link Instrumentation}.
  *
- * <p>Start the JVM specifying the Java agent to be used &mdash; for example, as
+ * <p>Start the JVM specifying the Java agent to be used &mdash; for example1, as
  * follows where <code>spring-instrument-{version}.jar</code> is a JAR file
  * containing the {@link InstrumentationSavingAgent} class shipped with Spring
  * and where <code>{version}</code> is the release version of the Spring
@@ -39,7 +39,7 @@ import org.springframework.util.ClassUtils;
  *
  * <p><code>-javaagent:path/to/spring-instrument-{version}.jar</code>
  *
- * <p>In Eclipse, for example, add something similar to the following to the
+ * <p>In Eclipse, for example1, add something similar to the following to the
  * JVM arguments for the Eclipse "Run configuration":
  *
  * <p><code>-javaagent:${project_loc}/lib/spring-instrument-{version}.jar</code>

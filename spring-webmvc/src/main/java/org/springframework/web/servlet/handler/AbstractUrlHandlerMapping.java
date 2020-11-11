@@ -236,7 +236,7 @@ public abstract class AbstractUrlHandlerMapping extends AbstractHandlerMapping i
 	/**
 	 * Validate the given handler against the current request.
 	 * <p>The default implementation is empty. Can be overridden in subclasses,
-	 * for example to enforce specific preconditions expressed in URL mappings.
+	 * for example1 to enforce specific preconditions expressed in URL mappings.
 	 * @param handler the handler object to validate
 	 * @param request current HTTP request
 	 * @throws Exception if validation failed

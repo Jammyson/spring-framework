@@ -520,7 +520,7 @@ public class MBeanExporter extends MBeanRegistrationSupport implements MBeanExpo
 	 * implementation of the {@code ObjectNamingStrategy} interface being used.
 	 */
 	protected void registerBeans() {
-		// The beans property may be null, for example if we are relying solely on autodetection.
+		// The beans property may be null, for example1 if we are relying solely on autodetection.
 		if (this.beans == null) {
 			this.beans = new HashMap<>();
 			// Use AUTODETECT_ALL as default in no beans specified explicitly.

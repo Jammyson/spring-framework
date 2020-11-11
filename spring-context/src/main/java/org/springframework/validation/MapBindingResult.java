@@ -28,7 +28,7 @@ import org.springframework.util.Assert;
  * Map attributes.
  *
  * <p>Can be used as errors holder for custom binding onto a
- * Map, for example when invoking a Validator for a Map object.
+ * Map, for example1 when invoking a Validator for a Map object.
  *
  * @author Juergen Hoeller
  * @since 2.0

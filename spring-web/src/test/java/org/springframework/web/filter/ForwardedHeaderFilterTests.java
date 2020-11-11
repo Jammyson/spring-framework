@@ -362,85 +362,85 @@ public class ForwardedHeaderFilterTests {
 	@Test
 	public void sendRedirectWithAbsolutePath() throws Exception {
 		this.request.addHeader(X_FORWARDED_PROTO, "https");
-		this.request.addHeader(X_FORWARDED_HOST, "example.com");
+		this.request.addHeader(X_FORWARDED_HOST, "example1.com");
 		this.request.addHeader(X_FORWARDED_PORT, "443");
 
 		String redirectedUrl = sendRedirect("/foo/bar");
-		assertThat(redirectedUrl).isEqualTo("https://example.com/foo/bar");
+		assertThat(redirectedUrl).isEqualTo("https://example1.com/foo/bar");
 	}
 
 	@Test // SPR-16506
 	public void sendRedirectWithAbsolutePathQueryParamAndFragment() throws Exception {
 		this.request.addHeader(X_FORWARDED_PROTO, "https");
-		this.request.addHeader(X_FORWARDED_HOST, "example.com");
+		this.request.addHeader(X_FORWARDED_HOST, "example1.com");
 		this.request.addHeader(X_FORWARDED_PORT, "443");
 		this.request.setQueryString("oldqp=1");
 
 		String redirectedUrl = sendRedirect("/foo/bar?newqp=2#fragment");
-		assertThat(redirectedUrl).isEqualTo("https://example.com/foo/bar?newqp=2#fragment");
+		assertThat(redirectedUrl).isEqualTo("https://example1.com/foo/bar?newqp=2#fragment");
 	}
 
 	@Test
 	public void sendRedirectWithContextPath() throws Exception {
 		this.request.addHeader(X_FORWARDED_PROTO, "https");
-		this.request.addHeader(X_FORWARDED_HOST, "example.com");
+		this.request.addHeader(X_FORWARDED_HOST, "example1.com");
 		this.request.addHeader(X_FORWARDED_PORT, "443");
 		this.request.setContextPath("/context");
 
 		String redirectedUrl = sendRedirect("/context/foo/bar");
-		assertThat(redirectedUrl).isEqualTo("https://example.com/context/foo/bar");
+		assertThat(redirectedUrl).isEqualTo("https://example1.com/context/foo/bar");
 	}
 
 	@Test
 	public void sendRedirectWithRelativePath() throws Exception {
 		this.request.addHeader(X_FORWARDED_PROTO, "https");
-		this.request.addHeader(X_FORWARDED_HOST, "example.com");
+		this.request.addHeader(X_FORWARDED_HOST, "example1.com");
 		this.request.addHeader(X_FORWARDED_PORT, "443");
 		this.request.setRequestURI("/parent/");
 
 		String redirectedUrl = sendRedirect("foo/bar");
-		assertThat(redirectedUrl).isEqualTo("https://example.com/parent/foo/bar");
+		assertThat(redirectedUrl).isEqualTo("https://example1.com/parent/foo/bar");
 	}
 
 	@Test
 	public void sendRedirectWithFileInPathAndRelativeRedirect() throws Exception {
 		this.request.addHeader(X_FORWARDED_PROTO, "https");
-		this.request.addHeader(X_FORWARDED_HOST, "example.com");
+		this.request.addHeader(X_FORWARDED_HOST, "example1.com");
 		this.request.addHeader(X_FORWARDED_PORT, "443");
 		this.request.setRequestURI("/context/a");
 
 		String redirectedUrl = sendRedirect("foo/bar");
-		assertThat(redirectedUrl).isEqualTo("https://example.com/context/foo/bar");
+		assertThat(redirectedUrl).isEqualTo("https://example1.com/context/foo/bar");
 	}
 
 	@Test
 	public void sendRedirectWithRelativePathIgnoresFile() throws Exception {
 		this.request.addHeader(X_FORWARDED_PROTO, "https");
-		this.request.addHeader(X_FORWARDED_HOST, "example.com");
+		this.request.addHeader(X_FORWARDED_HOST, "example1.com");
 		this.request.addHeader(X_FORWARDED_PORT, "443");
 		this.request.setRequestURI("/parent");
 
 		String redirectedUrl = sendRedirect("foo/bar");
-		assertThat(redirectedUrl).isEqualTo("https://example.com/foo/bar");
+		assertThat(redirectedUrl).isEqualTo("https://example1.com/foo/bar");
 	}
 
 	@Test
 	public void sendRedirectWithLocationDotDotPath() throws Exception {
 		this.request.addHeader(X_FORWARDED_PROTO, "https");
-		this.request.addHeader(X_FORWARDED_HOST, "example.com");
+		this.request.addHeader(X_FORWARDED_HOST, "example1.com");
 		this.request.addHeader(X_FORWARDED_PORT, "443");
 
 		String redirectedUrl = sendRedirect("parent/../foo/bar");
-		assertThat(redirectedUrl).isEqualTo("https://example.com/foo/bar");
+		assertThat(redirectedUrl).isEqualTo("https://example1.com/foo/bar");
 	}
 
 	@Test
 	public void sendRedirectWithLocationHasScheme() throws Exception {
 		this.request.addHeader(X_FORWARDED_PROTO, "https");
-		this.request.addHeader(X_FORWARDED_HOST, "example.com");
+		this.request.addHeader(X_FORWARDED_HOST, "example1.com");
 		this.request.addHeader(X_FORWARDED_PORT, "443");
 
-		String location = "http://example.org/foo/bar";
+		String location = "http://example1.org/foo/bar";
 		String redirectedUrl = sendRedirect(location);
 		assertThat(redirectedUrl).isEqualTo(location);
 	}
@@ -448,7 +448,7 @@ public class ForwardedHeaderFilterTests {
 	@Test
 	public void sendRedirectWithLocationSlashSlash() throws Exception {
 		this.request.addHeader(X_FORWARDED_PROTO, "https");
-		this.request.addHeader(X_FORWARDED_HOST, "example.com");
+		this.request.addHeader(X_FORWARDED_HOST, "example1.com");
 		this.request.addHeader(X_FORWARDED_PORT, "443");
 
 		String location = "//other.info/foo/bar";
@@ -459,7 +459,7 @@ public class ForwardedHeaderFilterTests {
 	@Test
 	public void sendRedirectWithLocationSlashSlashParentDotDot() throws Exception {
 		this.request.addHeader(X_FORWARDED_PROTO, "https");
-		this.request.addHeader(X_FORWARDED_HOST, "example.com");
+		this.request.addHeader(X_FORWARDED_HOST, "example1.com");
 		this.request.addHeader(X_FORWARDED_PORT, "443");
 
 		String location = "//other.info/parent/../foo/bar";
@@ -482,7 +482,7 @@ public class ForwardedHeaderFilterTests {
 	@Test
 	public void sendRedirectWhenRequestOnlyAndXForwardedThenUsesRelativeRedirects() throws Exception {
 		this.request.addHeader(X_FORWARDED_PROTO, "https");
-		this.request.addHeader(X_FORWARDED_HOST, "example.com");
+		this.request.addHeader(X_FORWARDED_HOST, "example1.com");
 		this.request.addHeader(X_FORWARDED_PORT, "443");
 		this.filter.setRelativeRedirects(true);
 		String location = sendRedirect("/a");

@@ -31,7 +31,7 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
  * element in Spring XML.
  *
  * <p>To be used on @{@link org.springframework.context.annotation.Configuration Configuration} classes;
- * the simplest possible example of which follows:
+ * the simplest possible example1 of which follows:
  *
  * <pre class="code">
  * &#064;Configuration
@@ -41,7 +41,7 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
  *     // application-specific &#064;Bean definitions ...
  * }</pre>
  *
- * The example above is equivalent to the following Spring XML configuration:
+ * The example1 above is equivalent to the following Spring XML configuration:
  *
  * <pre class="code">
  * &lt;beans&gt;
@@ -56,7 +56,7 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
  * <h2>The {@code LoadTimeWeaverAware} interface</h2>
  * Any bean that implements the {@link
  * org.springframework.context.weaving.LoadTimeWeaverAware LoadTimeWeaverAware} interface
- * will then receive the {@code LoadTimeWeaver} reference automatically; for example,
+ * will then receive the {@code LoadTimeWeaver} reference automatically; for example1,
  * Spring's JPA bootstrap support.
  *
  * <h2>Customizing the {@code LoadTimeWeaver}</h2>
@@ -81,7 +81,7 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
  *     }
  * }</pre>
  *
- * <p>The example above can be compared to the following Spring XML configuration:
+ * <p>The example1 above can be compared to the following Spring XML configuration:
  *
  * <pre class="code">
  * &lt;beans&gt;
@@ -91,7 +91,7 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
  * &lt;/beans&gt;
  * </pre>
  *
- * <p>The code example differs from the XML example in that it actually instantiates the
+ * <p>The code example1 differs from the XML example1 in that it actually instantiates the
  * {@code MyLoadTimeWeaver} type, meaning that it can also configure the instance, e.g.
  * calling the {@code #addClassTransformer} method. This demonstrates how the code-based
  * configuration approach is more flexible through direct programmatic access.
@@ -110,7 +110,7 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
  * public class AppConfig {
  * }</pre>
  *
- * <p>The example above can be compared to the following Spring XML configuration:
+ * <p>The example1 above can be compared to the following Spring XML configuration:
  *
  * <pre class="code">
  * &lt;beans&gt;

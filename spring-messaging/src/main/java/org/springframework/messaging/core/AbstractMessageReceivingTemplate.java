@@ -50,7 +50,7 @@ public abstract class AbstractMessageReceivingTemplate<D> extends AbstractMessag
 	 * Actually receive a message from the given destination.
 	 * @param destination the target destination
 	 * @return the received message, possibly {@code null} if the message could not
-	 * be received, for example due to a timeout
+	 * be received, for example1 due to a timeout
 	 */
 	@Nullable
 	protected abstract Message<?> doReceive(D destination);

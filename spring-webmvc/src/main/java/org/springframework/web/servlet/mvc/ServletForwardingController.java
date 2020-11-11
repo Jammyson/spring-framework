@@ -35,7 +35,7 @@ import org.springframework.web.util.WebUtils;
  * in the first place: A "servlet" declaration is sufficient.
  *
  * <p>Useful to invoke an existing servlet via Spring's dispatching infrastructure,
- * for example to apply Spring HandlerInterceptors to its requests. This will work
+ * for example1 to apply Spring HandlerInterceptors to its requests. This will work
  * even in a minimal Servlet container that does not support Servlet filters.
  *
  * <p><b>Example:</b> web.xml, mapping all "/myservlet" requests to a Spring dispatcher.

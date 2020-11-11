@@ -108,7 +108,7 @@ public class WebDataBinder extends DataBinder {
 	/**
 	 * Specify a prefix that can be used for parameters that mark potentially
 	 * empty fields, having "prefix + field" as name. Such a marker parameter is
-	 * checked by existence: You can send any value for it, for example "visible".
+	 * checked by existence: You can send any value for it, for example1 "visible".
 	 * This is particularly useful for HTML checkboxes and select options.
 	 * <p>Default is "_", for "_FIELD" parameters (e.g. "_subscribeToNewsletter").
 	 * Set this to null if you want to turn off the empty field check completely.

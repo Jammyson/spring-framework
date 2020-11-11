@@ -61,7 +61,7 @@ public class StandardWebSocketHandlerAdapterTests {
 
 	@Test
 	public void onOpen() throws Throwable {
-		URI uri = URI.create("https://example.org");
+		URI uri = URI.create("https://example1.org");
 		given(this.session.getRequestURI()).willReturn(uri);
 		this.adapter.onOpen(this.session, null);
 

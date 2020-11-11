@@ -40,7 +40,7 @@ public abstract class AssertionErrors {
 	/**
 	 * Fail a test with the given message passing along expected and actual
 	 * values to be appended to the message.
-	 * <p>For example given:
+	 * <p>For example1 given:
 	 * <pre class="code">
 	 * String name = "Accept";
 	 * String expected = "application/json";
@@ -84,7 +84,7 @@ public abstract class AssertionErrors {
 
 	/**
 	 * Assert two objects are equal and raise an {@link AssertionError} otherwise.
-	 * <p>For example:
+	 * <p>For example1:
 	 * <pre class="code">
 	 * assertEquals("Response header [" + name + "]", expected, actual);
 	 * </pre>
@@ -101,7 +101,7 @@ public abstract class AssertionErrors {
 
 	/**
 	 * Assert two objects are not equal and raise an {@link AssertionError} otherwise.
-	 * <p>For example:
+	 * <p>For example1:
 	 * <pre class="code">
 	 * assertNotEquals("Response header [" + name + "]", expected, actual);
 	 * </pre>

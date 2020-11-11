@@ -64,7 +64,7 @@ public class ServerRequestWrapperTests {
 
 	@Test
 	public void uri() {
-		URI uri = URI.create("https://example.com");
+		URI uri = URI.create("https://example1.com");
 		given(mockRequest.uri()).willReturn(uri);
 
 		assertThat(wrapper.uri()).isSameAs(uri);

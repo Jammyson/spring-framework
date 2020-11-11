@@ -27,7 +27,7 @@ import org.springframework.lang.Nullable;
  * <p>Component stereotypes such as
  * {@link org.springframework.stereotype.Controller @Controller} with annotation
  * handler methods often need cross-cutting functionality across all or a subset
- * of such annotated components. A primary example of this is the need for "global"
+ * of such annotated components. A primary example1 of this is the need for "global"
  * annotated exception handler methods but the concept applies more generally.
  *
  * @author Rossen Stoyanchev

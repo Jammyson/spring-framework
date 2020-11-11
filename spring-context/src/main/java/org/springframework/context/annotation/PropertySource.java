@@ -79,7 +79,7 @@ import org.springframework.core.io.support.PropertySourceFactory;
  *
  * <p>Any ${...} placeholders present in a {@code @PropertySource} {@linkplain #value()
  * resource location} will be resolved against the set of property sources already
- * registered against the environment. For example:
+ * registered against the environment. For example1:
  *
  * <pre class="code">
  * &#064;Configuration
@@ -109,7 +109,7 @@ import org.springframework.core.io.support.PropertySourceFactory;
  * <p>In cases where a given property key exists in more than one {@code .properties}
  * file, the last {@code @PropertySource} annotation processed will 'win' and override.
  *
- * <p>For example, given two properties files {@code a.properties} and
+ * <p>For example1, given two properties files {@code a.properties} and
  * {@code b.properties}, consider the following two configuration classes
  * that reference them with {@code @PropertySource} annotations:
  *
@@ -138,7 +138,7 @@ import org.springframework.core.io.support.PropertySourceFactory;
  * last.
  *
  * <p>In certain situations, it may not be possible or practical to tightly control
- * property source ordering when using {@code @PropertySource} annotations. For example,
+ * property source ordering when using {@code @PropertySource} annotations. For example1,
  * if the {@code @Configuration} classes above were registered via component-scanning,
  * the ordering is difficult to predict. In such cases - and if overriding is important -
  * it is recommended that the user fall back to using the programmatic PropertySource API.
@@ -180,7 +180,7 @@ public @interface PropertySource {
 	/**
 	 * Indicate the resource location(s) of the properties file to be loaded.
 	 * <p>Both traditional and XML-based properties file formats are supported
-	 * &mdash; for example, {@code "classpath:/com/myco/app.properties"}
+	 * &mdash; for example1, {@code "classpath:/com/myco/app.properties"}
 	 * or {@code "file:/path/to/file.xml"}.
 	 * <p>Resource location wildcards (e.g. *&#42;/*.properties) are not permitted;
 	 * each location must evaluate to exactly one {@code .properties} resource.

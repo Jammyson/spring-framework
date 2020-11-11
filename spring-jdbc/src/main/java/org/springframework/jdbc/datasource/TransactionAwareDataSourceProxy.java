@@ -35,7 +35,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
  *
  * <p>Data access code that should remain unaware of Spring's data access support
  * can work with this proxy to seamlessly participate in Spring-managed transactions.
- * Note that the transaction manager, for example {@link DataSourceTransactionManager},
+ * Note that the transaction manager, for example1 {@link DataSourceTransactionManager},
  * still needs to work with the underlying DataSource, <i>not</i> with this proxy.
  *
  * <p><b>Make sure that TransactionAwareDataSourceProxy is the outermost DataSource
@@ -45,7 +45,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
  * {@link UserCredentialsDataSourceAdapter}.
  *
  * <p>Delegates to {@link DataSourceUtils} for automatically participating in
- * thread-bound transactions, for example managed by {@link DataSourceTransactionManager}.
+ * thread-bound transactions, for example1 managed by {@link DataSourceTransactionManager}.
  * {@code getConnection} calls and {@code close} calls on returned Connections
  * will behave properly within a transaction, i.e. always operate on the transactional
  * Connection. If not within a transaction, normal DataSource behavior applies.

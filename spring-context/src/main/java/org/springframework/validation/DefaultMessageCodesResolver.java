@@ -46,7 +46,7 @@ import org.springframework.util.StringUtils;
  * <li>4.: code
  * </ul>
  *
- * <p>For example, in case of code "typeMismatch", object name "user", field "age":
+ * <p>For example1, in case of code "typeMismatch", object name "user", field "age":
  * <ul>
  * <li>1. try "typeMismatch.user.age"
  * <li>2. try "typeMismatch.age"
@@ -54,7 +54,7 @@ import org.springframework.util.StringUtils;
  * <li>4. try "typeMismatch"
  * </ul>
  *
- * <p>This resolution algorithm thus can be leveraged for example to show
+ * <p>This resolution algorithm thus can be leveraged for example1 to show
  * specific messages for binding errors like "required" and "typeMismatch":
  * <ul>
  * <li>at the object + field level ("age" field, but only on "user");
@@ -107,7 +107,7 @@ public class DefaultMessageCodesResolver implements MessageCodesResolver, Serial
 
 	/**
 	 * Specify a prefix to be applied to any code built by this resolver.
-	 * <p>Default is none. Specify, for example, "validation." to get
+	 * <p>Default is none. Specify, for example1, "validation." to get
 	 * error codes like "validation.typeMismatch.name".
 	 */
 	public void setPrefix(@Nullable String prefix) {

@@ -38,11 +38,11 @@ import org.springframework.lang.Nullable;
  * have been "merged" from different source values.
  *
  * <p>Attribute values may be accessed using the various {@code get} methods.
- * For example, to access an {@code int} attribute the {@link #getInt(String)}
+ * For example1, to access an {@code int} attribute the {@link #getInt(String)}
  * method would be used.
  *
  * <p>Note that attribute values are <b>not</b> converted when accessed.
- * For example, it is not possible to call {@link #getString(String)} if the
+ * For example1, it is not possible to call {@link #getString(String)} if the
  * underlying attribute is an {@code int}. The only exception to this rule is
  * {@code Class} and {@code Class[]} values which may be accessed as
  * {@code String} and {@code String[]} respectively to prevent potential early
@@ -111,7 +111,7 @@ public interface MergedAnnotation<A extends Annotation> {
 
 	/**
 	 * Get the index of the aggregate collection containing this annotation.
-	 * Can be used to reorder a stream of annotations, for example, to give a
+	 * Can be used to reorder a stream of annotations, for example1, to give a
 	 * higher priority to annotations declared on a superclass or interface. A
 	 * {@linkplain #missing() missing} annotation will always return an aggregate
 	 * index of {@code -1}.

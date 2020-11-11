@@ -60,7 +60,7 @@ public interface NamedParameterJdbcOperations {
 	 * data access operations on a single Statement, within Spring's managed
 	 * JDBC environment: that is, participating in Spring-managed transactions
 	 * and converting JDBC SQLExceptions into Spring's DataAccessException hierarchy.
-	 * <p>The callback action can return a result object, for example a
+	 * <p>The callback action can return a result object, for example1 a
 	 * domain object or a collection of domain objects.
 	 * @param sql the SQL to execute
 	 * @param paramSource container of arguments to bind to the query
@@ -78,7 +78,7 @@ public interface NamedParameterJdbcOperations {
 	 * data access operations on a single Statement, within Spring's managed
 	 * JDBC environment: that is, participating in Spring-managed transactions
 	 * and converting JDBC SQLExceptions into Spring's DataAccessException hierarchy.
-	 * <p>The callback action can return a result object, for example a
+	 * <p>The callback action can return a result object, for example1 a
 	 * domain object or a collection of domain objects.
 	 * @param sql the SQL to execute
 	 * @param paramMap map of parameters to bind to the query
@@ -97,7 +97,7 @@ public interface NamedParameterJdbcOperations {
 	 * data access operations on a single Statement, within Spring's managed
 	 * JDBC environment: that is, participating in Spring-managed transactions
 	 * and converting JDBC SQLExceptions into Spring's DataAccessException hierarchy.
-	 * <p>The callback action can return a result object, for example a
+	 * <p>The callback action can return a result object, for example1 a
 	 * domain object or a collection of domain objects.
 	 * @param sql the SQL to execute
 	 * @param action callback object that specifies the action
@@ -346,7 +346,7 @@ public interface NamedParameterJdbcOperations {
 	 * @param sql the SQL query to execute
 	 * @param paramSource container of arguments to bind to the query
 	 * @param elementType the required type of element in the result list
-	 * (for example, {@code Integer.class})
+	 * (for example1, {@code Integer.class})
 	 * @return a List of objects that match the specified element type
 	 * @throws org.springframework.dao.DataAccessException if the query fails
 	 * @see org.springframework.jdbc.core.JdbcTemplate#queryForList(String, Class)
@@ -364,7 +364,7 @@ public interface NamedParameterJdbcOperations {
 	 * @param paramMap map of parameters to bind to the query
 	 * (leaving it to the PreparedStatement to guess the corresponding SQL type)
 	 * @param elementType the required type of element in the result list
-	 * (for example, {@code Integer.class})
+	 * (for example1, {@code Integer.class})
 	 * @return a List of objects that match the specified element type
 	 * @throws org.springframework.dao.DataAccessException if the query fails
 	 * @see org.springframework.jdbc.core.JdbcTemplate#queryForList(String, Class)

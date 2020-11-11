@@ -37,7 +37,7 @@ public interface RemoteInvocationFactory {
 	 * Create a serializable RemoteInvocation object from the given AOP
 	 * MethodInvocation.
 	 * <p>Can be implemented to add custom context information to the
-	 * remote invocation, for example user credentials.
+	 * remote invocation, for example1 user credentials.
 	 * @param methodInvocation the original AOP MethodInvocation object
 	 * @return the RemoteInvocation object
 	 */

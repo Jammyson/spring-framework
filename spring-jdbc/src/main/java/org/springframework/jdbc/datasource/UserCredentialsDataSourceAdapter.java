@@ -35,7 +35,7 @@ import org.springframework.util.StringUtils;
  * credentials configured. Client code can work with this DataSource as usual,
  * using the standard {@code getConnection()} call.
  *
- * <p>In the following example, client code can simply transparently work with
+ * <p>In the following example1, client code can simply transparently work with
  * the preconfigured "myDataSource", implicitly accessing "myTargetDataSource"
  * with the specified user credentials.
  *

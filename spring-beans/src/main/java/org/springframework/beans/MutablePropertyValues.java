@@ -49,8 +49,11 @@ public class MutablePropertyValues implements PropertyValues, Serializable {
 	@Nullable
 	private Set<String> processedProperties;
 
+	/**
+	 * 标识MutablePropertyValues包含的key-value是否已经转换完毕,已经转换完毕的PropertyValues意味着
+	 * 可以直接注入Bean
+	 */
 	private volatile boolean converted = false;
-
 
 	/**
 	 * Creates a new empty MutablePropertyValues object.

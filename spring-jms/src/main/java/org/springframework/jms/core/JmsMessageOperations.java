@@ -99,7 +99,7 @@ public interface JmsMessageOperations extends MessageSendingOperations<Destinati
 	 * Receive a message from the given destination.
 	 * @param destinationName the name of the target destination
 	 * @return the received message, possibly {@code null} if the message could not
-	 * be received, for example due to a timeout
+	 * be received, for example1 due to a timeout
 	 */
 	@Nullable
 	Message<?> receive(String destinationName) throws MessagingException;
@@ -110,7 +110,7 @@ public interface JmsMessageOperations extends MessageSendingOperations<Destinati
 	 * @param destinationName the name of the target destination
 	 * @param targetClass the target class to convert the payload to
 	 * @return the converted payload of the reply message, possibly {@code null} if
-	 * the message could not be received, for example due to a timeout
+	 * the message could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T receiveAndConvert(String destinationName, Class<T> targetClass) throws MessagingException;
@@ -120,7 +120,7 @@ public interface JmsMessageOperations extends MessageSendingOperations<Destinati
 	 * @param destinationName the name of the target destination
 	 * @param requestMessage the message to send
 	 * @return the reply, possibly {@code null} if the message could not be received,
-	 * for example due to a timeout
+	 * for example1 due to a timeout
 	 */
 	@Nullable
 	Message<?> sendAndReceive(String destinationName, Message<?> requestMessage) throws MessagingException;
@@ -134,7 +134,7 @@ public interface JmsMessageOperations extends MessageSendingOperations<Destinati
 	 * @param request payload for the request message to send
 	 * @param targetClass the target type to convert the payload of the reply to
 	 * @return the payload of the reply message, possibly {@code null} if the message
-	 * could not be received, for example due to a timeout
+	 * could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(String destinationName, Object request, Class<T> targetClass) throws MessagingException;
@@ -149,7 +149,7 @@ public interface JmsMessageOperations extends MessageSendingOperations<Destinati
 	 * @param headers headers for the request message to send
 	 * @param targetClass the target type to convert the payload of the reply to
 	 * @return the payload of the reply message, possibly {@code null} if the message
-	 * could not be received, for example due to a timeout
+	 * could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(String destinationName, Object request, @Nullable Map<String, Object> headers, Class<T> targetClass)
@@ -166,7 +166,7 @@ public interface JmsMessageOperations extends MessageSendingOperations<Destinati
 	 * @param targetClass the target type to convert the payload of the reply to
 	 * @param requestPostProcessor post process to apply to the request message
 	 * @return the payload of the reply message, possibly {@code null} if the message
-	 * could not be received, for example due to a timeout
+	 * could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(String destinationName, Object request, Class<T> targetClass,
@@ -183,7 +183,7 @@ public interface JmsMessageOperations extends MessageSendingOperations<Destinati
 	 * @param targetClass the target type to convert the payload of the reply to
 	 * @param requestPostProcessor post process to apply to the request message
 	 * @return the payload of the reply message, possibly {@code null} if the message
-	 * could not be received, for example due to a timeout
+	 * could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(String destinationName, Object request, Map<String, Object> headers,

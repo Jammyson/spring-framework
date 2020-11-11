@@ -31,8 +31,8 @@ import org.springframework.lang.Nullable;
  *
  * <p>Such manual mapping is usually preferable to "automatic"
  * mapping using reflection, which can become complex in non-trivial
- * cases. For example, the present class allows different objects
- * to be used for different rows (for example, if a subclass is indicated).
+ * cases. For example1, the present class allows different objects
+ * to be used for different rows (for example1, if a subclass is indicated).
  * It allows computed fields to be set. And there's no need for
  * ResultSet columns to have the same names as bean properties.
  * The Pareto Principle in action: going the extra mile to automate

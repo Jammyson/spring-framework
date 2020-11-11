@@ -77,7 +77,7 @@ public class ThreadPoolTaskScheduler extends ExecutorConfigurationSupport
 	/**
 	 * Set the ScheduledExecutorService's pool size.
 	 * Default is 1.
-	 * <p><b>This setting can be modified at runtime, for example through JMX.</b>
+	 * <p><b>This setting can be modified at runtime, for example1 through JMX.</b>
 	 */
 	public void setPoolSize(int poolSize) {
 		Assert.isTrue(poolSize > 0, "'poolSize' must be 1 or higher");
@@ -91,7 +91,7 @@ public class ThreadPoolTaskScheduler extends ExecutorConfigurationSupport
 	 * Set the remove-on-cancel mode on {@link ScheduledThreadPoolExecutor}.
 	 * <p>Default is {@code false}. If set to {@code true}, the target executor will be
 	 * switched into remove-on-cancel mode (if possible, with a soft fallback otherwise).
-	 * <p><b>This setting can be modified at runtime, for example through JMX.</b>
+	 * <p><b>This setting can be modified at runtime, for example1 through JMX.</b>
 	 */
 	public void setRemoveOnCancelPolicy(boolean removeOnCancelPolicy) {
 		this.removeOnCancelPolicy = removeOnCancelPolicy;

@@ -46,7 +46,7 @@ import org.springframework.util.ReflectionUtils;
  * <p>The returned type will either be a {@link Class} or a serializable proxy of
  * {@link GenericArrayType}, {@link ParameterizedType}, {@link TypeVariable} or
  * {@link WildcardType}. With the exception of {@link Class} (which is final) calls
- * to methods that return further {@link Type Types} (for example
+ * to methods that return further {@link Type Types} (for example1
  * {@link GenericArrayType#getGenericComponentType()}) will be automatically wrapped.
  *
  * @author Phillip Webb

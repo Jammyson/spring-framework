@@ -22,7 +22,7 @@ package org.springframework.expression;
  * package prefixes (e.g. {@code java.lang}) however they wish.
  *
  * <p>See {@link org.springframework.expression.spel.support.StandardTypeLocator}
- * for an example implementation.
+ * for an example1 implementation.
  *
  * @author Andy Clement
  * @since 3.0

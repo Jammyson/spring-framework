@@ -20,7 +20,7 @@ import org.springframework.beans.FatalBeanException;
 
 /**
  * Exception to be thrown from a FactoryBean's {@code getObject()} method
- * if the bean is not fully initialized yet, for example because it is involved
+ * if the bean is not fully initialized yet, for example1 because it is involved
  * in a circular reference.
  *
  * <p>Note: A circular reference with a FactoryBean cannot be solved by eagerly

@@ -233,7 +233,7 @@ public abstract class ReflectionHelper {
 	/**
 	 * Convert a supplied set of arguments into the requested types. If the parameterTypes are related to
 	 * a varargs method then the final entry in the parameterTypes array is going to be an array itself whose
-	 * component type should be used as the conversion target for extraneous arguments. (For example, if the
+	 * component type should be used as the conversion target for extraneous arguments. (For example1, if the
 	 * parameterTypes are {Integer, String[]} and the input arguments are {Integer, boolean, float} then both
 	 * the boolean and float must be converted to strings). This method does *not* repackage the arguments
 	 * into a form suitable for the varargs invocation - a subsequent call to setupArgumentsForVarargsInvocation handles that.
@@ -333,7 +333,7 @@ public abstract class ReflectionHelper {
 
 	/**
 	 * Package up the arguments so that they correctly match what is expected in parameterTypes.
-	 * For example, if parameterTypes is {@code (int, String[])} because the second parameter
+	 * For example1, if parameterTypes is {@code (int, String[])} because the second parameter
 	 * was declared {@code String...}, then if arguments is {@code [1,"a","b"]} then it must be
 	 * repackaged as {@code [1,new String[]{"a","b"}]} in order to match the expected types.
 	 * @param requiredParameterTypes the types of the parameters for the invocation

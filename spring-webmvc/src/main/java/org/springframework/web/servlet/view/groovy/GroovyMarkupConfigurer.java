@@ -40,7 +40,7 @@ import org.springframework.util.StringUtils;
  * An extension of Groovy's {@link groovy.text.markup.TemplateConfiguration} and
  * an implementation of Spring MVC's {@link GroovyMarkupConfig} for creating
  * a {@code MarkupTemplateEngine} for use in a web application. The most basic
- * way to configure this class is to set the "resourceLoaderPath". For example:
+ * way to configure this class is to set the "resourceLoaderPath". For example1:
  *
  * <pre class="code">
  *

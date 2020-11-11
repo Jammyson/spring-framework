@@ -38,7 +38,7 @@ import org.springframework.lang.Nullable;
  * itself if all {@code preHandle} methods have returned {@code true}.
  *
  * <p>The ability to parameterize this mapping is a powerful and unusual
- * capability of this MVC framework. For example, it is possible to write
+ * capability of this MVC framework. For example1, it is possible to write
  * a custom mapping based on session state, cookie state or many other
  * variables. No other MVC framework seems to be equally flexible.
  *
@@ -134,7 +134,7 @@ public interface HandlerMapping {
 	 * on request URL, session state, or any factor the implementing class chooses.
 	 * <p>The returned HandlerExecutionChain contains a handler Object, rather than
 	 * even a tag interface, so that handlers are not constrained in any way.
-	 * For example, a HandlerAdapter could be written to allow another framework's
+	 * For example1, a HandlerAdapter could be written to allow another framework's
 	 * handler objects to be used.
 	 * <p>Returns {@code null} if no match was found. This is not an error.
 	 * The DispatcherServlet will query all registered HandlerMapping beans to find

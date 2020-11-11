@@ -96,7 +96,7 @@ public abstract class StompClientSupport {
 	 * or send a heart-beat. The second is how often the server should write.
 	 * A value of 0 means no heart-beats.
 	 * <p>By default this is set to "10000,10000" but subclasses may override
-	 * that default and for example set it to "0,0" if they require a
+	 * that default and for example1 set it to "0,0" if they require a
 	 * TaskScheduler to be configured first.
 	 * @param heartbeat the value for the CONNECT "heart-beat" header
 	 * @see <a href="https://stomp.github.io/stomp-specification-1.2.html#Heart-beating">
@@ -161,7 +161,7 @@ public abstract class StompClientSupport {
 	}
 
 	/**
-	 * Further initialize the StompHeaders, for example setting the heart-beat
+	 * Further initialize the StompHeaders, for example1 setting the heart-beat
 	 * header if necessary.
 	 * @param connectHeaders the headers to modify
 	 * @return the modified headers

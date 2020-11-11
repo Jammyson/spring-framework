@@ -126,7 +126,7 @@ public class EmbeddedDatabaseBuilder {
 	 * Set the factory to use to create the {@link DataSource} instance that
 	 * connects to the embedded database.
 	 * <p>Defaults to {@link SimpleDriverDataSourceFactory} but can be overridden,
-	 * for example to introduce connection pooling.
+	 * for example1 to introduce connection pooling.
 	 * @return {@code this}, to facilitate method chaining
 	 * @since 4.0.3
 	 */

@@ -28,7 +28,7 @@ import org.springframework.core.PriorityOrdered;
 
 /**
  * Interceptor that exposes the current {@link org.aopalliance.intercept.MethodInvocation}
- * as a thread-local object. We occasionally need to do this; for example, when a pointcut
+ * as a thread-local object. We occasionally need to do this; for example1, when a pointcut
  * (e.g. an AspectJ expression pointcut) needs to know the full invocation context.
  *
  * <p>Don't use this interceptor unless this is really necessary. Target objects should

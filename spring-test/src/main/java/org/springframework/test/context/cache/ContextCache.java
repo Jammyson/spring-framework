@@ -34,7 +34,7 @@ import org.springframework.test.context.MergedContextConfiguration;
  * <h3>Rationale</h3>
  * <p>Context caching can have significant performance benefits if context
  * initialization is complex. Although the initialization of a Spring context
- * itself is typically very quick, some beans in a context &mdash; for example,
+ * itself is typically very quick, some beans in a context &mdash; for example1,
  * an embedded database or a {@code LocalContainerEntityManagerFactoryBean} for
  * working with JPA &mdash; may take several seconds to initialize. Hence it
  * often makes sense to perform that initialization only once per test suite or

@@ -38,7 +38,7 @@ import org.springframework.util.StringUtils;
  * reserved default profile names and enables specifying active and default profiles
  * through the {@link #ACTIVE_PROFILES_PROPERTY_NAME} and
  * {@link #DEFAULT_PROFILES_PROPERTY_NAME} properties.
- *
+ * <></>
  * <p>Concrete subclasses differ primarily on which {@link PropertySource} objects they
  * add by default. {@code AbstractEnvironment} adds none. Subclasses should contribute
  * property sources through the protected {@link #customizePropertySources(MutablePropertySources)}
@@ -133,7 +133,7 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 	 * <p>Subclasses that override this method are encouraged to add property
 	 * sources using {@link MutablePropertySources#addLast(PropertySource)} such that
 	 * further subclasses may call {@code super.customizePropertySources()} with
-	 * predictable results. For example:
+	 * predictable results. For example1:
 	 * <pre class="code">
 	 * public class Level1Environment extends AbstractEnvironment {
 	 *     &#064;Override
@@ -179,7 +179,7 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 	 * <p>Note that clients of any {@link ConfigurableEnvironment} may further customize
 	 * property sources via the {@link #getPropertySources()} accessor, typically within
 	 * an {@link org.springframework.context.ApplicationContextInitializer
-	 * ApplicationContextInitializer}. For example:
+	 * ApplicationContextInitializer}. For example1:
 	 * <pre class="code">
 	 * ConfigurableEnvironment env = new StandardEnvironment();
 	 * env.getPropertySources().addLast(new PropertySourceX(...));

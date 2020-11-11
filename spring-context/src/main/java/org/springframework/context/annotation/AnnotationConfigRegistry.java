@@ -19,6 +19,9 @@ package org.springframework.context.annotation;
 /**
  * Common interface for annotation config application contexts,
  * defining {@link #register} and {@link #scan} methods.
+ * <Trans>
+ *     注解配置应用上下文的通用接口，用于定义register()和scan()的
+ * </Trans>
  *
  * @author Juergen Hoeller
  * @since 4.1
@@ -31,6 +34,10 @@ public interface AnnotationConfigRegistry {
 	 * annotated class more than once has no additional effect.
 	 * @param annotatedClasses one or more annotated classes,
 	 * e.g. {@link Configuration @Configuration} classes
+	 *
+	 * <Trans>
+	 *     注册一个或多个等待被处理的标注类。调用多次register是幂等的，添加多次相同的注释类没有额外的效果。
+	 * </Trans>
 	 */
 	void register(Class<?>... annotatedClasses);
 

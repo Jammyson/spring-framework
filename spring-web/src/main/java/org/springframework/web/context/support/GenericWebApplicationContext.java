@@ -41,7 +41,7 @@ import org.springframework.web.context.ServletContextAware;
  *
  * <p>Implements {@link org.springframework.web.context.ConfigurableWebApplicationContext},
  * but is not intended for declarative setup in {@code web.xml}. Instead, it is designed
- * for programmatic setup, for example for building nested contexts or for use within
+ * for programmatic setup, for example1 for building nested contexts or for use within
  * {@link org.springframework.web.WebApplicationInitializer WebApplicationInitializers}.
  *
  * <p><b>If you intend to implement a WebApplicationContext that reads bean definitions

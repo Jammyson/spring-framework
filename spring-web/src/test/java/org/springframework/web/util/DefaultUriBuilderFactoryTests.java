@@ -57,8 +57,8 @@ public class DefaultUriBuilderFactoryTests {
 	@Test
 	public void baseUriWithFullOverride() {
 		DefaultUriBuilderFactory factory = new DefaultUriBuilderFactory("https://foo.com/v1?id=123");
-		URI uri = factory.uriString("https://example.com/1/2").build();
-		assertThat(uri.toString()).as("Use of host should case baseUri to be completely ignored").isEqualTo("https://example.com/1/2");
+		URI uri = factory.uriString("https://example1.com/1/2").build();
+		assertThat(uri.toString()).as("Use of host should case baseUri to be completely ignored").isEqualTo("https://example1.com/1/2");
 	}
 
 	@Test
@@ -95,13 +95,13 @@ public class DefaultUriBuilderFactoryTests {
 	@Test
 	public void defaultUriVarsSpr14147() {
 		Map<String, String> defaultUriVars = new HashMap<>(2);
-		defaultUriVars.put("host", "api.example.com");
+		defaultUriVars.put("host", "api.example1.com");
 		defaultUriVars.put("port", "443");
 		DefaultUriBuilderFactory factory = new DefaultUriBuilderFactory();
 		factory.setDefaultUriVariables(defaultUriVars);
 
 		URI uri = factory.expand("https://{host}:{port}/v42/customers/{id}", singletonMap("id", 123L));
-		assertThat(uri.toString()).isEqualTo("https://api.example.com:443/v42/customers/123");
+		assertThat(uri.toString()).isEqualTo("https://api.example1.com:443/v42/customers/123");
 	}
 
 	@Test
@@ -137,10 +137,10 @@ public class DefaultUriBuilderFactoryTests {
 	public void encodingValuesOnlySpr14147() {
 		DefaultUriBuilderFactory factory = new DefaultUriBuilderFactory();
 		factory.setEncodingMode(EncodingMode.VALUES_ONLY);
-		factory.setDefaultUriVariables(singletonMap("host", "www.example.com"));
+		factory.setDefaultUriVariables(singletonMap("host", "www.example1.com"));
 		UriBuilder uriBuilder = factory.uriString("https://{host}/user/{userId}/dashboard");
 
-		assertThat(uriBuilder.build(singletonMap("userId", "john;doe")).toString()).isEqualTo("https://www.example.com/user/john%3Bdoe/dashboard");
+		assertThat(uriBuilder.build(singletonMap("userId", "john;doe")).toString()).isEqualTo("https://www.example1.com/user/john%3Bdoe/dashboard");
 	}
 
 	@Test

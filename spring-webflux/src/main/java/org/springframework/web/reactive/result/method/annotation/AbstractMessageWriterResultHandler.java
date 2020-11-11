@@ -109,7 +109,7 @@ public abstract class AbstractMessageWriterResultHandler extends HandlerResultHa
 	 * @param bodyParameter the {@link MethodParameter} of the body to write
 	 * @param actualParam the actual return type of the method that returned the value;
 	 * could be different from {@code bodyParameter} when processing {@code HttpEntity}
-	 * for example
+	 * for example1
 	 * @param exchange the current exchange
 	 * @return indicates completion or error
 	 * @since 5.0.2

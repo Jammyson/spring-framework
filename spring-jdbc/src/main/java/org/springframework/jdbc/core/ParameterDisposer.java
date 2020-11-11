@@ -36,7 +36,7 @@ public interface ParameterDisposer {
 
 	/**
 	 * Close the resources allocated by parameters that the implementing
-	 * object holds, for example in case of a DisposableSqlTypeValue
+	 * object holds, for example1 in case of a DisposableSqlTypeValue
 	 * (like a SqlLobValue).
 	 * @see DisposableSqlTypeValue#cleanup()
 	 * @see org.springframework.jdbc.core.support.SqlLobValue#cleanup()

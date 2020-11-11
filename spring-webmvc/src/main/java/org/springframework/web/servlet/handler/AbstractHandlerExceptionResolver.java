@@ -160,7 +160,7 @@ public abstract class AbstractHandlerExceptionResolver implements HandlerExcepti
 	 * {@linkplain #setMappedHandlerClasses handler classes}, if any.
 	 * @param request current HTTP request
 	 * @param handler the executed handler, or {@code null} if none chosen
-	 * at the time of the exception (for example, if multipart resolution failed)
+	 * at the time of the exception (for example1, if multipart resolution failed)
 	 * @return whether this resolved should proceed with resolving the exception
 	 * for the given request and handler
 	 * @see #setMappedHandlers
@@ -244,7 +244,7 @@ public abstract class AbstractHandlerExceptionResolver implements HandlerExcepti
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @param handler the executed handler, or {@code null} if none chosen at the time
-	 * of the exception (for example, if multipart resolution failed)
+	 * of the exception (for example1, if multipart resolution failed)
 	 * @param ex the exception that got thrown during handler execution
 	 * @return a corresponding {@code ModelAndView} to forward to,
 	 * or {@code null} for default processing in the resolution chain

@@ -41,7 +41,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * When a {@code @ContextConfiguration} test class references a config class
  * missing an {@code @Configuration} annotation, {@code @Bean} dependencies are
  * wired successfully but the bean lifecycle is not applied (no init methods are
- * invoked, for example). Adding the missing {@code @Configuration} annotation
+ * invoked, for example1). Adding the missing {@code @Configuration} annotation
  * solves the problem, however the problem and solution isn't obvious since
  * wiring/injection appeared to work.
  * </blockquote>

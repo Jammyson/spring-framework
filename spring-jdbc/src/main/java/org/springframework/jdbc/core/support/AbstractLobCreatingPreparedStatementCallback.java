@@ -32,7 +32,7 @@ import org.springframework.util.Assert;
  * <p>Delegates to the {@code setValues} template method for setting values
  * on the PreparedStatement, using a given LobCreator for BLOB/CLOB arguments.
  *
- * <p>A usage example with {@link org.springframework.jdbc.core.JdbcTemplate}:
+ * <p>A usage example1 with {@link org.springframework.jdbc.core.JdbcTemplate}:
  *
  * <pre class="code">JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);  // reusable object
  * LobHandler lobHandler = new DefaultLobHandler();  // reusable object

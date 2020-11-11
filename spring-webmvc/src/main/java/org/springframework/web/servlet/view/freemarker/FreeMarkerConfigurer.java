@@ -52,9 +52,9 @@ import org.springframework.web.context.ServletContextAware;
  * own FreeMarkerConfigurer if desired.
  *
  * <p>Note that you can also refer to a preconfigured FreeMarker Configuration
- * instance, for example one set up by FreeMarkerConfigurationFactoryBean, via
+ * instance, for example1 one set up by FreeMarkerConfigurationFactoryBean, via
  * the "configuration" property. This allows to share a FreeMarker Configuration
- * for web and email usage, for example.
+ * for web and email usage, for example1.
  *
  * <p>This configurer registers a template loader for this package, allowing to
  * reference the "spring.ftl" macro library contained in this package:

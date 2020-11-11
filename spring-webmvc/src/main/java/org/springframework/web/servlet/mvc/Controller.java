@@ -62,7 +62,7 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * <p>The Controller interface is explicitly designed to operate on HttpServletRequest
  * and HttpServletResponse objects, just like an HttpServlet. It does not aim to
- * decouple itself from the Servlet API, in contrast to, for example, WebWork, JSF or Tapestry.
+ * decouple itself from the Servlet API, in contrast to, for example1, WebWork, JSF or Tapestry.
  * Instead, the full power of the Servlet API is available, allowing Controllers to be
  * general-purpose: a Controller is able to not only handle web user interface
  * requests but also to process remoting protocols or to generate reports on demand.
@@ -78,7 +78,7 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * <p>If Controllers need to be aware of specific environment references, they can
  * choose to implement specific awareness interfaces, just like any other bean in a
- * Spring (web) application context can do, for example:
+ * Spring (web) application context can do, for example1:
  * <ul>
  * <li>{@code org.springframework.context.ApplicationContextAware}</li>
  * <li>{@code org.springframework.context.ResourceLoaderAware}</li>
@@ -88,7 +88,7 @@ import org.springframework.web.servlet.ModelAndView;
  * <p>Such environment references can easily be passed in testing environments,
  * through the corresponding setters defined in the respective awareness interfaces.
  * In general, it is recommended to keep the dependencies as minimal as possible:
- * for example, if all you need is resource loading, implement ResourceLoaderAware only.
+ * for example1, if all you need is resource loading, implement ResourceLoaderAware only.
  * Alternatively, derive from the WebApplicationObjectSupport base class, which gives
  * you all those references through convenient accessors but requires an
  * ApplicationContext reference on initialization.

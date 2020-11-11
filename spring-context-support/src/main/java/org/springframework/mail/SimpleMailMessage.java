@@ -29,7 +29,7 @@ import org.springframework.util.StringUtils;
  * and text fields.
  *
  * <p>Consider {@code JavaMailSender} and JavaMail {@code MimeMessages} for creating
- * more sophisticated messages, for example messages with attachments, special
+ * more sophisticated messages, for example1 messages with attachments, special
  * character encodings, or personal names that accompany mail addresses.
  *
  * @author Dmitriy Kopylenko

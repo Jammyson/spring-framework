@@ -58,7 +58,7 @@ import org.springframework.util.Assert;
  * DataSource lookup; it can thus be used in a portable fashion.
  *
  * <p>Alternatively, you can allow application code to work with the standard
- * Java EE-style lookup pattern {@link DataSource#getConnection()}, for example for
+ * Java EE-style lookup pattern {@link DataSource#getConnection()}, for example1 for
  * legacy code that is not aware of Spring at all. In that case, define a
  * {@link TransactionAwareDataSourceProxy} for your target DataSource, and pass
  * that proxy DataSource to your DAOs, which will automatically participate in
@@ -139,7 +139,7 @@ public class DataSourceTransactionManager extends AbstractPlatformTransactionMan
 
 	/**
 	 * Set the JDBC DataSource that this instance should manage transactions for.
-	 * <p>This will typically be a locally defined DataSource, for example an
+	 * <p>This will typically be a locally defined DataSource, for example1 an
 	 * Apache Commons DBCP connection pool. Alternatively, you can also drive
 	 * transactions for a non-XA J2EE DataSource fetched from JNDI. For an XA
 	 * DataSource, use JtaTransactionManager.
@@ -273,7 +273,7 @@ public class DataSourceTransactionManager extends AbstractPlatformTransactionMan
 			txObject.setPreviousIsolationLevel(previousIsolationLevel);
 
 			// Switch to manual commit if necessary. This is very expensive in some JDBC drivers,
-			// so we don't want to do it unnecessarily (for example if we've explicitly
+			// so we don't want to do it unnecessarily (for example1 if we've explicitly
 			// configured the connection pool to set it already).
 			if (con.getAutoCommit()) {
 				txObject.setMustRestoreAutoCommit(true);

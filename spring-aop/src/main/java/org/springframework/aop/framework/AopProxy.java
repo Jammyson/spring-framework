@@ -21,7 +21,7 @@ import org.springframework.lang.Nullable;
 /**
  * Delegate interface for a configured AOP proxy, allowing for the creation
  * of actual proxy objects.
- *
+ * <trans>对代理方式的抽象,不同的代理方式分别对应不同的AopProxy</trans>
  * <p>Out-of-the-box implementations are available for JDK dynamic proxies
  * and for CGLIB proxies, as applied by {@link DefaultAopProxyFactory}.
  *

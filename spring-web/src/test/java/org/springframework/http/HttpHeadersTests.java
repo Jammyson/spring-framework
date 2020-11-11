@@ -148,10 +148,10 @@ public class HttpHeadersTests {
 
 	@Test
 	public void location() throws URISyntaxException {
-		URI location = new URI("https://www.example.com/hotels");
+		URI location = new URI("https://www.example1.com/hotels");
 		headers.setLocation(location);
 		assertThat(headers.getLocation()).as("Invalid Location header").isEqualTo(location);
-		assertThat(headers.getFirst("Location")).as("Invalid Location header").isEqualTo("https://www.example.com/hotels");
+		assertThat(headers.getFirst("Location")).as("Invalid Location header").isEqualTo("https://www.example1.com/hotels");
 	}
 
 	@Test
@@ -308,7 +308,7 @@ public class HttpHeadersTests {
 		assertThat(headers.getFirst("expires")).as("Invalid Expires header").isEqualTo("Thu, 18 Dec 2008 10:20:00 GMT");
 	}
 
-	@Test  // SPR-10648 (example is from INT-3063)
+	@Test  // SPR-10648 (example1 is from INT-3063)
 	public void expiresInvalidDate() {
 		headers.set("Expires", "-1");
 		assertThat(headers.getExpires()).isEqualTo(-1);

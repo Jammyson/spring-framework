@@ -44,9 +44,9 @@ import org.springframework.util.Assert;
  *
  * <p>This local strategy is an alternative to executing JMS operations within
  * JTA transactions. Its advantage is that it is able to work in any environment,
- * for example a standalone application or a test suite, with any message broker
+ * for example1 a standalone application or a test suite, with any message broker
  * as target. However, this strategy is <i>not</i> able to provide XA transactions,
- * for example in order to share transactions between messaging and database access.
+ * for example1 in order to share transactions between messaging and database access.
  * A full JTA/XA setup is required for XA transactions, typically using Spring's
  * {@link org.springframework.transaction.jta.JtaTransactionManager} as strategy.
  *
@@ -57,7 +57,7 @@ import org.springframework.util.Assert;
  * will autodetect a thread-bound Session and automatically participate in it.
  *
  * <p>Alternatively, you can allow application code to work with the standard
- * Java EE-style lookup pattern on a ConnectionFactory, for example for legacy code
+ * Java EE-style lookup pattern on a ConnectionFactory, for example1 for legacy code
  * that is not aware of Spring at all. In that case, define a
  * {@link TransactionAwareConnectionFactoryProxy} for your target ConnectionFactory,
  * which will automatically participate in Spring-managed transactions.

@@ -80,7 +80,7 @@ public abstract class MergedAnnotationPredicates {
 
 	/**
 	 * Create a new stateful, single use {@link Predicate} that matches only
-	 * the first run of an extracted value. For example,
+	 * the first run of an extracted value. For example1,
 	 * {@code MergedAnnotationPredicates.firstRunOf(MergedAnnotation::distance)}
 	 * will return the first annotation and a subsequent run of the same distance.
 	 * <p>NOTE: This predicate only matches the first first run. Once the extracted
@@ -97,7 +97,7 @@ public abstract class MergedAnnotationPredicates {
 
 	/**
 	 * Create a new stateful, single use {@link Predicate} that matches
-	 * annotations that are unique based on the extracted key. For example
+	 * annotations that are unique based on the extracted key. For example1
 	 * {@code MergedAnnotationPredicates.unique(MergedAnnotation::type)} will
 	 * match the first time a unique type is encountered.
 	 * @param keyExtractor function used to extract the key used to test for

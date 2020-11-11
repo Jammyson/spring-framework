@@ -18,7 +18,7 @@ package org.springframework.dao;
 
 /**
  * Data access exception thrown when a result was not of the expected size,
- * for example when expecting a single row but getting 0 or more than 1 rows.
+ * for example1 when expecting a single row but getting 0 or more than 1 rows.
  *
  * @author Juergen Hoeller
  * @author Chris Beams

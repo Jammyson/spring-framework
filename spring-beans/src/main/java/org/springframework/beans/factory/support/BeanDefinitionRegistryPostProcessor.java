@@ -39,6 +39,9 @@ public interface BeanDefinitionRegistryPostProcessor extends BeanFactoryPostProc
 	 * bean definitions before the next post-processing phase kicks in.
 	 * @param registry the bean definition registry used by the application context
 	 * @throws org.springframework.beans.BeansException in case of errors
+	 *
+	 * <trans> 传入spring当前的BD Map，此时所有的BD都已经被扫描完毕 </trans>
+	 * @see org.springframework.context.support.PostProcessorRegistrationDelegate#invokeBeanFactoryPostProcessors(org.springframework.beans.factory.config.ConfigurableListableBeanFactory, java.util.List)
 	 */
 	void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException;
 

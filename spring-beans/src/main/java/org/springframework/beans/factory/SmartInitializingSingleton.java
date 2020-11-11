@@ -16,6 +16,8 @@
 
 package org.springframework.beans.factory;
 
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+
 /**
  * Callback interface triggered at the end of the singleton pre-instantiation phase
  * during {@link BeanFactory} bootstrap. This interface can be implemented by
@@ -52,7 +54,9 @@ public interface SmartInitializingSingleton {
 	 * lazily initialized on demand after {@link BeanFactory} bootstrap,
 	 * and not for any other bean scope either. Carefully use it for beans
 	 * with the intended bootstrap semantics only.
+	 *
+	 * <note> 所有非懒加载、单例Bean初始化完毕后的回调 </note>
+	 * @see	DefaultListableBeanFactory#preInstantiateSingletons()
 	 */
 	void afterSingletonsInstantiated();
-
 }

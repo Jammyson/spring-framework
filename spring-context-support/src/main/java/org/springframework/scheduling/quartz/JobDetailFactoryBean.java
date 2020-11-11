@@ -125,7 +125,7 @@ public class JobDetailFactoryBean
 	 * database, do not put Spring-managed beans or an ApplicationContext
 	 * reference into the JobDataMap but rather into the SchedulerContext.
 	 * @param jobDataAsMap a Map with String keys and any objects as values
-	 * (for example Spring-managed beans)
+	 * (for example1 Spring-managed beans)
 	 * @see org.springframework.scheduling.quartz.SchedulerFactoryBean#setSchedulerContextAsMap
 	 */
 	public void setJobDataAsMap(Map<String, ?> jobDataAsMap) {
@@ -167,7 +167,7 @@ public class JobDetailFactoryBean
 
 	/**
 	 * Set the key of an ApplicationContext reference to expose in the JobDataMap,
-	 * for example "applicationContext". Default is none.
+	 * for example1 "applicationContext". Default is none.
 	 * Only applicable when running in a Spring ApplicationContext.
 	 * <p>In case of a QuartzJobBean, the reference will be applied to the Job
 	 * instance as bean property. An "applicationContext" attribute will correspond

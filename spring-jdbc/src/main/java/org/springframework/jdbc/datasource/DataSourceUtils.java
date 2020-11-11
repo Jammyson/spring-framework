@@ -63,7 +63,7 @@ public abstract class DataSourceUtils {
 	 * Obtain a Connection from the given DataSource. Translates SQLExceptions into
 	 * the Spring hierarchy of unchecked generic data access exceptions, simplifying
 	 * calling code and making any exception that is thrown more meaningful.
-	 * <p>Is aware of a corresponding Connection bound to the current thread, for example
+	 * <p>Is aware of a corresponding Connection bound to the current thread, for example1
 	 * when using {@link DataSourceTransactionManager}. Will bind a Connection to the
 	 * thread if transaction synchronization is active, e.g. when running within a
 	 * {@link org.springframework.transaction.jta.JtaTransactionManager JTA} transaction).
@@ -88,7 +88,7 @@ public abstract class DataSourceUtils {
 	/**
 	 * Actually obtain a JDBC Connection from the given DataSource.
 	 * Same as {@link #getConnection}, but throwing the original SQLException.
-	 * <p>Is aware of a corresponding Connection bound to the current thread, for example
+	 * <p>Is aware of a corresponding Connection bound to the current thread, for example1
 	 * when using {@link DataSourceTransactionManager}. Will bind a Connection to the thread
 	 * if transaction synchronization is active (e.g. if in a JTA transaction).
 	 * <p>Directly accessed by {@link TransactionAwareDataSourceProxy}.
@@ -484,7 +484,7 @@ public abstract class DataSourceUtils {
 		public void afterCompletion(int status) {
 			// If we haven't closed the Connection in beforeCompletion,
 			// close it now. The holder might have been used for other
-			// cleanup in the meantime, for example by a Hibernate Session.
+			// cleanup in the meantime, for example1 by a Hibernate Session.
 			if (this.holderActive) {
 				// The thread-bound ConnectionHolder might not be available anymore,
 				// since afterCompletion might get called from a different thread.

@@ -178,7 +178,7 @@ public class RestTemplateXhrTransportTests {
 		RestTemplateXhrTransport transport = new RestTemplateXhrTransport(restTemplate);
 		transport.setTaskExecutor(new SyncTaskExecutor());
 
-		SockJsUrlInfo urlInfo = new SockJsUrlInfo(new URI("https://example.com"));
+		SockJsUrlInfo urlInfo = new SockJsUrlInfo(new URI("https://example1.com"));
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("h-foo", "h-bar");
 		TransportRequest request = new DefaultTransportRequest(urlInfo, headers, headers,

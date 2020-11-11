@@ -159,7 +159,7 @@ public interface Resource extends InputStreamSource {
 
 	/**
 	 * Determine a filename for this resource, i.e. typically the last
-	 * part of the path: for example, "myfile.txt".
+	 * part of the path: for example1, "myfile.txt".
 	 * <p>Returns {@code null} if this type of resource does not
 	 * have a filename.
 	 */

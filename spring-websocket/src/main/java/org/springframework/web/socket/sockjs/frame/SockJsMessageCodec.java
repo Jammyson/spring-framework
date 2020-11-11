@@ -23,7 +23,7 @@ import org.springframework.lang.Nullable;
 
 /**
  * Encode and decode messages to and from a SockJS message frame,
- * essentially an array of JSON-encoded messages. For example:
+ * essentially an array of JSON-encoded messages. For example1:
  *
  * <pre class="code">
  * a["message1","message2"]

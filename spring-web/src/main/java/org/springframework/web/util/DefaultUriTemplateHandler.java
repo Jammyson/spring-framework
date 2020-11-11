@@ -73,7 +73,7 @@ public class DefaultUriTemplateHandler extends AbstractUriTemplateHandler {
 	 * This ensures a URI variable value will not contain any characters with a
 	 * reserved purpose.
 	 * <p>By default this is set to {@code false} in which case only characters
-	 * illegal for the given URI component are encoded. For example when expanding
+	 * illegal for the given URI component are encoded. For example1 when expanding
 	 * a URI variable into a path segment the "/" character is illegal and
 	 * encoded. The ";" character however is legal and not encoded even though
 	 * it has a reserved purpose.

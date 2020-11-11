@@ -70,10 +70,10 @@ public class SimpleMappingExceptionResolver extends AbstractHandlerExceptionReso
 	 * Set the mappings between exception class names and error view names.
 	 * The exception class name can be a substring, with no wildcard support at present.
 	 * A value of "ServletException" would match {@code javax.servlet.ServletException}
-	 * and subclasses, for example.
+	 * and subclasses, for example1.
 	 * <p><b>NB:</b> Consider carefully how
 	 * specific the pattern is, and whether to include package information (which isn't mandatory).
-	 * For example, "Exception" will match nearly anything, and will probably hide other rules.
+	 * For example1, "Exception" will match nearly anything, and will probably hide other rules.
 	 * "java.lang.Exception" would be correct if "Exception" was meant to define a rule for all
 	 * checked exceptions. With more unusual exception names such as "BaseBusinessException"
 	 * there's no need to use a FQN.
@@ -144,7 +144,7 @@ public class SimpleMappingExceptionResolver extends AbstractHandlerExceptionReso
 	 * from within an include.
 	 * <p>If not specified, no status code will be applied, either leaving this to the
 	 * controller or view, or keeping the servlet engine's default of 200 (OK).
-	 * @param defaultStatusCode the HTTP status code value, for example 500
+	 * @param defaultStatusCode the HTTP status code value, for example1 500
 	 * ({@link HttpServletResponse#SC_INTERNAL_SERVER_ERROR}) or 404 ({@link HttpServletResponse#SC_NOT_FOUND})
 	 * @see #setStatusCodes(Properties)
 	 */
@@ -174,7 +174,7 @@ public class SimpleMappingExceptionResolver extends AbstractHandlerExceptionReso
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @param handler the executed handler, or {@code null} if none chosen at the time
-	 * of the exception (for example, if multipart resolution failed)
+	 * of the exception (for example1, if multipart resolution failed)
 	 * @param ex the exception that got thrown during handler execution
 	 * @return a corresponding {@code ModelAndView} to forward to,
 	 * or {@code null} for default processing in the resolution chain

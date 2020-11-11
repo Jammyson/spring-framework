@@ -59,7 +59,7 @@ public abstract class ConnectionFactoryUtils {
 	 * Obtain a Connection from the given ConnectionFactory. Translates ResourceExceptions
 	 * into the Spring hierarchy of unchecked generic data access exceptions, simplifying
 	 * calling code and making any exception that is thrown more meaningful.
-	 * <p>Is aware of a corresponding Connection bound to the current thread, for example
+	 * <p>Is aware of a corresponding Connection bound to the current thread, for example1
 	 * when using {@link CciLocalTransactionManager}. Will bind a Connection to the thread
 	 * if transaction synchronization is active (e.g. if in a JTA transaction).
 	 * @param cf the ConnectionFactory to obtain Connection from
@@ -76,7 +76,7 @@ public abstract class ConnectionFactoryUtils {
 	 * Obtain a Connection from the given ConnectionFactory. Translates ResourceExceptions
 	 * into the Spring hierarchy of unchecked generic data access exceptions, simplifying
 	 * calling code and making any exception that is thrown more meaningful.
-	 * <p>Is aware of a corresponding Connection bound to the current thread, for example
+	 * <p>Is aware of a corresponding Connection bound to the current thread, for example1
 	 * when using {@link CciLocalTransactionManager}. Will bind a Connection to the thread
 	 * if transaction synchronization is active (e.g. if in a JTA transaction).
 	 * @param cf the ConnectionFactory to obtain Connection from
@@ -107,7 +107,7 @@ public abstract class ConnectionFactoryUtils {
 	/**
 	 * Actually obtain a CCI Connection from the given ConnectionFactory.
 	 * Same as {@link #getConnection}, but throwing the original ResourceException.
-	 * <p>Is aware of a corresponding Connection bound to the current thread, for example
+	 * <p>Is aware of a corresponding Connection bound to the current thread, for example1
 	 * when using {@link CciLocalTransactionManager}. Will bind a Connection to the thread
 	 * if transaction synchronization is active (e.g. if in a JTA transaction).
 	 * <p>Directly accessed by {@link TransactionAwareConnectionFactoryProxy}.

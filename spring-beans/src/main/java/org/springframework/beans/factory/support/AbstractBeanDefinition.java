@@ -41,6 +41,10 @@ import org.springframework.util.StringUtils;
  * Base class for concrete, full-fledged {@link BeanDefinition} classes,
  * factoring out common properties of {@link GenericBeanDefinition},
  * {@link RootBeanDefinition}, and {@link ChildBeanDefinition}.
+ * <Trans>
+ *      BeanDefinition的一个基础的、完整的实现类，它提取出了GenericBeanDefinition、RootBeanDefinition
+ *      和ChildBeanDefinition的公共属性。
+ * </Trans>
  *
  * <p>The autowire constants match the ones defined in the
  * {@link org.springframework.beans.factory.config.AutowireCapableBeanFactory}
@@ -161,6 +165,10 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 
 	private final Map<String, AutowireCandidateQualifier> qualifiers = new LinkedHashMap<>();
 
+	/**
+	 * 使用Supplier指定Bean实例化的方式
+	 * @see AbstractAutowireCapableBeanFactory#createBeanInstance(java.lang.String, org.springframework.beans.factory.support.RootBeanDefinition, java.lang.Object[])
+	 */
 	@Nullable
 	private Supplier<?> instanceSupplier;
 
@@ -168,18 +176,39 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 
 	private boolean lenientConstructorResolution = true;
 
+	/**
+	 * 与factoryMethodName一起使用.用于保存@Bean所在的配置类的BeanName.
+	 * 当FactoryMethodName指代的方法是静态方法时，factoryBeanName将不会被赋值
+	 * 当FactoryMethodName指代的不是静态方法时，factoryBeanName会被赋值
+	 * @see org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader#loadBeanDefinitionsForBeanMethod(org.springframework.context.annotation.BeanMethod)
+	 */
 	@Nullable
 	private String factoryBeanName;
 
+	/**
+	 * 使用方法返回值的方式实例化Bean(@Bean),该参数值为方法名称
+	 * @see AbstractAutowireCapableBeanFactory#createBeanInstance(java.lang.String, org.springframework.beans.factory.support.RootBeanDefinition, java.lang.Object[])
+	 * @see org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader#loadBeanDefinitionsForBeanMethod(org.springframework.context.annotation.BeanMethod)
+	 */
 	@Nullable
 	private String factoryMethodName;
 
+	/**
+	 * 构造参数
+	 * TODO::
+	 */
 	@Nullable
 	private ConstructorArgumentValues constructorArgumentValues;
 
+	/**
+	 * 已被指定的属性的名称和value的键值对集合，默认情况下是为null的
+	 */
 	@Nullable
 	private MutablePropertyValues propertyValues;
 
+	/**
+	 * 记录Bean中使用@Lookup标记的method
+	 */
 	@Nullable
 	private MethodOverrides methodOverrides;
 
@@ -222,7 +251,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 
 	/**
 	 * Create a new AbstractBeanDefinition as a deep copy of the given
-	 * bean definition.
+	 * bean definition.re
 	 * @param original the original bean definition to copy from
 	 */
 	protected AbstractBeanDefinition(BeanDefinition original) {
@@ -283,6 +312,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	 * Override settings in this bean definition (presumably a copied parent
 	 * from a parent-child inheritance relationship) from the given bean
 	 * definition (presumably the child).
+	 * <Trans>将当前BeanDefinition中的配置全部重写为给定的BeanDefinition</Trans>
 	 * <ul>
 	 * <li>Will override beanClass if specified in the given bean definition.
 	 * <li>Will always take {@code abstract}, {@code scope},
@@ -405,6 +435,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	 * Specify the class for this bean.
 	 */
 	public void setBeanClass(@Nullable Class<?> beanClass) {
+		// 属性位于 org.springframework.beans.factory.support.AbstractBeanDefinition.beanClass
 		this.beanClass = beanClass;
 	}
 
@@ -557,13 +588,17 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	 * and setting of bean references will happen. Default is AUTOWIRE_NO
 	 * which means there won't be convention-based autowiring by name or type
 	 * (however, there may still be explicit annotation-driven autowiring).
-	 * @param autowireMode the autowire mode to set.
-	 * Must be one of the constants defined in this class.
-	 * @see #AUTOWIRE_NO
-	 * @see #AUTOWIRE_BY_NAME
-	 * @see #AUTOWIRE_BY_TYPE
-	 * @see #AUTOWIRE_CONSTRUCTOR
-	 * @see #AUTOWIRE_AUTODETECT
+	 * <trans>
+	 *     设置自动注入模式.自动注入指spring对Bean的属性进行自动赋值.spring中定义的
+	 *     不同自动注入方式被称为AutowireMode.
+	 *     注：@Autowired被称为手动注入,默认情况下AutowireModel=AUTOWIRE_NO。
+	 * </trans>
+	 * @see #AUTOWIRE_NO   不进行自动注入,默认值
+	 * @see #AUTOWIRE_BY_NAME   以属性name作为BeanName从BeanFactory中寻找Bean进行赋值,如果找不到就用ByType寻找.
+	 * @see #AUTOWIRE_BY_TYPE   以属性Type作为BeanName从BeanFactory中寻找Bean进行赋值,如果找不到就用ByName寻找.
+	 * @see #AUTOWIRE_CONSTRUCTOR   使用构造方法注入,如果Bean没有符合的构造方法,会抛异常.
+	 * @see #AUTOWIRE_AUTODETECT   由spring决定是使用构造注入还是ByType注入.如果Bean存在默认构造器,spring将使用ByType注入.如果不存在,将使用构造注入
+	 * @see AbstractBeanDefinition#getResolvedAutowireMode()
 	 */
 	public void setAutowireMode(int autowireMode) {
 		this.autowireMode = autowireMode;
@@ -577,17 +612,11 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	}
 
 	/**
-	 * Return the resolved autowire code,
-	 * (resolving AUTOWIRE_AUTODETECT to AUTOWIRE_CONSTRUCTOR or AUTOWIRE_BY_TYPE).
-	 * @see #AUTOWIRE_AUTODETECT
-	 * @see #AUTOWIRE_CONSTRUCTOR
-	 * @see #AUTOWIRE_BY_TYPE
+	 * <trans> 处理AUTOWIRE_AUTODETECT的AutowireModel.如果Bean存在默认构造器,spring将使用ByType注入.如果不存在,将使用构造注入</trans>
+	 * @see AbstractBeanDefinition#setAutowireMode(int)
 	 */
 	public int getResolvedAutowireMode() {
 		if (this.autowireMode == AUTOWIRE_AUTODETECT) {
-			// Work out whether to apply setter autowiring or constructor autowiring.
-			// If it has a no-arg constructor it's deemed to be setter autowiring,
-			// otherwise we'll try constructor autowiring.
 			Constructor<?>[] constructors = getBeanClass().getConstructors();
 			for (Constructor<?> constructor : constructors) {
 				if (constructor.getParameterCount() == 0) {
@@ -763,6 +792,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 
 	/**
 	 * Return whether to allow access to non-public constructors and methods.
+	 * <Trans> 返回是否允许访问非public的方法和构造方法 </Trans>
 	 */
 	public boolean isNonPublicAccessAllowed() {
 		return this.nonPublicAccessAllowed;
@@ -978,7 +1008,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 
 	/**
 	 * Set whether this bean definition is 'synthetic', that is, not defined
-	 * by the application itself (for example, an infrastructure bean such
+	 * by the application itself (for example1, an infrastructure bean such
 	 * as a helper for auto-proxying, created through {@code <aop:config>}).
 	 */
 	public void setSynthetic(boolean synthetic) {
@@ -988,6 +1018,10 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	/**
 	 * Return whether this bean definition is 'synthetic', that is,
 	 * not defined by the application itself.
+	 *
+	 * <Trans>
+	 *     返回当前BeanDefinition是否是synthetic，它的意思是不是由应用本身定义的。
+	 * </Trans>
 	 */
 	public boolean isSynthetic() {
 		return this.synthetic;
@@ -1099,11 +1133,16 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	/**
 	 * Validate and prepare the method overrides defined for this bean.
 	 * Checks for existence of a method with the specified name.
+	 * 校验和准备Bean中定义的方法的重写。根据指定的name检查方法的扩展。
+	 *
 	 * @throws BeanDefinitionValidationException in case of validation failure
 	 */
 	public void prepareMethodOverrides() throws BeanDefinitionValidationException {
-		// Check that lookup methods exists.
+		// 判断Bean中是否存在标注了@Lookup注解的方法
 		if (hasMethodOverrides()) {
+			/**
+			 * 获取到{@link MethodOverride}并进行处理
+			 */
 			Set<MethodOverride> overrides = getMethodOverrides().getOverrides();
 			synchronized (overrides) {
 				for (MethodOverride mo : overrides) {

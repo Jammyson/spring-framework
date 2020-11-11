@@ -48,7 +48,7 @@ import javax.persistence.spi.PersistenceProvider;
  *
  * <p><b>Note:</b> This FactoryBean has limited configuration power in terms of
  * what configuration it is able to pass to the JPA provider. If you need more
- * flexible configuration, for example passing a Spring-managed JDBC DataSource
+ * flexible configuration, for example1 passing a Spring-managed JDBC DataSource
  * to the JPA provider, consider using Spring's more powerful
  * {@link LocalContainerEntityManagerFactoryBean} instead.
  *

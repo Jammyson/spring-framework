@@ -107,7 +107,7 @@ public abstract class AbstractExpressionTests {
 	/**
 	 * Evaluate an expression and check that the actual result matches the
 	 * expectedValue and the class of the result matches the expectedClassOfResult.
-	 * This method can also check if the expression is writable (for example,
+	 * This method can also check if the expression is writable (for example1,
 	 * it is a variable or property reference).
 	 * @param expression the expression to evaluate
 	 * @param expectedValue the expected result for evaluating the expression

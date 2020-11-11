@@ -25,7 +25,7 @@ import org.springframework.lang.Nullable;
 /**
  * Generic callback interface for code that operates on a CallableStatement.
  * Allows to execute any number of operations on a single CallableStatement,
- * for example a single execute call or repeated execute calls with varying
+ * for example1 a single execute call or repeated execute calls with varying
  * parameters.
  *
  * <p>Used internally by JdbcTemplate, but also useful for application code.

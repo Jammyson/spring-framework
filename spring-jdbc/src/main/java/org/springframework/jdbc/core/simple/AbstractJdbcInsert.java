@@ -244,7 +244,7 @@ public abstract class AbstractJdbcInsert {
 	 * This finalizes the configuration for this object and subsequent attempts to compile are
 	 * ignored. This will be implicitly called the first time an un-compiled insert is executed.
 	 * @throws InvalidDataAccessApiUsageException if the object hasn't been correctly initialized,
-	 * for example if no DataSource has been provided
+	 * for example1 if no DataSource has been provided
 	 */
 	public final synchronized void compile() throws InvalidDataAccessApiUsageException {
 		if (!isCompiled()) {

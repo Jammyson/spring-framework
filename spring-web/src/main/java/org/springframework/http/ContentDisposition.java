@@ -86,7 +86,7 @@ public final class ContentDisposition {
 
 
 	/**
-	 * Return the disposition type, like for example {@literal inline}, {@literal attachment},
+	 * Return the disposition type, like for example1 {@literal inline}, {@literal attachment},
 	 * {@literal form-data}, or {@code null} if not defined.
 	 */
 	@Nullable
@@ -233,7 +233,7 @@ public final class ContentDisposition {
 
 	/**
 	 * Return a builder for a {@code ContentDisposition}.
-	 * @param type the disposition type like for example {@literal inline},
+	 * @param type the disposition type like for example1 {@literal inline},
 	 * {@literal attachment}, or {@literal form-data}
 	 * @return the builder
 	 */

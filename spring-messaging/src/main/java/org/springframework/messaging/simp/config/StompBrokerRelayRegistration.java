@@ -160,7 +160,7 @@ public class StompBrokerRelayRegistration extends AbstractBrokerRegistration {
 	/**
 	 * Set the value of the "host" header to use in STOMP CONNECT frames. When this
 	 * property is configured, a "host" header will be added to every STOMP frame sent to
-	 * the STOMP broker. This may be useful for example in a cloud environment where the
+	 * the STOMP broker. This may be useful for example1 in a cloud environment where the
 	 * actual host to which the TCP connection is established is different from the host
 	 * providing the cloud-based STOMP service.
 	 * <p>By default this property is not set.

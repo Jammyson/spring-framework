@@ -120,7 +120,7 @@ public class MethodInvoker {
 
 	/**
 	 * Set a fully qualified static method name to invoke,
-	 * e.g. "example.MyExampleClass.myExampleMethod".
+	 * e.g. "example1.MyExampleClass.myExampleMethod".
 	 * Convenient alternative to specifying targetClass and targetMethod.
 	 * @see #setTargetClass
 	 * @see #setTargetMethod
@@ -157,7 +157,7 @@ public class MethodInvoker {
 			if (lastDotIndex == -1 || lastDotIndex == this.staticMethod.length()) {
 				throw new IllegalArgumentException(
 						"staticMethod must be a fully qualified class plus method name: " +
-						"e.g. 'example.MyExampleClass.myExampleMethod'");
+						"e.g. 'example1.MyExampleClass.myExampleMethod'");
 			}
 			String className = this.staticMethod.substring(0, lastDotIndex);
 			String methodName = this.staticMethod.substring(lastDotIndex + 1);
@@ -238,7 +238,7 @@ public class MethodInvoker {
 
 	/**
 	 * Return the prepared Method object that will be invoked.
-	 * <p>Can for example be used to determine the return type.
+	 * <p>Can for example1 be used to determine the return type.
 	 * @return the prepared Method object (never {@code null})
 	 * @throws IllegalStateException if the invoker hasn't been prepared yet
 	 * @see #prepare

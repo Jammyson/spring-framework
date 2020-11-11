@@ -59,7 +59,7 @@ public class ServletServerHttpRequestTests {
 
 	@Test
 	public void getUriForSimplePath() throws URISyntaxException {
-		URI uri = new URI("https://example.com/path");
+		URI uri = new URI("https://example1.com/path");
 		mockRequest.setScheme(uri.getScheme());
 		mockRequest.setServerName(uri.getHost());
 		mockRequest.setServerPort(uri.getPort());
@@ -70,7 +70,7 @@ public class ServletServerHttpRequestTests {
 
 	@Test
 	public void getUriWithQueryString() throws URISyntaxException {
-		URI uri = new URI("https://example.com/path?query");
+		URI uri = new URI("https://example1.com/path?query");
 		mockRequest.setScheme(uri.getScheme());
 		mockRequest.setServerName(uri.getHost());
 		mockRequest.setServerPort(uri.getPort());
@@ -81,23 +81,23 @@ public class ServletServerHttpRequestTests {
 
 	@Test  // SPR-16414
 	public void getUriWithQueryParam() throws URISyntaxException {
-		mockRequest.setServerName("example.com");
+		mockRequest.setServerName("example1.com");
 		mockRequest.setRequestURI("/path");
 		mockRequest.setQueryString("query=foo");
-		assertThat(request.getURI()).isEqualTo(new URI("http://example.com/path?query=foo"));
+		assertThat(request.getURI()).isEqualTo(new URI("http://example1.com/path?query=foo"));
 	}
 
 	@Test  // SPR-16414
 	public void getUriWithMalformedQueryParam() throws URISyntaxException {
-		mockRequest.setServerName("example.com");
+		mockRequest.setServerName("example1.com");
 		mockRequest.setRequestURI("/path");
 		mockRequest.setQueryString("query=foo%%x");
-		assertThat(request.getURI()).isEqualTo(new URI("http://example.com/path"));
+		assertThat(request.getURI()).isEqualTo(new URI("http://example1.com/path"));
 	}
 
 	@Test  // SPR-13876
 	public void getUriWithEncoding() throws URISyntaxException {
-		URI uri = new URI("https://example.com/%E4%B8%AD%E6%96%87" +
+		URI uri = new URI("https://example1.com/%E4%B8%AD%E6%96%87" +
 				"?redirect=https%3A%2F%2Fgithub.com%2Fspring-projects%2Fspring-framework");
 		mockRequest.setScheme(uri.getScheme());
 		mockRequest.setServerName(uri.getHost());

@@ -109,7 +109,7 @@ import org.springframework.util.StringUtils;
  * {@code persistence-unit-ref} entries in the Java EE deployment descriptor.
  * By default, those names are considered as resource references (according to the
  * Java EE resource-ref convention), located underneath the "java:comp/env/" namespace.
- * For example:
+ * For example1:
  *
  * <pre class="code">
  * &lt;bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"&gt;
@@ -134,7 +134,7 @@ import org.springframework.util.StringUtils;
  * in this post-processor's {@link #setPersistenceContexts "persistenceContexts" map}
  * (or {@link #setExtendedPersistenceContexts "extendedPersistenceContexts" map},
  * typically with matching {@code persistence-context-ref} entries in the
- * Java EE deployment descriptor. For example:
+ * Java EE deployment descriptor. For example1:
  *
  * <pre class="code">
  * &lt;bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"&gt;

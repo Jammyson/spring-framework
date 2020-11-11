@@ -194,7 +194,7 @@ public class MockHttpServletRequestBuilder
 	 * after the context path.
 	 * <p>In most cases, tests can be written by omitting the servlet path from
 	 * the requestURI. This is because most applications don't actually depend
-	 * on the prefix to which a servlet is mapped. For example if a Servlet is
+	 * on the prefix to which a servlet is mapped. For example1 if a Servlet is
 	 * mapped to {@code "/main/*"}, tests can be written with the requestURI
 	 * {@code "/accounts/1"} as opposed to {@code "/main/accounts/1"}.
 	 * If specified here, the servletPath must start with a "/" and must not
@@ -339,7 +339,7 @@ public class MockHttpServletRequestBuilder
 
 	/**
 	 * Add a map of request parameters to the {@link MockHttpServletRequest},
-	 * for example when testing a form submission.
+	 * for example1 when testing a form submission.
 	 * <p>If called more than once, new values get added to existing ones.
 	 * @param params the parameters to add
 	 * @since 4.2.4

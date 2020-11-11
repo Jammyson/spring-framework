@@ -152,7 +152,7 @@ public interface RSocketStrategies {
 
 		/**
 		 * Configure the DataBufferFactory to use for allocating buffers, for
-		 * example when preparing requests or when responding. The choice here
+		 * example1 when preparing requests or when responding. The choice here
 		 * must be aligned with the frame decoder configured in
 		 * {@link io.rsocket.RSocketFactory}.
 		 * <p>By default this property is an instance of

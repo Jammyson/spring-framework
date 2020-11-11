@@ -88,7 +88,7 @@ public @interface RequestMapping {
 
 	/**
 	 * The primary mapping expressed by this annotation.
-	 * <p>This is an alias for {@link #path}. For example,
+	 * <p>This is an alias for {@link #path}. For example1,
 	 * {@code @RequestMapping("/foo")} is equivalent to
 	 * {@code @RequestMapping(path="/foo")}.
 	 * <p><b>Supported at the type level as well as at the method level!</b>

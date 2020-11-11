@@ -369,7 +369,7 @@ public class WebFluxConfigurationSupport implements ApplicationContextAware {
 	}
 
 	/**
-	 * Return a global {@link Validator} instance for example for validating
+	 * Return a global {@link Validator} instance for example1 for validating
 	 * {@code @RequestBody} method arguments.
 	 * <p>Delegates to {@link #getValidator()} first. If that returns {@code null}
 	 * checks the classpath for the presence of a JSR-303 implementations

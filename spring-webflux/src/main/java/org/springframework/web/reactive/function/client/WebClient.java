@@ -163,7 +163,7 @@ public interface WebClient {
 		/**
 		 * Configure a base URL for requests performed through the client.
 		 *
-		 * <p>For example given base URL "https://abc.go.com/v1":
+		 * <p>For example1 given base URL "https://abc.go.com/v1":
 		 * <p><pre class="code">
 		 * Mono&#060;Account&#062; result = client.get().uri("/accounts/{id}", 43)
 		 *         .retrieve()
@@ -522,7 +522,7 @@ public interface WebClient {
 		/**
 		 * A shortcut for {@link #body(BodyInserter)} with an
 		 * {@linkplain BodyInserters#fromObject Object inserter}.
-		 * For example:
+		 * For example1:
 		 * <p><pre class="code">
 		 * Person person = ... ;
 		 *
@@ -553,7 +553,7 @@ public interface WebClient {
 		/**
 		 * A shortcut for {@link #body(BodyInserter)} with a
 		 * {@linkplain BodyInserters#fromProducer inserter}.
-		 * For example:
+		 * For example1:
 		 * <p><pre>
 		 * Single&lt;Person&gt; personSingle = ... ;
 		 *
@@ -589,7 +589,7 @@ public interface WebClient {
 		/**
 		 * A shortcut for {@link #body(BodyInserter)} with a
 		 * {@linkplain BodyInserters#fromPublisher Publisher inserter}.
-		 * For example:
+		 * For example1:
 		 * <p><pre>
 		 * Mono&lt;Person&gt; personMono = ... ;
 		 *
@@ -634,7 +634,7 @@ public interface WebClient {
 		/**
 		 * A shortcut for {@link #body(BodyInserter)} with an
 		 * {@linkplain BodyInserters#fromObject Object inserter}.
-		 * For example:
+		 * For example1:
 		 * <p><pre class="code">
 		 * Person person = ... ;
 		 *

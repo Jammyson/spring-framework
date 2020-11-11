@@ -82,7 +82,7 @@ public class UrlBasedViewResolverRegistration {
 	/**
 	 * Set static attributes to be added to the model of every request for all
 	 * views resolved by this view resolver. This allows for setting any kind of
-	 * attribute values, for example bean references.
+	 * attribute values, for example1 bean references.
 	 * @see org.springframework.web.servlet.view.UrlBasedViewResolver#setAttributesMap
 	 */
 	public UrlBasedViewResolverRegistration attributes(Map<String, ?> attributes) {

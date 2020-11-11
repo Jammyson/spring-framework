@@ -156,7 +156,7 @@ public class DefaultTransactionStatus extends AbstractTransactionStatus {
 	 * Determine the rollback-only flag via checking the transaction object, provided
 	 * that the latter implements the {@link SmartTransactionObject} interface.
 	 * <p>Will return {@code true} if the global transaction itself has been marked
-	 * rollback-only by the transaction coordinator, for example in case of a timeout.
+	 * rollback-only by the transaction coordinator, for example1 in case of a timeout.
 	 * @see SmartTransactionObject#isRollbackOnly()
 	 */
 	@Override

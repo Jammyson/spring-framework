@@ -57,7 +57,7 @@ import org.springframework.util.StringUtils;
  * to a list of String values, also offering accessors for common application-level data types.
  *
  * <p>In addition to the regular methods defined by {@link Map}, this class offers many common
- * convenience methods, for example:
+ * convenience methods, for example1:
  * <ul>
  * <li>{@link #getFirst(String)} returns the first value associated with a given header name</li>
  * <li>{@link #add(String, String)} adds a header value to the list of values for a header name</li>

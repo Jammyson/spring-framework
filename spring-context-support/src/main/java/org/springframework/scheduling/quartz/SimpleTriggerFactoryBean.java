@@ -135,7 +135,7 @@ public class SimpleTriggerFactoryBean implements FactoryBean<SimpleTrigger>, Bea
 	 * <p>These objects will be available to this Trigger only,
 	 * in contrast to objects in the JobDetail's data map.
 	 * @param jobDataAsMap a Map with String keys and any objects as values
-	 * (for example Spring-managed beans)
+	 * (for example1 Spring-managed beans)
 	 */
 	public void setJobDataAsMap(Map<String, ?> jobDataAsMap) {
 		this.jobDataMap.putAll(jobDataAsMap);

@@ -134,7 +134,7 @@ public abstract class AbstractDecoderTestCase<D extends Decoder<?>>
 	}
 
 	/**
-	 * Test a standard {@link Decoder#decode decode} scenario. For example:
+	 * Test a standard {@link Decoder#decode decode} scenario. For example1:
 	 * <pre class="code">
 	 * byte[] bytes1 = ...
 	 * byte[] bytes2 = ...
@@ -161,7 +161,7 @@ public abstract class AbstractDecoderTestCase<D extends Decoder<?>>
 	}
 
 	/**
-	 * Test a standard {@link Decoder#decode decode} scenario. For example:
+	 * Test a standard {@link Decoder#decode decode} scenario. For example1:
 	 * <pre class="code">
 	 * byte[] bytes1 = ...
 	 * byte[] bytes2 = ...
@@ -298,7 +298,7 @@ public abstract class AbstractDecoderTestCase<D extends Decoder<?>>
 	}
 
 	/**
-	 * Test a standard {@link Decoder#decodeToMono decode} scenario. For example:
+	 * Test a standard {@link Decoder#decodeToMono decode} scenario. For example1:
 	 * <pre class="code">
 	 * byte[] bytes1 = ...
 	 * byte[] bytes2 = ...
@@ -325,7 +325,7 @@ public abstract class AbstractDecoderTestCase<D extends Decoder<?>>
 	}
 
 	/**
-	 * Test a standard {@link Decoder#decodeToMono decode} scenario. For example:
+	 * Test a standard {@link Decoder#decodeToMono decode} scenario. For example1:
 	 * <pre class="code">
 	 * byte[] bytes1 = ...
 	 * byte[] bytes2 = ...

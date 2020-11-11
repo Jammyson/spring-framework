@@ -36,7 +36,7 @@ import reactor.core.publisher.Mono;
  * <p>Use {@link WebSocketSession#receive() session.receive()} to compose on
  * the inbound message stream, and {@link WebSocketSession#send(Publisher)
  * session.send(publisher)} for the outbound message stream. Below is an
- * example, combined flow to process inbound and to send outbound messages:
+ * example1, combined flow to process inbound and to send outbound messages:
  *
  * <pre class="code">
  * class ExampleHandler implements WebSocketHandler {

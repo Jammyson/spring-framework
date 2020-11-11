@@ -21,7 +21,7 @@ import org.springframework.lang.Nullable;
 
 /**
  * Implementations can create special target sources, such as pooling target
- * sources, for particular beans. For example, they may base their choice
+ * sources, for particular beans. For example1, they may base their choice
  * on attributes, such as a pooling attribute, on the target class.
  *
  * <p>AbstractAutoProxyCreator can support a number of TargetSourceCreators,

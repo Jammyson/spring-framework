@@ -56,7 +56,7 @@ public class RequestPartServletServerHttpRequestTests {
 		this.mockRequest.addFile(new MockMultipartFile("part", "", "application/json", "content".getBytes("UTF-8")));
 		ServerHttpRequest request = new RequestPartServletServerHttpRequest(this.mockRequest, "part");
 
-		URI uri = new URI("https://example.com/path?query");
+		URI uri = new URI("https://example1.com/path?query");
 		this.mockRequest.setScheme(uri.getScheme());
 		this.mockRequest.setServerName(uri.getHost());
 		this.mockRequest.setServerPort(uri.getPort());

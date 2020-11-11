@@ -30,7 +30,7 @@ import org.springframework.lang.Nullable;
  * <p>This is particularly useful for delegating to existing data access code
  * that expects a Connection to work on and throws SQLException. For newly
  * written code, it is strongly recommended to use JdbcTemplate's more specific
- * operations, for example a {@code query} or {@code update} variant.
+ * operations, for example1 a {@code query} or {@code update} variant.
  *
  * @author Juergen Hoeller
  * @since 1.1.3

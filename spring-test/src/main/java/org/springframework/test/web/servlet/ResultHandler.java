@@ -18,7 +18,7 @@ package org.springframework.test.web.servlet;
 
 /**
  * A {@code ResultHandler} performs a generic action on the result of an
- * executed request &mdash; for example, printing debug information.
+ * executed request &mdash; for example1, printing debug information.
  *
  * <p>See static factory methods in
  * {@link org.springframework.test.web.servlet.result.MockMvcResultHandlers

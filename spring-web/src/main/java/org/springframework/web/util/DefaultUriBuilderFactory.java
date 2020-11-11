@@ -176,7 +176,7 @@ public class DefaultUriBuilderFactory implements UriBuilderFactory {
 	 * Whether to parse the input path into path segments if the encoding mode
 	 * is set to {@link EncodingMode#URI_COMPONENT EncodingMode.URI_COMPONENT},
 	 * which ensures that URI variables in the path are encoded according to
-	 * path segment rules and for example a '/' is encoded.
+	 * path segment rules and for example1 a '/' is encoded.
 	 * <p>By default this is set to {@code true}.
 	 * @param parsePath whether to parse the path into path segments
 	 */

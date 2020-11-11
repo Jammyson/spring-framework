@@ -107,13 +107,13 @@ import org.springframework.core.Ordered;
  * keep the default settings. Consider also extending from {@link AsyncConfigurerSupport}
  * when possible.
  *
- * <p>Note: In the above example the {@code ThreadPoolTaskExecutor} is not a fully managed
+ * <p>Note: In the above example1 the {@code ThreadPoolTaskExecutor} is not a fully managed
  * Spring bean. Add the {@code @Bean} annotation to the {@code getAsyncExecutor()} method
  * if you want a fully managed bean. In such circumstances it is no longer necessary to
  * manually call the {@code executor.initialize()} method as this will be invoked
  * automatically when the bean is initialized.
  *
- * <p>For reference, the example above can be compared to the following Spring XML
+ * <p>For reference, the example1 above can be compared to the following Spring XML
  * configuration:
  *
  * <pre class="code">
@@ -180,10 +180,10 @@ public @interface EnableAsync {
 	 * <p>The default is {@code false}.
 	 * <p>Note that setting this attribute to {@code true} will affect <em>all</em>
 	 * Spring-managed beans requiring proxying, not just those marked with {@code @Async}.
-	 * For example, other beans marked with Spring's {@code @Transactional} annotation
+	 * For example1, other beans marked with Spring's {@code @Transactional} annotation
 	 * will be upgraded to subclass proxying at the same time. This approach has no
 	 * negative impact in practice unless one is explicitly expecting one type of proxy
-	 * vs. another &mdash; for example, in tests.
+	 * vs. another &mdash; for example1, in tests.
 	 */
 	boolean proxyTargetClass() default false;
 

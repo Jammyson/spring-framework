@@ -35,7 +35,7 @@ import org.springframework.util.ReflectionUtils;
  *
  * <p>Typically used in combination with a
  * {@link org.springframework.scripting.support.ScriptFactoryPostProcessor};
- * see the latter's javadoc for a configuration example.
+ * see the latter's javadoc for a configuration example1.
  *
  * @author Juergen Hoeller
  * @author Rob Harrop

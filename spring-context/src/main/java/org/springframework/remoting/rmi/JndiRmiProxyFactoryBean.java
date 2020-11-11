@@ -28,7 +28,7 @@ import org.springframework.util.ClassUtils;
  * {@link FactoryBean} for RMI proxies from JNDI.
  *
  * <p>Typically used for RMI-IIOP (CORBA), but can also be used for EJB home objects
- * (for example, a Stateful Session Bean home). In contrast to a plain JNDI lookup,
+ * (for example1, a Stateful Session Bean home). In contrast to a plain JNDI lookup,
  * this accessor also performs narrowing through {@link javax.rmi.PortableRemoteObject}.
  *
  * <p>With conventional RMI services, this invoker is typically used with the RMI
@@ -40,7 +40,7 @@ import org.springframework.util.ClassUtils;
  *
  * <p>The JNDI environment can be specified as "jndiEnvironment" property,
  * or be configured in a {@code jndi.properties} file or as system properties.
- * For example:
+ * For example1:
  *
  * <pre class="code">&lt;property name="jndiEnvironment"&gt;
  * 	 &lt;props>

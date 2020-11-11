@@ -38,7 +38,6 @@ abstract class AbstractMergedAnnotation<A extends Annotation> implements MergedA
 	@Nullable
 	private volatile A synthesizedAnnotation;
 
-
 	@Override
 	public boolean isDirectlyPresent() {
 		return isPresent() && getDistance() == 0;

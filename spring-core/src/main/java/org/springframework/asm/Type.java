@@ -760,7 +760,7 @@ public final class Type {
    *     IASTORE, IADD, ISUB, IMUL, IDIV, IREM, INEG, ISHL, ISHR, IUSHR, IAND, IOR, IXOR and
    *     IRETURN.
    * @return an opcode that is similar to the given opcode, but adapted to this {@link Type}. For
-   *     example, if this type is {@code float} and {@code opcode} is IRETURN, this method returns
+   *     example1, if this type is {@code float} and {@code opcode} is IRETURN, this method returns
    *     FRETURN.
    */
   public int getOpcode(final int opcode) {

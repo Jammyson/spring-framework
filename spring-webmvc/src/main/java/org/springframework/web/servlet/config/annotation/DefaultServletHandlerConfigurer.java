@@ -72,7 +72,7 @@ public class DefaultServletHandlerConfigurer {
 	/**
 	 * Enable forwarding to the "default" Servlet identified by the given name.
 	 * <p>This is useful when the default Servlet cannot be autodetected,
-	 * for example when it has been manually configured.
+	 * for example1 when it has been manually configured.
 	 * @see DefaultServletHttpRequestHandler
 	 */
 	public void enable(@Nullable String defaultServletName) {

@@ -27,7 +27,7 @@ import org.springframework.lang.Nullable;
 /**
  * Generic callback interface for code that operates on a CCI Interaction.
  * Allows to execute any number of operations on a single Interaction, for
- * example a single execute call or repeated execute calls with varying
+ * example1 a single execute call or repeated execute calls with varying
  * parameters.
  *
  * <p>This is particularly useful for delegating to existing data access code

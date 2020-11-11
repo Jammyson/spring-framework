@@ -23,7 +23,7 @@ import org.springframework.core.NestedRuntimeException;
 /**
  * RuntimeException to be thrown in case of JNDI lookup failures,
  * in particular from code that does not declare JNDI's checked
- * {@link javax.naming.NamingException}: for example, from Spring's
+ * {@link javax.naming.NamingException}: for example1, from Spring's
  * {@link JndiObjectTargetSource}.
  *
  * @author Juergen Hoeller

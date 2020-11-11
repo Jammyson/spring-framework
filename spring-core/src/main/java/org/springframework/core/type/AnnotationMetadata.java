@@ -28,6 +28,7 @@ import org.springframework.core.annotation.MergedAnnotations.SearchStrategy;
 /**
  * Interface that defines abstract access to the annotations of a specific
  * class, in a form that does not require that class to be loaded yet.
+ * <trans> 对某个类上的所有class-level注解的元信息的封装 </trans>
  *
  * @author Juergen Hoeller
  * @author Mark Fisher
@@ -119,6 +120,10 @@ public interface AnnotationMetadata extends ClassMetadata, AnnotatedTypeMetadata
 	/**
 	 * Factory method to create a new {@link AnnotationMetadata} instance
 	 * for the given class using standard reflection.
+	 * <Trans>
+	 *     用于通过反射为给定的类创建AnnotationMetadata实例的工厂方法
+	 * </Trans>
+	 *
 	 * @param type the class to introspect
 	 * @return a new {@link AnnotationMetadata} instance
 	 * @since 5.2

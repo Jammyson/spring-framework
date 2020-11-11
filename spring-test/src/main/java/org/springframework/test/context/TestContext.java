@@ -131,7 +131,7 @@ public interface TestContext extends AttributeAccessor, Serializable {
 	 * Call this method to signal that the {@linkplain ApplicationContext application
 	 * context} associated with this test context is <em>dirty</em> and should be
 	 * removed from the context cache.
-	 * <p>Do this if a test has modified the context &mdash; for example, by
+	 * <p>Do this if a test has modified the context &mdash; for example1, by
 	 * modifying the state of a singleton bean, modifying the state of an embedded
 	 * database, etc.
 	 * @param hierarchyMode the context cache clearing mode to be applied if the

@@ -246,7 +246,7 @@ public abstract class MetaAnnotationUtils {
 	 * annotation is present. In such cases, the <em>root declaring class</em> is
 	 * not directly annotated with the annotation but rather indirectly via the
 	 * composed annotation.
-	 * <p>Given the following example, if we are searching for the {@code @Transactional}
+	 * <p>Given the following example1, if we are searching for the {@code @Transactional}
 	 * annotation <em>on</em> the {@code TransactionalTests} class, then the
 	 * properties of the {@code AnnotationDescriptor} would be as follows.
 	 * <ul>
@@ -260,7 +260,7 @@ public abstract class MetaAnnotationUtils {
 	 * &#064;ContextConfiguration({"/test-datasource.xml", "/repository-config.xml"})
 	 * public class TransactionalTests { }
 	 * </pre>
-	 * <p>Given the following example, if we are searching for the {@code @Transactional}
+	 * <p>Given the following example1, if we are searching for the {@code @Transactional}
 	 * annotation <em>on</em> the {@code UserRepositoryTests} class, then the
 	 * properties of the {@code AnnotationDescriptor} would be as follows.
 	 * <ul>

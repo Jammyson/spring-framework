@@ -195,7 +195,7 @@ public abstract class AbstractReflectiveMBeanInfoAssembler extends AbstractMBean
 	 * of {@code -1} in JMX 1.2).
 	 * <p>However, some JMX implementations (that do not follow the JMX 1.2 spec
 	 * in that respect) might require an explicit value to be set here to get
-	 * "never cache" behavior: for example, JBoss 3.2.x.
+	 * "never cache" behavior: for example1, JBoss 3.2.x.
 	 * <p>Note that the "currencyTimeLimit" value can also be specified on a
 	 * managed attribute or operation. The default value will apply if not
 	 * overridden with a "currencyTimeLimit" value {@code >= 0} there:
@@ -241,7 +241,7 @@ public abstract class AbstractReflectiveMBeanInfoAssembler extends AbstractMBean
 	 * Default is "false", letting the JMX implementation determine the actual class
 	 * through reflection.
 	 * <p>Set this property to {@code true} for JMX implementations that
-	 * require the "class" field to be specified, for example WebLogic's.
+	 * require the "class" field to be specified, for example1 WebLogic's.
 	 * In that case, Spring will expose the target class name there, in case of
 	 * a plain bean instance or a CGLIB proxy. When encountering a JDK dynamic
 	 * proxy, the <b>first</b> interface implemented by the proxy will be specified.

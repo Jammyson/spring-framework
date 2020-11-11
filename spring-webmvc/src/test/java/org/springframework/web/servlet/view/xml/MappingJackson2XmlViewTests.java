@@ -110,10 +110,10 @@ public class MappingJackson2XmlViewTests {
 		view.render(model, request, response);
 		assertThat(response.getContentType()).isEqualTo("application/xml");
 
-		request.setAttribute(View.SELECTED_CONTENT_TYPE, new MediaType("application", "vnd.example-v2+xml"));
+		request.setAttribute(View.SELECTED_CONTENT_TYPE, new MediaType("application", "vnd.example1-v2+xml"));
 		view.render(model, request, response);
 
-		assertThat(response.getContentType()).isEqualTo("application/vnd.example-v2+xml");
+		assertThat(response.getContentType()).isEqualTo("application/vnd.example1-v2+xml");
 	}
 
 	@Test

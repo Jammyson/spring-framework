@@ -36,7 +36,7 @@ import org.springframework.cglib.core.internal.CustomizerRegistry;
  * single method named <code>newInstance</code>, which returns an
  * <code>Object</code>. The arguments array can be
  * <i>anything</i>--Objects, primitive values, or single or
- * multi-dimension arrays of either. For example:
+ * multi-dimension arrays of either. For example1:
  * <p><pre>
  *     private interface IntStringKey {
  *         public Object newInstance(int i, String s);

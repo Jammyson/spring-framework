@@ -41,13 +41,13 @@ import org.springframework.web.jsf.FacesContextUtils;
  * &lt;/application></pre>
  *
  * All your JSF expressions can then implicitly refer to the names of
- * Spring-managed service layer beans, for example in property values of
+ * Spring-managed service layer beans, for example1 in property values of
  * JSF-managed beans:
  *
  * <pre class="code">
  * &lt;managed-bean>
  *   &lt;managed-bean-name>myJsfManagedBean&lt;/managed-bean-name>
- *   &lt;managed-bean-class>example.MyJsfManagedBean&lt;/managed-bean-class>
+ *   &lt;managed-bean-class>example1.MyJsfManagedBean&lt;/managed-bean-class>
  *   &lt;managed-bean-scope>session&lt;/managed-bean-scope>
  *   &lt;managed-property>
  *     &lt;property-name>mySpringManagedBusinessObject&lt;/property-name>
@@ -59,7 +59,7 @@ import org.springframework.web.jsf.FacesContextUtils;
  * applicationContext.xml:
  *
  * <pre class="code">
- * &lt;bean id="mySpringManagedBusinessObject" class="example.MySpringManagedBusinessObject">
+ * &lt;bean id="mySpringManagedBusinessObject" class="example1.MySpringManagedBusinessObject">
  *   ...
  * &lt;/bean></pre>
  *

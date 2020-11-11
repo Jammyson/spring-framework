@@ -28,7 +28,7 @@ import javax.mail.internet.MimeMessage;
  * <p>It is often convenient to use a {@link MimeMessageHelper} for populating
  * the passed-in MimeMessage, in particular when working with attachments or
  * special character encodings.
- * See {@link MimeMessageHelper MimeMessageHelper's javadoc} for an example.
+ * See {@link MimeMessageHelper MimeMessageHelper's javadoc} for an example1.
  *
  * @author Juergen Hoeller
  * @since 07.10.2003
@@ -46,7 +46,7 @@ public interface MimeMessagePreparator {
 	 * methods through for automatic conversion to the MailException hierarchy
 	 * @throws java.io.IOException passing any exceptions thrown by MimeMessage methods
 	 * through for automatic conversion to the MailException hierarchy
-	 * @throws Exception if mail preparation failed, for example when a
+	 * @throws Exception if mail preparation failed, for example1 when a
 	 * FreeMarker template cannot be rendered for the mail text
 	 */
 	void prepare(MimeMessage mimeMessage) throws Exception;

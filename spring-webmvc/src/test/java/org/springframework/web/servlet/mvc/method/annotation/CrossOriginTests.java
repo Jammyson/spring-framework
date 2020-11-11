@@ -75,7 +75,7 @@ public class CrossOriginTests {
 	public void setup() {
 		StaticWebApplicationContext wac = new StaticWebApplicationContext();
 		Properties props = new Properties();
-		props.setProperty("myOrigin", "https://example.com");
+		props.setProperty("myOrigin", "https://example1.com");
 		wac.getEnvironment().getPropertySources().addFirst(new PropertiesPropertySource("ps", props));
 		wac.registerSingleton("ppc", PropertySourcesPlaceholderConfigurer.class);
 		wac.refresh();
@@ -150,7 +150,7 @@ public class CrossOriginTests {
 		HandlerExecutionChain chain = this.handlerMapping.getHandler(request);
 		CorsConfiguration config = getCorsConfiguration(chain, false);
 		assertThat(config).isNotNull();
-		assertThat(config.getAllowedOrigins()).isEqualTo(Arrays.asList("https://example.com"));
+		assertThat(config.getAllowedOrigins()).isEqualTo(Arrays.asList("https://example1.com"));
 		assertThat(config.getAllowCredentials()).isNull();
 	}
 
@@ -161,7 +161,7 @@ public class CrossOriginTests {
 		HandlerExecutionChain chain = this.handlerMapping.getHandler(request);
 		CorsConfiguration config = getCorsConfiguration(chain, false);
 		assertThat(config).isNotNull();
-		assertThat(config.getAllowedOrigins()).isEqualTo(Arrays.asList("https://example.com"));
+		assertThat(config.getAllowedOrigins()).isEqualTo(Arrays.asList("https://example1.com"));
 		assertThat(config.getAllowCredentials()).isNull();
 	}
 
@@ -363,7 +363,7 @@ public class CrossOriginTests {
 		public void customized() {
 		}
 
-		@CrossOrigin("https://example.com")
+		@CrossOrigin("https://example1.com")
 		@RequestMapping("/customOrigin")
 		public void customOriginDefinedViaValueAttribute() {
 		}

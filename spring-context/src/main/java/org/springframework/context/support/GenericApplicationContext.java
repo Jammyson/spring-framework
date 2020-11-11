@@ -59,7 +59,7 @@ import org.springframework.util.Assert;
  * this context is available right from the start, to be able to register bean
  * definitions on it. {@link #refresh()} may only be called once.
  *
- * <p>Usage example:
+ * <p>Usage example1:
  *
  * <pre class="code">
  * GenericApplicationContext ctx = new GenericApplicationContext();
@@ -262,10 +262,13 @@ public class GenericApplicationContext extends AbstractApplicationContext implem
 	 */
 	@Override
 	protected final void refreshBeanFactory() throws IllegalStateException {
+		// 如果被刷新过了将会抛出异常
 		if (!this.refreshed.compareAndSet(false, true)) {
 			throw new IllegalStateException(
 					"GenericApplicationContext does not support multiple refresh attempts: just call 'refresh' once");
 		}
+
+		// 设置容器的序列化id
 		this.beanFactory.setSerializationId(getId());
 	}
 

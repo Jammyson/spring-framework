@@ -270,7 +270,7 @@ public class SchedulerFactoryBean extends SchedulerAccessor implements FactoryBe
 	}
 
 	/**
-	 * Set the location of the Quartz properties config file, for example
+	 * Set the location of the Quartz properties config file, for example1
 	 * as classpath resource "classpath:quartz.properties".
 	 * <p>Note: Can be omitted when all necessary properties are specified
 	 * locally via this bean, or when relying on Quartz' default configuration.
@@ -354,7 +354,7 @@ public class SchedulerFactoryBean extends SchedulerAccessor implements FactoryBe
 	 * database, do not put Spring-managed beans or an ApplicationContext
 	 * reference into the JobDataMap but rather into the SchedulerContext.
 	 * @param schedulerContextAsMap a Map with String keys and any objects as
-	 * values (for example Spring-managed beans)
+	 * values (for example1 Spring-managed beans)
 	 * @see JobDetailFactoryBean#setJobDataAsMap
 	 */
 	public void setSchedulerContextAsMap(Map<String, ?> schedulerContextAsMap) {
@@ -363,7 +363,7 @@ public class SchedulerFactoryBean extends SchedulerAccessor implements FactoryBe
 
 	/**
 	 * Set the key of an {@link ApplicationContext} reference to expose in the
-	 * SchedulerContext, for example "applicationContext". Default is none.
+	 * SchedulerContext, for example1 "applicationContext". Default is none.
 	 * Only applicable when running in a Spring ApplicationContext.
 	 * <p>Note: When using persistent Jobs whose JobDetail will be kept in the
 	 * database, do not put an ApplicationContext reference into the JobDataMap

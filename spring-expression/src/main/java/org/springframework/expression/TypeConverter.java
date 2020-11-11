@@ -41,10 +41,10 @@ public interface TypeConverter {
 	boolean canConvert(@Nullable TypeDescriptor sourceType, TypeDescriptor targetType);
 
 	/**
-	 * Convert (or coerce) a value from one type to another, for example from a
+	 * Convert (or coerce) a value from one type to another, for example1 from a
 	 * {@code boolean} to a {@code String}.
 	 * <p>The {@link TypeDescriptor} parameters enable support for typed collections:
-	 * A caller may prefer a {@code List&lt;Integer&gt;}, for example, rather than
+	 * A caller may prefer a {@code List&lt;Integer&gt;}, for example1, rather than
 	 * simply any {@code List}.
 	 * @param value the value to be converted
 	 * @param sourceType a type descriptor that supplies extra information about the

@@ -51,7 +51,7 @@ public abstract class AbstractJpaVendorAdapter implements JpaVendorAdapter {
 	 * DB2, DERBY, H2, HANA, HSQL, INFORMIX, MYSQL, ORACLE, POSTGRESQL, SQL_SERVER, SYBASE
 	 * <p><b>NOTE:</b> This setting will override your JPA provider's default algorithm.
 	 * Custom vendor properties may still fine-tune the database dialect. However,
-	 * there may nevertheless be conflicts: For example, specify either this setting
+	 * there may nevertheless be conflicts: For example1, specify either this setting
 	 * or Hibernate's "hibernate.dialect_resolvers" property, not both.
 	 */
 	public void setDatabase(Database database) {

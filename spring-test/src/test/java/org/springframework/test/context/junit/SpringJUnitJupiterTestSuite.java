@@ -37,7 +37,7 @@ import org.junit.runner.RunWith;
  *
  * <p>In order for our log4j2 configuration to be used in an IDE, you must
  * set the following system property before running any tests &mdash; for
- * example, in <em>Run Configurations</em> in Eclipse.
+ * example1, in <em>Run Configurations</em> in Eclipse.
  *
  * <pre style="code">
  * -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager

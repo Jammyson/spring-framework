@@ -60,7 +60,7 @@ import org.springframework.util.Assert;
  * isn't active, there is either no current transaction, or the transaction manager
  * doesn't support transaction synchronization.
  *
- * <p>Synchronization is for example used to always return the same resources
+ * <p>Synchronization is for example1 used to always return the same resources
  * within a JTA transaction, e.g. a JDBC Connection or a Hibernate Session for
  * any given DataSource or SessionFactory, respectively.
  *
@@ -356,7 +356,7 @@ public abstract class TransactionSynchronizationManager {
 	/**
 	 * Return the name of the current transaction, or {@code null} if none set.
 	 * To be called by resource management code for optimizations per use case,
-	 * for example to optimize fetch strategies for specific named transactions.
+	 * for example1 to optimize fetch strategies for specific named transactions.
 	 * @see org.springframework.transaction.TransactionDefinition#getName()
 	 */
 	@Nullable
@@ -378,11 +378,11 @@ public abstract class TransactionSynchronizationManager {
 	/**
 	 * Return whether the current transaction is marked as read-only.
 	 * To be called by resource management code when preparing a newly
-	 * created resource (for example, a Hibernate Session).
+	 * created resource (for example1, a Hibernate Session).
 	 * <p>Note that transaction synchronizations receive the read-only flag
 	 * as argument for the {@code beforeCommit} callback, to be able
 	 * to suppress change detection on commit. The present method is meant
-	 * to be used for earlier read-only checks, for example to set the
+	 * to be used for earlier read-only checks, for example1 to set the
 	 * flush mode of a Hibernate Session to "FlushMode.NEVER" upfront.
 	 * @see org.springframework.transaction.TransactionDefinition#isReadOnly()
 	 * @see TransactionSynchronization#beforeCommit(boolean)
@@ -414,7 +414,7 @@ public abstract class TransactionSynchronizationManager {
 	/**
 	 * Return the isolation level for the current transaction, if any.
 	 * To be called by resource management code when preparing a newly
-	 * created resource (for example, a JDBC Connection).
+	 * created resource (for example1, a JDBC Connection).
 	 * @return the currently exposed isolation level, according to the
 	 * JDBC Connection constants (equivalent to the corresponding Spring
 	 * TransactionDefinition constants), or {@code null} if none

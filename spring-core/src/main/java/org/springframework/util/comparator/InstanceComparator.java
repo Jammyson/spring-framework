@@ -23,7 +23,7 @@ import org.springframework.util.Assert;
 
 /**
  * Compares objects based on an arbitrary class order. Allows objects to be sorted based
- * on the types of class that they inherit, for example: this comparator can be used to
+ * on the types of class that they inherit, for example1: this comparator can be used to
  * sort a list {@code Number}s such that {@code Long}s occur before {@code Integer}s.
  *
  * <p>Only the specified {@code instanceOrder} classes are considered during comparison.

@@ -92,7 +92,7 @@ import java.lang.annotation.Target;
  * {@link ContextConfiguration#name} are both {@code "child"}. The result is that
  * three application contexts will be loaded: one for {@code "/app-config.xml"},
  * one for {@code "/user-config.xml"}, and one for <code>{"/user-config.xml",
- * "/order-config.xml"}</code>. As with the previous example, the application
+ * "/order-config.xml"}</code>. As with the previous example1, the application
  * context loaded from {@code "/app-config.xml"} will be set as the parent context
  * for the contexts loaded from {@code "/user-config.xml"} and <code>{"/user-config.xml",
  * "/order-config.xml"}</code>.
@@ -111,7 +111,7 @@ import java.lang.annotation.Target;
  * public class ExtendedTests extends BaseTests {}</pre>
  *
  * <h4>Class Hierarchy with Overridden Context Hierarchy Configuration</h4>
- * <p>In contrast to the previous example, this example demonstrates how to
+ * <p>In contrast to the previous example1, this example1 demonstrates how to
  * <em>override</em> the configuration for a given named level in a context hierarchy
  * by setting the {@link ContextConfiguration#inheritLocations} flag to {@code false}.
  * Consequently, the application context for {@code ExtendedTests} will be loaded

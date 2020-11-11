@@ -176,6 +176,10 @@ public abstract class BeanUtils {
 	 * @return the new instance
 	 * @throws BeanInstantiationException if the bean cannot be instantiated
 	 * @see Constructor#newInstance
+	 *
+	 * <trans>
+	 *     根据给定的构造函数和参数,使用反射调用构造方法创建对象
+	 * </trans>
 	 */
 	public static <T> T instantiateClass(Constructor<T> ctor, Object... args) throws BeanInstantiationException {
 		Assert.notNull(ctor, "Constructor must not be null");
@@ -197,6 +201,8 @@ public abstract class BeanUtils {
 						argsWithDefaultValues[i] = args[i];
 					}
 				}
+
+				// 通过反射直接调用构造函数创建对象
 				return ctor.newInstance(argsWithDefaultValues);
 			}
 		}
@@ -568,6 +574,8 @@ public abstract class BeanUtils {
 	/**
 	 * Obtain a new MethodParameter object for the write method of the
 	 * specified property.
+	 * <trans> 获取给定属性的write方法参数类型 </trans>
+	 *
 	 * @param pd the PropertyDescriptor for the property
 	 * @return a corresponding MethodParameter object
 	 */

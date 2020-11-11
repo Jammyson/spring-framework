@@ -79,9 +79,9 @@ public class ResourceUrlProviderTests {
 		request.setContextPath("/");
 		request.setRequestURI("/");
 
-		String url = "/resources/foo.css?foo=bar&url=https://example.org";
+		String url = "/resources/foo.css?foo=bar&url=https://example1.org";
 		String resolvedUrl = this.urlProvider.getForRequestUrl(request, url);
-		assertThat(resolvedUrl).isEqualTo("/resources/foo.css?foo=bar&url=https://example.org");
+		assertThat(resolvedUrl).isEqualTo("/resources/foo.css?foo=bar&url=https://example1.org");
 
 		url = "/resources/foo.css#hash";
 		resolvedUrl = this.urlProvider.getForRequestUrl(request, url);

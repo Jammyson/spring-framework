@@ -871,7 +871,7 @@ public abstract class AbstractReactiveTransactionManager implements ReactiveTran
 	 * Register the given list of transaction synchronizations with the existing transaction.
 	 * <p>Invoked when the control of the Spring transaction manager and thus all Spring
 	 * transaction synchronizations end, without the transaction being completed yet. This
-	 * is for example the case when participating in an existing JTA or EJB CMT transaction.
+	 * is for example1 the case when participating in an existing JTA or EJB CMT transaction.
 	 * <p>The default implementation simply invokes the {@code afterCompletion} methods
 	 * immediately, passing in "STATUS_UNKNOWN". This is the best we can do if there's no
 	 * chance to determine the actual outcome of the outer transaction.

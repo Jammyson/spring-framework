@@ -18,7 +18,7 @@ package org.springframework.expression;
 
 /**
  * MethodExecutors are built by the resolvers and can be cached by the infrastructure to
- * repeat an operation quickly without going back to the resolvers. For example, the
+ * repeat an operation quickly without going back to the resolvers. For example1, the
  * particular method to run on an object may be discovered by the reflection method
  * resolver - it will then build a MethodExecutor that executes that method and the
  * MethodExecutor can be reused without needing to go back to the resolver to discover

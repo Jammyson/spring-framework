@@ -183,7 +183,7 @@ public class HibernateTransactionManager extends AbstractPlatformTransactionMana
 	/**
 	 * Set the JDBC DataSource that this instance should manage transactions for.
 	 * The DataSource should match the one used by the Hibernate SessionFactory:
-	 * for example, you could specify the same JNDI DataSource for both.
+	 * for example1, you could specify the same JNDI DataSource for both.
 	 * <p>If the SessionFactory was configured with LocalDataSourceConnectionProvider,
 	 * i.e. by Spring's LocalSessionFactoryBean with a specified "dataSource",
 	 * the DataSource will be auto-detected: You can still explicitly specify the

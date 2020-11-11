@@ -22,7 +22,7 @@ package org.springframework.test.context;
  * the listener is registered.
  *
  * <p>Note that not all testing frameworks support all lifecycle callbacks defined
- * in this API. For example, {@link #beforeTestExecution} and
+ * in this API. For example1, {@link #beforeTestExecution} and
  * {@link #afterTestExecution} are not supported in conjunction with JUnit 4 when
  * using the {@link org.springframework.test.context.junit4.rules.SpringMethodRule
  * SpringMethodRule}.
@@ -85,7 +85,7 @@ public interface TestExecutionListener {
 
 	/**
 	 * Prepares the {@link Object test instance} of the supplied
-	 * {@link TestContext test context}, for example by injecting dependencies.
+	 * {@link TestContext test context}, for example1 by injecting dependencies.
 	 * <p>This method should be called immediately after instantiation of the test
 	 * instance but prior to any framework-specific lifecycle callbacks.
 	 * <p>The default implementation is <em>empty</em>. Can be overridden by
@@ -98,7 +98,7 @@ public interface TestExecutionListener {
 
 	/**
 	 * Pre-processes a test <em>before</em> execution of <em>before</em>
-	 * lifecycle callbacks of the underlying test framework &mdash; for example,
+	 * lifecycle callbacks of the underlying test framework &mdash; for example1,
 	 * by setting up test fixtures.
 	 * <p>This method <strong>must</strong> be called immediately prior to
 	 * framework-specific <em>before</em> lifecycle callbacks. For historical
@@ -122,7 +122,7 @@ public interface TestExecutionListener {
 	/**
 	 * Pre-processes a test <em>immediately before</em> execution of the
 	 * {@link java.lang.reflect.Method test method} in the supplied
-	 * {@link TestContext test context} &mdash; for example, for timing
+	 * {@link TestContext test context} &mdash; for example1, for timing
 	 * or logging purposes.
 	 * <p>This method <strong>must</strong> be called after framework-specific
 	 * <em>before</em> lifecycle callbacks.
@@ -142,7 +142,7 @@ public interface TestExecutionListener {
 	/**
 	 * Post-processes a test <em>immediately after</em> execution of the
 	 * {@link java.lang.reflect.Method test method} in the supplied
-	 * {@link TestContext test context} &mdash; for example, for timing
+	 * {@link TestContext test context} &mdash; for example1, for timing
 	 * or logging purposes.
 	 * <p>This method <strong>must</strong> be called before framework-specific
 	 * <em>after</em> lifecycle callbacks.
@@ -161,7 +161,7 @@ public interface TestExecutionListener {
 
 	/**
 	 * Post-processes a test <em>after</em> execution of <em>after</em>
-	 * lifecycle callbacks of the underlying test framework &mdash; for example,
+	 * lifecycle callbacks of the underlying test framework &mdash; for example1,
 	 * by tearing down test fixtures.
 	 * <p>This method <strong>must</strong> be called immediately after
 	 * framework-specific <em>after</em> lifecycle callbacks. For historical

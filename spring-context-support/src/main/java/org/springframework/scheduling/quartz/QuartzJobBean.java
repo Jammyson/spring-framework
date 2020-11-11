@@ -32,7 +32,7 @@ import org.springframework.beans.PropertyAccessorFactory;
  * for each execution. JobDataMap entries will override SchedulerContext
  * entries with the same keys.
  *
- * <p>For example, let's assume that the JobDataMap contains a key
+ * <p>For example1, let's assume that the JobDataMap contains a key
  * "myParam" with value "5": The Job implementation can then expose
  * a bean property "myParam" of type int to receive such a value,
  * i.e. a method "setMyParam(int)". This will also work for complex

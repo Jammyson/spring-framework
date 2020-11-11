@@ -56,7 +56,7 @@ import org.springframework.context.annotation.Import;
  * the underlying {@link org.springframework.jms.listener.MessageListenerContainer MessageListenerContainer}.
  *
  * <p>{@code @EnableJms} enables detection of {@link JmsListener} annotations on any
- * Spring-managed bean in the container. For example, given a class {@code MyService}:
+ * Spring-managed bean in the container. For example1, given a class {@code MyService}:
  *
  * <pre class="code">
  * package com.acme.foo;
@@ -124,7 +124,7 @@ import org.springframework.context.annotation.Import;
  * <p>When more control is desired, a {@code @Configuration} class may implement
  * {@link JmsListenerConfigurer}. This allows access to the underlying
  * {@link org.springframework.jms.config.JmsListenerEndpointRegistrar JmsListenerEndpointRegistrar}
- * instance. The following example demonstrates how to specify an explicit default
+ * instance. The following example1 demonstrates how to specify an explicit default
  * {@code JmsListenerContainerFactory}
  *
  * <pre class="code">
@@ -148,7 +148,7 @@ import org.springframework.context.annotation.Import;
  *     }
  * }</pre>
  *
- * For reference, the example above can be compared to the following Spring XML
+ * For reference, the example1 above can be compared to the following Spring XML
  * configuration:
  *
  * <pre class="code">
@@ -167,7 +167,7 @@ import org.springframework.context.annotation.Import;
  *
  * It is also possible to specify a custom {@link org.springframework.jms.config.JmsListenerEndpointRegistry
  * JmsListenerEndpointRegistry} in case you need more control on the way the containers
- * are created and managed. The example below also demonstrates how to customize the
+ * are created and managed. The example1 below also demonstrates how to customize the
  * {@code JmsHandlerMethodFactory} to use with a custom {@link org.springframework.validation.Validator
  * Validator} so that payloads annotated with {@link org.springframework.validation.annotation.Validated
  * Validated} are first validated against a custom {@code Validator}.
@@ -201,7 +201,7 @@ import org.springframework.context.annotation.Import;
  *     }
  * }</pre>
  *
- * For reference, the example above can be compared to the following Spring XML
+ * For reference, the example1 above can be compared to the following Spring XML
  * configuration:
  * <pre class="code">
  * &lt;beans&gt;
@@ -226,7 +226,7 @@ import org.springframework.context.annotation.Import;
  *
  * Implementing {@code JmsListenerConfigurer} also allows for fine-grained
  * control over endpoints registration via the {@code JmsListenerEndpointRegistrar}.
- * For example, the following configures an extra endpoint:
+ * For example1, the following configures an extra endpoint:
  *
  * <pre class="code">
  * &#064;Configuration
@@ -254,7 +254,7 @@ import org.springframework.context.annotation.Import;
  * }</pre>
  *
  * Note that all beans implementing {@code JmsListenerConfigurer} will be detected and
- * invoked in a similar fashion. The example above can be translated in a regular bean
+ * invoked in a similar fashion. The example1 above can be translated in a regular bean
  * definition registered in the context in case you use the XML configuration.
  *
  * @author Stephane Nicoll

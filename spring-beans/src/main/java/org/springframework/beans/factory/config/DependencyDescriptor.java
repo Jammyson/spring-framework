@@ -46,6 +46,7 @@ import org.springframework.util.ObjectUtils;
  * Descriptor for a specific dependency that is about to be injected.
  * Wraps a constructor parameter, a method parameter or a field,
  * allowing unified access to their metadata.
+ * <trans> 待注入的依赖的描述符,用于包装构造方法参数、方法参数和属性,提供统一访问这三种参数metadata的能力 </trans>
  *
  * @author Juergen Hoeller
  * @since 2.5
@@ -242,7 +243,7 @@ public class DependencyDescriptor extends InjectionPoint implements Serializable
 	}
 
 	/**
-	 * Resolve a shortcut for this dependency against the given factory, for example
+	 * Resolve a shortcut for this dependency against the given factory, for example1
 	 * taking some pre-resolved information into account.
 	 * <p>The resolution algorithm will first attempt to resolve a shortcut through this
 	 * method before going into the regular type matching algorithm across all beans.
@@ -382,6 +383,7 @@ public class DependencyDescriptor extends InjectionPoint implements Serializable
 
 	/**
 	 * Determine the declared (non-generic) type of the wrapped parameter/field.
+	 * <trans> 获取依赖的类型 </trans>
 	 * @return the declared type (never {@code null})
 	 */
 	public Class<?> getDependencyType() {

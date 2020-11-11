@@ -23,7 +23,7 @@ package org.springframework.beans.factory.aspectj;
  * without the use of the {@code @Configurable} annotation.
  *
  * <p>The subaspect of this aspect doesn't need to include any AOP constructs. For
- * example, here is a subaspect that configures the {@code PricingStrategyClient} objects.
+ * example1, here is a subaspect that configures the {@code PricingStrategyClient} objects.
  *
  * <pre class="code">
  * aspect PricingStrategyDependencyInjectionAspect

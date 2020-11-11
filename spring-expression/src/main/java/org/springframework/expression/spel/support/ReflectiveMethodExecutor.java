@@ -81,7 +81,7 @@ public class ReflectiveMethodExecutor implements MethodExecutor {
 	 * Find the first public class in the methods declaring class hierarchy that declares this method.
 	 * Sometimes the reflective method discovery logic finds a suitable method that can easily be
 	 * called via reflection but cannot be called from generated code when compiling the expression
-	 * because of visibility restrictions. For example if a non-public class overrides toString(),
+	 * because of visibility restrictions. For example1 if a non-public class overrides toString(),
 	 * this helper method will walk up the type hierarchy to find the first public type that declares
 	 * the method (if there is one!). For toString() it may walk as far as Object.
 	 */

@@ -56,6 +56,9 @@ public @interface Import {
 	/**
 	 * {@link Configuration}, {@link ImportSelector}, {@link ImportBeanDefinitionRegistrar}
 	 * or regular component classes to import.
+	 * <trans>将指定的class作为Bean导入到容器中，beanClass的要求是它必须要符合是配置类的条件</trans>
+	 *
+	 * @see ConfigurationClassParser#processImports(org.springframework.context.annotation.ConfigurationClass, org.springframework.context.annotation.ConfigurationClassParser.SourceClass, java.util.Collection, boolean)
 	 */
 	Class<?>[] value();
 

@@ -72,10 +72,20 @@ class ComponentScanAnnotationParser {
 		this.registry = registry;
 	}
 
-
+	/**
+	 * 创建一个新的扫描器执行扫描，并且构建和配置BD，然后放入BeanFactory中
+	 * @return 扫描到的、已放入BeanFactory中的BD
+	 */
 	public Set<BeanDefinitionHolder> parse(AnnotationAttributes componentScan, final String declaringClass) {
+		// 创建ClassPathBeanDefinitionScanner用于spring扫描.这么写的思想是不允许程序员修改spring本身的扫描规则
+		// 在创建容器的时候spring也初始化了一个ClassPathBeanDefinitionScanner，那个ClassPathBeanDefinitionScanner
+		// 是用于容器启动完毕后去扫描其它bean.即手动调用applicationContext.scan().
 		ClassPathBeanDefinitionScanner scanner = new ClassPathBeanDefinitionScanner(this.registry,
 				componentScan.getBoolean("useDefaultFilters"), this.environment, this.resourceLoader);
+
+		/**
+		 * 以下的操作都是对ClassPathBeanDefinitionScanner进行配置，当配置完毕后就开始进行扫描
+		 */
 
 		Class<? extends BeanNameGenerator> generatorClass = componentScan.getClass("nameGenerator");
 		boolean useInheritedGenerator = (BeanNameGenerator.class == generatorClass);
@@ -93,11 +103,14 @@ class ComponentScanAnnotationParser {
 
 		scanner.setResourcePattern(componentScan.getString("resourcePattern"));
 
+		// 使用给定的includeFilters
 		for (AnnotationAttributes filter : componentScan.getAnnotationArray("includeFilters")) {
 			for (TypeFilter typeFilter : typeFiltersFor(filter)) {
 				scanner.addIncludeFilter(typeFilter);
 			}
 		}
+
+		// 使用给定的excludeFilters
 		for (AnnotationAttributes filter : componentScan.getAnnotationArray("excludeFilters")) {
 			for (TypeFilter typeFilter : typeFiltersFor(filter)) {
 				scanner.addExcludeFilter(typeFilter);
@@ -123,12 +136,15 @@ class ComponentScanAnnotationParser {
 			basePackages.add(ClassUtils.getPackageName(declaringClass));
 		}
 
+		// 添加默认的excludeFilter
 		scanner.addExcludeFilter(new AbstractTypeHierarchyTraversingFilter(false, false) {
 			@Override
 			protected boolean matchClassName(String className) {
 				return declaringClass.equals(className);
 			}
 		});
+
+		// 执行扫描
 		return scanner.doScan(StringUtils.toStringArray(basePackages));
 	}
 

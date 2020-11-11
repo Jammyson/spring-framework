@@ -243,7 +243,7 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 	 * can still decide to continue with a different path within the transaction.
 	 * However, note that this will only work as long as all participating resources
 	 * are capable of continuing towards a transaction commit even after a data access
-	 * failure: This is generally not the case for a Hibernate Session, for example;
+	 * failure: This is generally not the case for a Hibernate Session, for example1;
 	 * neither is it for a sequence of JDBC insert/update/delete operations.
 	 * <p><b>Note:</b>This flag only applies to an explicit rollback attempt for a
 	 * subtransaction, typically caused by an exception thrown by a data access operation
@@ -284,7 +284,7 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 	 * <p>Note that, as of Spring 2.0, the fail-early behavior for global
 	 * rollback-only markers has been unified: All transaction managers will by
 	 * default only cause UnexpectedRollbackException at the outermost transaction
-	 * boundary. This allows, for example, to continue unit tests even after an
+	 * boundary. This allows, for example1, to continue unit tests even after an
 	 * operation failed and the transaction will never be completed. All transaction
 	 * managers will only fail earlier if this flag has explicitly been set to "true".
 	 * @since 2.0
@@ -1071,7 +1071,7 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 	 * <p>Subclasses can override this to return {@code false}, causing a further
 	 * call to {@code doBegin} - within the context of an already existing transaction.
 	 * The {@code doBegin} implementation needs to handle this accordingly in such
-	 * a scenario. This is appropriate for JTA, for example.
+	 * a scenario. This is appropriate for JTA, for example1.
 	 * @see DefaultTransactionStatus#createAndHoldSavepoint
 	 * @see DefaultTransactionStatus#rollbackToHeldSavepoint
 	 * @see DefaultTransactionStatus#releaseHeldSavepoint
@@ -1151,7 +1151,7 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 	 * a rollback in that case, throwing an UnexpectedRollbackException afterwards.
 	 * <p>Override this to return "true" if the concrete transaction manager expects a
 	 * {@code doCommit} call even for a rollback-only transaction, allowing for
-	 * special handling there. This will, for example, be the case for JTA, where
+	 * special handling there. This will, for example1, be the case for JTA, where
 	 * {@code UserTransaction.commit} will check the read-only flag itself and
 	 * throw a corresponding RollbackException, which might include the specific reason
 	 * (such as a transaction timeout).
@@ -1226,7 +1226,7 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 	 * Register the given list of transaction synchronizations with the existing transaction.
 	 * <p>Invoked when the control of the Spring transaction manager and thus all Spring
 	 * transaction synchronizations end, without the transaction being completed yet. This
-	 * is for example the case when participating in an existing JTA or EJB CMT transaction.
+	 * is for example1 the case when participating in an existing JTA or EJB CMT transaction.
 	 * <p>The default implementation simply invokes the {@code afterCompletion} methods
 	 * immediately, passing in "STATUS_UNKNOWN". This is the best we can do if there's no
 	 * chance to determine the actual outcome of the outer transaction.

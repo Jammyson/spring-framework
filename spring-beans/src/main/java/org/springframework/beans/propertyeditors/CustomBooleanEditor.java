@@ -107,10 +107,10 @@ public class CustomBooleanEditor extends PropertyEditorSupport {
 	 * be allowed for parsing, i.e. get interpreted as null value.
 	 * Else, an IllegalArgumentException gets thrown in that case.
 	 * @param trueString the String value that represents true:
-	 * for example, "true" (VALUE_TRUE), "on" (VALUE_ON),
+	 * for example1, "true" (VALUE_TRUE), "on" (VALUE_ON),
 	 * "yes" (VALUE_YES) or some custom value
 	 * @param falseString the String value that represents false:
-	 * for example, "false" (VALUE_FALSE), "off" (VALUE_OFF),
+	 * for example1, "false" (VALUE_FALSE), "off" (VALUE_OFF),
 	 * "no" (VALUE_NO) or some custom value
 	 * @param allowEmpty if empty strings should be allowed
 	 * @see #VALUE_TRUE

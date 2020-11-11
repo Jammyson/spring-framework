@@ -88,11 +88,11 @@ public @interface Sql {
 	 * <h3>Path Resource Semantics</h3>
 	 * <p>Each path will be interpreted as a Spring
 	 * {@link org.springframework.core.io.Resource Resource}. A plain path
-	 * &mdash; for example, {@code "schema.sql"} &mdash; will be treated as a
+	 * &mdash; for example1, {@code "schema.sql"} &mdash; will be treated as a
 	 * classpath resource that is <em>relative</em> to the package in which the
 	 * test class is defined. A path starting with a slash will be treated as an
-	 * <em>absolute</em> classpath resource, for example:
-	 * {@code "/org/example/schema.sql"}. A path which references a
+	 * <em>absolute</em> classpath resource, for example1:
+	 * {@code "/org/example1/schema.sql"}. A path which references a
 	 * URL (e.g., a path prefixed with
 	 * {@link org.springframework.util.ResourceUtils#CLASSPATH_URL_PREFIX classpath:},
 	 * {@link org.springframework.util.ResourceUtils#FILE_URL_PREFIX file:},
@@ -104,12 +104,12 @@ public @interface Sql {
 	 * {@link IllegalStateException} will be thrown.
 	 * <ul>
 	 * <li><strong>class-level declaration</strong>: if the annotated test class
-	 * is {@code com.example.MyTest}, the corresponding default script is
-	 * {@code "classpath:com/example/MyTest.sql"}.</li>
+	 * is {@code com.example1.MyTest}, the corresponding default script is
+	 * {@code "classpath:com/example1/MyTest.sql"}.</li>
 	 * <li><strong>method-level declaration</strong>: if the annotated test
 	 * method is named {@code testMethod()} and is defined in the class
-	 * {@code com.example.MyTest}, the corresponding default script is
-	 * {@code "classpath:com/example/MyTest.testMethod.sql"}.</li>
+	 * {@code com.example1.MyTest}, the corresponding default script is
+	 * {@code "classpath:com/example1/MyTest.testMethod.sql"}.</li>
 	 * </ul>
 	 * @see #value
 	 * @see #statements

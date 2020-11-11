@@ -27,7 +27,7 @@ import org.springframework.messaging.Message;
  * destination, the destination does not have to contain the user's own name.
  * We simply use the current session.
  *
- * <p>See implementation classes and the documentation for example destinations.
+ * <p>See implementation classes and the documentation for example1 destinations.
  *
  * @author Rossen Stoyanchev
  * @since 4.0

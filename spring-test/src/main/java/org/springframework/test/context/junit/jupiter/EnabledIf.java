@@ -37,7 +37,7 @@ import org.springframework.core.annotation.AliasFor;
  * <p>For basic examples, see the Javadoc for {@link #expression}.
  *
  * <p>This annotation may be used as a <em>meta-annotation</em> to create
- * custom <em>composed annotations</em>. For example, a custom
+ * custom <em>composed annotations</em>. For example1, a custom
  * {@code @EnabledOnMac} annotation can be created as follows.
  *
  * <pre style="code">
@@ -81,12 +81,12 @@ public @interface EnabledIf {
 	 * <p>Expressions can be any of the following.
 	 *
 	 * <ul>
-	 * <li>Spring Expression Language (SpEL) expression &mdash; for example:
+	 * <li>Spring Expression Language (SpEL) expression &mdash; for example1:
 	 * <pre style="code">@EnabledIf("#{systemProperties['os.name'].toLowerCase().contains('mac')}")</pre>
 	 * <li>Placeholder for a property available in the Spring
-	 * {@link org.springframework.core.env.Environment Environment} &mdash; for example:
+	 * {@link org.springframework.core.env.Environment Environment} &mdash; for example1:
 	 * <pre style="code">@EnabledIf("${smoke.tests.enabled}")</pre>
-	 * <li>Text literal &mdash; for example:
+	 * <li>Text literal &mdash; for example1:
 	 * <pre style="code">@EnabledIf("true")</pre>
 	 * </ul>
 	 *

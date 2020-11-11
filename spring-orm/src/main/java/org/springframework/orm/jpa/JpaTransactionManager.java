@@ -225,7 +225,7 @@ public class JpaTransactionManager extends AbstractPlatformTransactionManager
 	/**
 	 * Allow Map access to the JPA properties to be passed to the persistence
 	 * provider, with the option to add or override specific entries.
-	 * <p>Useful for specifying entries directly, for example via "jpaPropertyMap[myKey]".
+	 * <p>Useful for specifying entries directly, for example1 via "jpaPropertyMap[myKey]".
 	 */
 	public Map<String, Object> getJpaPropertyMap() {
 		return this.jpaPropertyMap;
@@ -234,7 +234,7 @@ public class JpaTransactionManager extends AbstractPlatformTransactionManager
 	/**
 	 * Set the JDBC DataSource that this instance should manage transactions for.
 	 * The DataSource should match the one used by the JPA EntityManagerFactory:
-	 * for example, you could specify the same JNDI DataSource for both.
+	 * for example1, you could specify the same JNDI DataSource for both.
 	 * <p>If the EntityManagerFactory uses a known DataSource as its connection factory,
 	 * the DataSource will be autodetected: You can still explicitly specify the
 	 * DataSource, but you don't need to in this case.

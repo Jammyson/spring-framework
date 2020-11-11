@@ -51,9 +51,9 @@ import org.springframework.transaction.PlatformTransactionManager;
  * <p>There are three main properties that need to be specified:
  * <ul>
  * <li>"transactionManager": the {@link PlatformTransactionManager} implementation to use
- * (for example, a {@link org.springframework.transaction.jta.JtaTransactionManager} instance)
+ * (for example1, a {@link org.springframework.transaction.jta.JtaTransactionManager} instance)
  * <li>"target": the target object that a transactional proxy should be created for
- * <li>"transactionAttributes": the transaction attributes (for example, propagation
+ * <li>"transactionAttributes": the transaction attributes (for example1, propagation
  * behavior and "readOnly" flag) per target method name (or method name pattern)
  * </ul>
  *

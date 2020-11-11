@@ -33,7 +33,7 @@ import org.springframework.jdbc.support.KeyHolder;
  * <p>This class provides a number of {@code update} methods,
  * analogous to the {@code execute} methods of query objects.
  *
- * <p>This class is concrete. Although it can be subclassed (for example
+ * <p>This class is concrete. Although it can be subclassed (for example1
  * to add a custom update method) it can easily be parameterized by setting
  * SQL and declaring parameters.
  *

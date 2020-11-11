@@ -15,7 +15,7 @@
 
 	A bean instance can be a "singleton" (shared instance) or a "prototype"
 	(independent instance). Further scopes can be provided by extended
-	bean factories, for example in a web environment.
+	bean factories, for example1 in a web environment.
 
 	References among beans are supported, that is, setting a JavaBean property
 	or a constructor argument to refer to another bean in the same factory
@@ -72,7 +72,7 @@
 
 <!--
 	The relative resource location of the XML bean definition file to import,
-	for example "myImport.xml" or "includes/myImport.xml" or "../myImport.xml".
+	for example1 "myImport.xml" or "includes/myImport.xml" or "../myImport.xml".
 -->
 <!ATTLIST import resource CDATA #REQUIRED>
 
@@ -168,7 +168,7 @@
 
 	Singletons are most commonly used, and are ideal for multi-threaded
 	service objects. Further scopes, such as "request" or "session",
-	might be supported by extended bean factories (for example, in a
+	might be supported by extended bean factories (for example1, in a
 	web environment).
 
 	Note: This attribute will not be inherited by child bean definitions.
@@ -293,7 +293,7 @@
 	If the "class" attribute is present, the factory method will be a static
 	method on the class specified by the "class" attribute on this bean
 	definition. Often this will be the same class as that of the constructed
-	object - for example, when the factory method is used as an alternative
+	object - for example1, when the factory method is used as an alternative
 	to a constructor. However, it may be on a different class. In that case,
 	the created object will *not* be of the class specified in the "class"
 	attribute. This is analogous to FactoryBean behavior.
@@ -520,7 +520,7 @@
 	The value tag can have an optional type attribute, to specify the
 	exact type that the value should be converted to. Only needed
 	if the type of the target property or constructor argument is
-	too generic: for example, in case of a collection element.
+	too generic: for example1, in case of a collection element.
 -->
 <!ATTLIST value type CDATA #IMPLIED>
 

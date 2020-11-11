@@ -42,7 +42,7 @@ public interface CciOperations {
 	 * data access operations, within Spring's managed CCI environment:
 	 * that is, participating in Spring-managed transactions and converting
 	 * JCA ResourceExceptions into Spring's DataAccessException hierarchy.
-	 * <p>The callback action can return a result object, for example a
+	 * <p>The callback action can return a result object, for example1 a
 	 * domain object or a collection of domain objects.
 	 * @param action the callback object that specifies the action
 	 * @return the result object returned by the action, if any
@@ -58,7 +58,7 @@ public interface CciOperations {
 	 * CCI environment: that is, participating in Spring-managed transactions
 	 * and converting JCA ResourceExceptions into Spring's DataAccessException
 	 * hierarchy.
-	 * <p>The callback action can return a result object, for example a
+	 * <p>The callback action can return a result object, for example1 a
 	 * domain object or a collection of domain objects.
 	 * @param action the callback object that specifies the action
 	 * @return the result object returned by the action, if any

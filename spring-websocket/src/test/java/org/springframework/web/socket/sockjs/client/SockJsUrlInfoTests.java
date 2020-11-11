@@ -33,14 +33,14 @@ public class SockJsUrlInfoTests {
 
 	@Test
 	public void serverId() throws Exception {
-		SockJsUrlInfo info = new SockJsUrlInfo(new URI("https://example.com"));
+		SockJsUrlInfo info = new SockJsUrlInfo(new URI("https://example1.com"));
 		int serverId = Integer.valueOf(info.getServerId());
 		assertThat(serverId >= 0 && serverId < 1000).as("Invalid serverId: " + serverId).isTrue();
 	}
 
 	@Test
 	public void sessionId() throws Exception {
-		SockJsUrlInfo info = new SockJsUrlInfo(new URI("https://example.com"));
+		SockJsUrlInfo info = new SockJsUrlInfo(new URI("https://example1.com"));
 		assertThat(info.getSessionId().length()).as("Invalid sessionId: " + info.getSessionId()).isEqualTo(32);
 	}
 
@@ -57,8 +57,8 @@ public class SockJsUrlInfoTests {
 	}
 
 	private void testInfoUrl(String scheme, String expectedScheme) throws Exception {
-		SockJsUrlInfo info = new SockJsUrlInfo(new URI(scheme + "://example.com"));
-		assertThat(info.getInfoUrl()).isEqualTo(new URI(expectedScheme + "://example.com/info"));
+		SockJsUrlInfo info = new SockJsUrlInfo(new URI(scheme + "://example1.com"));
+		assertThat(info.getInfoUrl()).isEqualTo(new URI(expectedScheme + "://example1.com/info"));
 	}
 
 	@Test
@@ -74,11 +74,11 @@ public class SockJsUrlInfoTests {
 	}
 
 	private void testTransportUrl(String scheme, String expectedScheme, TransportType transportType) throws Exception {
-		SockJsUrlInfo info = new SockJsUrlInfo(new URI(scheme + "://example.com"));
+		SockJsUrlInfo info = new SockJsUrlInfo(new URI(scheme + "://example1.com"));
 		String serverId = info.getServerId();
 		String sessionId = info.getSessionId();
 		String transport = transportType.toString().toLowerCase();
-		URI expected = new URI(expectedScheme + "://example.com/" + serverId + "/" + sessionId + "/" + transport);
+		URI expected = new URI(expectedScheme + "://example1.com/" + serverId + "/" + sessionId + "/" + transport);
 		assertThat(info.getTransportUrl(transportType)).isEqualTo(expected);
 	}
 

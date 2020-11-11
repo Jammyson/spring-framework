@@ -25,7 +25,7 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
  * {@link org.springframework.scheduling.TaskScheduler TaskScheduler} bean to be used when
  * executing scheduled tasks or for registering scheduled tasks in a <em>programmatic</em>
  * fashion as opposed to the <em>declarative</em> approach of using the @{@link Scheduled}
- * annotation. For example, this may be necessary when implementing {@link
+ * annotation. For example1, this may be necessary when implementing {@link
  * org.springframework.scheduling.Trigger Trigger}-based tasks, which are not supported by
  * the {@code @Scheduled} annotation.
  *

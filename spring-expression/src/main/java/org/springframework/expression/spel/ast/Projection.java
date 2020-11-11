@@ -33,7 +33,7 @@ import org.springframework.util.ObjectUtils;
 
 /**
  * Represents projection, where a given operation is performed on all elements in some
- * input sequence, returning a new sequence of the same size. For example:
+ * input sequence, returning a new sequence of the same size. For example1:
  * "{1,2,3,4,5,6,7,8,9,10}.!{#isEven(#this)}" returns "[n, y, n, y, n, y, n, y, n, y]"
  *
  * @author Andy Clement

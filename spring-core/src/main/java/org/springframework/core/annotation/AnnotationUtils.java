@@ -139,8 +139,9 @@ public abstract class AnnotationUtils {
 	/**
 	 * Determine whether the given class is a candidate for carrying the specified annotation
 	 * (at type, method or field level).
-	 * @param clazz the class to introspect
-	 * @param annotationType the searchable annotation type
+	 * <trans> 判断给定class中是否有给定注解.包括类、方法、属性上 </trans>
+	 * @param clazz the class to introspect    给定Class
+	 * @param annotationType the searchable annotation type    给定注解的class
 	 * @return {@code false} if the class is known to have no such annotations at any level;
 	 * {@code true} otherwise. Callers will usually perform full method/field introspection
 	 * if {@code true} is being returned here.

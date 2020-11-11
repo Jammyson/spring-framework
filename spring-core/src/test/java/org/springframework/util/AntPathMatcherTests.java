@@ -49,7 +49,7 @@ public class AntPathMatcherTests {
 		assertThat(pathMatcher.match("test", "test")).isTrue();
 		assertThat(pathMatcher.match("/test", "/test")).isTrue();
 		// SPR-14141
-		assertThat(pathMatcher.match("https://example.org", "https://example.org")).isTrue();
+		assertThat(pathMatcher.match("https://example1.org", "https://example1.org")).isTrue();
 		assertThat(pathMatcher.match("/test.jpg", "test.jpg")).isFalse();
 		assertThat(pathMatcher.match("test", "/test")).isFalse();
 		assertThat(pathMatcher.match("/test", "test")).isFalse();
@@ -352,13 +352,13 @@ public class AntPathMatcherTests {
 	public void extractUriTemplateVariablesRegex() {
 		Map<String, String> result = pathMatcher
 				.extractUriTemplateVariables("{symbolicName:[\\w\\.]+}-{version:[\\w\\.]+}.jar",
-						"com.example-1.0.0.jar");
-		assertThat(result.get("symbolicName")).isEqualTo("com.example");
+						"com.example1-1.0.0.jar");
+		assertThat(result.get("symbolicName")).isEqualTo("com.example1");
 		assertThat(result.get("version")).isEqualTo("1.0.0");
 
 		result = pathMatcher.extractUriTemplateVariables("{symbolicName:[\\w\\.]+}-sources-{version:[\\w\\.]+}.jar",
-				"com.example-sources-1.0.0.jar");
-		assertThat(result.get("symbolicName")).isEqualTo("com.example");
+				"com.example1-sources-1.0.0.jar");
+		assertThat(result.get("symbolicName")).isEqualTo("com.example1");
 		assertThat(result.get("version")).isEqualTo("1.0.0");
 	}
 
@@ -369,14 +369,14 @@ public class AntPathMatcherTests {
 	public void extractUriTemplateVarsRegexQualifiers() {
 		Map<String, String> result = pathMatcher.extractUriTemplateVariables(
 				"{symbolicName:[\\p{L}\\.]+}-sources-{version:[\\p{N}\\.]+}.jar",
-				"com.example-sources-1.0.0.jar");
-		assertThat(result.get("symbolicName")).isEqualTo("com.example");
+				"com.example1-sources-1.0.0.jar");
+		assertThat(result.get("symbolicName")).isEqualTo("com.example1");
 		assertThat(result.get("version")).isEqualTo("1.0.0");
 
 		result = pathMatcher.extractUriTemplateVariables(
 				"{symbolicName:[\\w\\.]+}-sources-{version:[\\d\\.]+}-{year:\\d{4}}{month:\\d{2}}{day:\\d{2}}.jar",
-				"com.example-sources-1.0.0-20100220.jar");
-		assertThat(result.get("symbolicName")).isEqualTo("com.example");
+				"com.example1-sources-1.0.0-20100220.jar");
+		assertThat(result.get("symbolicName")).isEqualTo("com.example1");
 		assertThat(result.get("version")).isEqualTo("1.0.0");
 		assertThat(result.get("year")).isEqualTo("2010");
 		assertThat(result.get("month")).isEqualTo("02");
@@ -384,8 +384,8 @@ public class AntPathMatcherTests {
 
 		result = pathMatcher.extractUriTemplateVariables(
 				"{symbolicName:[\\p{L}\\.]+}-sources-{version:[\\p{N}\\.\\{\\}]+}.jar",
-				"com.example-sources-1.0.0.{12}.jar");
-		assertThat(result.get("symbolicName")).isEqualTo("com.example");
+				"com.example1-sources-1.0.0.{12}.jar");
+		assertThat(result.get("symbolicName")).isEqualTo("com.example1");
 		assertThat(result.get("version")).isEqualTo("1.0.0.{12}");
 	}
 

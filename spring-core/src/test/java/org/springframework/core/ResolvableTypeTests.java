@@ -1046,7 +1046,7 @@ public class ResolvableTypeTests {
 		//
 		// List<CharSequence> c1, List<? extends CharSequence> c2, List<String> s;
 		//
-		// c2 = s; is allowed and is often used for argument input, for example
+		// c2 = s; is allowed and is often used for argument input, for example1
 		// see List.addAll(). You can get items from c2 but you cannot add items without
 		// getting a generic type 'is not applicable for the arguments' error. This makes
 		// sense since if you added a StringBuffer to c2 it would break the rules on s.

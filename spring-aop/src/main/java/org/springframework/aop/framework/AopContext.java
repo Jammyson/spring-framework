@@ -21,14 +21,17 @@ import org.springframework.lang.Nullable;
 
 /**
  * Class containing static methods used to obtain information about the current AOP invocation.
+ * <trans>提供用于获取AOP目标对象信息的静态方法</trans>
  *
  * <p>The {@code currentProxy()} method is usable if the AOP framework is configured to
  * expose the current proxy (not the default). It returns the AOP proxy in use. Target objects
- * or advice can use this to make advised calls, in the same way as {@code getEJBObject()}
- * can be used in EJBs. They can also use it to find advice configuration.
+ *  * or advice can use this to make advised calls, in the same way as {@code getEJBObject()}
+ *  * can be used in EJBs. They can also use it to find advice configuration.
+ * <Trans>currentProxy()方法在AOP配置了exposed=true时才生效,它会返回被代理的AOP对象.</Trans>
  *
  * <p>Spring's AOP framework does not expose proxies by default, as there is a performance cost
  * in doing so.
+ * <trans>Spring的AOP框架默认情况下不会启用这个功能,因为启用这个会带来性能损耗.</trans>
  *
  * <p>The functionality in this class might be used by a target object that needed access
  * to resources on the invocation. However, this approach should not be used when there is

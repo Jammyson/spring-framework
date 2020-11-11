@@ -59,9 +59,9 @@ public class ComponentScanParserTests {
 
 	@Test
 	public void aspectjTypeFilterWithPlaceholders() {
-		System.setProperty("basePackage", "example.scannable, test");
-		System.setProperty("scanInclude", "example.scannable.FooService+");
-		System.setProperty("scanExclude", "example..Scoped*Test*");
+		System.setProperty("basePackage", "example1.scannable, test");
+		System.setProperty("scanInclude", "example1.scannable.FooService+");
+		System.setProperty("scanExclude", "example1..Scoped*Test*");
 		try {
 			ClassPathXmlApplicationContext context = loadContext("aspectjTypeFilterTestsWithPlaceholders.xml");
 			assertThat(context.containsBean("fooServiceImpl")).isTrue();

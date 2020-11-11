@@ -64,7 +64,7 @@ import org.springframework.util.ObjectUtils;
  * to Spring's AOP framework and need not be used directly by client code.
  *
  * <p>{@link DefaultAopProxyFactory} will automatically create CGLIB-based
- * proxies if necessary, for example in case of proxying a target class
+ * proxies if necessary, for example1 in case of proxying a target class
  * (see the {@link DefaultAopProxyFactory attendant javadoc} for details).
  *
  * <p>Proxies created using this class are thread-safe if the underlying

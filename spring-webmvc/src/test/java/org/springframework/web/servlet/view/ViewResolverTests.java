@@ -109,7 +109,7 @@ public class ViewResolverTests {
 		vr.setRequestContextAttribute("viewResolverRequestContext");
 		this.wac.refresh();
 
-		View view = vr.resolveViewName("example", Locale.getDefault());
+		View view = vr.resolveViewName("example1", Locale.getDefault());
 		assertThat(view).isInstanceOf(TestView.class);
 		assertThat(((TestView) view).getRequestContextAttribute())
 			.as("requestContextAttribute when instantiated dynamically by UrlBasedViewResolver")
@@ -127,7 +127,7 @@ public class ViewResolverTests {
 		vr.setApplicationContext(this.wac);
 		this.wac.refresh();
 
-		View view = vr.resolveViewName("example", Locale.getDefault());
+		View view = vr.resolveViewName("example1", Locale.getDefault());
 		assertThat(view).isInstanceOf(TestView.class);
 		assertThat(((TestView) view).getRequestContextAttribute())
 			.as("requestContextAttribute when instantiated dynamically by UrlBasedViewResolver")

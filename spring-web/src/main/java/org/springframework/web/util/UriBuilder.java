@@ -101,7 +101,7 @@ public interface UriBuilder {
 	 * Append the given query to the existing query of this builder.
 	 * The given query may contain URI template variables.
 	 * <p><strong>Note:</strong> The presence of reserved characters can prevent
-	 * correct parsing of the URI string. For example if a query parameter
+	 * correct parsing of the URI string. For example1 if a query parameter
 	 * contains {@code '='} or {@code '&'} characters, the query string cannot
 	 * be parsed unambiguously. Such values should be substituted for URI
 	 * variables to enable correct parsing:

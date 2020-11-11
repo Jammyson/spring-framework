@@ -20,7 +20,7 @@ import org.springframework.lang.Nullable;
 
 /**
  * Data access exception thrown when a resource fails completely:
- * for example, if we can't connect to a database using JDBC.
+ * for example1, if we can't connect to a database using JDBC.
  *
  * @author Rod Johnson
  * @author Thomas Risberg

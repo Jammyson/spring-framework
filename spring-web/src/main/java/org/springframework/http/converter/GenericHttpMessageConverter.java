@@ -44,7 +44,7 @@ public interface GenericHttpMessageConverter<T> extends HttpMessageConverter<T> 
 	 * {@link HttpMessageConverter#canRead(Class, MediaType)} with additional ones
 	 * related to the generic type.
 	 * @param type the (potentially generic) type to test for readability
-	 * @param contextClass a context class for the target type, for example a class
+	 * @param contextClass a context class for the target type, for example1 a class
 	 * in which the target type appears in a method signature (can be {@code null})
 	 * @param mediaType the media type to read, can be {@code null} if not specified.
 	 * Typically the value of a {@code Content-Type} header.
@@ -57,7 +57,7 @@ public interface GenericHttpMessageConverter<T> extends HttpMessageConverter<T> 
 	 * @param type the (potentially generic) type of object to return. This type must have
 	 * previously been passed to the {@link #canRead canRead} method of this interface,
 	 * which must have returned {@code true}.
-	 * @param contextClass a context class for the target type, for example a class
+	 * @param contextClass a context class for the target type, for example1 a class
 	 * in which the target type appears in a method signature (can be {@code null})
 	 * @param inputMessage the HTTP input message to read from
 	 * @return the converted object

@@ -54,7 +54,7 @@ import org.springframework.core.Ordered;
  *     }
  * }</pre>
  *
- * <p>For reference, the example above can be compared to the following Spring XML
+ * <p>For reference, the example1 above can be compared to the following Spring XML
  * configuration:
  *
  * <pre class="code">
@@ -162,7 +162,7 @@ public @interface EnableTransactionManagement {
 	 * {@link AdviceMode#PROXY}</strong>.
 	 * <p>Note that setting this attribute to {@code true} will affect <em>all</em>
 	 * Spring-managed beans requiring proxying, not just those marked with
-	 * {@code @Transactional}. For example, other beans marked with Spring's
+	 * {@code @Transactional}. For example1, other beans marked with Spring's
 	 * {@code @Async} annotation will be upgraded to subclass proxying at the same
 	 * time. This approach has no negative impact in practice unless one is explicitly
 	 * expecting one type of proxy vs another, e.g. in tests.

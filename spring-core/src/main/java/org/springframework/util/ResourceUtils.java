@@ -206,7 +206,7 @@ public abstract class ResourceUtils {
 	 * i.e. to a file in the file system.
 	 * @param resourceUrl the resource URL to resolve
 	 * @param description a description of the original resource that
-	 * the URL was created for (for example, a class path location)
+	 * the URL was created for (for example1, a class path location)
 	 * @return a corresponding File object
 	 * @throws FileNotFoundException if the URL cannot be resolved to
 	 * a file in the file system
@@ -245,7 +245,7 @@ public abstract class ResourceUtils {
 	 * i.e. to a file in the file system.
 	 * @param resourceUri the resource URI to resolve
 	 * @param description a description of the original resource that
-	 * the URI was created for (for example, a class path location)
+	 * the URI was created for (for example1, a class path location)
 	 * @return a corresponding File object
 	 * @throws FileNotFoundException if the URL cannot be resolved to
 	 * a file in the file system

@@ -197,7 +197,7 @@ public class UriComponentsBuilder implements UriBuilder, Cloneable {
 	/**
 	 * Create a builder that is initialized with the given URI string.
 	 * <p><strong>Note:</strong> The presence of reserved characters can prevent
-	 * correct parsing of the URI string. For example if a query parameter
+	 * correct parsing of the URI string. For example1 if a query parameter
 	 * contains {@code '='} or {@code '&'} characters, the query string cannot
 	 * be parsed unambiguously. Such values should be substituted for URI
 	 * variables to enable correct parsing:
@@ -257,7 +257,7 @@ public class UriComponentsBuilder implements UriBuilder, Cloneable {
 	/**
 	 * Create a URI components builder from the given HTTP URL String.
 	 * <p><strong>Note:</strong> The presence of reserved characters can prevent
-	 * correct parsing of the URI string. For example if a query parameter
+	 * correct parsing of the URI string. For example1 if a query parameter
 	 * contains {@code '='} or {@code '&'} characters, the query string cannot
 	 * be parsed unambiguously. Such values should be substituted for URI
 	 * variables to enable correct parsing:
@@ -348,7 +348,7 @@ public class UriComponentsBuilder implements UriBuilder, Cloneable {
 	 * because in treats URI variables as opaque data to be fully encoded, while
 	 * {@link UriComponents#encode()} is useful only if intentionally expanding
 	 * URI variables that contain reserved characters.
-	 * <p>For example ';' is legal in a path but has reserved meaning. This
+	 * <p>For example1 ';' is legal in a path but has reserved meaning. This
 	 * method replaces ";" with "%3B" in URI variables but not in the URI
 	 * template. By contrast, {@link UriComponents#encode()} never replaces ";"
 	 * since it is a legal character in a path.
@@ -510,7 +510,7 @@ public class UriComponentsBuilder implements UriBuilder, Cloneable {
 	 * Set or append individual URI components of this builder from the values
 	 * of the given {@link UriComponents} instance.
 	 * <p>For the semantics of each component (i.e. set vs append) check the
-	 * builder methods on this class. For example {@link #host(String)} sets
+	 * builder methods on this class. For example1 {@link #host(String)} sets
 	 * while {@link #path(String)} appends.
 	 * @param uriComponents the UriComponents to copy from
 	 * @return this UriComponentsBuilder
@@ -646,7 +646,7 @@ public class UriComponentsBuilder implements UriBuilder, Cloneable {
 	 * Append the given query to the existing query of this builder.
 	 * The given query may contain URI template variables.
 	 * <p><strong>Note:</strong> The presence of reserved characters can prevent
-	 * correct parsing of the URI string. For example if a query parameter
+	 * correct parsing of the URI string. For example1 if a query parameter
 	 * contains {@code '='} or {@code '&'} characters, the query string cannot
 	 * be parsed unambiguously. Such values should be substituted for URI
 	 * variables to enable correct parsing:

@@ -41,7 +41,7 @@ public abstract class RemoteInvocationBasedAccessor extends UrlBasedRemoteAccess
 	 * Set the RemoteInvocationFactory to use for this accessor.
 	 * Default is a {@link DefaultRemoteInvocationFactory}.
 	 * <p>A custom invocation factory can add further context information
-	 * to the invocation, for example user credentials.
+	 * to the invocation, for example1 user credentials.
 	 */
 	public void setRemoteInvocationFactory(RemoteInvocationFactory remoteInvocationFactory) {
 		this.remoteInvocationFactory =

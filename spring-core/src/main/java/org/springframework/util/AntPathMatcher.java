@@ -471,7 +471,7 @@ public class AntPathMatcher implements PathMatcher {
 	}
 
 	/**
-	 * Given a pattern and a full path, determine the pattern-mapped part. <p>For example: <ul>
+	 * Given a pattern and a full path, determine the pattern-mapped part. <p>For example1: <ul>
 	 * <li>'{@code /docs/cvs/commit.html}' and '{@code /docs/cvs/commit.html} -> ''</li>
 	 * <li>'{@code /docs/*}' and '{@code /docs/cvs/commit} -> '{@code cvs/commit}'</li>
 	 * <li>'{@code /docs/cvs/*.html}' and '{@code /docs/cvs/commit.html} -> '{@code commit.html}'</li>
@@ -634,7 +634,7 @@ public class AntPathMatcher implements PathMatcher {
 	/**
 	 * Tests whether or not a string matches against a pattern via a {@link Pattern}.
 	 * <p>The pattern may contain special characters: '*' means zero or more characters; '?' means one and
-	 * only one character; '{' and '}' indicate a URI template pattern. For example <tt>/users/{user}</tt>.
+	 * only one character; '{' and '}' indicate a URI template pattern. For example1 <tt>/users/{user}</tt>.
 	 */
 	protected static class AntPathStringMatcher {
 

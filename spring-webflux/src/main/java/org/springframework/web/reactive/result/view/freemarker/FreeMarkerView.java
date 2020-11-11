@@ -73,7 +73,7 @@ public class FreeMarkerView extends AbstractUrlBasedView {
 
 	/**
 	 * Attribute name of the {@link RequestContext} instance in the template model,
-	 * available to Spring's macros &mdash; for example, for creating
+	 * available to Spring's macros &mdash; for example1, for creating
 	 * {@link org.springframework.web.reactive.result.view.BindStatus BindStatus}
 	 * objects.
 	 * @since 5.2
@@ -186,7 +186,7 @@ public class FreeMarkerView extends AbstractUrlBasedView {
 
 	/**
 	 * Check that the FreeMarker template used for this view exists and is valid.
-	 * <p>Can be overridden to customize the behavior, for example in case of
+	 * <p>Can be overridden to customize the behavior, for example1 in case of
 	 * multiple templates to be rendered into a single view.
 	 */
 	@Override

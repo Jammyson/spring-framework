@@ -67,42 +67,54 @@ public abstract class AbstractAdvisorAutoProxyCreator extends AbstractAutoProxyC
 		this.advisorRetrievalHelper = new BeanFactoryAdvisorRetrievalHelperAdapter(beanFactory);
 	}
 
-
+	/**
+	 * 解析BeanClass，获取BeanClass依赖的Advisor
+	 */
 	@Override
 	@Nullable
 	protected Object[] getAdvicesAndAdvisorsForBean(
 			Class<?> beanClass, String beanName, @Nullable TargetSource targetSource) {
-
+		// 获取BeanClass依赖的所有Advisor
 		List<Advisor> advisors = findEligibleAdvisors(beanClass, beanName);
+
 		if (advisors.isEmpty()) {
 			return DO_NOT_PROXY;
 		}
+
 		return advisors.toArray();
 	}
 
 	/**
-	 * Find all eligible Advisors for auto-proxying this class.
-	 * @param beanClass the clazz to find advisors for
-	 * @param beanName the name of the currently proxied bean
-	 * @return the empty List, not {@code null},
-	 * if there are no pointcuts or interceptors
-	 * @see #findCandidateAdvisors
-	 * @see #sortAdvisors
-	 * @see #extendAdvisors
+	 * 获取能够作用到给定BeanClass上的Advisor，该方法做了两件事：
+	 * 		1、获取到BeanFactory中定义的所有通知方法,并转换为Advisor
+	 * 		2、过滤所有的Advisor,只获取能够作用到beanClass上的Advisor,也就是BeanClass需要被
+	 * 		添加的通知拦截.
 	 */
 	protected List<Advisor> findEligibleAdvisors(Class<?> beanClass, String beanName) {
+		// 获取所有被定义为切面的class中定义为通知方法的Advisor.
 		List<Advisor> candidateAdvisors = findCandidateAdvisors();
+
+		// 筛选给定Advisor,从中过滤能够作用于给定BeanClass上的Advisor
 		List<Advisor> eligibleAdvisors = findAdvisorsThatCanApply(candidateAdvisors, beanClass, beanName);
+
+		// eligibleAdvisors中添加advisor，目前只追加了ExposeInvocationInterceptor
 		extendAdvisors(eligibleAdvisors);
+
 		if (!eligibleAdvisors.isEmpty()) {
 			eligibleAdvisors = sortAdvisors(eligibleAdvisors);
 		}
+
 		return eligibleAdvisors;
 	}
 
 	/**
 	 * Find all candidate Advisors to use in auto-proxying.
-	 * @return the List of candidate Advisors
+	 * <trans>
+	 *     获取所有被定义为切面的class中定义为通知方法的Advisor.
+	 *     对于使用Spring注解的aop来说会最终会调用到{@link org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator#findCandidateAdvisors()}
+	 * </trans>
+	 *
+	 * @return the List of candidate Advisors   获取所有被定义为切面的class中被定义为通知方法的Advisor.
 	 */
 	protected List<Advisor> findCandidateAdvisors() {
 		Assert.state(this.advisorRetrievalHelper != null, "No BeanFactoryAdvisorRetrievalHelper available");
@@ -112,10 +124,10 @@ public abstract class AbstractAdvisorAutoProxyCreator extends AbstractAutoProxyC
 	/**
 	 * Search the given candidate Advisors to find all Advisors that
 	 * can apply to the specified bean.
-	 * @param candidateAdvisors the candidate Advisors
-	 * @param beanClass the target's bean class
-	 * @param beanName the target's bean name
-	 * @return the List of applicable Advisors
+	 * <trans>
+	 *     筛选给定Advisor,从中过滤能够作用于给定BeanClass上的Advisor
+	 * </trans>
+	 * @see AopUtils#canApply(org.springframework.aop.Advisor, java.lang.Class, boolean)
 	 * @see ProxyCreationContext#getCurrentProxiedBeanName()
 	 */
 	protected List<Advisor> findAdvisorsThatCanApply(

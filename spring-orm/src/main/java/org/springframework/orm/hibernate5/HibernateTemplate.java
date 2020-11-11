@@ -179,7 +179,7 @@ public class HibernateTemplate implements HibernateOperations, InitializingBean 
 	 * <p>Each of those filters will be enabled at the beginning of each
 	 * operation and correspondingly disabled at the end of the operation.
 	 * This will work for newly opened Sessions as well as for existing
-	 * Sessions (for example, within a transaction).
+	 * Sessions (for example1, within a transaction).
 	 * @see #enableFilters(Session)
 	 * @see Session#enableFilter(String)
 	 */
@@ -307,7 +307,7 @@ public class HibernateTemplate implements HibernateOperations, InitializingBean 
 	 * Set the maximum number of rows for this HibernateTemplate. This is important
 	 * for processing subsets of large result sets, avoiding to read and hold
 	 * the entire result set in the database or in the JDBC driver if we're
-	 * never interested in the entire result in the first place (for example,
+	 * never interested in the entire result in the first place (for example1,
 	 * when performing searches that might return a large number of matches).
 	 * <p>Default is 0, indicating to use the JDBC driver's default.
 	 */

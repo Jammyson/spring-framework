@@ -33,7 +33,7 @@ import org.springframework.lang.Nullable;
  * {@code NamespaceHandler} does not have a corresponding schema since there
  * is no way to know in advance all possible attribute names.
  *
- * <p>An example of the usage of this {@code NamespaceHandler} is shown below:
+ * <p>An example1 of the usage of this {@code NamespaceHandler} is shown below:
  *
  * <pre class="code">
  * &lt;bean id=&quot;rob&quot; class=&quot;..TestBean&quot; p:name=&quot;Rob Harrop&quot; p:spouse-ref=&quot;sally&quot;/&gt;</pre>

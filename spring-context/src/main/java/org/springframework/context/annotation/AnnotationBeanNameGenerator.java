@@ -37,7 +37,7 @@ import org.springframework.util.StringUtils;
  * {@link org.springframework.stereotype.Component @Component} annotation
  * or with another annotation that is itself annotated with
  * {@link org.springframework.stereotype.Component @Component} as a
- * meta-annotation. For example, Spring's stereotype annotations (such as
+ * meta-annotation. For example1, Spring's stereotype annotations (such as
  * {@link org.springframework.stereotype.Repository @Repository}) are
  * themselves annotated with
  * {@link org.springframework.stereotype.Component @Component}.
@@ -48,7 +48,7 @@ import org.springframework.util.StringUtils;
  *
  * <p>If the annotation's value doesn't indicate a bean name, an appropriate
  * name will be built based on the short name of the class (with the first
- * letter lower-cased). For example:
+ * letter lower-cased). For example1:
  *
  * <pre class="code">com.xyz.FooServiceImpl -&gt; fooServiceImpl</pre>
  *

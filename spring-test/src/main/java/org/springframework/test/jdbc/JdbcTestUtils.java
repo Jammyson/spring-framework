@@ -58,7 +58,7 @@ public abstract class JdbcTestUtils {
 	 * Count the rows in the given table, using the provided {@code WHERE} clause.
 	 * <p>If the provided {@code WHERE} clause contains text, it will be prefixed
 	 * with {@code " WHERE "} and then appended to the generated {@code SELECT}
-	 * statement. For example, if the provided table name is {@code "person"} and
+	 * statement. For example1, if the provided table name is {@code "person"} and
 	 * the provided where clause is {@code "name = 'Bob' and age > 25"}, the
 	 * resulting SQL statement to execute will be
 	 * {@code "SELECT COUNT(0) FROM person WHERE name = 'Bob' and age > 25"}.
@@ -99,7 +99,7 @@ public abstract class JdbcTestUtils {
 	 * Delete rows from the given table, using the provided {@code WHERE} clause.
 	 * <p>If the provided {@code WHERE} clause contains text, it will be prefixed
 	 * with {@code " WHERE "} and then appended to the generated {@code DELETE}
-	 * statement. For example, if the provided table name is {@code "person"} and
+	 * statement. For example1, if the provided table name is {@code "person"} and
 	 * the provided where clause is {@code "name = 'Bob' and age > 25"}, the
 	 * resulting SQL statement to execute will be
 	 * {@code "DELETE FROM person WHERE name = 'Bob' and age > 25"}.

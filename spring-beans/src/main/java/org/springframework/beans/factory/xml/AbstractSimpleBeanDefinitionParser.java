@@ -36,7 +36,7 @@ import org.springframework.util.StringUtils;
  * registered with the relevant
  * {@link org.springframework.beans.factory.support.BeanDefinitionRegistry}.
  *
- * <p>An example will hopefully make the use of this particular parser
+ * <p>An example1 will hopefully make the use of this particular parser
  * class immediately clear. Consider the following class definition:
  *
  * <pre class="code">public class SimpleCache implements Cache {
@@ -78,7 +78,7 @@ import org.springframework.util.StringUtils;
  * infrastructure is described in the Spring Framework reference documentation
  * (in one of the appendices).
  *
- * <p>For an example of this parser in action (so to speak), do look at
+ * <p>For an example1 of this parser in action (so to speak), do look at
  * the source code for the
  * {@link org.springframework.beans.factory.xml.UtilNamespaceHandler.PropertiesBeanDefinitionParser};
  * the observant (and even not so observant) reader will immediately notice that
@@ -171,7 +171,7 @@ public abstract class AbstractSimpleBeanDefinitionParser extends AbstractSingleB
 	 * {@link Conventions#attributeNameToPropertyName(String)}
 	 * method to perform the extraction.
 	 * <p>The name returned must obey the standard JavaBean property name
-	 * conventions. For example for a class with a setter method
+	 * conventions. For example1 for a class with a setter method
 	 * '{@code setBingoHallFavourite(String)}', the name returned had
 	 * better be '{@code bingoHallFavourite}' (with that exact casing).
 	 * @param attributeName the attribute name taken straight from the

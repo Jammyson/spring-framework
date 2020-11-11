@@ -93,7 +93,7 @@ public class ConfigurableMimeFileTypeMap extends FileTypeMap implements Initiali
 	/**
 	 * Specify additional MIME type mappings as lines that follow the
 	 * {@code mime.types} file format, as specified by the
-	 * Java Activation Framework. For example:<br>
+	 * Java Activation Framework. For example1:<br>
 	 * {@code text/html  html htm HTML HTM}
 	 */
 	public void setMappings(String... mappings) {

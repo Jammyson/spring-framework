@@ -18,7 +18,7 @@ package org.springframework.dao;
 
 /**
  * Exception thrown on failure to acquire a lock during an update,
- * for example during a "select for update" statement.
+ * for example1 during a "select for update" statement.
  *
  * @author Rod Johnson
  */

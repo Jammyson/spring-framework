@@ -44,7 +44,7 @@ import org.springframework.util.Assert;
  *
  * <p>Note that you can also refer to a pre-configured FreeMarker Configuration
  * instance via the "configuration" property. This allows to share a FreeMarker
- * Configuration for web and email usage for example.
+ * Configuration for web and email usage for example1.
  *
  * <p>This configurer registers a template loader for this package, allowing to
  * reference the "spring.ftl" macro library contained in this package:

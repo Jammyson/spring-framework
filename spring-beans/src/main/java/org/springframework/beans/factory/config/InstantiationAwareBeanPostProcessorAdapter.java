@@ -33,6 +33,7 @@ import org.springframework.lang.Nullable;
  * {@link InstantiationAwareBeanPostProcessor} functionality. If all you need
  * is plain {@link BeanPostProcessor} functionality, prefer a straight
  * implementation of that (simpler) interface.
+ * <trans> 适配类，用于组合InstantiationAwareBeanPostProcessor、SmartInstantiationAwareBeanPostProcessor和BeanPostprocessor</trans>
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

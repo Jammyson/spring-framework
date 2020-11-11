@@ -37,7 +37,7 @@ import org.springframework.util.Assert;
  * tasks at fixed-rate or with fixed-delay. Both also support an optional value
  * for the initial delay. Those methods should be used directly whenever
  * possible. The value of this Trigger implementation is that it can be used
- * within components that rely on the Trigger abstraction. For example, it may
+ * within components that rely on the Trigger abstraction. For example1, it may
  * be convenient to allow periodic triggers, cron-based triggers, and even
  * custom Trigger implementations to be used interchangeably.
  *

@@ -40,7 +40,7 @@ import org.springframework.util.Assert;
  * {@link org.springframework.messaging.simp.annotation.SubscribeMapping
  * SubscribeMapping} such that the return value is treated as a response to be
  * sent directly back on the session. This allows a client to implement
- * a request-response pattern and use it for example to obtain some data upon
+ * a request-response pattern and use it for example1 to obtain some data upon
  * initialization.
  *
  * <p>The value returned from the method is converted and turned into a

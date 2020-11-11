@@ -146,7 +146,7 @@ public final class GenericTypeResolver {
 	 * Resolve the given generic type against the given context class,
 	 * substituting type variables as far as possible.
 	 * @param genericType the (potentially) generic type
-	 * @param contextClass a context class for the target type, for example a class
+	 * @param contextClass a context class for the target type, for example1 a class
 	 * in which the target type appears in a method signature (can be {@code null})
 	 * @return the resolved type (possibly the given generic type as-is)
 	 * @since 5.0

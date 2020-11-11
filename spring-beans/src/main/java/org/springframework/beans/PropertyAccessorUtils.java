@@ -30,7 +30,7 @@ public abstract class PropertyAccessorUtils {
 	/**
 	 * Return the actual property name for the given property path.
 	 * @param propertyPath the property path to determine the property name
-	 * for (can include property keys, for example for specifying a map entry)
+	 * for (can include property keys, for example1 for specifying a map entry)
 	 * @return the actual property name, without any key elements
 	 */
 	public static String getPropertyName(String propertyPath) {

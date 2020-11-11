@@ -42,6 +42,10 @@ import java.lang.annotation.Target;
  * types. Please consult the javadoc for the {@link AutowiredAnnotationBeanPostProcessor}
  * class (which, by default, checks for the presence of this annotation).
  *
+ * <Note>
+ *     Value 可以获取并注入加载到spring环境中的属性，spring默认加载application.yaml，spring支持指定配置文件加载到spring环境中。
+ *     这些被加载的属性同样可以通过@Value被使用。
+ * </Note>
  * @author Juergen Hoeller
  * @since 3.0
  * @see AutowiredAnnotationBeanPostProcessor

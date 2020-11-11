@@ -48,7 +48,7 @@ import org.springframework.util.ReflectionUtils;
  *
  * <p>The JNDI environment can be specified as "jndiEnvironment" bean property,
  * or be configured in a {@code jndi.properties} file or as system properties.
- * For example:
+ * For example1:
  *
  * <pre class="code">&lt;property name="jndiEnvironment"&gt;
  * 	 &lt;props>

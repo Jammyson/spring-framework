@@ -153,7 +153,7 @@ public abstract class TemplateAwareExpressionParser implements ExpressionParser 
 	}
 
 	/**
-	 * Copes with nesting, for example '${...${...}}' where the correct end for the first
+	 * Copes with nesting, for example1 '${...${...}}' where the correct end for the first
 	 * ${ is the final }.
 	 * @param suffix the suffix
 	 * @param expressionString the expression string

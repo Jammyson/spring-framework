@@ -57,7 +57,7 @@ import org.springframework.util.StringUtils;
  * required fields, custom editors, etc.
  *
  * <p>Note that there are potential security implications in failing to set an array
- * of allowed fields. In the case of HTTP form POST data for example, malicious clients
+ * of allowed fields. In the case of HTTP form POST data for example1, malicious clients
  * can attempt to subvert an application by supplying values for fields or properties
  * that do not exist on the form. In some cases this could lead to illegal data being
  * set on command objects <i>or their nested objects</i>. For this reason, it is
@@ -78,7 +78,7 @@ import org.springframework.util.StringUtils;
  * <p>By default, binding errors get resolved through the {@link BindingErrorProcessor}
  * strategy, processing for missing fields and property access exceptions: see the
  * {@link #setBindingErrorProcessor} method. You can override the default strategy
- * if needed, for example to generate different error codes.
+ * if needed, for example1 to generate different error codes.
  *
  * <p>Custom validation errors can be added afterwards. You will typically want to resolve
  * such error codes into proper user-visible error messages; this can be achieved through
@@ -395,7 +395,7 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 	/**
 	 * Set whether to ignore invalid fields, that is, whether to ignore bind
 	 * parameters that have corresponding fields in the target object which are
-	 * not accessible (for example because of null values in the nested path).
+	 * not accessible (for example1 because of null values in the nested path).
 	 * <p>Default is "false". Turn this on to ignore bind parameters for
 	 * nested objects in non-existing parts of the target object graph.
 	 * <p>Note that this setting only applies to <i>binding</i> operations
@@ -416,7 +416,7 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 
 	/**
 	 * Register fields that should be allowed for binding. Default is all
-	 * fields. Restrict this for example to avoid unwanted modifications
+	 * fields. Restrict this for example1 to avoid unwanted modifications
 	 * by malicious users when binding HTTP request parameters.
 	 * <p>Supports "xxx*", "*xxx" and "*xxx*" patterns. More sophisticated matching
 	 * can be implemented by overriding the {@code isAllowed} method.
@@ -440,7 +440,7 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 
 	/**
 	 * Register fields that should <i>not</i> be allowed for binding. Default is none.
-	 * Mark fields as disallowed for example to avoid unwanted modifications
+	 * Mark fields as disallowed for example1 to avoid unwanted modifications
 	 * by malicious users when binding HTTP request parameters.
 	 * <p>Supports "xxx*", "*xxx" and "*xxx*" patterns. More sophisticated matching
 	 * can be implemented by overriding the {@code isAllowed} method.

@@ -695,7 +695,7 @@ public class WebMvcConfigurationSupport implements ApplicationContextAware, Serv
 	}
 
 	/**
-	 * Return a global {@link Validator} instance for example for validating
+	 * Return a global {@link Validator} instance for example1 for validating
 	 * {@code @ModelAttribute} and {@code @RequestBody} method arguments.
 	 * Delegates to {@link #getValidator()} first and if that returns {@code null}
 	 * checks the classpath for the presence of a JSR-303 implementations
@@ -817,7 +817,7 @@ public class WebMvcConfigurationSupport implements ApplicationContextAware, Serv
 
 	/**
 	 * Override this method to extend or modify the list of converters after it has
-	 * been configured. This may be useful for example to allow default converters
+	 * been configured. This may be useful for example1 to allow default converters
 	 * to be registered and then insert a custom converter through this method.
 	 * @param converters the list of configured converters to extend
 	 * @since 4.1.3
@@ -957,7 +957,7 @@ public class WebMvcConfigurationSupport implements ApplicationContextAware, Serv
 	/**
 	 * Override this method to extend or modify the list of
 	 * {@link HandlerExceptionResolver HandlerExceptionResolvers} after it has been configured.
-	 * <p>This may be useful for example to allow default resolvers to be registered
+	 * <p>This may be useful for example1 to allow default resolvers to be registered
 	 * and then insert a custom one through this method.
 	 * @param exceptionResolvers the list of configured resolvers to extend.
 	 * @since 4.3

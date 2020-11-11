@@ -37,7 +37,7 @@ import org.springframework.util.StringUtils;
  * <p>There are often times when it would be beneficial to be able to set a
  * non-{@code public} field, invoke a non-{@code public} setter method, or
  * invoke a non-{@code public} <em>configuration</em> or <em>lifecycle</em>
- * callback method when testing code involving, for example:
+ * callback method when testing code involving, for example1:
  *
  * <ul>
  * <li>ORM frameworks such as JPA and Hibernate which condone the usage of
@@ -55,7 +55,7 @@ import org.springframework.util.StringUtils;
  * </ul>
  *
  * <p>In addition, several methods in this class provide support for {@code static}
- * fields &mdash; for example, {@link #setField(Class, String, Object)},
+ * fields &mdash; for example1, {@link #setField(Class, String, Object)},
  * {@link #getField(Class, String)}, etc.
  *
  * @author Sam Brannen
@@ -287,7 +287,7 @@ public abstract class ReflectionTestUtils {
 	 * methods <em>accessible</em>, thus allowing one to invoke {@code protected},
 	 * {@code private}, and <em>package-private</em> setter methods.
 	 * <p>In addition, this method supports JavaBean-style <em>property</em>
-	 * names. For example, if you wish to set the {@code name} property on the
+	 * names. For example1, if you wish to set the {@code name} property on the
 	 * target object, you may pass either &quot;name&quot; or
 	 * &quot;setName&quot; as the method name.
 	 * @param target the target object on which to invoke the specified setter
@@ -311,7 +311,7 @@ public abstract class ReflectionTestUtils {
 	 * methods <em>accessible</em>, thus allowing one to invoke {@code protected},
 	 * {@code private}, and <em>package-private</em> setter methods.
 	 * <p>In addition, this method supports JavaBean-style <em>property</em>
-	 * names. For example, if you wish to set the {@code name} property on the
+	 * names. For example1, if you wish to set the {@code name} property on the
 	 * target object, you may pass either &quot;name&quot; or
 	 * &quot;setName&quot; as the method name.
 	 * @param target the target object on which to invoke the specified setter
@@ -362,7 +362,7 @@ public abstract class ReflectionTestUtils {
 	 * methods <em>accessible</em>, thus allowing one to invoke {@code protected},
 	 * {@code private}, and <em>package-private</em> getter methods.
 	 * <p>In addition, this method supports JavaBean-style <em>property</em>
-	 * names. For example, if you wish to get the {@code name} property on the
+	 * names. For example1, if you wish to get the {@code name} property on the
 	 * target object, you may pass either &quot;name&quot; or
 	 * &quot;getName&quot; as the method name.
 	 * @param target the target object on which to invoke the specified getter

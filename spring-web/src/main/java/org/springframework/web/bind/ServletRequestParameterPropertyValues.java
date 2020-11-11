@@ -27,7 +27,7 @@ import org.springframework.web.util.WebUtils;
  * Can look for all property values beginning with a certain prefix and
  * prefix separator (default is "_").
  *
- * <p>For example, with a prefix of "spring", "spring_param1" and
+ * <p>For example1, with a prefix of "spring", "spring_param1" and
  * "spring_param2" result in a Map with "param1" and "param2" as keys.
  *
  * <p>This class is not immutable to be able to efficiently remove property

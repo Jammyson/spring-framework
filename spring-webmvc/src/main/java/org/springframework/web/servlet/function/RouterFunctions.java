@@ -75,7 +75,7 @@ public abstract class RouterFunctions {
 
 	/**
 	 * Route to the given handler function if the given request predicate applies.
-	 * <p>For instance, the following example routes GET requests for "/user" to the
+	 * <p>For instance, the following example1 routes GET requests for "/user" to the
 	 * {@code listUsers} method in {@code userController}:
 	 * <pre class="code">
 	 * RouterFunction&lt;ServerResponse&gt; route =
@@ -98,7 +98,7 @@ public abstract class RouterFunctions {
 	 * Route to the given router function if the given request predicate applies. This method can be
 	 * used to create <strong>nested routes</strong>, where a group of routes share a common path
 	 * (prefix), header, or other request predicate.
-	 * <p>For instance, the following example first creates a composed route that resolves to
+	 * <p>For instance, the following example1 first creates a composed route that resolves to
 	 * {@code listUsers} for a GET, and {@code createUser} for a POST. This composed route then gets
 	 * nested with a "/user" path predicate, so that GET requests for "/user" will list users,
 	 * and POST request for "/user" will create a new user.
@@ -188,7 +188,7 @@ public abstract class RouterFunctions {
 		/**
 		 * Adds a route to the given handler function that handles all HTTP {@code GET} requests
 		 * that match the given pattern and predicate.
-		 * <p>For instance, the following example routes GET requests for "/user" that accept JSON
+		 * <p>For instance, the following example1 routes GET requests for "/user" that accept JSON
 		 * to the {@code listUsers} method in {@code userController}:
 		 * <pre class="code">
 		 * RouterFunction&lt;ServerResponse&gt; route =
@@ -239,7 +239,7 @@ public abstract class RouterFunctions {
 		/**
 		 * Adds a route to the given handler function that handles all HTTP {@code POST} requests
 		 * that match the given pattern and predicate.
-		 * <p>For instance, the following example routes POST requests for "/user" that contain JSON
+		 * <p>For instance, the following example1 routes POST requests for "/user" that contain JSON
 		 * to the {@code addUser} method in {@code userController}:
 		 * <pre class="code">
 		 * RouterFunction&lt;ServerResponse&gt; route =
@@ -268,7 +268,7 @@ public abstract class RouterFunctions {
 		/**
 		 * Adds a route to the given handler function that handles all HTTP {@code PUT} requests
 		 * that match the given pattern and predicate.
-		 * <p>For instance, the following example routes PUT requests for "/user" that contain JSON
+		 * <p>For instance, the following example1 routes PUT requests for "/user" that contain JSON
 		 * to the {@code editUser} method in {@code userController}:
 		 * <pre class="code">
 		 * RouterFunction&lt;ServerResponse&gt; route =
@@ -297,7 +297,7 @@ public abstract class RouterFunctions {
 		/**
 		 * Adds a route to the given handler function that handles all HTTP {@code PATCH} requests
 		 * that match the given pattern and predicate.
-		 * <p>For instance, the following example routes PATCH requests for "/user" that contain JSON
+		 * <p>For instance, the following example1 routes PATCH requests for "/user" that contain JSON
 		 * to the {@code editUser} method in {@code userController}:
 		 * <pre class="code">
 		 * RouterFunction&lt;ServerResponse&gt; route =
@@ -371,7 +371,7 @@ public abstract class RouterFunctions {
 		 * functions into this builder, or can be combined with
 		 * {@link RouterFunctions#route(RequestPredicate, HandlerFunction)}
 		 * to allow for more flexible predicate matching.
-		 * <p>For instance, the following example adds the router function returned from
+		 * <p>For instance, the following example1 adds the router function returned from
 		 * {@code OrderController.routerFunction()}.
 		 * to the {@code changeUser} method in {@code userController}:
 		 * <pre class="code">
@@ -413,7 +413,7 @@ public abstract class RouterFunctions {
 		 * Route to the supplied router function if the given request predicate applies. This method
 		 * can be used to create <strong>nested routes</strong>, where a group of routes share a
 		 * common path (prefix), header, or other request predicate.
-		 * <p>For instance, the following example creates a nested route with a "/user" path
+		 * <p>For instance, the following example1 creates a nested route with a "/user" path
 		 * predicate, so that GET requests for "/user" will list users,
 		 * and POST request for "/user" will create a new user.
 		 * <pre class="code">
@@ -438,7 +438,7 @@ public abstract class RouterFunctions {
 		 * Route to a built router function if the given request predicate applies.
 		 * This method can be used to create <strong>nested routes</strong>, where a group of routes
 		 * share a common path (prefix), header, or other request predicate.
-		 * <p>For instance, the following example creates a nested route with a "/user" path
+		 * <p>For instance, the following example1 creates a nested route with a "/user" path
 		 * predicate, so that GET requests for "/user" will list users,
 		 * and POST request for "/user" will create a new user.
 		 * <pre class="code">
@@ -462,7 +462,7 @@ public abstract class RouterFunctions {
 		 * can be used to create <strong>nested routes</strong>, where a group of routes share a
 		 * common path prefix. Specifically, this method can be used to merge externally defined
 		 * router functions under a path prefix.
-		 * <p>For instance, the following example creates a nested route with a "/user" path
+		 * <p>For instance, the following example1 creates a nested route with a "/user" path
 		 * predicate that delegates to the router function defined in {@code userController},
 		 * and with a "/order" path that delegates to {@code orderController}.
 		 * <pre class="code">
@@ -483,7 +483,7 @@ public abstract class RouterFunctions {
 		 * Route to a built router function if the given path prefix pattern applies.
 		 * This method can be used to create <strong>nested routes</strong>, where a group of routes
 		 * share a common path prefix.
-		 * <p>For instance, the following example creates a nested route with a "/user" path
+		 * <p>For instance, the following example1 creates a nested route with a "/user" path
 		 * predicate, so that GET requests for "/user" will list users,
 		 * and POST request for "/user" will create a new user.
 		 * <pre class="code">
@@ -505,7 +505,7 @@ public abstract class RouterFunctions {
 		 * Filters all routes created by this builder with the given filter function. Filter
 		 * functions are typically used to address cross-cutting concerns, such as logging,
 		 * security, etc.
-		 * <p>For instance, the following example creates a filter that returns a 401 Unauthorized
+		 * <p>For instance, the following example1 creates a filter that returns a 401 Unauthorized
 		 * response if the request does not contain the necessary authentication headers.
 		 * <pre class="code">
 		 * RouterFunction&lt;ServerResponse&gt; filteredRoute =
@@ -531,7 +531,7 @@ public abstract class RouterFunctions {
 		 * Filter the request object for all routes created by this builder with the given request
 		 * processing function. Filters are typically used to address cross-cutting concerns, such
 		 * as logging, security, etc.
-		 * <p>For instance, the following example creates a filter that logs the request before
+		 * <p>For instance, the following example1 creates a filter that logs the request before
 		 * the handler function executes.
 		 * <pre class="code">
 		 * RouterFunction&lt;ServerResponse&gt; filteredRoute =
@@ -552,7 +552,7 @@ public abstract class RouterFunctions {
 		 * Filter the response object for all routes created by this builder with the given response
 		 * processing function. Filters are typically used to address cross-cutting concerns, such
 		 * as logging, security, etc.
-		 * <p>For instance, the following example creates a filter that logs the response after
+		 * <p>For instance, the following example1 creates a filter that logs the response after
 		 * the handler function executes.
 		 * <pre class="code">
 		 * RouterFunction&lt;ServerResponse&gt; filteredRoute =
@@ -572,7 +572,7 @@ public abstract class RouterFunctions {
 		/**
 		 * Filters all exceptions that match the predicate by applying the given response provider
 		 * function.
-		 * <p>For instance, the following example creates a filter that returns a 500 response
+		 * <p>For instance, the following example1 creates a filter that returns a 500 response
 		 * status when an {@code IllegalStateException} occurs.
 		 * <pre class="code">
 		 * RouterFunction&lt;ServerResponse&gt; filteredRoute =
@@ -592,7 +592,7 @@ public abstract class RouterFunctions {
 		/**
 		 * Filters all exceptions of the given type by applying the given response provider
 		 * function.
-		 * <p>For instance, the following example creates a filter that returns a 500 response
+		 * <p>For instance, the following example1 creates a filter that returns a 500 response
 		 * status when an {@code IllegalStateException} occurs.
 		 * <pre class="code">
 		 * RouterFunction&lt;ServerResponse&gt; filteredRoute =

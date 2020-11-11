@@ -28,7 +28,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Represents a ternary expression, for example: "someCheck()?true:false".
+ * Represents a ternary expression, for example1: "someCheck()?true:false".
  *
  * @author Andy Clement
  * @author Juergen Hoeller

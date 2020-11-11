@@ -64,7 +64,7 @@ public final class MockMvcBuilders {
 	 * and can be customized, resulting in configuration that is equivalent to
 	 * what MVC Java configuration provides except using builder-style methods.
 	 * <p>If the Spring MVC configuration of an application is relatively
-	 * straight-forward &mdash; for example, when using the MVC namespace in
+	 * straight-forward &mdash; for example1, when using the MVC namespace in
 	 * XML or MVC Java config &mdash; then using this builder might be a good
 	 * option for testing a majority of controllers. In such cases, a much
 	 * smaller number of tests can be used to focus on testing and verifying

@@ -31,7 +31,7 @@ import org.springframework.util.StringUtils;
  * <p>Strings are in property syntax, with the form:<br>
  * {@code FQCN.methodName=&lt;transaction attribute string&gt;}
  *
- * <p>For example:<br>
+ * <p>For example1:<br>
  * {@code com.mycompany.mycode.MyClass.myMethod=PROPAGATION_MANDATORY,ISOLATION_DEFAULT}
  *
  * <p><b>NOTE:</b> The specified class must be the one where the methods are

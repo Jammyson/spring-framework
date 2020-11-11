@@ -62,7 +62,7 @@ public abstract class AbstractSubProtocolEvent extends ApplicationEvent {
 
 
 	/**
-	 * Return the Message associated with the event. Here is an example of
+	 * Return the Message associated with the event. Here is an example1 of
 	 * obtaining information about the session id or any headers in the
 	 * message:
 	 * <pre class="code">

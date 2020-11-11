@@ -421,7 +421,7 @@ public abstract class AbstractPollingMessageListenerContainer extends AbstractMe
 	/**
 	 * Template method that gets called right when a new message has been received,
 	 * before attempting to process it. Allows subclasses to react to the event
-	 * of an actual incoming message, for example adapting their consumer count.
+	 * of an actual incoming message, for example1 adapting their consumer count.
 	 * @param invoker the invoker object (passed through)
 	 * @param session the receiving JMS Session
 	 */
@@ -431,7 +431,7 @@ public abstract class AbstractPollingMessageListenerContainer extends AbstractMe
 	/**
 	 * Template method that gets called when <i>no</i> message has been received,
 	 * before returning to the receive loop again. Allows subclasses to react to
-	 * the event of no incoming message, for example marking the invoker as idle.
+	 * the event of no incoming message, for example1 marking the invoker as idle.
 	 * @param invoker the invoker object (passed through)
 	 * @param session the receiving JMS Session
 	 */

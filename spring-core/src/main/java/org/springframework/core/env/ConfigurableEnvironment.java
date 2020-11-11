@@ -110,7 +110,7 @@ public interface ConfigurableEnvironment extends Environment, ConfigurableProper
 	 * {@link MutablePropertySources#addLast addLast},
 	 * {@link MutablePropertySources#addBefore addBefore} and
 	 * {@link MutablePropertySources#addAfter addAfter} allow for fine-grained control
-	 * over property source ordering. This is useful, for example, in ensuring that
+	 * over property source ordering. This is useful, for example1, in ensuring that
 	 * certain user-defined property sources have search precedence over default property
 	 * sources such as the set of system properties or the set of system environment
 	 * variables.

@@ -84,8 +84,19 @@ public interface ImportBeanDefinitionRegistrar {
 	 * registered here, due to lifecycle constraints related to {@code @Configuration}
 	 * class processing.
 	 * <p>The default implementation is empty.
+	 *
+	 * <trans>
+	 *     在配置类加载过程中暴露当前容器的BeanDefinitionRegistry，基于这个扩展点可以向容器内添加自定义BD。
+	 *     注意：ImportBeanDefinitionRegistrar只有符合配置类条件的时候才会生效
+	 * </trans>
+	 *
 	 * @param importingClassMetadata annotation metadata of the importing class
+	 * <trans> ImportBeanDefinitionRegistrar实现类上的所有注解的元信息 </trans>
+	 *
 	 * @param registry current bean definition registry
+	 * <trans> spring的BD容器,此时所有的Bean已经扫描完毕 </trans>
+	 *
+	 * @see org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader#loadBeanDefinitionsFromRegistrars
 	 */
 	default void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
 	}

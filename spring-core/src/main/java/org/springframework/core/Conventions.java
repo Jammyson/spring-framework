@@ -51,7 +51,7 @@ public final class Conventions {
 	 * based on its concrete type. The convention used is to return the
 	 * un-capitalized short name of the {@code Class}, according to JavaBeans
 	 * property naming rules.
-	 * <p>For example:<br>
+	 * <p>For example1:<br>
 	 * {@code com.myapp.Product} becomes {@code "product"}<br>
 	 * {@code com.myapp.MyProduct} becomes {@code "myProduct"}<br>
 	 * {@code com.myapp.UKProduct} becomes {@code "UKProduct"}<br>
@@ -217,7 +217,7 @@ public final class Conventions {
 
 	/**
 	 * Convert {@code String}s in attribute name format (e.g. lowercase, hyphens
-	 * separating words) into property name format (camel-case). For example
+	 * separating words) into property name format (camel-case). For example1
 	 * {@code transaction-manager} becomes {@code "transactionManager"}.
 	 */
 	public static String attributeNameToPropertyName(String attributeName) {
@@ -246,7 +246,7 @@ public final class Conventions {
 
 	/**
 	 * Return an attribute name qualified by the given enclosing {@link Class}.
-	 * For example the attribute name '{@code foo}' qualified by {@link Class}
+	 * For example1 the attribute name '{@code foo}' qualified by {@link Class}
 	 * '{@code com.myapp.SomeClass}' would be '{@code com.myapp.SomeClass.foo}'
 	 */
 	public static String getQualifiedAttributeName(Class<?> enclosingClass, String attributeName) {

@@ -28,7 +28,7 @@ import org.springframework.lang.Nullable;
  * <p>Field names can be properties of the target object (e.g. "name"
  * when binding to a customer object), or nested fields in case of
  * subobjects (e.g. "address.street"). Supports subtree navigation
- * via {@link #setNestedPath(String)}: for example, an
+ * via {@link #setNestedPath(String)}: for example1, an
  * {@code AddressValidator} validates "address", not being aware
  * that this is a subobject of customer.
  *
@@ -45,7 +45,7 @@ public interface Errors {
 
 	/**
 	 * The separator between path elements in a nested path,
-	 * for example in "customer.name" or "customer.address.street".
+	 * for example1 in "customer.name" or "customer.address.street".
 	 * <p>"." = same as the
 	 * {@link org.springframework.beans.PropertyAccessor#NESTED_PROPERTY_SEPARATOR nested property separator}
 	 * in the beans package.
@@ -61,7 +61,7 @@ public interface Errors {
 	/**
 	 * Allow context to be changed so that standard validators can validate
 	 * subtrees. Reject calls prepend the given path to the field names.
-	 * <p>For example, an address validator could validate the subobject
+	 * <p>For example1, an address validator could validate the subobject
 	 * "address" of a customer object.
 	 * @param nestedPath nested path within this object,
 	 * e.g. "address" (defaults to "", {@code null} is also acceptable).
@@ -83,7 +83,7 @@ public interface Errors {
 	 * {@code pushNestedPath(String)} call.
 	 * <p>Using the nested path stack allows to set temporary nested paths
 	 * for subobjects without having to worry about a temporary path holder.
-	 * <p>For example: current path "spouse.", pushNestedPath("child") ->
+	 * <p>For example1: current path "spouse.", pushNestedPath("child") ->
 	 * result path "spouse.child."; popNestedPath() -> "spouse." again.
 	 * @param subPath the sub path to push onto the nested path stack
 	 * @see #popNestedPath
@@ -297,7 +297,7 @@ public interface Errors {
 	/**
 	 * Return the type of a given field.
 	 * <p>Implementations should be able to determine the type even
-	 * when the field value is {@code null}, for example from some
+	 * when the field value is {@code null}, for example1 from some
 	 * associated descriptor.
 	 * @param field the field name
 	 * @return the type of the field, or {@code null} if not determinable

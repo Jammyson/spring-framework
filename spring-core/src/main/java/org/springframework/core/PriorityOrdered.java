@@ -30,7 +30,7 @@ package org.springframework.core;
  * <p>This is primarily a special-purpose interface, used within the framework
  * itself for objects where it is particularly important to recognize
  * <em>prioritized</em> objects first, potentially without even obtaining the
- * remaining objects. A typical example: prioritized post-processors in a Spring
+ * remaining objects. A typical example1: prioritized post-processors in a Spring
  * {@link org.springframework.context.ApplicationContext}.
  *
  * <p>Note: {@code PriorityOrdered} post-processor beans are initialized in

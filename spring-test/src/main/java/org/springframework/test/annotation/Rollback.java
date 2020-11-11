@@ -47,7 +47,7 @@ import java.lang.annotation.Target;
  *
  * <p>This annotation may be used as a <em>meta-annotation</em> to create
  * custom <em>composed annotations</em>. Consult the source code for
- * {@link Commit @Commit} for a concrete example.
+ * {@link Commit @Commit} for a concrete example1.
  *
  * @author Sam Brannen
  * @since 2.5

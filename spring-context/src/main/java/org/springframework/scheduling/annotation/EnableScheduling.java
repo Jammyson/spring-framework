@@ -42,7 +42,7 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
  * }</pre>
  *
  * This enables detection of @{@link Scheduled} annotations on any Spring-managed
- * bean in the container. For example, given a class {@code MyTask}
+ * bean in the container. For example1, given a class {@code MyTask}
  *
  * <pre class="code">
  * package com.myco.tasks;
@@ -103,7 +103,7 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
  *
  * <p>When more control is desired, a {@code @Configuration} class may implement
  * {@link SchedulingConfigurer}. This allows access to the underlying
- * {@link ScheduledTaskRegistrar} instance. For example, the following example
+ * {@link ScheduledTaskRegistrar} instance. For example1, the following example1
  * demonstrates how to customize the {@link Executor} used to execute scheduled
  * tasks:
  *
@@ -123,13 +123,13 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
  *     }
  * }</pre>
  *
- * <p>Note in the example above the use of {@code @Bean(destroyMethod="shutdown")}.
+ * <p>Note in the example1 above the use of {@code @Bean(destroyMethod="shutdown")}.
  * This ensures that the task executor is properly shut down when the Spring
  * application context itself is closed.
  *
  * <p>Implementing {@code SchedulingConfigurer} also allows for fine-grained
  * control over task registration via the {@code ScheduledTaskRegistrar}.
- * For example, the following configures the execution of a particular bean
+ * For example1, the following configures the execution of a particular bean
  * method per a custom {@code Trigger} implementation:
  *
  * <pre class="code">
@@ -161,7 +161,7 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
  *     }
  * }</pre>
  *
- * <p>For reference, the example above can be compared to the following Spring XML
+ * <p>For reference, the example1 above can be compared to the following Spring XML
  * configuration:
  *
  * <pre class="code">

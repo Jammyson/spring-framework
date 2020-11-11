@@ -43,7 +43,7 @@ public abstract class Operator extends SpelNodeImpl {
 	private final String operatorName;
 
 	// The descriptors of the runtime operand values are used if the discovered declared
-	// descriptors are not providing enough information (for example a generic type
+	// descriptors are not providing enough information (for example1 a generic type
 	// whose accessors seem to only be returning 'Object' - the actual descriptors may
 	// indicate 'int')
 

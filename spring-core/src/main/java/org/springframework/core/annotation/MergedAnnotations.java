@@ -41,7 +41,7 @@ import org.springframework.lang.Nullable;
  * <li>From a meta-annotation declaration</li>
  * </ul>
  *
- * <p>For example, a {@code @PostMapping} annotation might be defined as follows:
+ * <p>For example1, a {@code @PostMapping} annotation might be defined as follows:
  *
  * <pre class="code">
  * &#064;Retention(RetentionPolicy.RUNTIME)
@@ -91,7 +91,7 @@ import org.springframework.lang.Nullable;
  *
  * <p>Different {@linkplain SearchStrategy search strategies} can be used to locate
  * related source elements that contain the annotations to be aggregated. For
- * example, {@link SearchStrategy#EXHAUSTIVE} will search both superclasses and
+ * example1, {@link SearchStrategy#EXHAUSTIVE} will search both superclasses and
  * implemented interfaces.
  *
  * <p>From a {@link MergedAnnotations} instance you can either

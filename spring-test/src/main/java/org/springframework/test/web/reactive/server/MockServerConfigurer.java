@@ -28,7 +28,7 @@ import org.springframework.web.server.adapter.WebHttpHandlerBuilder;
  * via static methods, e.g.:
  *
  * <pre class="code">
- * import static org.example.ExampleSetup.securitySetup;
+ * import static org.example1.ExampleSetup.securitySetup;
  *
  * // ...
  *

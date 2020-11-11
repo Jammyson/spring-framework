@@ -29,6 +29,7 @@ import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.aspectj.AspectJPrecedenceInformation;
 import org.springframework.aop.aspectj.InstantiationModelAwarePointcutAdvisor;
 import org.springframework.aop.aspectj.annotation.AbstractAspectJAdvisorFactory.AspectJAnnotation;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.aop.support.DynamicMethodMatcherPointcut;
 import org.springframework.aop.support.Pointcuts;
 import org.springframework.lang.Nullable;
@@ -36,6 +37,7 @@ import org.springframework.lang.Nullable;
 /**
  * Internal implementation of AspectJPointcutAdvisor.
  * Note that there will be one instance of this advisor for each target method.
+ * <trans> 封装声明为Advice Method的Advisor </trans>
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -47,15 +49,29 @@ final class InstantiationModelAwarePointcutAdvisorImpl
 
 	private static final Advice EMPTY_ADVICE = new Advice() {};
 
-
+	/**
+	 * Advice通知作用的切点表达式封装对象
+	 */
 	private final AspectJExpressionPointcut declaredPointcut;
 
+	/**
+	 * 切面class
+	 */
 	private final Class<?> declaringClass;
 
+	/**
+	 * Advice method name
+	 */
 	private final String methodName;
 
+	/**
+	 * Advice method参数
+	 */
 	private final Class<?>[] parameterTypes;
 
+	/**
+	 * Advice method
+	 */
 	private transient Method aspectJAdviceMethod;
 
 	private final AspectJAdvisorFactory aspectJAdvisorFactory;
@@ -66,10 +82,19 @@ final class InstantiationModelAwarePointcutAdvisorImpl
 
 	private final String aspectName;
 
+	/**
+	 * 切点,用于匹配Bean与Advisor
+	 * @see AopUtils#canApply(org.springframework.aop.Pointcut, java.lang.Class, boolean)
+	 */
 	private final Pointcut pointcut;
 
 	private final boolean lazy;
 
+	/**
+	 * Advice处理器,构造方法中会根据不同的注解创建不同的Advice.
+	 * 若当前Advisor是对切点方法的封装,该字段为null.
+	 * @see InstantiationModelAwarePointcutAdvisorImpl#instantiateAdvice(org.springframework.aop.aspectj.AspectJExpressionPointcut)
+	 */
 	@Nullable
 	private Advice instantiatedAdvice;
 
@@ -79,11 +104,9 @@ final class InstantiationModelAwarePointcutAdvisorImpl
 	@Nullable
 	private Boolean isAfterAdvice;
 
-
 	public InstantiationModelAwarePointcutAdvisorImpl(AspectJExpressionPointcut declaredPointcut,
 			Method aspectJAdviceMethod, AspectJAdvisorFactory aspectJAdvisorFactory,
 			MetadataAwareAspectInstanceFactory aspectInstanceFactory, int declarationOrder, String aspectName) {
-
 		this.declaredPointcut = declaredPointcut;
 		this.declaringClass = aspectJAdviceMethod.getDeclaringClass();
 		this.methodName = aspectJAdviceMethod.getName();
@@ -110,6 +133,11 @@ final class InstantiationModelAwarePointcutAdvisorImpl
 			// A singleton aspect.
 			this.pointcut = this.declaredPointcut;
 			this.lazy = false;
+			/**
+			 * 根据不同类型的通知创建Advice.
+			 * 		1、如果declaredPointcut是对@PointCut方法的封装,返回null
+			 * 		2、如果declaredPointcut声明的是通知,则返回对应的Advice
+			 */
 			this.instantiatedAdvice = instantiateAdvice(this.declaredPointcut);
 		}
 	}
@@ -146,6 +174,8 @@ final class InstantiationModelAwarePointcutAdvisorImpl
 	}
 
 	private Advice instantiateAdvice(AspectJExpressionPointcut pointcut) {
+		// 根据不同的AspectJExpressionPointcut类型创建Advice，如果是代表@PointCut
+		// 的AspectJExpressionPointcut，则Advice会返回null
 		Advice advice = this.aspectJAdvisorFactory.getAdvice(this.aspectJAdviceMethod, pointcut,
 				this.aspectInstanceFactory, this.declarationOrder, this.aspectName);
 		return (advice != null ? advice : EMPTY_ADVICE);

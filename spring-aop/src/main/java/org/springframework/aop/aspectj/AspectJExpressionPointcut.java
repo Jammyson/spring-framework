@@ -47,6 +47,7 @@ import org.springframework.aop.ClassFilter;
 import org.springframework.aop.IntroductionAwareMethodMatcher;
 import org.springframework.aop.MethodMatcher;
 import org.springframework.aop.ProxyMethodInvocation;
+import org.springframework.aop.aspectj.annotation.AbstractAspectJAdvisorFactory;
 import org.springframework.aop.framework.autoproxy.ProxyCreationContext;
 import org.springframework.aop.interceptor.ExposeInvocationInterceptor;
 import org.springframework.aop.support.AbstractExpressionPointcut;
@@ -66,6 +67,8 @@ import org.springframework.util.StringUtils;
 /**
  * Spring {@link org.springframework.aop.Pointcut} implementation
  * that uses the AspectJ weaver to evaluate a pointcut expression.
+ * 封装{@link AbstractAspectJAdvisorFactory#ASPECTJ_ANNOTATION_CLASSES}注解中使用value
+ * 定义的表达式.
  *
  * <p>The pointcut expression value is an AspectJ expression. This can
  * reference other pointcuts and use composition and other operations.
@@ -269,9 +272,18 @@ public class AspectJExpressionPointcut extends AbstractExpressionPointcut
 
 	@Override
 	public boolean matches(Class<?> targetClass) {
+		// 获取注解中定义的PointCut
 		PointcutExpression pointcutExpression = obtainPointcutExpression();
 		try {
 			try {
+				/**
+				 * 判断给定class是否能够匹配注解中定义的切点
+				 * 这是Spring Expression解析的判断条件,如下
+				 * execution (* com.deepexi.bridge.ci.domain.Builder.*(..))
+				 * 如果targetClass是Builder的话那么将会返回true.
+				 * 这个方法中还涉及到关于execution等切点表达式的判断等等,总之就是根据切点表达式,
+				 * 判断给定class是否能够符合切点的条件.
+				 */
 				return pointcutExpression.couldMatchJoinPointsInType(targetClass);
 			}
 			catch (ReflectionWorldException ex) {
@@ -289,6 +301,12 @@ public class AspectJExpressionPointcut extends AbstractExpressionPointcut
 		return false;
 	}
 
+	/**
+	 * 匹配给定method是否能够匹配上PointcutExpression中定义的需要进行AOP的方法
+	 *
+	 * @param method the candidate method   targetClass中的方法
+	 * @param targetClass the target class    待判断的class
+	 */
 	@Override
 	public boolean matches(Method method, Class<?> targetClass, boolean hasIntroductions) {
 		obtainPointcutExpression();

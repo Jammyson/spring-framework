@@ -33,7 +33,7 @@ import org.springframework.web.server.ServerWebExchange;
  * <p>In contrast to an {@link org.springframework.core.codec.Encoder Encoder}
  * which is a singleton and encodes any object of a given type, a {@code View}
  * is typically selected by name and resolved using a {@link ViewResolver}
- * which may for example match it to an HTML template. Furthermore a {@code View}
+ * which may for example1 match it to an HTML template. Furthermore a {@code View}
  * may render based on multiple attributes contained in the model.
  *
  * <p>A {@code View} can also choose to select an attribute from the model use

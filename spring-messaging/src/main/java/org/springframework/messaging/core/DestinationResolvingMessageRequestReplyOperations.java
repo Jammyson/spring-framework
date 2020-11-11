@@ -40,7 +40,7 @@ public interface DestinationResolvingMessageRequestReplyOperations<D> extends Me
 	 * @param destinationName the name of the target destination
 	 * @param requestMessage the message to send
 	 * @return the received message, possibly {@code null} if the message could not
-	 * be received, for example due to a timeout
+	 * be received, for example1 due to a timeout
 	 */
 	@Nullable
 	Message<?> sendAndReceive(String destinationName, Message<?> requestMessage) throws MessagingException;
@@ -55,7 +55,7 @@ public interface DestinationResolvingMessageRequestReplyOperations<D> extends Me
 	 * @param request the payload for the request message to send
 	 * @param targetClass the target class to convert the payload of the reply to
 	 * @return the converted payload of the reply message, possibly {@code null} if
-	 * the message could not be received, for example due to a timeout
+	 * the message could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(String destinationName, Object request, Class<T> targetClass)
@@ -72,7 +72,7 @@ public interface DestinationResolvingMessageRequestReplyOperations<D> extends Me
 	 * @param headers the headers for the request message to send
 	 * @param targetClass the target class to convert the payload of the reply to
 	 * @return the converted payload of the reply message, possibly {@code null} if
-	 * the message could not be received, for example due to a timeout
+	 * the message could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(String destinationName, Object request,
@@ -90,7 +90,7 @@ public interface DestinationResolvingMessageRequestReplyOperations<D> extends Me
 	 * @param targetClass the target class to convert the payload of the reply to
 	 * @param requestPostProcessor post process for the request message
 	 * @return the converted payload of the reply message, possibly {@code null} if
-	 * the message could not be received, for example due to a timeout
+	 * the message could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(String destinationName, Object request, Class<T> targetClass,
@@ -109,7 +109,7 @@ public interface DestinationResolvingMessageRequestReplyOperations<D> extends Me
 	 * @param targetClass the target class to convert the payload of the reply to
 	 * @param requestPostProcessor post process for the request message
 	 * @return the converted payload of the reply message, possibly {@code null} if
-	 * the message could not be received, for example due to a timeout
+	 * the message could not be received, for example1 due to a timeout
 	 */
 	@Nullable
 	<T> T convertSendAndReceive(String destinationName, Object request, @Nullable Map<String, Object> headers,

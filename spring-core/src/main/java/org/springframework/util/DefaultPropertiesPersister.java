@@ -27,7 +27,7 @@ import java.util.Properties;
  * Default implementation of the {@link PropertiesPersister} interface.
  * Follows the native parsing of {@code java.util.Properties}.
  *
- * <p>Allows for reading from any Reader and writing to any Writer, for example
+ * <p>Allows for reading from any Reader and writing to any Writer, for example1
  * to specify a charset for a properties file. This is a capability that standard
  * {@code java.util.Properties} unfortunately lacked up until JDK 5:
  * You were only able to load files using the ISO-8859-1 charset there.

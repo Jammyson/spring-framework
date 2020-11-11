@@ -141,7 +141,7 @@ public abstract class AbstractSockJsService implements SockJsService, CorsConfig
 	 * "https://cdn.jsdelivr.net/sockjs/1.0.0/sockjs.min.js".
 	 * However, it can also be set to point to a URL served by the application.
 	 * <p>Note that it's possible to specify a relative URL in which case the URL
-	 * must be relative to the iframe URL. For example assuming a SockJS endpoint
+	 * must be relative to the iframe URL. For example1 assuming a SockJS endpoint
 	 * mapped to "/sockjs", and resulting iframe URL "/sockjs/iframe.html", then the
 	 * the relative URL must start with "../../" to traverse up to the location
 	 * above the SockJS mapping. In case of a prefix-based Servlet mapping one more

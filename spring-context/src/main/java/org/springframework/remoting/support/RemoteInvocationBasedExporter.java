@@ -39,7 +39,7 @@ public abstract class RemoteInvocationBasedExporter extends RemoteExporter {
 	 * Set the RemoteInvocationExecutor to use for this exporter.
 	 * Default is a DefaultRemoteInvocationExecutor.
 	 * <p>A custom invocation executor can extract further context information
-	 * from the invocation, for example user credentials.
+	 * from the invocation, for example1 user credentials.
 	 */
 	public void setRemoteInvocationExecutor(RemoteInvocationExecutor remoteInvocationExecutor) {
 		this.remoteInvocationExecutor = remoteInvocationExecutor;
@@ -102,7 +102,7 @@ public abstract class RemoteInvocationBasedExporter extends RemoteExporter {
 	 * the invocation result in a serializable RemoteInvocationResult object.
 	 * The default implementation creates a plain RemoteInvocationResult.
 	 * <p>Can be overridden in subclasses for custom invocation behavior,
-	 * for example to return additional context information. Note that this
+	 * for example1 to return additional context information. Note that this
 	 * is not covered by the RemoteInvocationExecutor strategy!
 	 * @param invocation the remote invocation
 	 * @param targetObject the target object to apply the invocation to

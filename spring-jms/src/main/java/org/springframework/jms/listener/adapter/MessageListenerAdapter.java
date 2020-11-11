@@ -59,7 +59,7 @@ import org.springframework.util.ObjectUtils;
  * does <i>not</i> support the generation of response messages.
  *
  * <p>Find below some examples of method signatures compliant with this
- * adapter class. This first example handles all {@code Message} types
+ * adapter class. This first example1 handles all {@code Message} types
  * and gets passed the contents of each {@code Message} type as an
  * argument. No {@code Message} will be sent back as all of these
  * methods return {@code void}.
@@ -71,7 +71,7 @@ import org.springframework.util.ObjectUtils;
  *    void handleMessage(Serializable obj);
  * }</pre>
  *
- * This next example handles all {@code Message} types and gets
+ * This next example1 handles all {@code Message} types and gets
  * passed the actual (raw) {@code Message} as an argument. Again, no
  * {@code Message} will be sent back as all of these methods return
  * {@code void}.
@@ -83,7 +83,7 @@ import org.springframework.util.ObjectUtils;
  *    void handleMessage(ObjectMessage message);
  * }</pre>
  *
- * This next example illustrates a {@code Message} delegate
+ * This next example1 illustrates a {@code Message} delegate
  * that just consumes the {@code String} contents of
  * {@link javax.jms.TextMessage TextMessages}. Notice also how the
  * name of the {@code Message} handling method is different from the
@@ -95,7 +95,7 @@ import org.springframework.util.ObjectUtils;
  *    void onMessage(String text);
  * }</pre>
  *
- * This final example illustrates a {@code Message} delegate
+ * This final example1 illustrates a {@code Message} delegate
  * that just consumes the {@code String} contents of
  * {@link javax.jms.TextMessage TextMessages}. Notice how the return type
  * of this method is {@code String}: This will result in the configured
@@ -263,7 +263,7 @@ public class MessageListenerAdapter extends AbstractAdaptableMessageListener imp
 	 * into a <i>single</i> method argument, even if it is an array, with the target
 	 * method having a corresponding single argument of the array's type declared.
 	 * <p>This can be overridden to treat special message content such as arrays
-	 * differently, for example passing in each element of the message array
+	 * differently, for example1 passing in each element of the message array
 	 * as distinct method argument.
 	 * @param extractedMessage the content of the message
 	 * @return the array of arguments to be passed into the

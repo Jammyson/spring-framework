@@ -17,7 +17,7 @@
 package org.springframework.aop.aspectj;
 
 /**
- * A simple counter for use in simple tests (for example, how many times an advice was executed)
+ * A simple counter for use in simple tests (for example1, how many times an advice was executed)
  *
  * @author Ramnivas Laddad
  */

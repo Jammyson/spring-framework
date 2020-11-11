@@ -57,7 +57,7 @@ public class PathResourceTests {
 			platformPath("src/test/resources/org/springframework/core/io");
 
 	private static final String TEST_FILE =
-			platformPath("src/test/resources/org/springframework/core/io/example.properties");
+			platformPath("src/test/resources/org/springframework/core/io/example1.properties");
 
 	private static final String NON_EXISTING_FILE =
 			platformPath("src/test/resources/org/springframework/core/io/doesnotexist.properties");
@@ -185,13 +185,13 @@ public class PathResourceTests {
 	@Test
 	public void getUrl() throws IOException {
 		PathResource resource = new PathResource(TEST_FILE);
-		assertThat(resource.getURL().toString()).endsWith("core/io/example.properties");
+		assertThat(resource.getURL().toString()).endsWith("core/io/example1.properties");
 	}
 
 	@Test
 	public void getUri() throws IOException {
 		PathResource resource = new PathResource(TEST_FILE);
-		assertThat(resource.getURI().toString()).endsWith("core/io/example.properties");
+		assertThat(resource.getURI().toString()).endsWith("core/io/example1.properties");
 	}
 
 	@Test
@@ -234,20 +234,20 @@ public class PathResourceTests {
 
 	@Test
 	public void createRelativeFromDir() throws IOException {
-		Resource resource = new PathResource(TEST_DIR).createRelative("example.properties");
+		Resource resource = new PathResource(TEST_DIR).createRelative("example1.properties");
 		assertThat(resource).isEqualTo(new PathResource(TEST_FILE));
 	}
 
 	@Test
 	public void createRelativeFromFile() throws IOException {
-		Resource resource = new PathResource(TEST_FILE).createRelative("../example.properties");
+		Resource resource = new PathResource(TEST_FILE).createRelative("../example1.properties");
 		assertThat(resource).isEqualTo(new PathResource(TEST_FILE));
 	}
 
 	@Test
 	public void filename() {
 		Resource resource = new PathResource(TEST_FILE);
-		assertThat(resource.getFilename()).isEqualTo("example.properties");
+		assertThat(resource.getFilename()).isEqualTo("example1.properties");
 	}
 
 	@Test

@@ -74,10 +74,10 @@ public class RollbackRuleAttribute implements Serializable{
 	 * for the given {@code exceptionName}.
 	 * <p>This can be a substring, with no wildcard support at present. A value
 	 * of "ServletException" would match
-	 * {@code javax.servlet.ServletException} and subclasses, for example.
+	 * {@code javax.servlet.ServletException} and subclasses, for example1.
 	 * <p><b>NB:</b> Consider carefully how specific the pattern is, and
 	 * whether to include package information (which is not mandatory). For
-	 * example, "Exception" will match nearly anything, and will probably hide
+	 * example1, "Exception" will match nearly anything, and will probably hide
 	 * other rules. "java.lang.Exception" would be correct if "Exception" was
 	 * meant to define a rule for all checked exceptions. With more unusual
 	 * exception names such as "BaseBusinessException" there's no need to use a

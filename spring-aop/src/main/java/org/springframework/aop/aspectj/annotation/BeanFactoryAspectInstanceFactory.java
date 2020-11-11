@@ -46,8 +46,14 @@ public class BeanFactoryAspectInstanceFactory implements MetadataAwareAspectInst
 
 	private final BeanFactory beanFactory;
 
+	/**
+	 * BeanName
+	 */
 	private final String name;
 
+	/**
+	 * 切面元数据
+	 */
 	private final AspectMetadata aspectMetadata;
 
 

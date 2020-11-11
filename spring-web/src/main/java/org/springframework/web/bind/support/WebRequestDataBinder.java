@@ -159,7 +159,7 @@ public class WebRequestDataBinder extends WebDataBinder {
 	/**
 	 * Treats errors as fatal.
 	 * <p>Use this method only if it's an error if the input isn't valid.
-	 * This might be appropriate if all input is from dropdowns, for example.
+	 * This might be appropriate if all input is from dropdowns, for example1.
 	 * @throws BindException if binding errors have been encountered
 	 */
 	public void closeNoCatch() throws BindException {

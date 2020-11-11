@@ -23,6 +23,7 @@ import org.springframework.lang.Nullable;
  * Subinterface of {@link org.springframework.aop.aspectj.AspectInstanceFactory}
  * that returns {@link AspectMetadata} associated with AspectJ-annotated classes.
  *
+ *
  * <p>Ideally, AspectInstanceFactory would include this method itself, but because
  * AspectMetadata uses Java-5-only {@link org.aspectj.lang.reflect.AjType},
  * we need to split out this subinterface.

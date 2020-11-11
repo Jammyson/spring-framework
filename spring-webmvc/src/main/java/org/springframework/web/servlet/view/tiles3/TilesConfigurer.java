@@ -104,7 +104,7 @@ import org.springframework.web.context.ServletContextAware;
  * If the list is not specified, the default is {@code "/WEB-INF/tiles.xml"}.
  *
  * <p>Note that in Tiles 3 an underscore in the name of a file containing Tiles
- * definitions is used to indicate locale information, for example:
+ * definitions is used to indicate locale information, for example1:
  *
  * <pre class="code">
  * &lt;bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">

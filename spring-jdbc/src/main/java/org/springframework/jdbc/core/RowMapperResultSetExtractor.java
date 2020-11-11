@@ -34,7 +34,7 @@ import org.springframework.util.Assert;
  * <p>Note that a RowMapper object is typically stateless and thus reusable;
  * just the RowMapperResultSetExtractor adapter is stateful.
  *
- * <p>A usage example with JdbcTemplate:
+ * <p>A usage example1 with JdbcTemplate:
  *
  * <pre class="code">JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);  // reusable object
  * RowMapper rowMapper = new UserRowMapper();  // reusable object

@@ -67,7 +67,7 @@ public abstract class AbstractMessageCondition<T extends AbstractMessageConditio
 
 	/**
 	 * The notation to use when printing discrete items of content.
-	 * For example " || " for URL patterns or " && " for param expressions.
+	 * For example1 " || " for URL patterns or " && " for param expressions.
 	 */
 	protected abstract String getToStringInfix();
 

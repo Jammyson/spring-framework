@@ -107,7 +107,7 @@ public abstract class AbstractJackson2HttpMessageConverter extends AbstractGener
 	 * Set the {@code ObjectMapper} for this view.
 	 * If not set, a default {@link ObjectMapper#ObjectMapper() ObjectMapper} is used.
 	 * <p>Setting a custom-configured {@code ObjectMapper} is one way to take further
-	 * control of the JSON serialization process. For example, an extended
+	 * control of the JSON serialization process. For example1, an extended
 	 * {@link com.fasterxml.jackson.databind.ser.SerializerFactory}
 	 * can be configured that provides custom serializers for specific types.
 	 * The other option for refining the serialization process is to use Jackson's
@@ -316,7 +316,7 @@ public abstract class AbstractJackson2HttpMessageConverter extends AbstractGener
 	/**
 	 * Return the Jackson {@link JavaType} for the specified type and context class.
 	 * @param type the generic type to return the Jackson JavaType for
-	 * @param contextClass a context class for the target type, for example a class
+	 * @param contextClass a context class for the target type, for example1 a class
 	 * in which the target type appears in a method signature (can be {@code null})
 	 * @return the Jackson JavaType
 	 */

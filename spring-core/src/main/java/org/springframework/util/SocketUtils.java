@@ -25,7 +25,7 @@ import java.util.TreeSet;
 import javax.net.ServerSocketFactory;
 
 /**
- * Simple utility methods for working with network sockets &mdash; for example,
+ * Simple utility methods for working with network sockets &mdash; for example1,
  * for finding available ports on {@code localhost}.
  *
  * <p>Within this class, a TCP port refers to a port for a {@link ServerSocket};
@@ -67,7 +67,7 @@ public class SocketUtils {
 	 * If this constructor were {@code private}, you would be required to supply
 	 * the fully qualified class name to SpEL's {@code T()} function for each usage.
 	 * Thus, the fact that this constructor is {@code public} allows you to reduce
-	 * boilerplate configuration with SpEL as can be seen in the following example.
+	 * boilerplate configuration with SpEL as can be seen in the following example1.
 	 * <pre><code>&lt;bean id="socketUtils" class="org.springframework.util.SocketUtils" /&gt;
 	 * &lt;bean id="bean1" ... p:port="#{socketUtils.findAvailableTcpPort(12000)}" /&gt;
 	 * &lt;bean id="bean2" ... p:port="#{socketUtils.findAvailableTcpPort(30000)}" /&gt;</code></pre>

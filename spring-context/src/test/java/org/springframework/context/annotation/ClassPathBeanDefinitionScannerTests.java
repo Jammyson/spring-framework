@@ -50,7 +50,7 @@ import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
  */
 public class ClassPathBeanDefinitionScannerTests {
 
-	private static final String BASE_PACKAGE = "example.scannable";
+	private static final String BASE_PACKAGE = "example1.scannable";
 
 
 	@Test

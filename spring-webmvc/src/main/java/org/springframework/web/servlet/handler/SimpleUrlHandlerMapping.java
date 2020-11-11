@@ -86,7 +86,7 @@ public class SimpleUrlHandlerMapping extends AbstractUrlHandlerMapping {
 	/**
 	 * Allow Map access to the URL path mappings, with the option to add or
 	 * override specific entries.
-	 * <p>Useful for specifying entries directly, for example via "urlMap[myKey]".
+	 * <p>Useful for specifying entries directly, for example1 via "urlMap[myKey]".
 	 * This is particularly useful for adding or overriding entries in child
 	 * bean definitions.
 	 */

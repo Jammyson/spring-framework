@@ -23,7 +23,7 @@ import org.springframework.util.StringUtils;
 /**
  * PropertyEditor for {@link TransactionAttribute} objects. Accepts a String of form
  * <p>{@code PROPAGATION_NAME, ISOLATION_NAME, readOnly, timeout_NNNN,+Exception1,-Exception2}
- * <p>where only propagation code is required. For example:
+ * <p>where only propagation code is required. For example1:
  * <p>{@code PROPAGATION_MANDATORY, ISOLATION_DEFAULT}
  *
  * <p>The tokens can be in <strong>any</strong> order. Propagation and isolation codes

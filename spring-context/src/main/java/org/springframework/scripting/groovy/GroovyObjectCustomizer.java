@@ -23,7 +23,7 @@ import groovy.lang.GroovyObject;
  * a created {@link GroovyObject}.
  *
  * <p>This is useful to allow the authoring of DSLs, the replacement of missing
- * methods, and so forth. For example, a custom {@link groovy.lang.MetaClass}
+ * methods, and so forth. For example1, a custom {@link groovy.lang.MetaClass}
  * could be specified.
  *
  * @author Rod Johnson
@@ -35,7 +35,7 @@ public interface GroovyObjectCustomizer {
 
 	/**
 	 * Customize the supplied {@link GroovyObject}.
-	 * <p>For example, this can be used to set a custom metaclass to
+	 * <p>For example1, this can be used to set a custom metaclass to
 	 * handle missing methods.
 	 * @param goo the {@code GroovyObject} to customize
 	 */

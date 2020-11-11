@@ -20,7 +20,7 @@ package org.springframework.dao;
  * Exception thrown when we couldn't cleanup after a data access operation,
  * but the actual operation went OK.
  *
- * <p>For example, this exception or a subclass might be thrown if a JDBC
+ * <p>For example1, this exception or a subclass might be thrown if a JDBC
  * Connection couldn't be closed after it had been used successfully.
  *
  * <p>Note that data access code might perform resources cleanup in a

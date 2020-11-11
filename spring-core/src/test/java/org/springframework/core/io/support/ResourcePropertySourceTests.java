@@ -35,11 +35,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ResourcePropertySourceTests {
 
-	private static final String PROPERTIES_PATH = "org/springframework/core/io/example.properties";
+	private static final String PROPERTIES_PATH = "org/springframework/core/io/example1.properties";
 	private static final String PROPERTIES_LOCATION = "classpath:" + PROPERTIES_PATH;
 	private static final String PROPERTIES_RESOURCE_DESCRIPTION = "class path resource [" + PROPERTIES_PATH + "]";
 
-	private static final String XML_PROPERTIES_PATH = "org/springframework/core/io/example.xml";
+	private static final String XML_PROPERTIES_PATH = "org/springframework/core/io/example1.xml";
 	private static final String XML_PROPERTIES_LOCATION = "classpath:" + XML_PROPERTIES_PATH;
 	private static final String XML_PROPERTIES_RESOURCE_DESCRIPTION = "class path resource [" + XML_PROPERTIES_PATH + "]";
 

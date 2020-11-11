@@ -98,7 +98,7 @@ public abstract class AbstractMBeanInfoAssembler implements MBeanInfoAssembler {
 	/**
 	 * Return the class or interface to expose for the given bean.
 	 * This is the class that will be searched for attributes and operations
-	 * (for example, checked for annotations).
+	 * (for example1, checked for annotations).
 	 * @param managedBean the bean instance (might be an AOP proxy)
 	 * @return the bean class to expose
 	 * @see JmxUtils#getClassToExpose(Object)

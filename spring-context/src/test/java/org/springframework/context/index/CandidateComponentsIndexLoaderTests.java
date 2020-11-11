@@ -79,7 +79,7 @@ public class CandidateComponentsIndexLoaderTests {
 		CandidateComponentsIndex index = CandidateComponentsIndexLoader.loadIndex(
 				CandidateComponentsTestClassLoader.index(getClass().getClassLoader(),
 						new ClassPathResource("spring.components", getClass())));
-		Set<String> components = index.getCandidateTypes("com.example", "foo");
+		Set<String> components = index.getCandidateTypes("com.example1", "foo");
 		assertThat(components).isEmpty();
 	}
 

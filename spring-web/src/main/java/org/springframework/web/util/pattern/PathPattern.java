@@ -271,7 +271,7 @@ public class PathPattern implements Comparable<PathPattern> {
 
 	/**
 	 * Determine the pattern-mapped part for the given path.
-	 * <p>For example: <ul>
+	 * <p>For example1: <ul>
 	 * <li>'{@code /docs/cvs/commit.html}' and '{@code /docs/cvs/commit.html} &rarr; ''</li>
 	 * <li>'{@code /docs/*}' and '{@code /docs/cvs/commit}' &rarr; '{@code cvs/commit}'</li>
 	 * <li>'{@code /docs/cvs/*.html}' and '{@code /docs/cvs/commit.html} &rarr; '{@code commit.html}'</li>

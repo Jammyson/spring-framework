@@ -53,25 +53,40 @@ public class DefaultAdvisorAdapterRegistry implements AdvisorAdapterRegistry, Se
 	}
 
 
+	/**
+	 * 将传入的Advice包装成Spring Advisor
+	 * Advisor是spring对AOP Advice的抽象,它将适配如AspectJ框架的Advice这样的其它AOP框架的Advice概念的接口.
+	 *
+	 * Spring底层默认的AOP框架是AspectJ,所以这个类的名字也叫做DefaultAdvisorAdapterRegistry.
+	 */
 	@Override
 	public Advisor wrap(Object adviceObject) throws UnknownAdviceTypeException {
+		// Advisor对象直接转换返回
 		if (adviceObject instanceof Advisor) {
 			return (Advisor) adviceObject;
 		}
+
+		// 要求必须是 AspectJ Advice 类型
 		if (!(adviceObject instanceof Advice)) {
 			throw new UnknownAdviceTypeException(adviceObject);
 		}
+
 		Advice advice = (Advice) adviceObject;
+
+		// 如果是 MethodInterceptor，则直接返回 DefaultPointcutAdvisor
 		if (advice instanceof MethodInterceptor) {
 			// So well-known it doesn't even need an adapter.
 			return new DefaultPointcutAdvisor(advice);
 		}
+
+		// 遍历所有适配器,如果支持则同样也用DefaultPointcutAdvisor进行包装
 		for (AdvisorAdapter adapter : this.adapters) {
 			// Check that it is supported.
 			if (adapter.supportsAdvice(advice)) {
 				return new DefaultPointcutAdvisor(advice);
 			}
 		}
+
 		throw new UnknownAdviceTypeException(advice);
 	}
 

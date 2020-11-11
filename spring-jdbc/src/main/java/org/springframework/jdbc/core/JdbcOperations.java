@@ -54,7 +54,7 @@ public interface JdbcOperations {
 	 * data access operations, within Spring's managed JDBC environment:
 	 * that is, participating in Spring-managed transactions and converting
 	 * JDBC SQLExceptions into Spring's DataAccessException hierarchy.
-	 * <p>The callback action can return a result object, for example a domain
+	 * <p>The callback action can return a result object, for example1 a domain
 	 * object or a collection of domain objects.
 	 * @param action a callback object that specifies the action
 	 * @return a result object returned by the action, or {@code null} if none
@@ -74,7 +74,7 @@ public interface JdbcOperations {
 	 * access operations on a single Statement, within Spring's managed JDBC
 	 * environment: that is, participating in Spring-managed transactions and
 	 * converting JDBC SQLExceptions into Spring's DataAccessException hierarchy.
-	 * <p>The callback action can return a result object, for example a domain
+	 * <p>The callback action can return a result object, for example1 a domain
 	 * object or a collection of domain objects.
 	 * @param action a callback that specifies the action
 	 * @return a result object returned by the action, or {@code null} if none
@@ -198,7 +198,7 @@ public interface JdbcOperations {
 	 * result objects, each of them matching the specified element type.
 	 * @param sql the SQL query to execute
 	 * @param elementType the required type of element in the result list
-	 * (for example, {@code Integer.class})
+	 * (for example1, {@code Integer.class})
 	 * @return a List of objects that match the specified element type
 	 * @throws DataAccessException if there is any problem executing the query
 	 * @see #queryForList(String, Object[], Class)
@@ -272,7 +272,7 @@ public interface JdbcOperations {
 	 * data access operations on a single Statement, within Spring's managed JDBC
 	 * environment: that is, participating in Spring-managed transactions and
 	 * converting JDBC SQLExceptions into Spring's DataAccessException hierarchy.
-	 * <p>The callback action can return a result object, for example a domain
+	 * <p>The callback action can return a result object, for example1 a domain
 	 * object or a collection of domain objects.
 	 * @param psc a callback that creates a PreparedStatement given a Connection
 	 * @param action a callback that specifies the action
@@ -288,7 +288,7 @@ public interface JdbcOperations {
 	 * data access operations on a single Statement, within Spring's managed JDBC
 	 * environment: that is, participating in Spring-managed transactions and
 	 * converting JDBC SQLExceptions into Spring's DataAccessException hierarchy.
-	 * <p>The callback action can return a result object, for example a domain
+	 * <p>The callback action can return a result object, for example1 a domain
 	 * object or a collection of domain objects.
 	 * @param sql the SQL to execute
 	 * @param action a callback that specifies the action
@@ -687,7 +687,7 @@ public interface JdbcOperations {
 	 * @param argTypes the SQL types of the arguments
 	 * (constants from {@code java.sql.Types})
 	 * @param elementType the required type of element in the result list
-	 * (for example, {@code Integer.class})
+	 * (for example1, {@code Integer.class})
 	 * @return a List of objects that match the specified element type
 	 * @throws DataAccessException if the query fails
 	 * @see #queryForList(String, Class)
@@ -707,7 +707,7 @@ public interface JdbcOperations {
 	 * may also contain {@link SqlParameterValue} objects which indicate not
 	 * only the argument value but also the SQL type and optionally the scale
 	 * @param elementType the required type of element in the result list
-	 * (for example, {@code Integer.class})
+	 * (for example1, {@code Integer.class})
 	 * @return a List of objects that match the specified element type
 	 * @throws DataAccessException if the query fails
 	 * @see #queryForList(String, Class)
@@ -722,7 +722,7 @@ public interface JdbcOperations {
 	 * result objects, each of them matching the specified element type.
 	 * @param sql the SQL query to execute
 	 * @param elementType the required type of element in the result list
-	 * (for example, {@code Integer.class})
+	 * (for example1, {@code Integer.class})
 	 * @param args arguments to bind to the query
 	 * (leaving it to the PreparedStatement to guess the corresponding SQL type);
 	 * may also contain {@link SqlParameterValue} objects which indicate not
@@ -942,7 +942,7 @@ public interface JdbcOperations {
 	 * data access operations on a single Statement, within Spring's managed JDBC
 	 * environment: that is, participating in Spring-managed transactions and
 	 * converting JDBC SQLExceptions into Spring's DataAccessException hierarchy.
-	 * <p>The callback action can return a result object, for example a domain
+	 * <p>The callback action can return a result object, for example1 a domain
 	 * object or a collection of domain objects.
 	 * @param csc a callback that creates a CallableStatement given a Connection
 	 * @param action a callback that specifies the action
@@ -958,7 +958,7 @@ public interface JdbcOperations {
 	 * data access operations on a single Statement, within Spring's managed JDBC
 	 * environment: that is, participating in Spring-managed transactions and
 	 * converting JDBC SQLExceptions into Spring's DataAccessException hierarchy.
-	 * <p>The callback action can return a result object, for example a domain
+	 * <p>The callback action can return a result object, for example1 a domain
 	 * object or a collection of domain objects.
 	 * @param callString the SQL call string to execute
 	 * @param action a callback that specifies the action

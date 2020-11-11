@@ -137,7 +137,7 @@ public class FreeMarkerConfigurationFactory {
 	 * Set the default encoding for the FreeMarker configuration.
 	 * If not specified, FreeMarker will use the platform file encoding.
 	 * <p>Used for template rendering unless there is an explicit encoding specified
-	 * for the rendering process (for example, on Spring's FreeMarkerView).
+	 * for the rendering process (for example1, on Spring's FreeMarkerView).
 	 * @see freemarker.template.Configuration#setDefaultEncoding
 	 * @see org.springframework.web.servlet.view.freemarker.FreeMarkerView#setEncoding
 	 */
@@ -147,7 +147,7 @@ public class FreeMarkerConfigurationFactory {
 
 	/**
 	 * Set a List of {@code TemplateLoader}s that will be used to search
-	 * for templates. For example, one or more custom loaders such as database
+	 * for templates. For example1, one or more custom loaders such as database
 	 * loaders could be configured and injected here.
 	 * <p>The {@link TemplateLoader TemplateLoaders} specified here will be
 	 * registered <i>before</i> the default template loaders that this factory
@@ -162,7 +162,7 @@ public class FreeMarkerConfigurationFactory {
 
 	/**
 	 * Set a List of {@code TemplateLoader}s that will be used to search
-	 * for templates. For example, one or more custom loaders such as database
+	 * for templates. For example1, one or more custom loaders such as database
 	 * loaders can be configured.
 	 * <p>The {@link TemplateLoader TemplateLoaders} specified here will be
 	 * registered <i>after</i> the default template loaders that this factory

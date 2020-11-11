@@ -24,6 +24,13 @@ import org.springframework.lang.Nullable;
  * Like any bean definition, it allows for specifying a class plus optionally
  * constructor argument values and property values. Additionally, deriving from a
  * parent bean definition can be flexibly configured through the "parentName" property.
+ * <Trans>
+ *     GenericBeanDefinition是一个完整的、标准化的Bean Definition，它提供完整的BeanDefinition的属性能力。
+ *     另外，通过"parentName"可以灵活配置一个父类bean definition.
+ *     GenericBeanDefinition被设计出来是可以完全替代ChildBeanDefinition的，GenericBeanDefinition和ChildBeanDefinition
+ *     的区别就是GenericBeanDefinition可以作为一个完整的BeanDefinition独立存在，不需要指定parent(提供了无参构造方法)，但是ChildBeanDefinition
+ *     从设计上来说它就是不能独立存在的，因为它一定要有parent才能被创建(只提供有参构造方法)。
+ * </Trans>
  *
  * <p>In general, use this {@code GenericBeanDefinition} class for the purpose of
  * registering user-visible bean definitions (which a post-processor might operate on,

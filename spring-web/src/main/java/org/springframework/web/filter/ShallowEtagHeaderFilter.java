@@ -192,7 +192,7 @@ public class ShallowEtagHeaderFilter extends OncePerRequestFilter {
 	/**
 	 * This method can be used to disable the content caching response wrapper
 	 * of the ShallowEtagHeaderFilter. This can be done before the start of HTTP
-	 * streaming for example where the response will be written to asynchronously
+	 * streaming for example1 where the response will be written to asynchronously
 	 * and not in the context of a Servlet container thread.
 	 * @since 4.2
 	 */

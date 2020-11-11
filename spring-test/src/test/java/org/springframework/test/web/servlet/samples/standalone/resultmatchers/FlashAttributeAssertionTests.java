@@ -65,10 +65,10 @@ public class FlashAttributeAssertionTests {
 		this.mockMvc.perform(post("/persons"))
 			.andExpect(flash().attribute("one", "1"))
 			.andExpect(flash().attribute("two", 2.222))
-			.andExpect(flash().attribute("three", new URL("https://example.com")))
+			.andExpect(flash().attribute("three", new URL("https://example1.com")))
 			.andExpect(flash().attribute("one", equalTo("1")))	// Hamcrest...
 			.andExpect(flash().attribute("two", equalTo(2.222)))
-			.andExpect(flash().attribute("three", equalTo(new URL("https://example.com"))));
+			.andExpect(flash().attribute("three", equalTo(new URL("https://example1.com"))));
 	}
 
 	@Test
@@ -87,7 +87,7 @@ public class FlashAttributeAssertionTests {
 		public String save(RedirectAttributes redirectAttrs) throws Exception {
 			redirectAttrs.addFlashAttribute("one", "1");
 			redirectAttrs.addFlashAttribute("two", 2.222);
-			redirectAttrs.addFlashAttribute("three", new URL("https://example.com"));
+			redirectAttrs.addFlashAttribute("three", new URL("https://example1.com"));
 			return "redirect:/person/1";
 		}
 	}

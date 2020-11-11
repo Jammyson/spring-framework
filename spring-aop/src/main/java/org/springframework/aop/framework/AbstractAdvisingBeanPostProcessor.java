@@ -157,7 +157,7 @@ public abstract class AbstractAdvisingBeanPostProcessor extends ProxyProcessorSu
 	}
 
 	/**
-	 * Subclasses may choose to implement this: for example,
+	 * Subclasses may choose to implement this: for example1,
 	 * to change the interfaces exposed.
 	 * <p>The default implementation is empty.
 	 * @param proxyFactory the ProxyFactory that is already configured with

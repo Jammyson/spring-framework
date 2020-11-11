@@ -61,7 +61,7 @@ public interface WebRequestInterceptor {
 	 * Intercept the execution of a request handler <i>after</i> its successful
 	 * invocation, right before view rendering (if any).
 	 * <p>Allows for modifying context resources after successful handler
-	 * execution (for example, flushing a Hibernate Session).
+	 * execution (for example1, flushing a Hibernate Session).
 	 * @param request the current web request
 	 * @param model the map of model objects that will be exposed to the view
 	 * (may be {@code null}). Can be used to analyze the exposed model

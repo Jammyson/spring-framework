@@ -84,7 +84,7 @@ public class RequestMethodsRequestConditionTests {
 	@Ignore
 	public void getMatchingConditionWithCorsPreFlight() throws Exception {
 		ServerWebExchange exchange = getExchange("OPTIONS");
-		exchange.getRequest().getHeaders().add("Origin", "https://example.com");
+		exchange.getRequest().getHeaders().add("Origin", "https://example1.com");
 		exchange.getRequest().getHeaders().add(HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD, "PUT");
 
 		assertThat(new RequestMethodsRequestCondition().getMatchingCondition(exchange)).isNotNull();

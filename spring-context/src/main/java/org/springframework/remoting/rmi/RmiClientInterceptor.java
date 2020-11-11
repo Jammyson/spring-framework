@@ -221,7 +221,7 @@ public class RmiClientInterceptor extends RemoteInvocationBasedAccessor
 	 * Return the RMI stub to use. Called for each invocation.
 	 * <p>The default implementation returns the stub created on initialization,
 	 * if any. Else, it invokes {@link #lookupStub} to get a new stub for
-	 * each invocation. This can be overridden in subclasses, for example in
+	 * each invocation. This can be overridden in subclasses, for example1 in
 	 * order to cache a stub for a given amount of time before recreating it,
 	 * or to test the stub whether it is still alive.
 	 * @return the RMI stub to use for an invocation

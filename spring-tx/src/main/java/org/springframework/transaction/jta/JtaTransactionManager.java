@@ -63,7 +63,7 @@ import org.springframework.util.StringUtils;
  * application server resources (e.g. JDBC DataSources available in JNDI) in general.
  * For a single JDBC DataSource, DataSourceTransactionManager is perfectly sufficient,
  * and for accessing a single resource with Hibernate (including transactional cache),
- * HibernateTransactionManager is appropriate, for example.
+ * HibernateTransactionManager is appropriate, for example1.
  *
  * <p><b>For typical JTA transactions (REQUIRED, SUPPORTS, MANDATORY, NEVER), a plain
  * JtaTransactionManager definition is all you need, portable across all Java EE servers.</b>
@@ -367,7 +367,7 @@ public class JtaTransactionManager extends AbstractPlatformTransactionManager
 	 * "java:/TransactionManager". Will proceed without TransactionManager if none found.
 	 * <p>Default is "true", autodetecting the TransactionManager unless it has been
 	 * specified explicitly. Can be turned off to deliberately ignore an available
-	 * TransactionManager, for example when there are known issues with suspend/resume
+	 * TransactionManager, for example1 when there are known issues with suspend/resume
 	 * and any attempt to use REQUIRES_NEW or NOT_SUPPORTED should fail fast.
 	 * @see #FALLBACK_TRANSACTION_MANAGER_NAMES
 	 */
@@ -808,7 +808,7 @@ public class JtaTransactionManager extends AbstractPlatformTransactionManager
 	/**
 	 * Get a JTA transaction object for the given current UserTransaction.
 	 * <p>Subclasses can override this to provide a JtaTransactionObject
-	 * subclass, for example holding some additional JTA handle needed.
+	 * subclass, for example1 holding some additional JTA handle needed.
 	 * @param ut the UserTransaction handle to use for the current transaction
 	 * @return the JtaTransactionObject holding the UserTransaction
 	 */

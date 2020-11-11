@@ -72,11 +72,15 @@ abstract class ConfigurationClassUtils {
 		candidateIndicators.add(ImportResource.class.getName());
 	}
 
-
 	/**
 	 * Check whether the given bean definition is a candidate for a configuration class
 	 * (or a nested component class declared within a configuration/component class,
 	 * to be auto-registered as well), and mark it accordingly.
+	 * <trans>
+	 *     检查给定的BD是否是配置类
+	 *     		若存在@Configuration 或者 使用了{@link candidateIndicators}以及@Bean标注，那么它就会被当成配置类处理
+	 * </trans>
+	 *
 	 * @param beanDef the bean definition to check
 	 * @param metadataReaderFactory the current factory in use by the caller
 	 * @return whether the candidate qualifies as (any kind of) configuration class
@@ -89,12 +93,16 @@ abstract class ConfigurationClassUtils {
 			return false;
 		}
 
+		// class的注解元信息
 		AnnotationMetadata metadata;
+
+		// 对于传入的启动配置类来说，它是AnnotatedBeanDefinition，此时直接可以获取AnnotationMetadata
 		if (beanDef instanceof AnnotatedBeanDefinition &&
 				className.equals(((AnnotatedBeanDefinition) beanDef).getMetadata().getClassName())) {
 			// Can reuse the pre-parsed metadata from the given BeanDefinition...
 			metadata = ((AnnotatedBeanDefinition) beanDef).getMetadata();
 		}
+		// 对于普通的Bean来说，它是AbstractBeanDefinition，此时需要解析class来获取AnnotationMetadata
 		else if (beanDef instanceof AbstractBeanDefinition && ((AbstractBeanDefinition) beanDef).hasBeanClass()) {
 			// Check already loaded Class if present...
 			// since we possibly can't even load the class file for this Class.
@@ -109,6 +117,7 @@ abstract class ConfigurationClassUtils {
 		}
 		else {
 			try {
+				// 创建MetadataReader,获取注解metadata
 				MetadataReader metadataReader = metadataReaderFactory.getMetadataReader(className);
 				metadata = metadataReader.getAnnotationMetadata();
 			}
@@ -121,18 +130,26 @@ abstract class ConfigurationClassUtils {
 			}
 		}
 
+		// 获取@Configuration的所有配置信息
 		Map<String, Object> config = metadata.getAnnotationAttributes(Configuration.class.getName());
+
+		// 设置proxyBeanMethods参数到BD中
 		if (config != null && !Boolean.FALSE.equals(config.get("proxyBeanMethods"))) {
 			beanDef.setAttribute(CONFIGURATION_CLASS_ATTRIBUTE, CONFIGURATION_CLASS_FULL);
 		}
+
+		/**
+		 *  若存在@Configuration 或者 使用了{@link candidateIndicators}以及@Bean标注，那么它就会被当成配置类处理
+		 */
 		else if (config != null || isConfigurationCandidate(metadata)) {
 			beanDef.setAttribute(CONFIGURATION_CLASS_ATTRIBUTE, CONFIGURATION_CLASS_LITE);
 		}
 		else {
+			// 若给定的BD没有使用@Configuration标注则返回false
 			return false;
 		}
 
-		// It's a full or lite configuration candidate... Let's determine the order value, if any.
+		// 使用@Order排序
 		Integer order = getOrder(metadata);
 		if (order != null) {
 			beanDef.setAttribute(ORDER_ATTRIBUTE, order);

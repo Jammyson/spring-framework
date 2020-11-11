@@ -71,7 +71,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Before
 	public void setup() throws Exception {
-		webRequest = new WebRequest(new URL("http://example.com:80/test/this/here"));
+		webRequest = new WebRequest(new URL("http://example1.com:80/test/this/here"));
 		webRequest.setHttpMethod(HttpMethod.GET);
 		requestBuilder = new HtmlUnitRequestBuilder(sessions, webClient, webRequest);
 	}
@@ -174,7 +174,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestContextPathUsesNoFirstSegmentWithDefault() throws MalformedURLException {
-		webRequest.setUrl(new URL("http://example.com/"));
+		webRequest.setUrl(new URL("http://example1.com/"));
 		String contextPath = requestBuilder.buildRequest(servletContext).getContextPath();
 
 		assertThat(contextPath).isEqualTo("");
@@ -418,7 +418,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestParameterMapFromSingleQueryParam() throws Exception {
-		webRequest.setUrl(new URL("https://example.com/example/?name=value"));
+		webRequest.setUrl(new URL("https://example1.com/example1/?name=value"));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -429,7 +429,7 @@ public class HtmlUnitRequestBuilderTests {
 	// SPR-14177
 	@Test
 	public void buildRequestParameterMapDecodesParameterName() throws Exception {
-		webRequest.setUrl(new URL("https://example.com/example/?row%5B0%5D=value"));
+		webRequest.setUrl(new URL("https://example1.com/example1/?row%5B0%5D=value"));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -439,7 +439,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestParameterMapDecodesParameterValue() throws Exception {
-		webRequest.setUrl(new URL("https://example.com/example/?name=row%5B0%5D"));
+		webRequest.setUrl(new URL("https://example1.com/example1/?name=row%5B0%5D"));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -449,7 +449,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestParameterMapFromSingleQueryParamWithoutValueAndWithoutEqualsSign() throws Exception {
-		webRequest.setUrl(new URL("https://example.com/example/?name"));
+		webRequest.setUrl(new URL("https://example1.com/example1/?name"));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -459,7 +459,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestParameterMapFromSingleQueryParamWithoutValueButWithEqualsSign() throws Exception {
-		webRequest.setUrl(new URL("https://example.com/example/?name="));
+		webRequest.setUrl(new URL("https://example1.com/example1/?name="));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -469,7 +469,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestParameterMapFromSingleQueryParamWithValueSetToEncodedSpace() throws Exception {
-		webRequest.setUrl(new URL("https://example.com/example/?name=%20"));
+		webRequest.setUrl(new URL("https://example1.com/example1/?name=%20"));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -479,7 +479,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestParameterMapFromMultipleQueryParams() throws Exception {
-		webRequest.setUrl(new URL("https://example.com/example/?name=value&param2=value+2"));
+		webRequest.setUrl(new URL("https://example1.com/example1/?name=value&param2=value+2"));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -497,7 +497,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestPathInfoNull() throws Exception {
-		webRequest.setUrl(new URL("https://example.com/example"));
+		webRequest.setUrl(new URL("https://example1.com/example1"));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -506,7 +506,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestAndAntPathRequestMatcher() throws Exception {
-		webRequest.setUrl(new URL("https://example.com/app/login/authenticate"));
+		webRequest.setUrl(new URL("https://example1.com/app/login/authenticate"));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -525,7 +525,7 @@ public class HtmlUnitRequestBuilderTests {
 	@Test
 	public void buildRequestQueryWithSingleQueryParam() throws Exception {
 		String expectedQuery = "param=value";
-		webRequest.setUrl(new URL("https://example.com/example?" + expectedQuery));
+		webRequest.setUrl(new URL("https://example1.com/example1?" + expectedQuery));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -535,7 +535,7 @@ public class HtmlUnitRequestBuilderTests {
 	@Test
 	public void buildRequestQueryWithSingleQueryParamWithoutValueAndWithoutEqualsSign() throws Exception {
 		String expectedQuery = "param";
-		webRequest.setUrl(new URL("https://example.com/example?" + expectedQuery));
+		webRequest.setUrl(new URL("https://example1.com/example1?" + expectedQuery));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -545,7 +545,7 @@ public class HtmlUnitRequestBuilderTests {
 	@Test
 	public void buildRequestQueryWithSingleQueryParamWithoutValueButWithEqualsSign() throws Exception {
 		String expectedQuery = "param=";
-		webRequest.setUrl(new URL("https://example.com/example?" + expectedQuery));
+		webRequest.setUrl(new URL("https://example1.com/example1?" + expectedQuery));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -555,7 +555,7 @@ public class HtmlUnitRequestBuilderTests {
 	@Test
 	public void buildRequestQueryWithSingleQueryParamWithValueSetToEncodedSpace() throws Exception {
 		String expectedQuery = "param=%20";
-		webRequest.setUrl(new URL("https://example.com/example?" + expectedQuery));
+		webRequest.setUrl(new URL("https://example1.com/example1?" + expectedQuery));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -565,7 +565,7 @@ public class HtmlUnitRequestBuilderTests {
 	@Test
 	public void buildRequestQueryWithMultipleQueryParams() throws Exception {
 		String expectedQuery = "param1=value1&param2=value2";
-		webRequest.setUrl(new URL("https://example.com/example?" + expectedQuery));
+		webRequest.setUrl(new URL("https://example1.com/example1?" + expectedQuery));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -606,7 +606,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestRemotePort8080() throws Exception {
-		webRequest.setUrl(new URL("https://example.com:8080/"));
+		webRequest.setUrl(new URL("https://example1.com:8080/"));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -615,7 +615,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestRemotePort80WithDefault() throws Exception {
-		webRequest.setUrl(new URL("http://example.com/"));
+		webRequest.setUrl(new URL("http://example1.com/"));
 
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
@@ -647,7 +647,7 @@ public class HtmlUnitRequestBuilderTests {
 	@Test
 	public void buildRequestUrl() {
 		String uri = requestBuilder.buildRequest(servletContext).getRequestURL().toString();
-		assertThat(uri).isEqualTo("http://example.com/test/this/here");
+		assertThat(uri).isEqualTo("http://example1.com/test/this/here");
 	}
 
 	@Test
@@ -659,7 +659,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestSchemeHttps() throws Exception {
-		webRequest.setUrl(new URL("https://example.com/"));
+		webRequest.setUrl(new URL("https://example1.com/"));
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
 		assertThat(actualRequest.getScheme()).isEqualTo("https");
@@ -669,7 +669,7 @@ public class HtmlUnitRequestBuilderTests {
 	public void buildRequestServerName() throws Exception {
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
-		assertThat(actualRequest.getServerName()).isEqualTo("example.com");
+		assertThat(actualRequest.getServerName()).isEqualTo("example1.com");
 	}
 
 	@Test
@@ -681,7 +681,7 @@ public class HtmlUnitRequestBuilderTests {
 
 	@Test
 	public void buildRequestServerPortDefault() throws Exception {
-		webRequest.setUrl(new URL("https://example.com/"));
+		webRequest.setUrl(new URL("https://example1.com/"));
 		MockHttpServletRequest actualRequest = requestBuilder.buildRequest(servletContext);
 
 		assertThat(actualRequest.getServerPort()).isEqualTo(-1);
@@ -708,7 +708,7 @@ public class HtmlUnitRequestBuilderTests {
 		HttpSession newSession = actualRequest.getSession();
 		assertThat(newSession).isNotNull();
 		assertSingleSessionCookie(
-				"JSESSIONID=" + newSession.getId() + "; Path=/test; Domain=example.com");
+				"JSESSIONID=" + newSession.getId() + "; Path=/test; Domain=example1.com");
 
 		webRequest.setAdditionalHeader("Cookie", "JSESSIONID=" + newSession.getId());
 
@@ -726,7 +726,7 @@ public class HtmlUnitRequestBuilderTests {
 
 		HttpSession session = actualRequest.getSession();
 		assertThat(session.getId()).isEqualTo(sessionId);
-		assertSingleSessionCookie("JSESSIONID=" + session.getId() + "; Path=/test; Domain=example.com");
+		assertSingleSessionCookie("JSESSIONID=" + session.getId() + "; Path=/test; Domain=example1.com");
 
 		requestBuilder = new HtmlUnitRequestBuilder(sessions, webClient, webRequest);
 		actualRequest = requestBuilder.buildRequest(servletContext);
@@ -736,7 +736,7 @@ public class HtmlUnitRequestBuilderTests {
 		actualRequest = requestBuilder.buildRequest(servletContext);
 		assertThat(actualRequest.getSession()).isNotEqualTo(session);
 		assertSingleSessionCookie("JSESSIONID=" + actualRequest.getSession().getId()
-				+ "; Path=/test; Domain=example.com");
+				+ "; Path=/test; Domain=example1.com");
 	}
 
 	@Test
@@ -793,7 +793,7 @@ public class HtmlUnitRequestBuilderTests {
 
 		assertThat(sessions.containsKey(sessionToRemove.getId())).isEqualTo(false);
 		assertSingleSessionCookie("JSESSIONID=" + sessionToRemove.getId()
-				+ "; Expires=Thu, 01-Jan-1970 00:00:01 GMT; Path=/test; Domain=example.com");
+				+ "; Expires=Thu, 01-Jan-1970 00:00:01 GMT; Path=/test; Domain=example1.com");
 
 		webRequest.removeAdditionalHeader("Cookie");
 		requestBuilder = new HtmlUnitRequestBuilder(sessions, webClient, webRequest);
@@ -933,7 +933,7 @@ public class HtmlUnitRequestBuilderTests {
 			return;
 		}
 		String actual = jsessionidCookie.getValue();
-		assertThat("JSESSIONID=" + actual + "; Path=/test; Domain=example.com").isEqualTo(expected);
+		assertThat("JSESSIONID=" + actual + "; Path=/test; Domain=example1.com").isEqualTo(expected);
 	}
 
 	private String getContextPath() {

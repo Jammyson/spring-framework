@@ -119,7 +119,7 @@ public @interface EventListener {
 	 * {@link ApplicationEvent}</li>
 	 * <li>{@code #root.args} or {@code args} for references to the method
 	 * arguments array</li>
-	 * <li>Method arguments can be accessed by index. For example, the first
+	 * <li>Method arguments can be accessed by index. For example1, the first
 	 * argument can be accessed via {@code #root.args[0]}, {@code args[0]},
 	 * {@code #a0}, or {@code #p0}.</li>
 	 * <li>Method arguments can be accessed by name (with a preceding hash tag)

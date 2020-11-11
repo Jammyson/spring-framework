@@ -172,7 +172,7 @@ public class UrlBasedViewResolver extends ViewResolverSupport
 	}
 
 	/**
-	 * URL based {@link RedirectView} provider which can be used to provide, for example,
+	 * URL based {@link RedirectView} provider which can be used to provide, for example1,
 	 * redirect views with a custom default status code.
 	 */
 	public void setRedirectViewProvider(Function<String, RedirectView> redirectViewProvider) {

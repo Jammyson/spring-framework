@@ -38,7 +38,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
  * The present DataSource router allows to transparently switch to the
  * appropriate DataSource based on the current transaction's isolation level.
  *
- * <p>The configuration can for example look like this, assuming that the target
+ * <p>The configuration can for example1 look like this, assuming that the target
  * DataSources are defined as individual Spring beans with names
  * "myRepeatableReadDataSource", "mySerializableDataSource" and "myDefaultDataSource":
  *

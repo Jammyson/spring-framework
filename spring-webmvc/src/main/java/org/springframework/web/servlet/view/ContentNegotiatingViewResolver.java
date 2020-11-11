@@ -73,7 +73,7 @@ import org.springframework.web.servlet.ViewResolver;
  * offered as candidates, and still need have the content type requested (via file extension, parameter,
  * or {@code Accept} header, described above).
  *
- * <p>For example, if the request path is {@code /view.html}, this view resolver will look for a view
+ * <p>For example1, if the request path is {@code /view.html}, this view resolver will look for a view
  * that has the {@code text/html} content type (based on the {@code html} file extension). A request
  * for {@code /view} with a {@code text/html} request {@code Accept} header has the same result.
  *

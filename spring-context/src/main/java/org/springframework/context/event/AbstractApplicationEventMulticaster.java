@@ -206,8 +206,11 @@ public abstract class AbstractApplicationEventMulticaster
 
 	/**
 	 * Actually retrieve the application listeners for the given event and source type.
-	 * @param eventType the event type
-	 * @param sourceType the event source type
+	 * <trans>
+	 *     搜索事件类型对应的监听器，包括从非Bean监听器和Bean监听器中搜索。如果监听器为Bean但没有创建Bean，则会创建Bean。
+	 * </trans>
+	 * @param eventType 事件类型
+	 * @param sourceType 事件class
 	 * @param retriever the ListenerRetriever, if supposed to populate one (for caching purposes)
 	 * @return the pre-filtered list of application listeners for the given event and source type
 	 */
@@ -215,12 +218,16 @@ public abstract class AbstractApplicationEventMulticaster
 			ResolvableType eventType, @Nullable Class<?> sourceType, @Nullable ListenerRetriever retriever) {
 
 		List<ApplicationListener<?>> allListeners = new ArrayList<>();
+		// 非Bean的Listener
 		Set<ApplicationListener<?>> listeners;
+		// Listener BeanName
 		Set<String> listenerBeans;
 		synchronized (this.retrievalMutex) {
 			listeners = new LinkedHashSet<>(this.defaultRetriever.applicationListeners);
 			listenerBeans = new LinkedHashSet<>(this.defaultRetriever.applicationListenerBeans);
 		}
+
+		// 筛选非Bean的Listener
 		for (ApplicationListener<?> listener : listeners) {
 			if (supportsEvent(listener, eventType, sourceType)) {
 				if (retriever != null) {
@@ -229,12 +236,15 @@ public abstract class AbstractApplicationEventMulticaster
 				allListeners.add(listener);
 			}
 		}
+
+		// 创建Bean Listener为Bean
 		if (!listenerBeans.isEmpty()) {
 			BeanFactory beanFactory = getBeanFactory();
 			for (String listenerBeanName : listenerBeans) {
 				try {
 					Class<?> listenerType = beanFactory.getType(listenerBeanName);
 					if (listenerType == null || supportsEvent(listenerType, eventType)) {
+						// 如果Listener支持该事件，则创建Bean
 						ApplicationListener<?> listener =
 								beanFactory.getBean(listenerBeanName, ApplicationListener.class);
 						if (!allListeners.contains(listener) && supportsEvent(listener, eventType, sourceType)) {
@@ -367,9 +377,9 @@ public abstract class AbstractApplicationEventMulticaster
 	 * <p>An instance of this helper gets cached per event type and source type.
 	 */
 	private class ListenerRetriever {
-
+		// 记录非Bean的监听器
 		public final Set<ApplicationListener<?>> applicationListeners = new LinkedHashSet<>();
-
+		// 记录Bean监听器的BeanName
 		public final Set<String> applicationListenerBeans = new LinkedHashSet<>();
 
 		private final boolean preFiltered;

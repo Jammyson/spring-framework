@@ -28,7 +28,7 @@ import org.springframework.lang.Nullable;
  * <p>Can be used as alternative to {@link JndiObjectFactoryBean}, to allow for
  * relocating a JNDI object lazily or for each operation (see "lookupOnStartup"
  * and "cache" properties). This is particularly useful during development, as it
- * allows for hot restarting of the JNDI server (for example, a remote JMS server).
+ * allows for hot restarting of the JNDI server (for example1, a remote JMS server).
  *
  * <p>Example:
  *

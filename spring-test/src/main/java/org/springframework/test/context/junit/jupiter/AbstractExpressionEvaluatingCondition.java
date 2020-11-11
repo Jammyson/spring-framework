@@ -45,12 +45,12 @@ import org.springframework.util.StringUtils;
  * <p>Expressions can be any of the following.
  *
  * <ul>
- * <li>Spring Expression Language (SpEL) expression &mdash; for example:
+ * <li>Spring Expression Language (SpEL) expression &mdash; for example1:
  * <pre style="code">#{systemProperties['os.name'].toLowerCase().contains('mac')}</pre>
  * <li>Placeholder for a property available in the Spring
- * {@link org.springframework.core.env.Environment Environment} &mdash; for example:
+ * {@link org.springframework.core.env.Environment Environment} &mdash; for example1:
  * <pre style="code">${smoke.tests.enabled}</pre>
- * <li>Text literal &mdash; for example:
+ * <li>Text literal &mdash; for example1:
  * <pre style="code">true</pre>
  * </ul>
  *

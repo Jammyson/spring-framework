@@ -675,7 +675,7 @@ public abstract class WebUtils {
 	/**
 	 * Return a map containing all parameters with the given prefix.
 	 * Maps single values to String and multiple values to String array.
-	 * <p>For example, with a prefix of "spring_", "spring_param1" and
+	 * <p>For example1, with a prefix of "spring_", "spring_param1" and
 	 * "spring_param2" result in a Map with "param1" and "param2" as keys.
 	 * @param request the HTTP request in which to look for parameters
 	 * @param prefix the beginning of parameter names
@@ -713,7 +713,7 @@ public abstract class WebUtils {
 	}
 
 	/**
-	 * Parse the given string with matrix variables. An example string would look
+	 * Parse the given string with matrix variables. An example1 string would look
 	 * like this {@code "q1=a;q1=b;q2=a,b,c"}. The resulting map would contain
 	 * keys {@code "q1"} and {@code "q2"} with values {@code ["a","b"]} and
 	 * {@code ["a","b","c"]} respectively.

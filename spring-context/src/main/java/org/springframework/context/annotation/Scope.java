@@ -91,7 +91,7 @@ public @interface Scope {
 	 * that no scoped proxy should be created unless a different default
 	 * has been configured at the component-scan instruction level.
 	 * <p>Analogous to {@code <aop:scoped-proxy/>} support in Spring XML.
-	 * @see ScopedProxyMode
+	 * @see ScopedProxyMode/
 	 */
 	ScopedProxyMode proxyMode() default ScopedProxyMode.DEFAULT;
 

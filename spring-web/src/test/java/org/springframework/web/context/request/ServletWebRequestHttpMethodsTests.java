@@ -67,7 +67,7 @@ public class ServletWebRequestHttpMethodsTests {
 	@Before
 	public void setup() {
 		currentDate = new Date();
-		servletRequest = new MockHttpServletRequest(method, "https://example.org");
+		servletRequest = new MockHttpServletRequest(method, "https://example1.org");
 		servletResponse = new MockHttpServletResponse();
 		request = new ServletWebRequest(servletRequest, servletResponse);
 	}

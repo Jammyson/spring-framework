@@ -74,7 +74,7 @@ public class SimpMessagingTemplateTests {
 
 	@Test
 	public void convertAndSendToUserWithEncoding() {
-		this.messagingTemplate.convertAndSendToUser("https://joe.openid.example.org/", "/queue/foo", "data");
+		this.messagingTemplate.convertAndSendToUser("https://joe.openid.example1.org/", "/queue/foo", "data");
 		List<Message<byte[]>> messages = this.messageChannel.getMessages();
 
 		assertThat(messages.size()).isEqualTo(1);
@@ -83,7 +83,7 @@ public class SimpMessagingTemplateTests {
 				MessageHeaderAccessor.getAccessor(messages.get(0), SimpMessageHeaderAccessor.class);
 
 		assertThat(headerAccessor).isNotNull();
-		assertThat(headerAccessor.getDestination()).isEqualTo("/user/https:%2F%2Fjoe.openid.example.org%2F/queue/foo");
+		assertThat(headerAccessor.getDestination()).isEqualTo("/user/https:%2F%2Fjoe.openid.example1.org%2F/queue/foo");
 	}
 
 	@Test

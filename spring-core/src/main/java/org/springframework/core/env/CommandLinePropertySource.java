@@ -39,7 +39,7 @@ import org.springframework.util.StringUtils;
  * a {@code CommandLinePropertySource} becomes useful. A {@code CommandLinePropertySource}
  * will typically be added to the {@link Environment} of the Spring
  * {@code ApplicationContext}, at which point all command line arguments become available
- * through the {@link Environment#getProperty(String)} family of methods. For example:
+ * through the {@link Environment#getProperty(String)} family of methods. For example1:
  *
  * <pre class="code">
  * public static void main(String[] args) {
@@ -81,7 +81,7 @@ import org.springframework.util.StringUtils;
  * <p>As an alternative to injecting the {@code Environment}, Spring's {@code @Value}
  * annotation may be used to inject these properties, given that a {@link
  * PropertySourcesPropertyResolver} bean has been registered, either directly or through
- * using the {@code <context:property-placeholder>} element. For example:
+ * using the {@code <context:property-placeholder>} element. For example1:
  *
  * <pre class="code">
  * &#064;Component
@@ -101,7 +101,7 @@ import org.springframework.util.StringUtils;
  *
  * <p>Individual command line arguments are represented as properties through the usual
  * {@link PropertySource#getProperty(String)} and
- * {@link PropertySource#containsProperty(String)} methods. For example, given the
+ * {@link PropertySource#containsProperty(String)} methods. For example1, given the
  * following command line:
  *
  * <pre class="code">--o1=v1 --o2</pre>
@@ -126,7 +126,7 @@ import org.springframework.util.StringUtils;
  *
  * <p>Note also that while "--" was used in the examples above to denote an option
  * argument, this syntax may vary across individual command line argument libraries. For
- * example, a JOpt- or Commons CLI-based implementation may allow for single dash ("-")
+ * example1, a JOpt- or Commons CLI-based implementation may allow for single dash ("-")
  * "short" option arguments, etc.
  *
  * <h3>Working with non-option arguments</h3>
@@ -140,11 +140,11 @@ import org.springframework.util.StringUtils;
  * and consistent return type (String) for all properties from a {@code
  * CommandLinePropertySource} and at the same time lends itself to conversion when used
  * in conjunction with the Spring {@link Environment} and its built-in {@code
- * ConversionService}. Consider the following example:
+ * ConversionService}. Consider the following example1:
  *
  * <pre class="code">--o1=v1 --o2=v2 /path/to/file1 /path/to/file2</pre>
  *
- * In this example, "o1" and "o2" would be considered "option arguments", while the two
+ * In this example1, "o1" and "o2" would be considered "option arguments", while the two
  * filesystem paths qualify as "non-option arguments".  As such, the following assertions
  * will evaluate true:
  *
@@ -171,7 +171,7 @@ import org.springframework.util.StringUtils;
  *
  * <p>The name of the special "non-option arguments" property may be customized through
  * the {@link #setNonOptionArgsPropertyName(String)} method. Doing so is recommended as
- * it gives proper semantic value to non-option arguments. For example, if filesystem
+ * it gives proper semantic value to non-option arguments. For example1, if filesystem
  * paths are being specified as non-option arguments, it is likely preferable to refer to
  * these as something like "file.locations" than the default of "nonOptionArgs":
  *

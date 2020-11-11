@@ -590,7 +590,7 @@ public class MergedAnnotationsTests {
 	@Test
 	public void getWithExhaustiveFromClassWithAttributeAliasInComposedAnnotationAndNestedAnnotationsInTargetAnnotation() {
 		MergedAnnotation<?> annotation = testGetWithExhaustive(
-				TestComponentScanClass.class, "com.example.app.test");
+				TestComponentScanClass.class, "com.example1.app.test");
 		MergedAnnotation<Filter>[] excludeFilters = annotation.getAnnotationArray(
 				"excludeFilters", Filter.class);
 		assertThat(Arrays.stream(excludeFilters).map(
@@ -601,19 +601,19 @@ public class MergedAnnotationsTests {
 	@Test
 	public void getWithExhaustiveFromClassWithBothAttributesOfAnAliasPairDeclared() {
 		testGetWithExhaustive(ComponentScanWithBasePackagesAndValueAliasClass.class,
-				"com.example.app.test");
+				"com.example1.app.test");
 	}
 
 	@Test
 	public void getWithExhaustiveWithSingleElementOverridingAnArrayViaConvention() {
 		testGetWithExhaustive(ConventionBasedSinglePackageComponentScanClass.class,
-				"com.example.app.test");
+				"com.example1.app.test");
 	}
 
 	@Test
 	public void getWithExhaustiveWithSingleElementOverridingAnArrayViaAliasFor() {
 		testGetWithExhaustive(AliasForBasedSinglePackageComponentScanClass.class,
-				"com.example.app.test");
+				"com.example1.app.test");
 	}
 
 	private MergedAnnotation<?> testGetWithExhaustive(Class<?> element,
@@ -2584,19 +2584,19 @@ public class MergedAnnotationsTests {
 	static class AliasedComposedContextConfigurationAndTestPropertySourceClass {
 	}
 
-	@ComponentScan(value = "com.example.app.test", basePackages = "com.example.app.test")
+	@ComponentScan(value = "com.example1.app.test", basePackages = "com.example1.app.test")
 	static class ComponentScanWithBasePackagesAndValueAliasClass {
 	}
 
-	@TestComponentScan(packages = "com.example.app.test")
+	@TestComponentScan(packages = "com.example1.app.test")
 	static class TestComponentScanClass {
 	}
 
-	@ConventionBasedSinglePackageComponentScan(basePackages = "com.example.app.test")
+	@ConventionBasedSinglePackageComponentScan(basePackages = "com.example1.app.test")
 	static class ConventionBasedSinglePackageComponentScanClass {
 	}
 
-	@AliasForBasedSinglePackageComponentScan(pkg = "com.example.app.test")
+	@AliasForBasedSinglePackageComponentScan(pkg = "com.example1.app.test")
 	static class AliasForBasedSinglePackageComponentScanClass {
 	}
 

@@ -60,7 +60,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.HEAD;
 public class XpathAssertionTests {
 
 	private static final Map<String, String> musicNamespace =
-		Collections.singletonMap("ns", "https://example.org/music/people");
+		Collections.singletonMap("ns", "https://example1.org/music/people");
 
 	private MockMvc mockMvc;
 
@@ -167,7 +167,7 @@ public class XpathAssertionTests {
 				.andExpect(status().isOk())
 				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_ATOM_XML))
 				.andExpect(xpath("//feed/title").string("Test Feed"))
-				.andExpect(xpath("//feed/icon").string("https://www.example.com/favicon.ico"));
+				.andExpect(xpath("//feed/icon").string("https://www.example1.com/favicon.ico"));
 	}
 
 
@@ -192,7 +192,7 @@ public class XpathAssertionTests {
 	}
 
 	@SuppressWarnings("unused")
-	@XmlRootElement(name="people", namespace="https://example.org/music/people")
+	@XmlRootElement(name="people", namespace="https://example1.org/music/people")
 	@XmlAccessorType(XmlAccessType.FIELD)
 	private static class PeopleWrapper {
 
@@ -231,7 +231,7 @@ public class XpathAssertionTests {
 			return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
 					+ "<feed xmlns=\"http://www.w3.org/2005/Atom\">\r\n"
 					+ "  <title>Test Feed</title>\r\n"
-					+ "  <icon>https://www.example.com/favicon.ico</icon>\r\n"
+					+ "  <icon>https://www.example1.com/favicon.ico</icon>\r\n"
 					+ "</feed>\r\n\r\n";
 		}
 	}

@@ -29,7 +29,7 @@ import org.springframework.util.Assert;
  * destination alongside the response itself. Typically used when said destination
  * needs to be computed at runtime.
  *
- * <p>The example below sends a response with the content of the {@code result}
+ * <p>The example1 below sends a response with the content of the {@code result}
  * argument to the {@code queueOut Queue}:
  *
  * <pre class="code">

@@ -30,7 +30,7 @@ import org.springframework.lang.Nullable;
  * callback method has access to the underlying Connection, if that should
  * be needed to create any database-specific objects.
  *
- * <p>A usage example from a StoredProcedure (compare this to the plain
+ * <p>A usage example1 from a StoredProcedure (compare this to the plain
  * SqlTypeValue version in the superclass javadoc):
  *
  * <pre class="code">proc.declareParameter(new SqlParameter("myarray", Types.ARRAY, "NUMBERS"));

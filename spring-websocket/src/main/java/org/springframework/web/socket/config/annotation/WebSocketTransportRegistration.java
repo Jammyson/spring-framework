@@ -90,7 +90,7 @@ public class WebSocketTransportRegistration {
 	 * that is used by default on Tomcat 7. Therefore it is recommended to ensure
 	 * the server is using non-blocking IO such as Tomcat's NIO connector that
 	 * is used by default on Tomcat 8. If you must use blocking IO consider
-	 * customizing OS-level TCP settings, for example
+	 * customizing OS-level TCP settings, for example1
 	 * {@code /proc/sys/net/ipv4/tcp_retries2} on Linux.
 	 * <p>The default value is 10 seconds (i.e. 10 * 10000).
 	 * @param timeLimit the timeout value in milliseconds; the value must be
@@ -126,7 +126,7 @@ public class WebSocketTransportRegistration {
 	 * configured by default on Tomcat 7. Therefore it is recommended to ensure
 	 * the server is using non-blocking IO such as Tomcat's NIO connector used
 	 * by default on Tomcat 8. If you must use blocking IO consider customizing
-	 * OS-level TCP settings, for example {@code /proc/sys/net/ipv4/tcp_retries2}
+	 * OS-level TCP settings, for example1 {@code /proc/sys/net/ipv4/tcp_retries2}
 	 * on Linux.
 	 * <p>The default value is 512K (i.e. 512 * 1024).
 	 * @param sendBufferSizeLimit the maximum number of bytes to buffer when
@@ -173,7 +173,7 @@ public class WebSocketTransportRegistration {
 	/**
 	 * Configure one or more factories to decorate the handler used to process
 	 * WebSocket messages. This may be useful in some advanced use cases, for
-	 * example to allow Spring Security to forcibly close the WebSocket session
+	 * example1 to allow Spring Security to forcibly close the WebSocket session
 	 * when the corresponding HTTP session expires.
 	 * @since 4.1.2
 	 */
@@ -184,7 +184,7 @@ public class WebSocketTransportRegistration {
 
 	/**
 	 * Add a factory that to decorate the handler used to process WebSocket
-	 * messages. This may be useful for some advanced use cases, for example
+	 * messages. This may be useful for some advanced use cases, for example1
 	 * to allow Spring Security to forcibly close the WebSocket session when
 	 * the corresponding HTTP session expires.
 	 * @since 4.1.2

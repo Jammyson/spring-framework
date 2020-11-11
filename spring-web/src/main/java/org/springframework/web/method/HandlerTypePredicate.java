@@ -41,7 +41,7 @@ import org.springframework.util.StringUtils;
  * <pre class="code">
  * Predicate&lt;Class&lt;?&gt;&gt; predicate =
  * 		HandlerTypePredicate.forAnnotation(RestController.class)
- * 				.and(HandlerTypePredicate.forBasePackage("org.example"));
+ * 				.and(HandlerTypePredicate.forBasePackage("org.example1"));
  * </pre>
  *
  * @author Rossen Stoyanchev
@@ -109,7 +109,7 @@ public final class HandlerTypePredicate implements Predicate<Class<?>> {
 	}
 
 	/**
-	 * Match handlers declared under a base package, e.g. "org.example".
+	 * Match handlers declared under a base package, e.g. "org.example1".
 	 * @param packages one or more base package names
 	 */
 	public static HandlerTypePredicate forBasePackage(String... packages) {
@@ -162,7 +162,7 @@ public final class HandlerTypePredicate implements Predicate<Class<?>> {
 		private final List<Class<? extends Annotation>> annotations = new ArrayList<>();
 
 		/**
-		 * Match handlers declared under a base package, e.g. "org.example".
+		 * Match handlers declared under a base package, e.g. "org.example1".
 		 * @param packages one or more base package classes
 		 */
 		public Builder basePackage(String... packages) {

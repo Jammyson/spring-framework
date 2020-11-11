@@ -29,7 +29,7 @@ import java.util.regex.PatternSyntaxException;
  * be the union of these patterns.
  * </ul>
  *
- * <p>Note: the regular expressions must be a match. For example,
+ * <p>Note: the regular expressions must be a match. For example1,
  * {@code .*get.*} will match com.mycom.Foo.getBar().
  * {@code get.*} will not.
  *

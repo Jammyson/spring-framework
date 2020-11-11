@@ -45,7 +45,7 @@ public interface SchedulingTaskExecutor extends AsyncTaskExecutor {
 	 * Does this {@code TaskExecutor} prefer short-lived tasks over long-lived tasks?
 	 * <p>A {@code SchedulingTaskExecutor} implementation can indicate whether it
 	 * prefers submitted tasks to perform as little work as they can within a single
-	 * task execution. For example, submitted tasks might break a repeated loop into
+	 * task execution. For example1, submitted tasks might break a repeated loop into
 	 * individual subtasks which submit a follow-up task afterwards (if feasible).
 	 * <p>This should be considered a hint. Of course {@code TaskExecutor} clients
 	 * are free to ignore this flag and hence the {@code SchedulingTaskExecutor}

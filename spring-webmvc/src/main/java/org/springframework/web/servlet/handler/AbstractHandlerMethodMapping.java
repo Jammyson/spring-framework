@@ -47,6 +47,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerMapping;
+import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 
 /**
  * Abstract base class for {@link HandlerMapping} implementations that define
@@ -349,20 +350,26 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 
 
 	// Handler method lookup
-
 	/**
 	 * Look up a handler method for the given request.
+	 *
+	 * 寻找一个给定request的处理器
 	 */
 	@Override
 	protected HandlerMethod getHandlerInternal(HttpServletRequest request) throws Exception {
+		// 获取uri
 		String lookupPath = getUrlPathHelper().getLookupPathForRequest(request);
 		request.setAttribute(LOOKUP_PATH, lookupPath);
+
+		// 加锁处理
 		this.mappingRegistry.acquireReadLock();
 		try {
+			// 查找HandlerMethod
 			HandlerMethod handlerMethod = lookupHandlerMethod(lookupPath, request);
 			return (handlerMethod != null ? handlerMethod.createWithResolvedBean() : null);
 		}
 		finally {
+			// 释放读写锁
 			this.mappingRegistry.releaseReadLock();
 		}
 	}
@@ -379,12 +386,28 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 	@Nullable
 	protected HandlerMethod lookupHandlerMethod(String lookupPath, HttpServletRequest request) throws Exception {
 		List<Match> matches = new ArrayList<>();
+
+		/**
+		 * 获取到MappingRegistry中urlLookup中的List.urlLookup的key是请求uri，value则是具有相同uri的RequestMappingInfo对象，因为一个
+		 * 路由可能由于方法参数和请求方式的不同对应多个RequestMappingInfo对象，所以返回的是一个LinkedList.
+		 *
+		 * {@link RequestMappingInfo}，通俗的理解RequestMappingInfo就是一个请求是否能匹配到对应api的所有信息都封装在这个对象中。
+		 */
 		List<T> directPathMatches = this.mappingRegistry.getMappingsByUrl(lookupPath);
+
+		/**
+		 * 填充matches
+		 */
 		if (directPathMatches != null) {
 			addMatchingMappings(directPathMatches, matches, request);
 		}
+
+		/**
+		 * todo:: 什么情况下matches为空，什么情况下matches不为空
+		 */
 		if (matches.isEmpty()) {
 			// No choice but to go through all mappings...
+			// 将mappingRegistry的所有mapping映射都填充到matches中
 			addMatchingMappings(this.mappingRegistry.getMappings().keySet(), matches, request);
 		}
 
@@ -417,8 +440,14 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 		}
 	}
 
+	/**
+	 * @param mappings  从urlLookup中拿出来的RequestMappingInfo
+	 * @param matches  匹配到的List集合，传入的是一个空List
+	 * @param request  当前请求
+	 */
 	private void addMatchingMappings(Collection<T> mappings, List<Match> matches, HttpServletRequest request) {
 		for (T mapping : mappings) {
+			// getMatchingMapping：抽象方法，调用的是子类的具体实现
 			T match = getMatchingMapping(mapping, request);
 			if (match != null) {
 				matches.add(new Match(match, this.mappingRegistry.getMappings().get(mapping)));

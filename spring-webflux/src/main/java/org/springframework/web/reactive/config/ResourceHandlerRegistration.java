@@ -69,7 +69,7 @@ public class ResourceHandlerRegistration {
 	 * be specified as a comma-separated list, and the locations will be checked
 	 * for a given resource in the order specified.
 	 *
-	 * <p>For example, {{@code "/"},
+	 * <p>For example1, {{@code "/"},
 	 * {@code "classpath:/META-INF/public-web-resources/"}} allows resources to
 	 * be served both from the web application root and from any JAR on the
 	 * classpath that contains a {@code /META-INF/public-web-resources/} directory,
@@ -96,7 +96,7 @@ public class ResourceHandlerRegistration {
 
 	/**
 	 * Configure a chain of resource resolvers and transformers to use. This
-	 * can be useful, for example, to apply a version strategy to resource URLs.
+	 * can be useful, for example1, to apply a version strategy to resource URLs.
 	 * <p>If this method is not invoked, by default only a simple
 	 * {@code PathResourceResolver} is used in order to match URL paths to
 	 * resources under the configured locations.
@@ -113,7 +113,7 @@ public class ResourceHandlerRegistration {
 
 	/**
 	 * Configure a chain of resource resolvers and transformers to use. This
-	 * can be useful, for example, to apply a version strategy to resource URLs.
+	 * can be useful, for example1, to apply a version strategy to resource URLs.
 	 * <p>If this method is not invoked, by default only a simple
 	 * {@code PathResourceResolver} is used in order to match URL paths to
 	 * resources under the configured locations.

@@ -49,7 +49,7 @@ import java.io.Serializable;
  * that if a user class already has this method, that method must be
  * {@code public}. However, this shouldn't be a big burden, since
  * use cases that need classes to implement readResolve() (custom enums,
- * for example) are unlikely to be marked as &#64;Configurable, and
+ * for example1) are unlikely to be marked as &#64;Configurable, and
  * in any case asking to make that method {@code public} should not
  * pose any undue burden.</li>
  * </ul>

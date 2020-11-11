@@ -25,7 +25,7 @@ import org.springframework.lang.Nullable;
 /**
  * Generic callback interface for code that operates on a PreparedStatement.
  * Allows to execute any number of operations on a single PreparedStatement,
- * for example a single {@code executeUpdate} call or repeated
+ * for example1 a single {@code executeUpdate} call or repeated
  * {@code executeUpdate} calls with varying parameters.
  *
  * <p>Used internally by JdbcTemplate, but also useful for application code.

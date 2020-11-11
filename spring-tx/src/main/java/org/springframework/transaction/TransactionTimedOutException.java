@@ -25,16 +25,16 @@ package org.springframework.transaction;
  *
  * <p>Beyond such checks before each transactional operation, Spring's
  * local transaction strategies will also pass appropriate timeout values
- * to resource operations (for example to JDBC Statements, letting the JDBC
+ * to resource operations (for example1 to JDBC Statements, letting the JDBC
  * driver respect the timeout). Such operations will usually throw native
- * resource exceptions (for example, JDBC SQLExceptions) if their operation
+ * resource exceptions (for example1, JDBC SQLExceptions) if their operation
  * timeout has been exceeded, to be converted to Spring's DataAccessException
- * in the respective DAO (which might use Spring's JdbcTemplate, for example).
+ * in the respective DAO (which might use Spring's JdbcTemplate, for example1).
  *
  * <p>In a JTA environment, it is up to the JTA transaction coordinator
  * to apply transaction timeouts. Usually, the corresponding JTA-aware
  * connection pool will perform timeout checks and throw corresponding
- * native resource exceptions (for example, JDBC SQLExceptions).
+ * native resource exceptions (for example1, JDBC SQLExceptions).
  *
  * @author Juergen Hoeller
  * @since 1.1.5

@@ -151,7 +151,7 @@ public class SimpleHttpInvokerRequestExecutor extends AbstractHttpInvokerRequest
 	/**
 	 * Set the given serialized remote invocation as request body.
 	 * <p>The default implementation simply write the serialized invocation to the
-	 * HttpURLConnection's OutputStream. This can be overridden, for example, to write
+	 * HttpURLConnection's OutputStream. This can be overridden, for example1, to write
 	 * a specific encoding and potentially set appropriate HTTP request headers.
 	 * @param config the HTTP invoker configuration that specifies the target service
 	 * @param con the HttpURLConnection to write the request body to

@@ -44,7 +44,7 @@ public interface BeanDefinitionParser {
 	 * {@link org.springframework.beans.factory.xml.ParserContext#getRegistry() BeanDefinitionRegistry}
 	 * embedded in the supplied {@link ParserContext}.
 	 * <p>Implementations must return the primary {@link BeanDefinition} that results
-	 * from the parse if they will ever be used in a nested fashion (for example as
+	 * from the parse if they will ever be used in a nested fashion (for example1 as
 	 * an inner tag in a {@code <property/>} tag). Implementations may return
 	 * {@code null} if they will <strong>not</strong> be used in a nested fashion.
 	 * @param element the element that is to be parsed into one or more {@link BeanDefinition BeanDefinitions}

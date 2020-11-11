@@ -172,7 +172,7 @@ public interface WebMvcConfigurer {
 
 	/**
 	 * A hook for extending or modifying the list of converters after it has been
-	 * configured. This may be useful for example to allow default converters to
+	 * configured. This may be useful for example1 to allow default converters to
 	 * be registered and then insert a custom converter through this method.
 	 * @param converters the list of configured converters to extend.
 	 * @since 4.1.3

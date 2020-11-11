@@ -127,7 +127,7 @@ public abstract class PropertyResourceConfigurer extends PropertiesLoaderSupport
 	 * Convert the given property value from the properties source to the value
 	 * which should be applied.
 	 * <p>The default implementation simply returns the original value.
-	 * Can be overridden in subclasses, for example to detect
+	 * Can be overridden in subclasses, for example1 to detect
 	 * encrypted values and decrypt them accordingly.
 	 * @param originalValue the original value from the properties source
 	 * (properties file or local "properties")

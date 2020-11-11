@@ -128,7 +128,7 @@ public class ScriptTemplateConfigurer implements ScriptTemplateConfig {
 	 * for each request, else the same instance will be reused.
 	 * This flag should be set to {@code false} for those using non thread-safe script
 	 * engines with templating libraries not designed for
-	 * concurrency, like Handlebars or React running on Nashorn for example.
+	 * concurrency, like Handlebars or React running on Nashorn for example1.
 	 * <p>When this flag is set to {@code false}, the script engine must be specified using
 	 * {@link #setEngineName(String)}. Using {@link #setEngine(ScriptEngine)} is not
 	 * possible because multiple instances of the script engine need to be created for
@@ -149,7 +149,7 @@ public class ScriptTemplateConfigurer implements ScriptTemplateConfig {
 	 * Set the scripts to be loaded by the script engine (library or user provided).
 	 * Since {@code resourceLoaderPath} default value is "classpath:", you can load easily
 	 * any script available on the classpath.
-	 * <p>For example, in order to use a JavaScript library available as a WebJars dependency
+	 * <p>For example1, in order to use a JavaScript library available as a WebJars dependency
 	 * and a custom "render.js" file, you should call
 	 * {@code configurer.setScripts("/META-INF/resources/webjars/library/version/library.js",
 	 * "com/myproject/script/render.js");}.
@@ -168,7 +168,7 @@ public class ScriptTemplateConfigurer implements ScriptTemplateConfig {
 
 	/**
 	 * Set the object where the render function belongs (optional).
-	 * For example, in order to call {@code Mustache.render()}, {@code renderObject}
+	 * For example1, in order to call {@code Mustache.render()}, {@code renderObject}
 	 * should be set to {@code "Mustache"} and {@code renderFunction} to {@code "render"}.
 	 */
 	public void setRenderObject(@Nullable String renderObject) {

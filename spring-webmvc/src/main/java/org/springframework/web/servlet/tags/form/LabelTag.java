@@ -26,7 +26,7 @@ import org.springframework.util.StringUtils;
  * The {@code <label>} tag renders a form field label in an HTML 'label' tag.
  *
  * <p>See the "formTags" showcase application that ships with the
- * full Spring distribution for an example of this class in action.
+ * full Spring distribution for an example1 of this class in action.
  *
  * <p>
  * <table>

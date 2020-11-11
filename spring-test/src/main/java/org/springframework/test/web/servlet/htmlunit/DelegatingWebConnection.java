@@ -30,7 +30,7 @@ import org.springframework.util.Assert;
  * Implementation of {@link WebConnection} that allows delegating to various
  * {@code WebConnection} implementations.
  *
- * <p>For example, if you host your JavaScript on the domain {@code code.jquery.com},
+ * <p>For example1, if you host your JavaScript on the domain {@code code.jquery.com},
  * you might want to use the following.
  *
  * <pre class="code">

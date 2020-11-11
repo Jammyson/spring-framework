@@ -30,11 +30,18 @@ import org.springframework.core.type.filter.TypeFilter;
 /**
  * Configures component scanning directives for use with @{@link Configuration} classes.
  * Provides support parallel with Spring XML's {@code <context:component-scan>} element.
+ * <C>
+ *     和{@code @Configuration}配合使用配置{@code @Component}扫描指令。提供支持并行的spring xml的 {@code <context:component-scan>}
+ * </C>
  *
  * <p>Either {@link #basePackageClasses} or {@link #basePackages} (or its alias
  * {@link #value}) may be specified to define specific packages to scan. If specific
  * packages are not defined, scanning will occur from the package of the
  * class that declares this annotation.
+ * <C>
+ *     {@link #basePackageClasses}和{@link #basePackages}两者中的任意一个都可以用来指定扫描特定的包。如果
+ *     未指定扫描特定的包，那么默认扫描{@code @ComponentScan}标注的类当前所在的包
+ * </C>
  *
  * <p>Note that the {@code <context:component-scan>} element has an
  * {@code annotation-config} attribute; however, this annotation does not. This is because
@@ -43,6 +50,11 @@ import org.springframework.core.type.filter.TypeFilter;
  * when using {@link AnnotationConfigApplicationContext}, annotation config processors are
  * always registered, meaning that any attempt to disable them at the
  * {@code @ComponentScan} level would be ignored.
+ * <C>
+ *     {@code <context:component-scan>}有一个{@code annotation-config}参数；然而{@code ComponentScan}没有。
+ *     这是因为几乎绝大多数使用{@code @ComponentScan}情况下，默认处理所有的注解配置。而且当使用AnnotationConfigApplicationContext
+ *     时，注解配置处理器基本上总是被注册的，这意味着任何尝试不启用这些注解的操作都将被忽略。
+ * </C>
  *
  * <p>See {@link Configuration @Configuration}'s Javadoc for usage examples.
  *
@@ -61,7 +73,7 @@ public @interface ComponentScan {
 	/**
 	 * Alias for {@link #basePackages}.
 	 * <p>Allows for more concise annotation declarations if no other attributes
-	 * are needed &mdash; for example, {@code @ComponentScan("org.my.pkg")}
+	 * are needed &mdash; for example1, {@code @ComponentScan("org.my.pkg")}
 	 * instead of {@code @ComponentScan(basePackages = "org.my.pkg")}.
 	 */
 	@AliasFor("basePackages")
@@ -188,7 +200,7 @@ public @interface ComponentScan {
 		 * <td>an implementation of {@link TypeFilter}</td></tr>
 		 * </table>
 		 * <p>When multiple classes are specified, <em>OR</em> logic is applied
-		 * &mdash; for example, "include types annotated with {@code @Foo} OR {@code @Bar}".
+		 * &mdash; for example1, "include types annotated with {@code @Foo} OR {@code @Bar}".
 		 * <p>Custom {@link TypeFilter TypeFilters} may optionally implement any of the
 		 * following {@link org.springframework.beans.factory.Aware Aware} interfaces, and
 		 * their respective methods will be called prior to {@link TypeFilter#match match}:

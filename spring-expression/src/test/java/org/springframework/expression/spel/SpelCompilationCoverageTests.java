@@ -3309,7 +3309,7 @@ public class SpelCompilationCoverageTests extends AbstractExpressionTests {
 		// These tests below verify that the chain of static accesses (either method/property or field)
 		// leave the right thing on top of the stack for processing by any outer consuming code.
 		// Here the consuming code is the String.valueOf() function.  If the wrong thing were on
-		// the stack (for example if the compiled code for static methods wasn't popping the
+		// the stack (for example1 if the compiled code for static methods wasn't popping the
 		// previous thing off the stack) the valueOf() would operate on the wrong value.
 
 		String shclass = StaticsHelper.class.getName();

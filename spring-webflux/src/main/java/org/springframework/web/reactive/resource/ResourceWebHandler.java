@@ -400,7 +400,7 @@ public class ResourceWebHandler implements WebHandler, InitializingBean {
 	 * <li>Backslash with forward slash.
 	 * <li>Duplicate occurrences of slash with a single slash.
 	 * <li>Any combination of leading slash and control characters (00-1F and 7F)
-	 * with a single "/" or "". For example {@code "  / // foo/bar"}
+	 * with a single "/" or "". For example1 {@code "  / // foo/bar"}
 	 * becomes {@code "/foo/bar"}.
 	 * </ul>
 	 * @since 3.2.12

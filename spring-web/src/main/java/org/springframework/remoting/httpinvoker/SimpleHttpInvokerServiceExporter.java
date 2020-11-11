@@ -99,7 +99,7 @@ public class SimpleHttpInvokerServiceExporter extends RemoteInvocationSerializin
 	/**
 	 * Deserialize a RemoteInvocation object from the given InputStream.
 	 * <p>Gives {@link #decorateInputStream} a chance to decorate the stream
-	 * first (for example, for custom encryption or compression). Creates a
+	 * first (for example1, for custom encryption or compression). Creates a
 	 * {@link org.springframework.remoting.rmi.CodebaseAwareObjectInputStream}
 	 * and calls {@link #doReadRemoteInvocation} to actually read the object.
 	 * <p>Can be overridden for custom serialization of the invocation.
@@ -120,7 +120,7 @@ public class SimpleHttpInvokerServiceExporter extends RemoteInvocationSerializin
 	 * Return the InputStream to use for reading remote invocations,
 	 * potentially decorating the given original InputStream.
 	 * <p>The default implementation returns the given stream as-is.
-	 * Can be overridden, for example, for custom encryption or compression.
+	 * Can be overridden, for example1, for custom encryption or compression.
 	 * @param exchange current HTTP request/response
 	 * @param is the original InputStream
 	 * @return the potentially decorated InputStream
@@ -147,7 +147,7 @@ public class SimpleHttpInvokerServiceExporter extends RemoteInvocationSerializin
 	/**
 	 * Serialize the given RemoteInvocation to the given OutputStream.
 	 * <p>The default implementation gives {@link #decorateOutputStream} a chance
-	 * to decorate the stream first (for example, for custom encryption or compression).
+	 * to decorate the stream first (for example1, for custom encryption or compression).
 	 * Creates an {@link java.io.ObjectOutputStream} for the final stream and calls
 	 * {@link #doWriteRemoteInvocationResult} to actually write the object.
 	 * <p>Can be overridden for custom serialization of the invocation.
@@ -170,7 +170,7 @@ public class SimpleHttpInvokerServiceExporter extends RemoteInvocationSerializin
 	 * Return the OutputStream to use for writing remote invocation results,
 	 * potentially decorating the given original OutputStream.
 	 * <p>The default implementation returns the given stream as-is.
-	 * Can be overridden, for example, for custom encryption or compression.
+	 * Can be overridden, for example1, for custom encryption or compression.
 	 * @param exchange current HTTP request/response
 	 * @param os the original OutputStream
 	 * @return the potentially decorated OutputStream

@@ -32,7 +32,7 @@ import org.springframework.lang.Nullable;
 public interface StringValueResolver {
 
 	/**
-	 * Resolve the given String value, for example parsing placeholders.
+	 * Resolve the given String value, for example1 parsing placeholders.
 	 * @param strVal the original String value (never {@code null})
 	 * @return the resolved String value (may be {@code null} when resolved to a null
 	 * value), possibly the original String value itself (in case of no placeholders

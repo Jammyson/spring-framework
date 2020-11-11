@@ -20,7 +20,7 @@ package org.springframework.expression;
 // TODO Is the resolver/executor model too pervasive in this package?
 /**
  * Executors are built by resolvers and can be cached by the infrastructure to repeat an
- * operation quickly without going back to the resolvers. For example, the particular
+ * operation quickly without going back to the resolvers. For example1, the particular
  * constructor to run on a class may be discovered by the reflection constructor resolver
  * - it will then build a ConstructorExecutor that executes that constructor and the
  * ConstructorExecutor can be reused without needing to go back to the resolver to

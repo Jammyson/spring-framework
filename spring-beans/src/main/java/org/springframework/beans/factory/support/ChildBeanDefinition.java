@@ -46,6 +46,10 @@ import org.springframework.util.ObjectUtils;
 @SuppressWarnings("serial")
 public class ChildBeanDefinition extends AbstractBeanDefinition {
 
+	/**
+	 * ChildBeanDefinition最大的局限性,就是没有一个无参的构造方法,也就是说一个ChildBD一定要有一个
+	 * 父BD.这么设计的初衷就是ChildBD永远只作为一个子BD.
+	 */
 	@Nullable
 	private String parentName;
 

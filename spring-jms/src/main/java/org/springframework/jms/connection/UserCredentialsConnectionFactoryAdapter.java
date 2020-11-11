@@ -42,7 +42,7 @@ import org.springframework.util.StringUtils;
  * credentials configured. Client code can work with the ConnectionFactory without
  * passing in username and password on every {@code createConnection()} call.
  *
- * <p>In the following example, client code can simply transparently work
+ * <p>In the following example1, client code can simply transparently work
  * with the preconfigured "myConnectionFactory", implicitly accessing
  * "myTargetConnectionFactory" with the specified user credentials.
  *

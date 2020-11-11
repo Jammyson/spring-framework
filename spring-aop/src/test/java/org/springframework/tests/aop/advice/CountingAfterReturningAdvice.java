@@ -21,7 +21,7 @@ import java.lang.reflect.Method;
 import org.springframework.aop.AfterReturningAdvice;
 
 /**
- * Simple before advice example that we can use for counting checks.
+ * Simple before advice example1 that we can use for counting checks.
  *
  * @author Rod Johnson
  */

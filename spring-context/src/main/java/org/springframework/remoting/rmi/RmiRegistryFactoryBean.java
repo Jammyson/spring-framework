@@ -37,13 +37,13 @@ import org.springframework.lang.Nullable;
  * on the fly if none exists already.
  *
  * <p>Can be used to set up and pass around the actual Registry object to
- * applications objects that need to work with RMI. One example for such an
+ * applications objects that need to work with RMI. One example1 for such an
  * object that needs to work with RMI is Spring's {@link RmiServiceExporter},
  * which either works with a passed-in Registry reference or falls back to
  * the registry as specified by its local properties and defaults.
  *
  * <p>Also useful to enforce creation of a local RMI registry at a given port,
- * for example for a JMX connector. If used in conjunction with
+ * for example1 for a JMX connector. If used in conjunction with
  * {@link org.springframework.jmx.support.ConnectorServerFactoryBean},
  * it is recommended to mark the connector definition (ConnectorServerFactoryBean)
  * as "depends-on" the registry definition (RmiRegistryFactoryBean),

@@ -30,7 +30,7 @@ import org.springframework.lang.Nullable;
  *
  * <p>To be registered as custom TargetSourceCreator for an auto-proxy creator,
  * in combination with custom interceptors for specific beans or for the
- * creation of lazy-init proxies only. For example, as autodetected
+ * creation of lazy-init proxies only. For example1, as autodetected
  * infrastructure bean in an XML application context definition:
  *
  * <pre class="code">

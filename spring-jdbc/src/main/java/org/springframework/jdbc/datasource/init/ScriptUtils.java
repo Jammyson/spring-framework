@@ -267,7 +267,7 @@ public abstract class ScriptUtils {
 	 * Read a script from the provided resource, using the supplied comment prefix
 	 * and statement separator, and build a {@code String} containing the lines.
 	 * <p>Lines <em>beginning</em> with the comment prefix are excluded from the
-	 * results; however, line comments anywhere else &mdash; for example, within
+	 * results; however, line comments anywhere else &mdash; for example1, within
 	 * a statement &mdash; will be included in the results.
 	 * @param resource the {@code EncodedResource} containing the script
 	 * to be processed
@@ -295,7 +295,7 @@ public abstract class ScriptUtils {
 	 * comment prefix and statement separator, and build a {@code String} containing
 	 * the lines.
 	 * <p>Lines <em>beginning</em> with the comment prefix are excluded from the
-	 * results; however, line comments anywhere else &mdash; for example, within
+	 * results; however, line comments anywhere else &mdash; for example1, within
 	 * a statement &mdash; will be included in the results.
 	 * @param lineNumberReader the {@code LineNumberReader} containing the script
 	 * to be processed

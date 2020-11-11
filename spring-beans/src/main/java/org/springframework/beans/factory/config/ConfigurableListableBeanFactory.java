@@ -27,6 +27,10 @@ import org.springframework.lang.Nullable;
  * Configuration interface to be implemented by most listable bean factories.
  * In addition to {@link ConfigurableBeanFactory}, it provides facilities to
  * analyze and modify bean definitions, and to pre-instantiate singletons.
+ * <Trans>
+ *     可由大多数Bean factory实现的配置接口，相较于ConfigurableBeanFactory接口，它提供分析和
+ *     修改bean definition和初始化单例对象的前置扩展的能力。
+ * </Trans>
  *
  * <p>This subinterface of {@link org.springframework.beans.factory.BeanFactory}
  * is not meant to be used in normal application code: Stick to
@@ -34,7 +38,10 @@ import org.springframework.lang.Nullable;
  * {@link org.springframework.beans.factory.ListableBeanFactory} for typical
  * use cases. This interface is just meant to allow for framework-internal
  * plug'n'play even when needing access to bean factory configuration methods.
- *
+ * <Trans>
+ *     这个BeanFactory的子接口并不意味着被用于常规应用代码中。这个接口即使在需要访问bean factory
+ *     配置方法也仅允许用于框架内部使用。
+ * </Trans>
  * @author Juergen Hoeller
  * @since 03.11.2003
  * @see org.springframework.context.support.AbstractApplicationContext#getBeanFactory()
@@ -56,6 +63,12 @@ public interface ConfigurableListableBeanFactory
 	 * BeanFactoryAware or ApplicationContext through ApplicationContextAware.
 	 * <p>By default, only the BeanFactoryAware interface is ignored.
 	 * For further types to ignore, invoke this method for each type.
+	 * <Trans>
+	 *      忽略对给定接口的Bean进行自动注入,比如说忽略对BeanFactoryAware中的BeanFactory进行自动注入,因为
+	 *      Spring将会显示的进行注入而不是使用自动注入.这个方法一般用于想要忽略某个类的自动注入
+	 *      (基于set方法,所以不是所有属性的自动注入都被忽略,只是指定接口的set方法不会被调用而已).
+	 * </Trans>
+	 *
 	 * @param ifc the dependency interface to ignore
 	 * @see org.springframework.beans.factory.BeanFactoryAware
 	 * @see org.springframework.context.ApplicationContextAware
@@ -70,6 +83,12 @@ public interface ConfigurableListableBeanFactory
 	 * ApplicationContext instance that the bean is living in.
 	 * <p>Note: There are no such default types registered in a plain BeanFactory,
 	 * not even for the BeanFactory interface itself.
+	 * <Trans>
+	 *     在BeanFactory中维护依赖类型自动注入和value。这个方法主要用于设定未处于BeanFactory中但是又想
+	 *     使用自动注入的场景.比如我想要在Bean中直接使用@Autowired注入ApplicationContext，之所以可以
+	 *     注入成功就是因为 beanFactory.registerResolvableDependency(ApplicationContext.class, this);
+	 * </Trans>
+	 *
 	 * @param dependencyType the dependency type to register. This will typically
 	 * be a base interface such as BeanFactory, with extensions of it resolved
 	 * as well if declared as an autowiring dependency (e.g. ListableBeanFactory),
@@ -156,6 +175,8 @@ public interface ConfigurableListableBeanFactory
 	 * Note: This may have left the factory with some beans already initialized!
 	 * Call {@link #destroySingletons()} for full cleanup in this case.
 	 * @see #destroySingletons()
+	 *
+	 * <trans> 对BeanFactory中的所有非懒加载的单例Bean进行初始化,包括对FactoryBean的处理. </trans>
 	 */
 	void preInstantiateSingletons() throws BeansException;
 

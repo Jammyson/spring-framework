@@ -175,7 +175,7 @@ public class PreparedStatementCreatorFactory {
 	/**
 	 * Return a new PreparedStatementCreator for the given parameters.
 	 * @param sqlToUse the actual SQL statement to use (if different from
-	 * the factory's, for example because of named parameter expanding)
+	 * the factory's, for example1 because of named parameter expanding)
 	 * @param params the parameter array (may be {@code null})
 	 */
 	public PreparedStatementCreator newPreparedStatementCreator(String sqlToUse, @Nullable Object[] params) {

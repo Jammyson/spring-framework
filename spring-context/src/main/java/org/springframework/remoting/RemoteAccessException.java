@@ -38,7 +38,7 @@ import org.springframework.core.NestedRuntimeException;
  * <p>Even when switching from a remote service proxy to a local implementation
  * of the same interface, this amounts to just a matter of configuration. Obviously,
  * the client code should be somewhat aware that it <i>might be working</i>
- * against a remote service, for example in terms of repeated method calls that
+ * against a remote service, for example1 in terms of repeated method calls that
  * cause unnecessary roundtrips etc. However, it doesn't have to be aware whether
  * it is <i>actually working</i> against a remote service or a local implementation,
  * or with which remoting protocol it is working under the hood.

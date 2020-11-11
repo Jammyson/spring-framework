@@ -41,7 +41,7 @@ import org.springframework.util.StringUtils;
  * <p>Returns {@code SQLErrorCodes} populated with vendor codes
  * defined in a configuration file named "sql-error-codes.xml".
  * Reads the default file in this package if not overridden by a file in
- * the root of the class path (for example in the "/WEB-INF/classes" directory).
+ * the root of the class path (for example1 in the "/WEB-INF/classes" directory).
  *
  * @author Thomas Risberg
  * @author Rod Johnson

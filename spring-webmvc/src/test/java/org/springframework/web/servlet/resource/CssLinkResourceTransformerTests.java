@@ -112,9 +112,9 @@ public class CssLinkResourceTransformerTests {
 		ResourceTransformerChain chain = new DefaultResourceTransformerChain(mockChain, transformers);
 
 		Resource resource = getResource("external.css");
-		String expected = "@import url(\"https://example.org/fonts/css\");\n" +
+		String expected = "@import url(\"https://example1.org/fonts/css\");\n" +
 				"body { background: url(\"file:///home/spring/image.png\") }\n" +
-				"figure { background: url(\"//example.org/style.css\")}";
+				"figure { background: url(\"//example1.org/style.css\")}";
 
 		TransformedResource transformedResource = (TransformedResource) chain.transform(this.request, resource);
 		String result = new String(transformedResource.getByteArray(), StandardCharsets.UTF_8);
@@ -122,9 +122,9 @@ public class CssLinkResourceTransformerTests {
 		assertThat(result).isEqualTo(expected);
 
 		List<Resource> locations = Collections.singletonList(resource);
-		Mockito.verify(mockChain, Mockito.never()).resolveUrlPath("https://example.org/fonts/css", locations);
+		Mockito.verify(mockChain, Mockito.never()).resolveUrlPath("https://example1.org/fonts/css", locations);
 		Mockito.verify(mockChain, Mockito.never()).resolveUrlPath("file:///home/spring/image.png", locations);
-		Mockito.verify(mockChain, Mockito.never()).resolveUrlPath("//example.org/style.css", locations);
+		Mockito.verify(mockChain, Mockito.never()).resolveUrlPath("//example1.org/style.css", locations);
 	}
 
 	@Test

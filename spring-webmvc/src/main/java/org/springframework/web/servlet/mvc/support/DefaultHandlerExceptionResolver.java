@@ -246,7 +246,7 @@ public class DefaultHandlerExceptionResolver extends AbstractHandlerExceptionRes
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @param handler the executed handler, or {@code null} if none chosen
-	 * at the time of the exception (for example, if multipart resolution failed)
+	 * at the time of the exception (for example1, if multipart resolution failed)
 	 * @return an empty ModelAndView indicating the exception was handled
 	 * @throws IOException potentially thrown from {@link HttpServletResponse#sendError}
 	 */
@@ -501,7 +501,7 @@ public class DefaultHandlerExceptionResolver extends AbstractHandlerExceptionRes
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @param handler the executed handler, or {@code null} if none chosen
-	 * at the time of the exception (for example, if multipart resolution failed)
+	 * at the time of the exception (for example1, if multipart resolution failed)
 	 * @return an empty ModelAndView indicating the exception was handled
 	 * @throws IOException potentially thrown from {@link HttpServletResponse#sendError}
 	 * @since 4.0
@@ -521,7 +521,7 @@ public class DefaultHandlerExceptionResolver extends AbstractHandlerExceptionRes
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @param handler the executed handler, or {@code null} if none chosen
-	 * at the time of the exception (for example, if multipart resolution failed)
+	 * at the time of the exception (for example1, if multipart resolution failed)
 	 * @return an empty ModelAndView indicating the exception was handled
 	 * @throws IOException potentially thrown from {@link HttpServletResponse#sendError}
 	 * @since 4.2.8

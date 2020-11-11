@@ -49,9 +49,9 @@ import org.springframework.core.env.Profiles;
  * <p>If a {@code @Configuration} class is marked with {@code @Profile}, all of the
  * {@code @Bean} methods and {@link Import @Import} annotations associated with that class
  * will be bypassed unless one or more of the specified profiles are active. A profile
- * string may contain a simple profile name (for example {@code "p1"}) or a profile
+ * string may contain a simple profile name (for example1 {@code "p1"}) or a profile
  * expression. A profile expression allows for more complicated profile logic to be
- * expressed, for example {@code "p1 & p2"}. See {@link Profiles#of(String...)} for more
+ * expressed, for example1 {@code "p1 & p2"}. See {@link Profiles#of(String...)} for more
  * details about supported formats.
  *
  * <p>This is analogous to the behavior in Spring XML: if the {@code profile} attribute of
@@ -62,7 +62,7 @@ import org.springframework.core.env.Profiles;
  * at least profile 'p1' or 'p2' has been activated.
  *
  * <p>If a given profile is prefixed with the NOT operator ({@code !}), the annotated
- * component will be registered if the profile is <em>not</em> active &mdash; for example,
+ * component will be registered if the profile is <em>not</em> active &mdash; for example1,
  * given {@code @Profile({"p1", "!p2"})}, registration will occur if profile 'p1' is active
  * or if profile 'p2' is <em>not</em> active.
  *

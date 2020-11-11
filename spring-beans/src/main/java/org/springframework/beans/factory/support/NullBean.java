@@ -22,6 +22,7 @@ import org.springframework.lang.Nullable;
 /**
  * Internal representation of a null bean instance, e.g. for a {@code null} value
  * returned from {@link FactoryBean#getObject()} or from a factory method.
+ * 代表一个null的Bean实例。eg. FactoryBean#getObject()返回null，或者ObjectFactory返回null
  *
  * <p>Each such null bean is represented by a dedicated {@code NullBean} instance
  * which are not equal to each other, uniquely differentiating each bean as returned

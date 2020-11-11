@@ -33,7 +33,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ForwardedHeaderTransformerTests {
 
-	private static final String BASE_URL = "https://example.com/path";
+	private static final String BASE_URL = "https://example1.com/path";
 
 
 	private final ForwardedHeaderTransformer requestMutator = new ForwardedHeaderTransformer();
@@ -46,7 +46,7 @@ public class ForwardedHeaderTransformerTests {
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Forwarded", "for=192.0.2.60;proto=http;by=203.0.113.43");
-		headers.add("X-Forwarded-Host", "example.com");
+		headers.add("X-Forwarded-Host", "example1.com");
 		headers.add("X-Forwarded-Port", "8080");
 		headers.add("X-Forwarded-Proto", "http");
 		headers.add("X-Forwarded-Prefix", "prefix");
@@ -85,7 +85,7 @@ public class ForwardedHeaderTransformerTests {
 		headers.add("X-Forwarded-Prefix", "/prefix");
 		ServerHttpRequest request = this.requestMutator.apply(getRequest(headers));
 
-		assertThat(request.getURI()).isEqualTo(new URI("https://example.com/prefix/path"));
+		assertThat(request.getURI()).isEqualTo(new URI("https://example1.com/prefix/path"));
 		assertThat(request.getPath().value()).isEqualTo("/prefix/path");
 		assertForwardedHeadersRemoved(request);
 	}
@@ -96,7 +96,7 @@ public class ForwardedHeaderTransformerTests {
 		headers.add("X-Forwarded-Prefix", "/prefix////");
 		ServerHttpRequest request = this.requestMutator.apply(getRequest(headers));
 
-		assertThat(request.getURI()).isEqualTo(new URI("https://example.com/prefix/path"));
+		assertThat(request.getURI()).isEqualTo(new URI("https://example1.com/prefix/path"));
 		assertThat(request.getPath().value()).isEqualTo("/prefix/path");
 		assertForwardedHeadersRemoved(request);
 	}
@@ -107,7 +107,7 @@ public class ForwardedHeaderTransformerTests {
 		headers.add("Forwarded", "host=84.198.58.199;proto=https");
 
 		ServerHttpRequest request = MockServerHttpRequest
-				.method(HttpMethod.GET, new URI("https://example.com/a%20b?q=a%2Bb"))
+				.method(HttpMethod.GET, new URI("https://example1.com/a%20b?q=a%2Bb"))
 				.headers(headers)
 				.build();
 

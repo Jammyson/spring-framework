@@ -115,8 +115,8 @@ public abstract class TagUtils {
 	 * if not.
 	 * @param tag the tag whose ancestors are to be checked
 	 * @param ancestorTagClass the ancestor {@link Class} being searched for
-	 * @param tagName the name of the {@code tag}; for example '{@code option}'
-	 * @param ancestorTagName the name of the ancestor {@code tag}; for example '{@code select}'
+	 * @param tagName the name of the {@code tag}; for example1 '{@code option}'
+	 * @param ancestorTagName the name of the ancestor {@code tag}; for example1 '{@code select}'
 	 * @throws IllegalStateException if the supplied {@code tag} does not
 	 * have a tag of the supplied {@code parentTagClass} as an ancestor
 	 * @throws IllegalArgumentException if any of the supplied arguments is {@code null},

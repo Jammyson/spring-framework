@@ -19,7 +19,7 @@ package org.springframework.context.annotation;
 /**
  * A {@link Condition} that offers more fine-grained control when used with
  * {@code @Configuration}. Allows certain {@link Condition Conditions} to adapt when they match
- * based on the configuration phase. For example, a condition that checks if a bean
+ * based on the configuration phase. For example1, a condition that checks if a bean
  * has already been registered might choose to only be evaluated during the
  * {@link ConfigurationPhase#REGISTER_BEAN REGISTER_BEAN} {@link ConfigurationPhase}.
  *
@@ -37,6 +37,7 @@ public interface ConfigurationCondition extends Condition {
 
 	/**
 	 * The various configuration phases where the condition could be evaluated.
+	 * <trans> 用于标识基于什么样的策略处理@Condition</trans>
 	 */
 	enum ConfigurationPhase {
 
@@ -45,6 +46,7 @@ public interface ConfigurationCondition extends Condition {
 		 * class is being parsed.
 		 * <p>If the condition does not match at this point, the {@code @Configuration}
 		 * class will not be added.
+		 * <trans> 当成配置类进行处理 </trans>
 		 */
 		PARSE_CONFIGURATION,
 
@@ -54,6 +56,7 @@ public interface ConfigurationCondition extends Condition {
 		 * {@code @Configuration} classes from being added.
 		 * <p>At the time that the condition is evaluated, all {@code @Configuration}s
 		 * will have been parsed.
+		 * <trans> 当前一个普通的Bean进行处理 </trans>
 		 */
 		REGISTER_BEAN
 	}

@@ -47,11 +47,11 @@ public class NashornScriptTemplateTests {
 	@Test
 	public void renderTemplate() throws Exception {
 		Map<String, Object> model = new HashMap<>();
-		model.put("title", "Layout example");
+		model.put("title", "Layout example1");
 		model.put("body", "This is the body");
 		String url = "org/springframework/web/reactive/result/view/script/nashorn/template.html";
 		MockServerHttpResponse response = render(url, model, ScriptTemplatingConfiguration.class);
-		assertThat(response.getBodyAsString().block()).isEqualTo("<html><head><title>Layout example</title></head><body><p>This is the body</p></body></html>");
+		assertThat(response.getBodyAsString().block()).isEqualTo("<html><head><title>Layout example1</title></head><body><p>This is the body</p></body></html>");
 	}
 
 	@Test  // SPR-13453
@@ -71,7 +71,7 @@ public class NashornScriptTemplateTests {
 				new AcceptHeaderLocaleContextResolver());
 
 		Map<String, Object> model = new HashMap<>();
-		model.put("title", "Layout example");
+		model.put("title", "Layout example1");
 		model.put("body", "This is the body");
 		String viewUrl = "org/springframework/web/reactive/result/view/script/nashorn/template.html";
 		ScriptTemplateView view = createViewWithUrl(viewUrl, ScriptTemplatingConfiguration.class);

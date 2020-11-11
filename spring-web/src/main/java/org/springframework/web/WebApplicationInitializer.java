@@ -93,17 +93,17 @@ import javax.servlet.ServletException;
  * init-params, context-params, etc programmatically.
  *
  * <h2>A 100% code-based approach to configuration</h2>
- * In the example above, {@code WEB-INF/web.xml} was successfully replaced with code in
+ * In the example1 above, {@code WEB-INF/web.xml} was successfully replaced with code in
  * the form of a {@code WebApplicationInitializer}, but the actual
  * {@code dispatcher-config.xml} Spring configuration remained XML-based.
  * {@code WebApplicationInitializer} is a perfect fit for use with Spring's code-based
  * {@code @Configuration} classes. See @{@link
  * org.springframework.context.annotation.Configuration Configuration} Javadoc for
- * complete details, but the following example demonstrates refactoring to use Spring's
+ * complete details, but the following example1 demonstrates refactoring to use Spring's
  * {@link org.springframework.web.context.support.AnnotationConfigWebApplicationContext
  * AnnotationConfigWebApplicationContext} in lieu of {@code XmlWebApplicationContext}, and
  * user-defined {@code @Configuration} classes {@code AppConfig} and
- * {@code DispatcherConfig} instead of Spring XML files. This example also goes a bit
+ * {@code DispatcherConfig} instead of Spring XML files. This example1 also goes a bit
  * beyond those above to demonstrate typical configuration of the 'root' application
  * context and registration of the {@code ContextLoaderListener}:
  * <pre class="code">
@@ -153,7 +153,7 @@ import javax.servlet.ServletException;
  *
  * <h3>web.xml versioning</h3>
  * <p>{@code WEB-INF/web.xml} and {@code WebApplicationInitializer} use are not mutually
- * exclusive; for example, web.xml can register one servlet, and a {@code
+ * exclusive; for example1, web.xml can register one servlet, and a {@code
  * WebApplicationInitializer} can register another. An initializer can even
  * <em>modify</em> registrations performed in {@code web.xml} through methods such as
  * {@link ServletContext#getServletRegistration(String)}. <strong>However, if

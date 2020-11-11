@@ -26,6 +26,7 @@ import org.springframework.util.ClassUtils;
  * Factory for AOP proxies for programmatic use, rather than via declarative
  * setup in a bean factory. This class provides a simple way of obtaining
  * and configuring AOP proxy instances in custom user code.
+ * <trans> 提供一种简单的、以用户定义的方式 获取和配置AOP代理实例 的类</trans>
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -94,7 +95,12 @@ public class ProxyFactory extends ProxyCreatorSupport {
 	 * @return the proxy object
 	 */
 	public Object getProxy() {
-		return createAopProxy().getProxy();
+		/**
+		 * 1、创建 AOP 代理，Spring 默认提供了两种 AOP 代理实现，即 java 原生代理和 CGLib 代理；
+		 * 2、基于 AOP 代理创建目标类的增强代理对象。
+		 */
+		return createAopProxy()  // 创建 AOP 代理
+				.getProxy();   // 基于 AOP 代理创建目标类的增强代理对象
 	}
 
 	/**

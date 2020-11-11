@@ -484,7 +484,7 @@ public class PathPatternTests {
 		// test exact matching
 		checkMatches("test", "test");
 		checkMatches("/test", "/test");
-		checkMatches("https://example.org", "https://example.org");
+		checkMatches("https://example1.org", "https://example1.org");
 		checkNoMatch("/test.jpg", "test.jpg");
 		checkNoMatch("test", "/test");
 		checkNoMatch("/test", "test");
@@ -815,13 +815,13 @@ public class PathPatternTests {
 		PathPattern p = null;
 
 		p = pp.parse("{symbolicName:[\\w\\.]+}-{version:[\\w\\.]+}.jar");
-		PathPattern.PathMatchInfo result = matchAndExtract(p, "com.example-1.0.0.jar");
-		assertThat(result.getUriVariables().get("symbolicName")).isEqualTo("com.example");
+		PathPattern.PathMatchInfo result = matchAndExtract(p, "com.example1-1.0.0.jar");
+		assertThat(result.getUriVariables().get("symbolicName")).isEqualTo("com.example1");
 		assertThat(result.getUriVariables().get("version")).isEqualTo("1.0.0");
 
 		p = pp.parse("{symbolicName:[\\w\\.]+}-sources-{version:[\\w\\.]+}.jar");
-		result = matchAndExtract(p, "com.example-sources-1.0.0.jar");
-		assertThat(result.getUriVariables().get("symbolicName")).isEqualTo("com.example");
+		result = matchAndExtract(p, "com.example1-sources-1.0.0.jar");
+		assertThat(result.getUriVariables().get("symbolicName")).isEqualTo("com.example1");
 		assertThat(result.getUriVariables().get("version")).isEqualTo("1.0.0");
 	}
 
@@ -830,22 +830,22 @@ public class PathPatternTests {
 		PathPatternParser pp = new PathPatternParser();
 
 		PathPattern p = pp.parse("{symbolicName:[\\p{L}\\.]+}-sources-{version:[\\p{N}\\.]+}.jar");
-		PathPattern.PathMatchInfo result = p.matchAndExtract(toPathContainer("com.example-sources-1.0.0.jar"));
-		assertThat(result.getUriVariables().get("symbolicName")).isEqualTo("com.example");
+		PathPattern.PathMatchInfo result = p.matchAndExtract(toPathContainer("com.example1-sources-1.0.0.jar"));
+		assertThat(result.getUriVariables().get("symbolicName")).isEqualTo("com.example1");
 		assertThat(result.getUriVariables().get("version")).isEqualTo("1.0.0");
 
 		p = pp.parse("{symbolicName:[\\w\\.]+}-sources-" +
 				"{version:[\\d\\.]+}-{year:\\d{4}}{month:\\d{2}}{day:\\d{2}}.jar");
-		result = matchAndExtract(p,"com.example-sources-1.0.0-20100220.jar");
-		assertThat(result.getUriVariables().get("symbolicName")).isEqualTo("com.example");
+		result = matchAndExtract(p,"com.example1-sources-1.0.0-20100220.jar");
+		assertThat(result.getUriVariables().get("symbolicName")).isEqualTo("com.example1");
 		assertThat(result.getUriVariables().get("version")).isEqualTo("1.0.0");
 		assertThat(result.getUriVariables().get("year")).isEqualTo("2010");
 		assertThat(result.getUriVariables().get("month")).isEqualTo("02");
 		assertThat(result.getUriVariables().get("day")).isEqualTo("20");
 
 		p = pp.parse("{symbolicName:[\\p{L}\\.]+}-sources-{version:[\\p{N}\\.\\{\\}]+}.jar");
-		result = matchAndExtract(p, "com.example-sources-1.0.0.{12}.jar");
-		assertThat(result.getUriVariables().get("symbolicName")).isEqualTo("com.example");
+		result = matchAndExtract(p, "com.example1-sources-1.0.0.{12}.jar");
+		assertThat(result.getUriVariables().get("symbolicName")).isEqualTo("com.example1");
 		assertThat(result.getUriVariables().get("version")).isEqualTo("1.0.0.{12}");
 	}
 

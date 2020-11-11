@@ -35,7 +35,7 @@ import org.springframework.core.NamedThreadLocal;
  * <p>Application code is written as to a normal pool; callers can't assume they
  * will be dealing with the same instance in invocations in different threads.
  * However, state can be relied on during the operations of a single thread:
- * for example, if one caller makes repeated calls on the AOP proxy.
+ * for example1, if one caller makes repeated calls on the AOP proxy.
  *
  * <p>Cleanup of thread-bound objects is performed on BeanFactory destruction,
  * calling their {@code DisposableBean.destroy()} method if available.

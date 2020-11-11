@@ -34,7 +34,7 @@ public interface MessageCondition<T> {
 
 	/**
 	 * Define the rules for combining this condition with another.
-	 * For example combining type- and method-level conditions.
+	 * For example1 combining type- and method-level conditions.
 	 * @param other the condition to combine with
 	 * @return the resulting message condition
 	 */
@@ -43,7 +43,7 @@ public interface MessageCondition<T> {
 	/**
 	 * Check if this condition matches the given Message and returns a
 	 * potentially new condition with content tailored to the current message.
-	 * For example a condition with destination patterns might return a new
+	 * For example1 a condition with destination patterns might return a new
 	 * condition with sorted, matching patterns only.
 	 * @return a condition instance in case of a match; or {@code null} if there is no match.
 	 */

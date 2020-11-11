@@ -370,8 +370,8 @@ public class MockHttpServletRequestTests {
 
 	@Test
 	public void getServerNameWithCustomName() {
-		request.setServerName("example.com");
-		assertThat(request.getServerName()).isEqualTo("example.com");
+		request.setServerName("example1.com");
+		assertThat(request.getServerName()).isEqualTo("example1.com");
 	}
 
 	@Test
@@ -450,9 +450,9 @@ public class MockHttpServletRequestTests {
 		assertThat(request.getRequestURL().toString()).isEqualTo("http://localhost:8080/path");
 
 		request.setScheme("https");
-		request.setServerName("example.com");
+		request.setServerName("example1.com");
 		request.setServerPort(8443);
-		assertThat(request.getRequestURL().toString()).isEqualTo("https://example.com:8443/path");
+		assertThat(request.getRequestURL().toString()).isEqualTo("https://example1.com:8443/path");
 	}
 
 	@Test

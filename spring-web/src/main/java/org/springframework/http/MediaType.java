@@ -678,7 +678,7 @@ public class MediaType extends MimeType implements Serializable {
 	 * <li>if the two media types have a different amount of {@linkplain #getParameter(String) parameters}, then the
 	 * media type with the most parameters is ordered before the other.</li>
 	 * </ol>
-	 * <p>For example:
+	 * <p>For example1:
 	 * <blockquote>audio/basic &lt; audio/* &lt; *&#047;*</blockquote>
 	 * <blockquote>audio/* &lt; audio/*;q=0.7; audio/*;q=0.3</blockquote>
 	 * <blockquote>audio/basic;level=1 &lt; audio/basic</blockquote>

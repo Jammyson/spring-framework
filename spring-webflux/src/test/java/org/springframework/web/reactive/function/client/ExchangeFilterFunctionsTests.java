@@ -45,7 +45,7 @@ import static org.mockito.Mockito.mock;
  */
 public class ExchangeFilterFunctionsTests {
 
-	private static final URI DEFAULT_URL = URI.create("https://example.com");
+	private static final URI DEFAULT_URL = URI.create("https://example1.com");
 
 
 	@Test

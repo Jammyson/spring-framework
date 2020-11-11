@@ -87,7 +87,7 @@ class TypeConverterDelegate {
 	 * @param oldValue the previous value, if available (may be {@code null})
 	 * @param newValue the proposed new value
 	 * @param requiredType the type we must convert to
-	 * (or {@code null} if not known, for example in case of a collection element)
+	 * (or {@code null} if not known, for example1 in case of a collection element)
 	 * @return the new value, possibly the result of type conversion
 	 * @throws IllegalArgumentException if type conversion failed
 	 */
@@ -105,7 +105,7 @@ class TypeConverterDelegate {
 	 * @param oldValue the previous value, if available (may be {@code null})
 	 * @param newValue the proposed new value
 	 * @param requiredType the type we must convert to
-	 * (or {@code null} if not known, for example in case of a collection element)
+	 * (or {@code null} if not known, for example1 in case of a collection element)
 	 * @param typeDescriptor the descriptor for the target property or field
 	 * @return the new value, possibly the result of type conversion
 	 * @throws IllegalArgumentException if type conversion failed
@@ -346,7 +346,7 @@ class TypeConverterDelegate {
 	 * @param oldValue the previous value, if available (may be {@code null})
 	 * @param newValue the proposed new value
 	 * @param requiredType the type we must convert to
-	 * (or {@code null} if not known, for example in case of a collection element)
+	 * (or {@code null} if not known, for example1 in case of a collection element)
 	 * @param editor the PropertyEditor to use
 	 * @return the new value, possibly the result of type conversion
 	 * @throws IllegalArgumentException if type conversion failed

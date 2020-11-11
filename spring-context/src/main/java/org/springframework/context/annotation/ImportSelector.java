@@ -50,6 +50,10 @@ public interface ImportSelector {
 	/**
 	 * Select and return the names of which class(es) should be imported based on
 	 * the {@link AnnotationMetadata} of the importing @{@link Configuration} class.
+	 *
+	 * @param importingClassMetadata 传入的是ImportSelector实现类上的所有注解信息
+	 * @return String[] 想要批量导入的class的name
+	 * @see ConfigurationClassParser#processImports(org.springframework.context.annotation.ConfigurationClass, org.springframework.context.annotation.ConfigurationClassParser.SourceClass, java.util.Collection, boolean)
 	 */
 	String[] selectImports(AnnotationMetadata importingClassMetadata);
 

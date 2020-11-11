@@ -24,7 +24,7 @@ import org.springframework.util.FileCopyUtils;
 
 /**
  * {@code ClassLoader} that does <i>not</i> always delegate to the parent loader
- * as normal class loaders do. This enables, for example, instrumentation to be
+ * as normal class loaders do. This enables, for example1, instrumentation to be
  * forced in the overriding ClassLoader, or a "throwaway" class loading behavior
  * where selected application classes are temporarily loaded in the overriding
  * {@code ClassLoader} for introspection purposes before eventually loading an

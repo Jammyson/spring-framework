@@ -124,10 +124,10 @@ public class RestTemplateTests {
 
 	@Test
 	public void varArgsTemplateVariables() throws Exception {
-		mockSentRequest(GET, "https://example.com/hotels/42/bookings/21");
+		mockSentRequest(GET, "https://example1.com/hotels/42/bookings/21");
 		mockResponseStatus(HttpStatus.OK);
 
-		template.execute("https://example.com/hotels/{hotel}/bookings/{booking}", GET,
+		template.execute("https://example1.com/hotels/{hotel}/bookings/{booking}", GET,
 				null, null, "42", "21");
 
 		verify(response).close();
@@ -135,41 +135,41 @@ public class RestTemplateTests {
 
 	@Test
 	public void varArgsNullTemplateVariable() throws Exception {
-		mockSentRequest(GET, "https://example.com/-foo");
+		mockSentRequest(GET, "https://example1.com/-foo");
 		mockResponseStatus(HttpStatus.OK);
 
-		template.execute("https://example.com/{first}-{last}", GET, null, null, null, "foo");
+		template.execute("https://example1.com/{first}-{last}", GET, null, null, null, "foo");
 
 		verify(response).close();
 	}
 
 	@Test
 	public void mapTemplateVariables() throws Exception {
-		mockSentRequest(GET, "https://example.com/hotels/42/bookings/42");
+		mockSentRequest(GET, "https://example1.com/hotels/42/bookings/42");
 		mockResponseStatus(HttpStatus.OK);
 
 		Map<String, String> vars = Collections.singletonMap("hotel", "42");
-		template.execute("https://example.com/hotels/{hotel}/bookings/{hotel}", GET, null, null, vars);
+		template.execute("https://example1.com/hotels/{hotel}/bookings/{hotel}", GET, null, null, vars);
 
 		verify(response).close();
 	}
 
 	@Test
 	public void mapNullTemplateVariable() throws Exception {
-		mockSentRequest(GET, "https://example.com/-foo");
+		mockSentRequest(GET, "https://example1.com/-foo");
 		mockResponseStatus(HttpStatus.OK);
 
 		Map<String, String> vars = new HashMap<>(2);
 		vars.put("first", null);
 		vars.put("last", "foo");
-		template.execute("https://example.com/{first}-{last}", GET, null, null, vars);
+		template.execute("https://example1.com/{first}-{last}", GET, null, null, vars);
 
 		verify(response).close();
 	}
 
 	@Test  // SPR-15201
 	public void uriTemplateWithTrailingSlash() throws Exception {
-		String url = "https://example.com/spring/";
+		String url = "https://example1.com/spring/";
 		mockSentRequest(GET, url);
 		mockResponseStatus(HttpStatus.OK);
 
@@ -180,7 +180,7 @@ public class RestTemplateTests {
 
 	@Test
 	public void errorHandling() throws Exception {
-		String url = "https://example.com";
+		String url = "https://example1.com";
 		mockSentRequest(GET, url);
 		mockResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		willThrow(new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR))
@@ -197,11 +197,11 @@ public class RestTemplateTests {
 		String expected = "Hello World";
 		mockTextPlainHttpMessageConverter();
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(GET, "https://example.com", requestHeaders);
+		mockSentRequest(GET, "https://example1.com", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 		mockTextResponseBody("Hello World");
 
-		String result = template.getForObject("https://example.com", String.class);
+		String result = template.getForObject("https://example1.com", String.class);
 		assertThat(result).as("Invalid GET result").isEqualTo(expected);
 		assertThat(requestHeaders.getFirst("Accept")).as("Invalid Accept header").isEqualTo(MediaType.TEXT_PLAIN_VALUE);
 
@@ -210,7 +210,7 @@ public class RestTemplateTests {
 
 	@Test
 	public void getUnsupportedMediaType() throws Exception {
-		mockSentRequest(GET, "https://example.com/resource");
+		mockSentRequest(GET, "https://example1.com/resource");
 		mockResponseStatus(HttpStatus.OK);
 
 		given(converter.canRead(String.class, null)).willReturn(true);
@@ -222,7 +222,7 @@ public class RestTemplateTests {
 		given(converter.canRead(String.class, barBaz)).willReturn(false);
 
 		assertThatExceptionOfType(RestClientException.class).isThrownBy(() ->
-				template.getForObject("https://example.com/{p}", String.class, "resource"));
+				template.getForObject("https://example1.com/{p}", String.class, "resource"));
 
 		verify(response).close();
 	}
@@ -239,12 +239,12 @@ public class RestTemplateTests {
 				.willReturn(Collections.singletonList(MediaType.TEXT_PLAIN));
 
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(GET, "https://example.com/", requestHeaders);
+		mockSentRequest(GET, "https://example1.com/", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 		mockTextResponseBody("Hello World");
 
 		template.setMessageConverters(Arrays.asList(firstConverter, secondConverter));
-		template.getForObject("https://example.com/", String.class);
+		template.getForObject("https://example1.com/", String.class);
 
 		assertThat(requestHeaders.getAccept().size()).as("Sent duplicate Accept header values").isEqualTo(1);
 	}
@@ -252,13 +252,13 @@ public class RestTemplateTests {
 	@Test
 	public void getForEntity() throws Exception {
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(GET, "https://example.com", requestHeaders);
+		mockSentRequest(GET, "https://example1.com", requestHeaders);
 		mockTextPlainHttpMessageConverter();
 		mockResponseStatus(HttpStatus.OK);
 		String expected = "Hello World";
 		mockTextResponseBody(expected);
 
-		ResponseEntity<String> result = template.getForEntity("https://example.com", String.class);
+		ResponseEntity<String> result = template.getForEntity("https://example1.com", String.class);
 		assertThat(result.getBody()).as("Invalid GET result").isEqualTo(expected);
 		assertThat(requestHeaders.getFirst("Accept")).as("Invalid Accept header").isEqualTo(MediaType.TEXT_PLAIN_VALUE);
 		assertThat(result.getHeaders().getContentType()).as("Invalid Content-Type header").isEqualTo(MediaType.TEXT_PLAIN);
@@ -271,7 +271,7 @@ public class RestTemplateTests {
 	public void getForObjectWithCustomUriTemplateHandler() throws Exception {
 		DefaultUriBuilderFactory uriTemplateHandler = new DefaultUriBuilderFactory();
 		template.setUriTemplateHandler(uriTemplateHandler);
-		mockSentRequest(GET, "https://example.com/hotels/1/pic/pics%2Flogo.png/size/150x150");
+		mockSentRequest(GET, "https://example1.com/hotels/1/pic/pics%2Flogo.png/size/150x150");
 		mockResponseStatus(HttpStatus.OK);
 		given(response.getHeaders()).willReturn(new HttpHeaders());
 		given(response.getBody()).willReturn(StreamUtils.emptyInput());
@@ -281,7 +281,7 @@ public class RestTemplateTests {
 		uriVariables.put("publicpath", "pics/logo.png");
 		uriVariables.put("scale", "150x150");
 
-		String url = "https://example.com/hotels/{hotel}/pic/{publicpath}/size/{scale}";
+		String url = "https://example1.com/hotels/{hotel}/pic/{publicpath}/size/{scale}";
 		template.getForObject(url, String.class, uriVariables);
 
 		verify(response).close();
@@ -289,12 +289,12 @@ public class RestTemplateTests {
 
 	@Test
 	public void headForHeaders() throws Exception {
-		mockSentRequest(HEAD, "https://example.com");
+		mockSentRequest(HEAD, "https://example1.com");
 		mockResponseStatus(HttpStatus.OK);
 		HttpHeaders responseHeaders = new HttpHeaders();
 		given(response.getHeaders()).willReturn(responseHeaders);
 
-		HttpHeaders result = template.headForHeaders("https://example.com");
+		HttpHeaders result = template.headForHeaders("https://example1.com");
 
 		assertThat(result).as("Invalid headers returned").isSameAs(responseHeaders);
 
@@ -303,16 +303,16 @@ public class RestTemplateTests {
 
 	@Test
 	public void postForLocation() throws Exception {
-		mockSentRequest(POST, "https://example.com");
+		mockSentRequest(POST, "https://example1.com");
 		mockTextPlainHttpMessageConverter();
 		mockResponseStatus(HttpStatus.OK);
 		String helloWorld = "Hello World";
 		HttpHeaders responseHeaders = new HttpHeaders();
-		URI expected = new URI("https://example.com/hotels");
+		URI expected = new URI("https://example1.com/hotels");
 		responseHeaders.setLocation(expected);
 		given(response.getHeaders()).willReturn(responseHeaders);
 
-		URI result = template.postForLocation("https://example.com", helloWorld);
+		URI result = template.postForLocation("https://example1.com", helloWorld);
 		assertThat(result).as("Invalid POST result").isEqualTo(expected);
 
 		verify(response).close();
@@ -320,13 +320,13 @@ public class RestTemplateTests {
 
 	@Test
 	public void postForLocationEntityContentType() throws Exception {
-		mockSentRequest(POST, "https://example.com");
+		mockSentRequest(POST, "https://example1.com");
 		mockTextPlainHttpMessageConverter();
 		mockResponseStatus(HttpStatus.OK);
 
 		String helloWorld = "Hello World";
 		HttpHeaders responseHeaders = new HttpHeaders();
-		URI expected = new URI("https://example.com/hotels");
+		URI expected = new URI("https://example1.com/hotels");
 		responseHeaders.setLocation(expected);
 		given(response.getHeaders()).willReturn(responseHeaders);
 
@@ -334,7 +334,7 @@ public class RestTemplateTests {
 		entityHeaders.setContentType(MediaType.TEXT_PLAIN);
 		HttpEntity<String> entity = new HttpEntity<>(helloWorld, entityHeaders);
 
-		URI result = template.postForLocation("https://example.com", entity);
+		URI result = template.postForLocation("https://example1.com", entity);
 		assertThat(result).as("Invalid POST result").isEqualTo(expected);
 
 		verify(response).close();
@@ -343,11 +343,11 @@ public class RestTemplateTests {
 	@Test
 	public void postForLocationEntityCustomHeader() throws Exception {
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(POST, "https://example.com", requestHeaders);
+		mockSentRequest(POST, "https://example1.com", requestHeaders);
 		mockTextPlainHttpMessageConverter();
 		mockResponseStatus(HttpStatus.OK);
 		HttpHeaders responseHeaders = new HttpHeaders();
-		URI expected = new URI("https://example.com/hotels");
+		URI expected = new URI("https://example1.com/hotels");
 		responseHeaders.setLocation(expected);
 		given(response.getHeaders()).willReturn(responseHeaders);
 
@@ -355,7 +355,7 @@ public class RestTemplateTests {
 		entityHeaders.set("MyHeader", "MyValue");
 		HttpEntity<String> entity = new HttpEntity<>("Hello World", entityHeaders);
 
-		URI result = template.postForLocation("https://example.com", entity);
+		URI result = template.postForLocation("https://example1.com", entity);
 		assertThat(result).as("Invalid POST result").isEqualTo(expected);
 		assertThat(requestHeaders.getFirst("MyHeader")).as("No custom header set").isEqualTo("MyValue");
 
@@ -364,11 +364,11 @@ public class RestTemplateTests {
 
 	@Test
 	public void postForLocationNoLocation() throws Exception {
-		mockSentRequest(POST, "https://example.com");
+		mockSentRequest(POST, "https://example1.com");
 		mockTextPlainHttpMessageConverter();
 		mockResponseStatus(HttpStatus.OK);
 
-		URI result = template.postForLocation("https://example.com", "Hello World");
+		URI result = template.postForLocation("https://example1.com", "Hello World");
 		assertThat(result).as("Invalid POST result").isNull();
 
 		verify(response).close();
@@ -377,10 +377,10 @@ public class RestTemplateTests {
 	@Test
 	public void postForLocationNull() throws Exception {
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(POST, "https://example.com", requestHeaders);
+		mockSentRequest(POST, "https://example1.com", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 
-		template.postForLocation("https://example.com", null);
+		template.postForLocation("https://example1.com", null);
 		assertThat(requestHeaders.getContentLength()).as("Invalid content length").isEqualTo(0);
 
 		verify(response).close();
@@ -390,12 +390,12 @@ public class RestTemplateTests {
 	public void postForObject() throws Exception {
 		mockTextPlainHttpMessageConverter();
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(POST, "https://example.com", requestHeaders);
+		mockSentRequest(POST, "https://example1.com", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 		String expected = "42";
 		mockResponseBody(expected, MediaType.TEXT_PLAIN);
 
-		String result = template.postForObject("https://example.com", "Hello World", String.class);
+		String result = template.postForObject("https://example1.com", "Hello World", String.class);
 		assertThat(result).as("Invalid POST result").isEqualTo(expected);
 		assertThat(requestHeaders.getFirst("Accept")).as("Invalid Accept header").isEqualTo(MediaType.TEXT_PLAIN_VALUE);
 
@@ -406,12 +406,12 @@ public class RestTemplateTests {
 	public void postForEntity() throws Exception {
 		mockTextPlainHttpMessageConverter();
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(POST, "https://example.com", requestHeaders);
+		mockSentRequest(POST, "https://example1.com", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 		String expected = "42";
 		mockResponseBody(expected, MediaType.TEXT_PLAIN);
 
-		ResponseEntity<String> result = template.postForEntity("https://example.com", "Hello World", String.class);
+		ResponseEntity<String> result = template.postForEntity("https://example1.com", "Hello World", String.class);
 		assertThat(result.getBody()).as("Invalid POST result").isEqualTo(expected);
 		assertThat(result.getHeaders().getContentType()).as("Invalid Content-Type").isEqualTo(MediaType.TEXT_PLAIN);
 		assertThat(requestHeaders.getFirst("Accept")).as("Invalid Accept header").isEqualTo(MediaType.TEXT_PLAIN_VALUE);
@@ -424,7 +424,7 @@ public class RestTemplateTests {
 	public void postForObjectNull() throws Exception {
 		mockTextPlainHttpMessageConverter();
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(POST, "https://example.com", requestHeaders);
+		mockSentRequest(POST, "https://example1.com", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.setContentType(MediaType.TEXT_PLAIN);
@@ -433,7 +433,7 @@ public class RestTemplateTests {
 		given(response.getBody()).willReturn(StreamUtils.emptyInput());
 		given(converter.read(String.class, response)).willReturn(null);
 
-		String result = template.postForObject("https://example.com", null, String.class);
+		String result = template.postForObject("https://example1.com", null, String.class);
 		assertThat(result).as("Invalid POST result").isNull();
 		assertThat(requestHeaders.getContentLength()).as("Invalid content length").isEqualTo(0);
 
@@ -444,7 +444,7 @@ public class RestTemplateTests {
 	public void postForEntityNull() throws Exception {
 		mockTextPlainHttpMessageConverter();
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(POST, "https://example.com", requestHeaders);
+		mockSentRequest(POST, "https://example1.com", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.setContentType(MediaType.TEXT_PLAIN);
@@ -453,7 +453,7 @@ public class RestTemplateTests {
 		given(response.getBody()).willReturn(StreamUtils.emptyInput());
 		given(converter.read(String.class, response)).willReturn(null);
 
-		ResponseEntity<String> result = template.postForEntity("https://example.com", null, String.class);
+		ResponseEntity<String> result = template.postForEntity("https://example1.com", null, String.class);
 		assertThat(result.hasBody()).as("Invalid POST result").isFalse();
 		assertThat(result.getHeaders().getContentType()).as("Invalid Content-Type").isEqualTo(MediaType.TEXT_PLAIN);
 		assertThat(requestHeaders.getContentLength()).as("Invalid content length").isEqualTo(0);
@@ -465,10 +465,10 @@ public class RestTemplateTests {
 	@Test
 	public void put() throws Exception {
 		mockTextPlainHttpMessageConverter();
-		mockSentRequest(PUT, "https://example.com");
+		mockSentRequest(PUT, "https://example1.com");
 		mockResponseStatus(HttpStatus.OK);
 
-		template.put("https://example.com", "Hello World");
+		template.put("https://example1.com", "Hello World");
 
 		verify(response).close();
 	}
@@ -476,10 +476,10 @@ public class RestTemplateTests {
 	@Test
 	public void putNull() throws Exception {
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(PUT, "https://example.com", requestHeaders);
+		mockSentRequest(PUT, "https://example1.com", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 
-		template.put("https://example.com", null);
+		template.put("https://example1.com", null);
 		assertThat(requestHeaders.getContentLength()).as("Invalid content length").isEqualTo(0);
 
 		verify(response).close();
@@ -489,12 +489,12 @@ public class RestTemplateTests {
 	public void patchForObject() throws Exception {
 		mockTextPlainHttpMessageConverter();
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(PATCH, "https://example.com", requestHeaders);
+		mockSentRequest(PATCH, "https://example1.com", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 		String expected = "42";
 		mockResponseBody("42", MediaType.TEXT_PLAIN);
 
-		String result = template.patchForObject("https://example.com", "Hello World", String.class);
+		String result = template.patchForObject("https://example1.com", "Hello World", String.class);
 		assertThat(result).as("Invalid POST result").isEqualTo(expected);
 		assertThat(requestHeaders.getFirst("Accept")).as("Invalid Accept header").isEqualTo(MediaType.TEXT_PLAIN_VALUE);
 
@@ -505,7 +505,7 @@ public class RestTemplateTests {
 	public void patchForObjectNull() throws Exception {
 		mockTextPlainHttpMessageConverter();
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(PATCH, "https://example.com", requestHeaders);
+		mockSentRequest(PATCH, "https://example1.com", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.setContentType(MediaType.TEXT_PLAIN);
@@ -513,7 +513,7 @@ public class RestTemplateTests {
 		given(response.getHeaders()).willReturn(responseHeaders);
 		given(response.getBody()).willReturn(StreamUtils.emptyInput());
 
-		String result = template.patchForObject("https://example.com", null, String.class);
+		String result = template.patchForObject("https://example1.com", null, String.class);
 		assertThat(result).as("Invalid POST result").isNull();
 		assertThat(requestHeaders.getContentLength()).as("Invalid content length").isEqualTo(0);
 
@@ -523,24 +523,24 @@ public class RestTemplateTests {
 
 	@Test
 	public void delete() throws Exception {
-		mockSentRequest(DELETE, "https://example.com");
+		mockSentRequest(DELETE, "https://example1.com");
 		mockResponseStatus(HttpStatus.OK);
 
-		template.delete("https://example.com");
+		template.delete("https://example1.com");
 
 		verify(response).close();
 	}
 
 	@Test
 	public void optionsForAllow() throws Exception {
-		mockSentRequest(OPTIONS, "https://example.com");
+		mockSentRequest(OPTIONS, "https://example1.com");
 		mockResponseStatus(HttpStatus.OK);
 		HttpHeaders responseHeaders = new HttpHeaders();
 		EnumSet<HttpMethod> expected = EnumSet.of(GET, POST);
 		responseHeaders.setAllow(expected);
 		given(response.getHeaders()).willReturn(responseHeaders);
 
-		Set<HttpMethod> result = template.optionsForAllow("https://example.com");
+		Set<HttpMethod> result = template.optionsForAllow("https://example1.com");
 		assertThat(result).as("Invalid OPTIONS result").isEqualTo(expected);
 
 		verify(response).close();
@@ -548,14 +548,14 @@ public class RestTemplateTests {
 
 	@Test  // SPR-9325, SPR-13860
 	public void ioException() throws Exception {
-		String url = "https://example.com/resource?access_token=123";
+		String url = "https://example1.com/resource?access_token=123";
 		mockSentRequest(GET, url);
 		mockHttpMessageConverter(new MediaType("foo", "bar"), String.class);
 		given(request.execute()).willThrow(new IOException("Socket failure"));
 
 		assertThatExceptionOfType(ResourceAccessException.class).isThrownBy(() ->
 				template.getForObject(url, String.class))
-			.withMessage("I/O error on GET request for \"https://example.com/resource\": " +
+			.withMessage("I/O error on GET request for \"https://example1.com/resource\": " +
 							"Socket failure; nested exception is java.io.IOException: Socket failure");
 	}
 
@@ -563,7 +563,7 @@ public class RestTemplateTests {
 	public void ioExceptionWithEmptyQueryString() throws Exception {
 
 		// https://example.com/resource?
-		URI uri = new URI("https", "example.com", "/resource", "", null);
+		URI uri = new URI("https", "example1.com", "/resource", "", null);
 
 		given(converter.canRead(String.class, null)).willReturn(true);
 		given(converter.getSupportedMediaTypes()).willReturn(Collections.singletonList(parseMediaType("foo/bar")));
@@ -573,7 +573,7 @@ public class RestTemplateTests {
 
 		assertThatExceptionOfType(ResourceAccessException.class).isThrownBy(() ->
 				template.getForObject(uri, String.class))
-			.withMessage("I/O error on GET request for \"https://example.com/resource\": " +
+			.withMessage("I/O error on GET request for \"https://example1.com/resource\": " +
 					"Socket failure; nested exception is java.io.IOException: Socket failure");
 	}
 
@@ -581,7 +581,7 @@ public class RestTemplateTests {
 	public void exchange() throws Exception {
 		mockTextPlainHttpMessageConverter();
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(POST, "https://example.com", requestHeaders);
+		mockSentRequest(POST, "https://example1.com", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 		String expected = "42";
 		mockResponseBody(expected, MediaType.TEXT_PLAIN);
@@ -589,7 +589,7 @@ public class RestTemplateTests {
 		HttpHeaders entityHeaders = new HttpHeaders();
 		entityHeaders.set("MyHeader", "MyValue");
 		HttpEntity<String> entity = new HttpEntity<>("Hello World", entityHeaders);
-		ResponseEntity<String> result = template.exchange("https://example.com", POST, entity, String.class);
+		ResponseEntity<String> result = template.exchange("https://example1.com", POST, entity, String.class);
 		assertThat(result.getBody()).as("Invalid POST result").isEqualTo(expected);
 		assertThat(result.getHeaders().getContentType()).as("Invalid Content-Type").isEqualTo(MediaType.TEXT_PLAIN);
 		assertThat(requestHeaders.getFirst("Accept")).as("Invalid Accept header").isEqualTo(MediaType.TEXT_PLAIN_VALUE);
@@ -610,7 +610,7 @@ public class RestTemplateTests {
 		given(converter.canWrite(String.class, String.class, null)).willReturn(true);
 
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(POST, "https://example.com", requestHeaders);
+		mockSentRequest(POST, "https://example1.com", requestHeaders);
 		List<Integer> expected = Collections.singletonList(42);
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.setContentType(MediaType.TEXT_PLAIN);
@@ -624,7 +624,7 @@ public class RestTemplateTests {
 		HttpHeaders entityHeaders = new HttpHeaders();
 		entityHeaders.set("MyHeader", "MyValue");
 		HttpEntity<String> requestEntity = new HttpEntity<>("Hello World", entityHeaders);
-		ResponseEntity<List<Integer>> result = template.exchange("https://example.com", POST, requestEntity, intList);
+		ResponseEntity<List<Integer>> result = template.exchange("https://example1.com", POST, requestEntity, intList);
 		assertThat(result.getBody()).as("Invalid POST result").isEqualTo(expected);
 		assertThat(result.getHeaders().getContentType()).as("Invalid Content-Type").isEqualTo(MediaType.TEXT_PLAIN);
 		assertThat(requestHeaders.getFirst("Accept")).as("Invalid Accept header").isEqualTo(MediaType.TEXT_PLAIN_VALUE);
@@ -643,13 +643,13 @@ public class RestTemplateTests {
 		template.setInterceptors(Collections.singletonList(interceptor));
 
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(POST, "https://example.com", requestHeaders);
+		mockSentRequest(POST, "https://example1.com", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 
 		HttpHeaders entityHeaders = new HttpHeaders();
 		entityHeaders.add("MyHeader", "MyEntityValue");
 		HttpEntity<Void> entity = new HttpEntity<>(null, entityHeaders);
-		template.exchange("https://example.com", POST, entity, Void.class);
+		template.exchange("https://example1.com", POST, entity, Void.class);
 		assertThat(requestHeaders.get("MyHeader")).contains("MyEntityValue", "MyInterceptorValue");
 
 		verify(response).close();
@@ -666,14 +666,14 @@ public class RestTemplateTests {
 		MediaType contentType = MediaType.TEXT_PLAIN;
 		given(converter.canWrite(String.class, contentType)).willReturn(true);
 		HttpHeaders requestHeaders = new HttpHeaders();
-		mockSentRequest(POST, "https://example.com", requestHeaders);
+		mockSentRequest(POST, "https://example1.com", requestHeaders);
 		mockResponseStatus(HttpStatus.OK);
 
 		HttpHeaders entityHeaders = new HttpHeaders();
 		entityHeaders.setContentType(contentType);
 		entityHeaders.add("MyHeader", "MyEntityValue");
 		HttpEntity<String> entity = new HttpEntity<>("Hello World", entityHeaders);
-		template.exchange("https://example.com", POST, entity, Void.class);
+		template.exchange("https://example1.com", POST, entity, Void.class);
 		assertThat(requestHeaders.get("MyHeader")).contains("MyEntityValue", "MyInterceptorValue");
 
 		verify(response).close();

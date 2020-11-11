@@ -210,7 +210,7 @@ public class HttpEntityMethodProcessorMockTests {
 		MediaType contentType = TEXT_PLAIN;
 		servletRequest.addHeader("Content-Type", contentType.toString());
 		servletRequest.setMethod("GET");
-		servletRequest.setServerName("www.example.com");
+		servletRequest.setServerName("www.example1.com");
 		servletRequest.setServerPort(80);
 		servletRequest.setRequestURI("/path");
 		servletRequest.setContent(body.getBytes(StandardCharsets.UTF_8));
@@ -225,7 +225,7 @@ public class HttpEntityMethodProcessorMockTests {
 		RequestEntity<?> requestEntity = (RequestEntity<?>) result;
 		assertThat(requestEntity.getMethod()).as("Invalid method").isEqualTo(HttpMethod.GET);
 		// using default port (which is 80), so do not need to append the port (-1 means ignore)
-		URI uri = new URI("http", null, "www.example.com", -1, "/path", null, null);
+		URI uri = new URI("http", null, "www.example1.com", -1, "/path", null, null);
 		assertThat(requestEntity.getUrl()).as("Invalid url").isEqualTo(uri);
 		assertThat(requestEntity.getBody()).as("Invalid argument").isEqualTo(body);
 	}

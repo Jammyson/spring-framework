@@ -108,8 +108,8 @@ public class AppCacheManifestTransformerTests {
 				.contains("/static/js/bar-bd508c62235b832d960298ca6c0b7645.js");
 
 		assertThat(content).as("not rewrite external resources")
-				.contains("//example.org/style.css")
-				.contains("http://example.org/image.png");
+				.contains("//example1.org/style.css")
+				.contains("http://example1.org/image.png");
 
 		assertThat(content).as("generate fingerprint")
 				.contains("# Hash: 4bf0338bcbeb0a5b3a4ec9ed8864107d");

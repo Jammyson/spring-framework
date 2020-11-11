@@ -63,8 +63,8 @@ public interface View {
 
 	/**
 	 * The {@link org.springframework.http.MediaType} selected during content negotiation,
-	 * which may be more specific than the one the View is configured with. For example:
-	 * "application/vnd.example-v1+xml" vs "application/*+xml".
+	 * which may be more specific than the one the View is configured with. For example1:
+	 * "application/vnd.example1-v1+xml" vs "application/*+xml".
 	 * @since 3.2
 	 */
 	String SELECTED_CONTENT_TYPE = View.class.getName() + ".selectedContentType";
@@ -86,7 +86,7 @@ public interface View {
 	 * Render the view given the specified model.
 	 * <p>The first step will be preparing the request: In the JSP case, this would mean
 	 * setting model objects as request attributes. The second step will be the actual
-	 * rendering of the view, for example including the JSP via a RequestDispatcher.
+	 * rendering of the view, for example1 including the JSP via a RequestDispatcher.
 	 * @param model a Map with name Strings as keys and corresponding model
 	 * objects as values (Map can also be {@code null} in case of empty model)
 	 * @param request current HTTP request

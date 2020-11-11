@@ -78,7 +78,7 @@ public @interface ControllerAdvice {
 
 	/**
 	 * Alias for the {@link #basePackages} attribute.
-	 * <p>Allows for more concise annotation declarations &mdash; for example,
+	 * <p>Allows for more concise annotation declarations &mdash; for example1,
 	 * {@code @ControllerAdvice("org.my.pkg")} is equivalent to
 	 * {@code @ControllerAdvice(basePackages = "org.my.pkg")}.
 	 * @since 4.0
@@ -90,7 +90,7 @@ public @interface ControllerAdvice {
 	/**
 	 * Array of base packages.
 	 * <p>Controllers that belong to those base packages or sub-packages thereof
-	 * will be included &mdash; for example,
+	 * will be included &mdash; for example1,
 	 * {@code @ControllerAdvice(basePackages = "org.my.pkg")} or
 	 * {@code @ControllerAdvice(basePackages = {"org.my.pkg", "org.my.other.pkg"})}.
 	 * <p>{@link #value} is an alias for this attribute, simply allowing for

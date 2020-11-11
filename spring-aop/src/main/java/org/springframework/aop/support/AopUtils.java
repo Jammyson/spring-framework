@@ -34,6 +34,7 @@ import org.springframework.aop.Pointcut;
 import org.springframework.aop.PointcutAdvisor;
 import org.springframework.aop.SpringProxy;
 import org.springframework.aop.TargetClassAware;
+import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.core.BridgeMethodResolver;
 import org.springframework.core.MethodIntrospector;
 import org.springframework.lang.Nullable;
@@ -215,18 +216,29 @@ public abstract class AopUtils {
 	 * Can the given pointcut apply at all on the given class?
 	 * <p>This is an important test as it can be used to optimize
 	 * out a pointcut for a class.
-	 * @param pc the static or dynamic pointcut to check
-	 * @param targetClass the class to test
-	 * @param hasIntroductions whether or not the advisor chain
-	 * for this bean includes any introductions
-	 * @return whether the pointcut can apply on any method
+	 * <trans>
+	 *     判断给定的class是否能够匹配上Pointcut.对于注解式AOP来说targetClass是否能够匹配上
+	 * 	   PointCut有两个条件：
+	 * 	   1、class能够匹配的上Expression
+	 * 	   2、class中存在能够匹配的上Expression的方法(前类、父类、所有接口)
+	 * </trans>
 	 */
 	public static boolean canApply(Pointcut pc, Class<?> targetClass, boolean hasIntroductions) {
 		Assert.notNull(pc, "Pointcut must not be null");
+
+		/**
+		 * 若PointCut的classFilter不能够匹配上targetClass,返回false
+		 * 注解式AOP的ClassFilter实现见{@link AspectJExpressionPointcut#matches(java.lang.Class)}
+		 */
 		if (!pc.getClassFilter().matches(targetClass)) {
 			return false;
 		}
 
+		/**
+		 * 匹配class中是否包含能够匹配上PointcutExpression中定义的需要进行AOP的方法
+		 * execution (* com.deepexi.bridge.ci.domain.Builder.*(..))
+		 * 注解式AOP的MethodMatcher见{@link AspectJExpressionPointcut#matches(java.lang.reflect.Method, java.lang.Class)}
+		 */
 		MethodMatcher methodMatcher = pc.getMethodMatcher();
 		if (methodMatcher == MethodMatcher.TRUE) {
 			// No need to iterate the methods if we're matching any method anyway...
@@ -238,6 +250,7 @@ public abstract class AopUtils {
 			introductionAwareMethodMatcher = (IntroductionAwareMethodMatcher) methodMatcher;
 		}
 
+		// 记录targetClass的原targetClass以及实现的所有接口的class
 		Set<Class<?>> classes = new LinkedHashSet<>();
 		if (!Proxy.isProxyClass(targetClass)) {
 			classes.add(ClassUtils.getUserClass(targetClass));
@@ -245,6 +258,7 @@ public abstract class AopUtils {
 		classes.addAll(ClassUtils.getAllInterfacesForClassAsSet(targetClass));
 
 		for (Class<?> clazz : classes) {
+			// 获取clazz的所有方法以及所有父类class中的方法
 			Method[] methods = ReflectionUtils.getAllDeclaredMethods(clazz);
 			for (Method method : methods) {
 				if (introductionAwareMethodMatcher != null ?
@@ -271,14 +285,12 @@ public abstract class AopUtils {
 	}
 
 	/**
-	 * Can the given advisor apply at all on the given class?
-	 * <p>This is an important test as it can be used to optimize out a advisor for a class.
-	 * This version also takes into account introductions (for IntroductionAwareMethodMatchers).
-	 * @param advisor the advisor to check
-	 * @param targetClass class we're testing
-	 * @param hasIntroductions whether or not the advisor chain for this bean includes
-	 * any introductions
-	 * @return whether the pointcut can apply on any method
+	 * <trans>
+	 * 	  判断给定的class是否能够匹配上advisor作用的Pointcut.对于注解式AOP来说targetClass是否能够匹配上
+	 * 	  PointCut有两个条件：
+	 * 	  1、class能够匹配的上Expression
+	 * 	  2、class中存在能够匹配的上Expression的方法(前类、父类、所有接口)
+	 *  </trans>
 	 */
 	public static boolean canApply(Advisor advisor, Class<?> targetClass, boolean hasIntroductions) {
 		if (advisor instanceof IntroductionAdvisor) {
@@ -286,6 +298,14 @@ public abstract class AopUtils {
 		}
 		else if (advisor instanceof PointcutAdvisor) {
 			PointcutAdvisor pca = (PointcutAdvisor) advisor;
+			/**
+			 * <trans>
+			 * 	  判断给定的class是否能够匹配上Pointcut.对于注解式AOP来说targetClass是否能够匹配上
+			 * 	  PointCut有两个条件：
+			 * 	  1、class能够匹配的上Expression
+			 * 	  2、class中存在能够匹配的上Expression的方法(前类、父类、所有接口)
+			 *  </trans>
+			 */
 			return canApply(pca.getPointcut(), targetClass, hasIntroductions);
 		}
 		else {
@@ -297,31 +317,44 @@ public abstract class AopUtils {
 	/**
 	 * Determine the sublist of the {@code candidateAdvisors} list
 	 * that is applicable to the given class.
-	 * @param candidateAdvisors the Advisors to evaluate
-	 * @param clazz the target class
-	 * @return sublist of Advisors that can apply to an object of the given class
-	 * (may be the incoming List as-is)
+	 * 筛选给定的Advisor,选取能够作用到给定class上的Advisor.
+	 * 如果没有的话则返回传入的candidateAdvisors
 	 */
 	public static List<Advisor> findAdvisorsThatCanApply(List<Advisor> candidateAdvisors, Class<?> clazz) {
 		if (candidateAdvisors.isEmpty()) {
 			return candidateAdvisors;
 		}
+
+		// 记录能够作用到clazz上的Advisor
 		List<Advisor> eligibleAdvisors = new ArrayList<>();
 		for (Advisor candidate : candidateAdvisors) {
 			if (candidate instanceof IntroductionAdvisor && canApply(candidate, clazz)) {
 				eligibleAdvisors.add(candidate);
 			}
 		}
+
 		boolean hasIntroductions = !eligibleAdvisors.isEmpty();
+
+		// 判断其它类型的Advisor
 		for (Advisor candidate : candidateAdvisors) {
+			// IntroductionAdvisor直接跳过
 			if (candidate instanceof IntroductionAdvisor) {
 				// already processed
 				continue;
 			}
+
+			/**
+			 * 	判断给定的class是否能够匹配上advisor作用的Pointcut.对于注解式AOP来说targetClass是否能够匹配上
+			 * 	PointCut有两个条件：
+			 * 	  1、class能够匹配的上Expression
+			 * 	  2、class中存在能够匹配的上Expression的方法(前类、父类、所有接口)
+			 */
 			if (canApply(candidate, clazz, hasIntroductions)) {
+				// 记录能够作用到clazz上的Advisor
 				eligibleAdvisors.add(candidate);
 			}
 		}
+
 		return eligibleAdvisors;
 	}
 

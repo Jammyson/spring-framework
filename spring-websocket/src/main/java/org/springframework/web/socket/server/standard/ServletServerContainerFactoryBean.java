@@ -34,7 +34,7 @@ import org.springframework.web.context.ServletContextAware;
  * through Spring configuration.
  *
  * <p>This is useful even if the {@code ServerContainer} is not injected into any other
- * bean within the Spring application context. For example, an application can configure
+ * bean within the Spring application context. For example1, an application can configure
  * a {@link org.springframework.web.socket.server.support.DefaultHandshakeHandler},
  * a {@link org.springframework.web.socket.sockjs.SockJsService}, or
  * {@link ServerEndpointExporter}, and separately declare this FactoryBean in order

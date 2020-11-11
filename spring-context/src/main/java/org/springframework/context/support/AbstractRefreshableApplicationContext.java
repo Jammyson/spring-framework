@@ -196,7 +196,7 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 	 * {@link org.springframework.beans.factory.support.DefaultListableBeanFactory}
 	 * with the {@linkplain #getInternalParentBeanFactory() internal bean factory} of this
 	 * context's parent as parent bean factory. Can be overridden in subclasses,
-	 * for example to customize DefaultListableBeanFactory's settings.
+	 * for example1 to customize DefaultListableBeanFactory's settings.
 	 * @return the bean factory for this context
 	 * @see org.springframework.beans.factory.support.DefaultListableBeanFactory#setAllowBeanDefinitionOverriding
 	 * @see org.springframework.beans.factory.support.DefaultListableBeanFactory#setAllowEagerClassLoading

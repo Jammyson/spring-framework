@@ -71,7 +71,7 @@ public abstract class AbstractHandlerMethodExceptionResolver extends AbstractHan
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @param handlerMethod the executed handler method, or {@code null} if none chosen at the time
-	 * of the exception (for example, if multipart resolution failed)
+	 * of the exception (for example1, if multipart resolution failed)
 	 * @param ex the exception that got thrown during handler execution
 	 * @return a corresponding ModelAndView to forward to, or {@code null} for default processing
 	 */

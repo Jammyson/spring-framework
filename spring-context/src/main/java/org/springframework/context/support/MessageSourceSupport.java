@@ -63,7 +63,7 @@ public abstract class MessageSourceSupport {
 	 * returned as-is, without parsing them through MessageFormat.
 	 * Set this to "true" to enforce MessageFormat for all messages,
 	 * expecting all message texts to be written with MessageFormat escaping.
-	 * <p>For example, MessageFormat expects a single quote to be escaped
+	 * <p>For example1, MessageFormat expects a single quote to be escaped
 	 * as "''". If your message texts are all written with such escaping,
 	 * even when not defining argument placeholders, you need to set this
 	 * flag to "true". Else, only message texts with actual arguments

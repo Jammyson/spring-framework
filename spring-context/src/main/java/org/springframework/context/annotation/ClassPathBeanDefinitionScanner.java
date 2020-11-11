@@ -39,6 +39,9 @@ import org.springframework.util.PatternMatchUtils;
  * A bean definition scanner that detects bean candidates on the classpath,
  * registering corresponding bean definitions with a given registry ({@code BeanFactory}
  * or {@code ApplicationContext}).
+ * <Trans>
+ *     寻找classpath中的候选Bean的BD扫描器，并生成BD注册到给定的BeanFactory中
+ * </Trans>
  *
  * <p>Candidate classes are detected through configurable type filters. The
  * default filters include classes that are annotated with Spring's
@@ -46,6 +49,10 @@ import org.springframework.util.PatternMatchUtils;
  * {@link org.springframework.stereotype.Repository @Repository},
  * {@link org.springframework.stereotype.Service @Service}, or
  * {@link org.springframework.stereotype.Controller @Controller} stereotype.
+ *  <Trans>
+ *      Spring基于配置的type filters来寻找候选Bean，默认情况下内置的type filters能够拦截到
+ *      使用@Component、@Repository、@Service和@Controller注解标注的类。
+ *  </Trans>
  *
  * <p>Also supports Java EE 6's {@link javax.annotation.ManagedBean} and
  * JSR-330's {@link javax.inject.Named} annotations, if available.
@@ -162,13 +169,19 @@ public class ClassPathBeanDefinitionScanner extends ClassPathScanningCandidateCo
 		Assert.notNull(registry, "BeanDefinitionRegistry must not be null");
 		this.registry = registry;
 
+		/**
+		 * <note>
+		 *    使用默认的Filter进行类扫描 - 策略为将@Component以及所有以@Component作为元注解标注的class
+		 *    作为候选Bean
+		 * </note>
+		 */
 		if (useDefaultFilters) {
 			registerDefaultFilters();
 		}
+
 		setEnvironment(environment);
 		setResourceLoader(resourceLoader);
 	}
-
 
 	/**
 	 * Return the BeanDefinitionRegistry that this scanner operates on.
@@ -251,6 +264,7 @@ public class ClassPathBeanDefinitionScanner extends ClassPathScanningCandidateCo
 	public int scan(String... basePackages) {
 		int beanCountAtScanStart = this.registry.getBeanDefinitionCount();
 
+		// 执行扫描
 		doScan(basePackages);
 
 		// Register annotation config processors, if necessary.
@@ -264,35 +278,50 @@ public class ClassPathBeanDefinitionScanner extends ClassPathScanningCandidateCo
 	/**
 	 * Perform a scan within the specified base packages,
 	 * returning the registered bean definitions.
+	 * <trans>
+	 *     对给定的package执行扫描并构建和配置BD，然后将处理完毕的BD注册到BeanFactory中去.
+	 * </trans>
+	 *
 	 * <p>This method does <i>not</i> register an annotation config processor
 	 * but rather leaves this up to the caller.
+	 *
 	 * @param basePackages the packages to check for annotated classes
 	 * @return set of beans registered if any for tooling registration purposes (never {@code null})
 	 */
 	protected Set<BeanDefinitionHolder> doScan(String... basePackages) {
 		Assert.notEmpty(basePackages, "At least one base package must be specified");
+		// 记录创建完毕的BD
 		Set<BeanDefinitionHolder> beanDefinitions = new LinkedHashSet<>();
+
 		for (String basePackage : basePackages) {
+			// 扫描并构建BD
 			Set<BeanDefinition> candidates = findCandidateComponents(basePackage);
+			// 对扫描获取到的BD进行后置配置
 			for (BeanDefinition candidate : candidates) {
 				ScopeMetadata scopeMetadata = this.scopeMetadataResolver.resolveScopeMetadata(candidate);
 				candidate.setScope(scopeMetadata.getScopeName());
 				String beanName = this.beanNameGenerator.generateBeanName(candidate, this.registry);
 				if (candidate instanceof AbstractBeanDefinition) {
+					// 设置默认的Bean配置
 					postProcessBeanDefinition((AbstractBeanDefinition) candidate, beanName);
 				}
 				if (candidate instanceof AnnotatedBeanDefinition) {
+					// 通用注解的处理
 					AnnotationConfigUtils.processCommonDefinitionAnnotations((AnnotatedBeanDefinition) candidate);
 				}
+
+				// 判断BD是否已被加载过，如果没有则放到BeanFactory中去
 				if (checkCandidate(beanName, candidate)) {
 					BeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(candidate, beanName);
-					definitionHolder =
-							AnnotationConfigUtils.applyScopedProxyMode(scopeMetadata, definitionHolder, this.registry);
+					// 设置代理策略
+					definitionHolder = AnnotationConfigUtils.applyScopedProxyMode(scopeMetadata, definitionHolder, this.registry);
 					beanDefinitions.add(definitionHolder);
+					// 将BD放入BeanFactory中
 					registerBeanDefinition(definitionHolder, this.registry);
 				}
 			}
 		}
+
 		return beanDefinitions;
 	}
 
@@ -303,8 +332,10 @@ public class ClassPathBeanDefinitionScanner extends ClassPathScanningCandidateCo
 	 * @param beanName the generated bean name for the given bean
 	 */
 	protected void postProcessBeanDefinition(AbstractBeanDefinition beanDefinition, String beanName) {
+		// 设置Bean的默认配置
 		beanDefinition.applyDefaults(this.beanDefinitionDefaults);
 		if (this.autowireCandidatePatterns != null) {
+			// 设置Bean的默认自动注入策略
 			beanDefinition.setAutowireCandidate(PatternMatchUtils.simpleMatch(this.autowireCandidatePatterns, beanName));
 		}
 	}

@@ -65,7 +65,7 @@ public interface TransactionSynchronization extends Flushable {
 
 	/**
 	 * Flush the underlying session to the datastore, if applicable:
-	 * for example, a Hibernate/JPA session.
+	 * for example1, a Hibernate/JPA session.
 	 * @see org.springframework.transaction.TransactionStatus#flush()
 	 */
 	@Override

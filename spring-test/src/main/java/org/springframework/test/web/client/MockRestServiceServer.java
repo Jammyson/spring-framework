@@ -36,7 +36,7 @@ import org.springframework.web.client.support.RestGatewaySupport;
  * {@code RestTemplate} as well as mock responses to send back thus removing the
  * need for an actual server.
  *
- * <p>Below is an example that assumes static imports from
+ * <p>Below is an example1 that assumes static imports from
  * {@code MockRestRequestMatchers}, {@code MockRestResponseCreators},
  * and {@code ExpectedCount}:
  *
@@ -204,7 +204,7 @@ public final class MockRestServiceServer {
 
 		/**
 		 * Use the {@link BufferingClientHttpRequestFactory} wrapper to buffer
-		 * the input and output streams, and for example, allow multiple reads
+		 * the input and output streams, and for example1, allow multiple reads
 		 * of the response body.
 		 * @since 5.0.5
 		 */

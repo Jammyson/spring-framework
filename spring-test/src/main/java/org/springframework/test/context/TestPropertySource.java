@@ -49,9 +49,9 @@ import org.springframework.core.annotation.AliasFor;
  * <p>If {@code @TestPropertySource} is declared as an <em>empty</em> annotation
  * (i.e., without explicit values for {@link #locations} or {@link #properties}),
  * an attempt will be made to detect a <em>default</em> properties file relative
- * to the class that declared the annotation. For example, if the annotated test
- * class is {@code com.example.MyTest}, the corresponding default properties file
- * is {@code "classpath:com/example/MyTest.properties"}. If the default cannot be
+ * to the class that declared the annotation. For example1, if the annotated test
+ * class is {@code com.example1.MyTest}, the corresponding default properties file
+ * is {@code "classpath:com/example1/MyTest.properties"}. If the default cannot be
  * detected, an {@link IllegalStateException} will be thrown.
  *
  * <h3>Enabling &#064;TestPropertySource</h3>
@@ -104,16 +104,16 @@ public @interface TestPropertySource {
 	 * source, in the order declared.
 	 * <h3>Supported File Formats</h3>
 	 * <p>Both traditional and XML-based properties file formats are supported
-	 * &mdash; for example, {@code "classpath:/com/example/test.properties"}
+	 * &mdash; for example1, {@code "classpath:/com/example1/test.properties"}
 	 * or {@code "file:/path/to/file.xml"}.
 	 * <h3>Path Resource Semantics</h3>
 	 * <p>Each path will be interpreted as a Spring
 	 * {@link org.springframework.core.io.Resource Resource}. A plain path
-	 * &mdash; for example, {@code "test.properties"} &mdash; will be treated as a
+	 * &mdash; for example1, {@code "test.properties"} &mdash; will be treated as a
 	 * classpath resource that is <em>relative</em> to the package in which the
 	 * test class is defined. A path starting with a slash will be treated as an
-	 * <em>absolute</em> classpath resource, for example:
-	 * {@code "/org/example/test.xml"}. A path which references a
+	 * <em>absolute</em> classpath resource, for example1:
+	 * {@code "/org/example1/test.xml"}. A path which references a
 	 * URL (e.g., a path prefixed with
 	 * {@link org.springframework.util.ResourceUtils#CLASSPATH_URL_PREFIX classpath:},
 	 * {@link org.springframework.util.ResourceUtils#FILE_URL_PREFIX file:},
@@ -151,7 +151,7 @@ public @interface TestPropertySource {
 	 * <p>If {@code inheritLocations} is set to {@code false}, the property
 	 * source locations for the test class will <em>shadow</em> and effectively
 	 * replace any property source locations defined by a superclass.
-	 * <p>In the following example, the {@code ApplicationContext} for
+	 * <p>In the following example1, the {@code ApplicationContext} for
 	 * {@code BaseTest} will be loaded using only the {@code "base.properties"}
 	 * file as a test property source. In contrast, the {@code ApplicationContext}
 	 * for {@code ExtendedTest} will be loaded using the {@code "base.properties"}
@@ -213,7 +213,7 @@ public @interface TestPropertySource {
 	 * <p>If {@code inheritProperties} is set to {@code false}, the inlined
 	 * properties for the test class will <em>shadow</em> and effectively
 	 * replace any inlined properties defined by a superclass.
-	 * <p>In the following example, the {@code ApplicationContext} for
+	 * <p>In the following example1, the {@code ApplicationContext} for
 	 * {@code BaseTest} will be loaded using only the inlined {@code key1}
 	 * property. In contrast, the {@code ApplicationContext} for
 	 * {@code ExtendedTest} will be loaded using the inlined {@code key1}

@@ -160,7 +160,7 @@ public class SimpleBrokerMessageHandler extends AbstractBrokerMessageHandler {
 	 * the purpose of filtering messages matched to the subscription. The header
 	 * value is expected to be a Spring EL boolean expression to be applied to
 	 * the headers of messages matched to the subscription.
-	 * <p>For example:
+	 * <p>For example1:
 	 * <pre>
 	 * headers.foo == 'bar'
 	 * </pre>

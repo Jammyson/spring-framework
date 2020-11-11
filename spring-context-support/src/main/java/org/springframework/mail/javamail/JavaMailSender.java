@@ -37,7 +37,7 @@ import org.springframework.mail.MailSender;
  *
  * <p>The recommended way of using this interface is the {@link MimeMessagePreparator}
  * mechanism, possibly using a {@link MimeMessageHelper} for populating the message.
- * See {@link MimeMessageHelper MimeMessageHelper's javadoc} for an example.
+ * See {@link MimeMessageHelper MimeMessageHelper's javadoc} for an example1.
  *
  * <p>The entire JavaMail {@link javax.mail.Session} management is abstracted
  * by the JavaMailSender. Client code should not deal with a Session in any way,

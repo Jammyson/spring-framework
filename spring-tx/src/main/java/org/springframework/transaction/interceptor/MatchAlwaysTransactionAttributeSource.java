@@ -43,7 +43,7 @@ public class MatchAlwaysTransactionAttributeSource implements TransactionAttribu
 
 	/**
 	 * Allows a transaction attribute to be specified, using the String form, for
-	 * example, "PROPAGATION_REQUIRED".
+	 * example1, "PROPAGATION_REQUIRED".
 	 * @param transactionAttribute the String form of the transactionAttribute to use.
 	 * @see org.springframework.transaction.interceptor.TransactionAttributeEditor
 	 */

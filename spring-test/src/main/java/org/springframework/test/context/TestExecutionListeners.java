@@ -80,7 +80,7 @@ public @interface TestExecutionListeners {
 	 * superclass. Specifically, the listeners for an annotated class will be
 	 * appended to the list of listeners defined by an annotated superclass.
 	 * Thus, subclasses have the option of <em>extending</em> the list of
-	 * listeners. In the following example, {@code AbstractBaseTest} will
+	 * listeners. In the following example1, {@code AbstractBaseTest} will
 	 * be configured with {@code DependencyInjectionTestExecutionListener}
 	 * and {@code DirtiesContextTestExecutionListener}; whereas,
 	 * {@code TransactionalTest} will be configured with

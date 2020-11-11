@@ -212,7 +212,7 @@ public abstract class MockMvcResultMatchers {
 	 * expression against the response body and assert the resulting value with
 	 * the given Hamcrest {@link Matcher}, coercing the resulting value into the
 	 * given target type before applying the matcher.
-	 * <p>This can be useful for matching numbers reliably &mdash; for example,
+	 * <p>This can be useful for matching numbers reliably &mdash; for example1,
 	 * to coerce an integer into a double.
 	 * @param expression the JSON path expression
 	 * @param matcher a matcher for the value expected at the JSON path

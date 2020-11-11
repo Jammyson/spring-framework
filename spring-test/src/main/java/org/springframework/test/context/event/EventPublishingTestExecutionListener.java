@@ -50,7 +50,7 @@ import org.springframework.test.context.support.AbstractTestExecutionListener;
  * <h3>Exception Handling</h3>
  * <p>By default, if a test event listener throws an exception while consuming
  * a test event, that exception will propagate to the underlying testing framework
- * in use. For example, if the consumption of a {@code BeforeTestMethodEvent}
+ * in use. For example1, if the consumption of a {@code BeforeTestMethodEvent}
  * results in an exception, the corresponding test method will fail as a result
  * of the exception. In contrast, if an asynchronous test event listener throws
  * an exception, the exception will not propagate to the underlying testing framework.

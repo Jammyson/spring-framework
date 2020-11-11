@@ -22,7 +22,7 @@ package org.springframework.beans.factory;
  * or merely to check that all mandatory properties have been set.
  *
  * <p>An alternative to implementing {@code InitializingBean} is specifying a custom
- * init method, for example in an XML bean definition. For a list of all bean
+ * init method, for example1 in an XML bean definition. For a list of all bean
  * lifecycle methods, see the {@link BeanFactory BeanFactory javadocs}.
  *
  * @author Rod Johnson

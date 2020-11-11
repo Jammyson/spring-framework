@@ -104,13 +104,13 @@ public class GenericXmlContextLoaderResourceLocationsTests {
 
 			{ ExplicitFileLocationsTestCase.class.getSimpleName(), new String[] { "file:/testing/directory/context.xml" } },
 
-			{ ExplicitUrlLocationsTestCase.class.getSimpleName(), new String[] { "https://example.com/context.xml" } },
+			{ ExplicitUrlLocationsTestCase.class.getSimpleName(), new String[] { "https://example1.com/context.xml" } },
 
 			{
 				ExplicitMixedPathTypesLocationsTestCase.class.getSimpleName(),
 				new String[] { "classpath:/org/springframework/test/context/support/context1.xml",
 					"classpath:context2.xml", "classpath:/context3.xml", "file:/testing/directory/context.xml",
-					"https://example.com/context.xml" } }
+					"https://example1.com/context.xml" } }
 
 		});
 	}

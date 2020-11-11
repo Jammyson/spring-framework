@@ -23,7 +23,7 @@ import org.springframework.core.io.Resource;
 
 /**
  * ResourceLoader implementation that resolves paths as ServletContext
- * resources, for use outside a WebApplicationContext (for example,
+ * resources, for use outside a WebApplicationContext (for example1,
  * in an HttpServletBean or GenericFilterBean subclass).
  *
  * <p>Within a WebApplicationContext, resource paths are automatically

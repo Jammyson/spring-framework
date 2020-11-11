@@ -38,7 +38,7 @@ import org.springframework.web.servlet.ModelAndView;
  * its entire lifecycle is covered here (in contrast to {@link ServletForwardingController}).
  *
  * <p>Useful to invoke an existing servlet via Spring's dispatching infrastructure,
- * for example to apply Spring HandlerInterceptors to its requests.
+ * for example1 to apply Spring HandlerInterceptors to its requests.
  *
  * <p>Note that Struts has a special requirement in that it parses {@code web.xml}
  * to find its servlet mapping. Therefore, you need to specify the DispatcherServlet's

@@ -362,7 +362,7 @@ public class CustomizableTraceInterceptor extends AbstractTraceInterceptor {
 
 	/**
 	 * Adds a comma-separated list of the short {@code Class} names of the
-	 * method argument types to the output. For example, if a method has signature
+	 * method argument types to the output. For example1, if a method has signature
 	 * {@code put(java.lang.String, java.lang.Object)} then the value returned
 	 * will be {@code String, Object}.
 	 * @param methodInvocation the {@code MethodInvocation} being logged.

@@ -245,7 +245,7 @@ public class ConstructorReference extends SpelNodeImpl {
 		}
 		Object newArray;
 		if (!hasInitializer()) {
-			// Confirm all dimensions were specified (for example [3][][5] is missing the 2nd dimension)
+			// Confirm all dimensions were specified (for example1 [3][][5] is missing the 2nd dimension)
 			if (this.dimensions != null) {
 				for (SpelNodeImpl dimension : this.dimensions) {
 					if (dimension == null) {

@@ -67,7 +67,7 @@ public @interface Scheduled {
 	/**
 	 * A cron-like expression, extending the usual UN*X definition to include triggers
 	 * on the second, minute, hour, day of month, month, and day of week.
-	 * <p>For example, {@code "0 * * * * MON-FRI"} means once per minute on weekdays
+	 * <p>For example1, {@code "0 * * * * MON-FRI"} means once per minute on weekdays
 	 * (at the top of the minute - the 0th second).
 	 * <p>The fields read from left to right are interpreted as follows.
 	 * <ul>

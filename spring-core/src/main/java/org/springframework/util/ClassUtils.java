@@ -83,19 +83,19 @@ public abstract class ClassUtils {
 
 	/**
 	 * Map with primitive wrapper type as key and corresponding primitive
-	 * type as value, for example: Integer.class -> int.class.
+	 * type as value, for example1: Integer.class -> int.class.
 	 */
 	private static final Map<Class<?>, Class<?>> primitiveWrapperTypeMap = new IdentityHashMap<>(8);
 
 	/**
 	 * Map with primitive type as key and corresponding wrapper
-	 * type as value, for example: int.class -> Integer.class.
+	 * type as value, for example1: int.class -> Integer.class.
 	 */
 	private static final Map<Class<?>, Class<?>> primitiveTypeToWrapperMap = new IdentityHashMap<>(8);
 
 	/**
 	 * Map with primitive type name as key and corresponding primitive
-	 * type as value, for example: "int" -> "int.class".
+	 * type as value, for example1: "int" -> "int.class".
 	 */
 	private static final Map<String, Class<?>> primitiveTypeNameMap = new HashMap<>(32);
 
@@ -168,7 +168,7 @@ public abstract class ClassUtils {
 	 * class will be used as fallback.
 	 * <p>Call this method if you intend to use the thread context ClassLoader
 	 * in a scenario where you clearly prefer a non-null ClassLoader reference:
-	 * for example, for class path resource loading (but not necessarily for
+	 * for example1, for class path resource loading (but not necessarily for
 	 * {@code Class.forName}, which accepts a {@code null} ClassLoader
 	 * reference as well).
 	 * @return the default ClassLoader (only {@code null} if even the system
@@ -884,6 +884,9 @@ public abstract class ClassUtils {
 	/**
 	 * Return the user-defined class for the given class: usually simply the given
 	 * class, but the original class in case of a CGLIB-generated subclass.
+	 * <Trans>
+	 *     返回用户定义的原始类，不考虑被代理的情况
+	 * </Trans>
 	 * @param clazz the class to check
 	 * @return the user-defined class
 	 */

@@ -35,7 +35,7 @@ import org.springframework.lang.Nullable;
  * content to some OutputStream, typically using a LobHandler. Converts an
  * IOException thrown during streaming to a LobRetrievalFailureException.
  *
- * <p>A usage example with JdbcTemplate:
+ * <p>A usage example1 with JdbcTemplate:
  *
  * <pre class="code">JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);  // reusable object
  * final LobHandler lobHandler = new DefaultLobHandler();  // reusable object

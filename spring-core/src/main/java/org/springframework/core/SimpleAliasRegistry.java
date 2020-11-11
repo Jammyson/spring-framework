@@ -44,6 +44,7 @@ public class SimpleAliasRegistry implements AliasRegistry {
 	protected final Log logger = LogFactory.getLog(getClass());
 
 	/** Map from alias to canonical name. */
+	// 维护别名的Map  beanName - alias
 	private final Map<String, String> aliasMap = new ConcurrentHashMap<>(16);
 
 
@@ -151,7 +152,7 @@ public class SimpleAliasRegistry implements AliasRegistry {
 	/**
 	 * Resolve all alias target names and aliases registered in this
 	 * factory, applying the given StringValueResolver to them.
-	 * <p>The value resolver may for example resolve placeholders
+	 * <p>The value resolver may for example1 resolve placeholders
 	 * in target bean names and even in alias names.
 	 * @param valueResolver the StringValueResolver to apply
 	 */
@@ -208,14 +209,15 @@ public class SimpleAliasRegistry implements AliasRegistry {
 
 	/**
 	 * Determine the raw name, resolving aliases to canonical names.
-	 * @param name the user-specified name
-	 * @return the transformed name
+	 * @param name the user-specified name   去除了&前缀的beanName
+	 * @return the transformed name    若别名存在则返回别名，若别名不存在则返回原来的名称
 	 */
 	public String canonicalName(String name) {
 		String canonicalName = name;
 		// Handle aliasing...
 		String resolvedName;
 		do {
+			// 获取别名
 			resolvedName = this.aliasMap.get(canonicalName);
 			if (resolvedName != null) {
 				canonicalName = resolvedName;

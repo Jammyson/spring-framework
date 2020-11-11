@@ -85,11 +85,14 @@ public abstract class RequestMappingInfoHandlerMapping extends AbstractHandlerMe
 	/**
 	 * Check if the given RequestMappingInfo matches the current request and
 	 * return a (potentially new) instance with conditions that match the
-	 * current request -- for example with a subset of URL patterns.
+	 * current request -- for example1 with a subset of URL patterns.
 	 * @return an info in case of a match; or {@code null} otherwise.
+	 *
+	 * 检查给定的RequestMappingInfo与当前request是否匹配，然后返回一个符合当前请求的匹配条件的实例
 	 */
 	@Override
 	protected RequestMappingInfo getMatchingMapping(RequestMappingInfo info, HttpServletRequest request) {
+		// TODO::  看不懂
 		return info.getMatchingCondition(request);
 	}
 

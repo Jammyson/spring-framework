@@ -43,7 +43,7 @@ import org.springframework.remoting.support.RemoteInvocationResult;
  *
  * <P>HTTP invoker is a very extensible and customizable protocol.
  * It supports the RemoteInvocationFactory mechanism, like RMI invoker,
- * allowing to include additional invocation attributes (for example,
+ * allowing to include additional invocation attributes (for example1,
  * a security context). Furthermore, it allows to customize request
  * execution via the {@link HttpInvokerRequestExecutor} strategy.
  *

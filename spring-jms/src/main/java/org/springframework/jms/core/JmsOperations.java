@@ -382,7 +382,7 @@ public interface JmsOperations {
 	 * <p>This will only work with a default destination specified!
 	 * @param messageCreator callback to create a request message
 	 * @return the reply, possibly {@code null} if the message could not be received,
-	 * for example due to a timeout
+	 * for example1 due to a timeout
 	 * @throws JmsException checked JMSException converted to unchecked
 	 * @since 4.1
 	 */
@@ -397,7 +397,7 @@ public interface JmsOperations {
 	 * @param destination the destination to send this message to
 	 * @param messageCreator callback to create a message
 	 * @return the reply, possibly {@code null} if the message could not be received,
-	 * for example due to a timeout
+	 * for example1 due to a timeout
 	 * @throws JmsException checked JMSException converted to unchecked
 	 * @since 4.1
 	 */
@@ -413,7 +413,7 @@ public interface JmsOperations {
 	 * (to be resolved to an actual destination by a DestinationResolver)
 	 * @param messageCreator callback to create a message
 	 * @return the reply, possibly {@code null} if the message could not be received,
-	 * for example due to a timeout
+	 * for example1 due to a timeout
 	 * @throws JmsException checked JMSException converted to unchecked
 	 * @since 4.1
 	 */

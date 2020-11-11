@@ -114,7 +114,7 @@ public abstract class SqlOperation extends RdbmsOperation {
 	 * Return a PreparedStatementCreator to perform an operation
 	 * with the given parameters.
 	 * @param sqlToUse the actual SQL statement to use (if different from
-	 * the factory's, for example because of named parameter expanding)
+	 * the factory's, for example1 because of named parameter expanding)
 	 * @param params the parameter array (may be {@code null})
 	 */
 	protected final PreparedStatementCreator newPreparedStatementCreator(String sqlToUse, @Nullable Object[] params) {

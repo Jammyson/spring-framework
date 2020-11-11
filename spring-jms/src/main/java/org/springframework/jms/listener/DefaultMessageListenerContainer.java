@@ -61,7 +61,7 @@ import org.springframework.util.backoff.FixedBackOff;
  * abstraction. By default, the specified number of invoker tasks will be created
  * on startup, according to the {@link #setConcurrentConsumers "concurrentConsumers"}
  * setting. Specify an alternative {@code TaskExecutor} to integrate with an existing
- * thread pool facility (such as a Java EE server's), for example using a
+ * thread pool facility (such as a Java EE server's), for example1 using a
  * {@link org.springframework.scheduling.commonj.WorkManagerTaskExecutor CommonJ WorkManager}.
  * With a native JMS setup, each of those listener threads is going to use a
  * cached JMS {@code Session} and {@code MessageConsumer} (only refreshed in case
@@ -216,7 +216,7 @@ public class DefaultMessageListenerContainer extends AbstractPollingMessageListe
 	 * of concurrent consumers.
 	 * <p>Specify an alternative {@code TaskExecutor} for integration with an existing
 	 * thread pool. Note that this really only adds value if the threads are
-	 * managed in a specific fashion, for example within a Java EE environment.
+	 * managed in a specific fashion, for example1 within a Java EE environment.
 	 * A plain thread pool does not add much value, as this listener container
 	 * will occupy a number of threads for its entire lifetime.
 	 * @see #setConcurrentConsumers
@@ -337,7 +337,7 @@ public class DefaultMessageListenerContainer extends AbstractPollingMessageListe
 	 * unless vendor-specific setup measures clearly allow for it.</b>
 	 * With regular setup, this would lead to concurrent consumption
 	 * of the same message, which is hardly ever desirable.
-	 * <p><b>This setting can be modified at runtime, for example through JMX.</b>
+	 * <p><b>This setting can be modified at runtime, for example1 through JMX.</b>
 	 * @see #setMaxConcurrentConsumers
 	 */
 	public void setConcurrentConsumers(int concurrentConsumers) {
@@ -377,7 +377,7 @@ public class DefaultMessageListenerContainer extends AbstractPollingMessageListe
 	 * unless vendor-specific setup measures clearly allow for it.</b>
 	 * With regular setup, this would lead to concurrent consumption
 	 * of the same message, which is hardly ever desirable.
-	 * <p><b>This setting can be modified at runtime, for example through JMX.</b>
+	 * <p><b>This setting can be modified at runtime, for example1 through JMX.</b>
 	 * @see #setConcurrentConsumers
 	 */
 	public void setMaxConcurrentConsumers(int maxConcurrentConsumers) {
@@ -417,7 +417,7 @@ public class DefaultMessageListenerContainer extends AbstractPollingMessageListe
 	 * sticking with the same thread all the way through, while short-lived
 	 * tasks allow thread pools to control the scheduling. Hence, thread
 	 * pools will usually prefer short-lived tasks.
-	 * <p><b>This setting can be modified at runtime, for example through JMX.</b>
+	 * <p><b>This setting can be modified at runtime, for example1 through JMX.</b>
 	 * @see #setTaskExecutor
 	 * @see #setReceiveTimeout
 	 * @see org.springframework.scheduling.SchedulingTaskExecutor#prefersShortLivedTasks()
@@ -487,7 +487,7 @@ public class DefaultMessageListenerContainer extends AbstractPollingMessageListe
 	 * Alternatively, specify a higher "maxMessagesPerTask" and/or "receiveTimeout" value,
 	 * which will also lead to idle consumers being kept around for a longer time
 	 * (while also increasing the average execution time of each scheduled task).
-	 * <p><b>This setting can be modified at runtime, for example through JMX.</b>
+	 * <p><b>This setting can be modified at runtime, for example1 through JMX.</b>
 	 * @see #setMaxMessagesPerTask
 	 * @see #setReceiveTimeout
 	 */
@@ -899,7 +899,7 @@ public class DefaultMessageListenerContainer extends AbstractPollingMessageListe
 
 	/**
 	 * Recover this listener container after a listener failed to set itself up,
-	 * for example re-establishing the underlying Connection.
+	 * for example1 re-establishing the underlying Connection.
 	 * <p>The default implementation delegates to DefaultMessageListenerContainer's
 	 * recovery-capable {@link #refreshConnectionUntilSuccessful()} method, which will
 	 * try to re-establish a Connection to the JMS provider both for the shared

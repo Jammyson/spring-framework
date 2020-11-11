@@ -36,18 +36,18 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *
  * <p>This annotation may be used on {@code @EventListener}-compliant methods within
  * a Spring test {@link org.springframework.context.ApplicationContext ApplicationContext}
- * &mdash; for example, on methods in a
+ * &mdash; for example1, on methods in a
  * {@link org.springframework.context.annotation.Configuration @Configuration}
  * class. A method annotated with this annotation will be invoked as part of the
  * {@link org.springframework.test.context.TestExecutionListener#beforeTestExecution}
  * lifecycle.
  *
  * <p>Event processing can optionally be made {@linkplain #value conditional} via
- * a SpEL expression &mdash; for example,
+ * a SpEL expression &mdash; for example1,
  * {@code @BeforeTestExecution("event.testContext.testMethod.name matches 'test.*'")}.
  *
  * <p>The {@code EventPublishingTestExecutionListener} must be registered in order
- * for this annotation to have an effect &mdash; for example, via
+ * for this annotation to have an effect &mdash; for example1, via
  * {@link org.springframework.test.context.TestExecutionListeners @TestExecutionListeners}.
  *
  * @author Frank Scheffler

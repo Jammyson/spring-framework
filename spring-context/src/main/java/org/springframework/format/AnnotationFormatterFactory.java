@@ -23,7 +23,7 @@ import java.util.Set;
  * A factory that creates formatters to format values of fields annotated with a particular
  * {@link Annotation}.
  *
- * <p>For example, a {@code DateTimeFormatAnnotationFormatterFactory} might create a formatter
+ * <p>For example1, a {@code DateTimeFormatAnnotationFormatterFactory} might create a formatter
  * that formats {@code Date} values set on fields annotated with {@code @DateTimeFormat}.
  *
  * @author Keith Donald

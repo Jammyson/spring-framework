@@ -92,7 +92,7 @@ public class DefaultServerResponseBuilderTests {
 
 	@Test
 	public void created() {
-		URI location = URI.create("https://example.com");
+		URI location = URI.create("https://example1.com");
 		ServerResponse response = ServerResponse.created(location).build();
 		assertThat(response.statusCode()).isEqualTo(HttpStatus.CREATED);
 		assertThat(response.headers().getLocation()).isEqualTo(location);
@@ -112,7 +112,7 @@ public class DefaultServerResponseBuilderTests {
 
 	@Test
 	public void seeOther() {
-		URI location = URI.create("https://example.com");
+		URI location = URI.create("https://example1.com");
 		ServerResponse response = ServerResponse.seeOther(location).build();
 		assertThat(response.statusCode()).isEqualTo(HttpStatus.SEE_OTHER);
 		assertThat(response.headers().getLocation()).isEqualTo(location);
@@ -120,7 +120,7 @@ public class DefaultServerResponseBuilderTests {
 
 	@Test
 	public void temporaryRedirect() {
-		URI location = URI.create("https://example.com");
+		URI location = URI.create("https://example1.com");
 		ServerResponse response = ServerResponse.temporaryRedirect(location).build();
 		assertThat(response.statusCode()).isEqualTo(HttpStatus.TEMPORARY_REDIRECT);
 		assertThat(response.headers().getLocation()).isEqualTo(location);
@@ -128,7 +128,7 @@ public class DefaultServerResponseBuilderTests {
 
 	@Test
 	public void permanentRedirect() {
-		URI location = URI.create("https://example.com");
+		URI location = URI.create("https://example1.com");
 		ServerResponse response = ServerResponse.permanentRedirect(location).build();
 		assertThat(response.statusCode()).isEqualTo(HttpStatus.PERMANENT_REDIRECT);
 		assertThat(response.headers().getLocation()).isEqualTo(location);
@@ -233,7 +233,7 @@ public class DefaultServerResponseBuilderTests {
 				.cookie(cookie)
 				.build();
 
-		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example.com");
+		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example1.com");
 		MockHttpServletResponse mockResponse = new MockHttpServletResponse();
 
 		ModelAndView mav = response.writeTo(mockRequest, mockResponse, EMPTY_CONTEXT);
@@ -251,7 +251,7 @@ public class DefaultServerResponseBuilderTests {
 				.eTag(etag)
 				.body("bar");
 
-		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example.com");
+		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example1.com");
 		mockRequest.addHeader(HttpHeaders.IF_NONE_MATCH, etag);
 
 		MockHttpServletResponse mockResponse = new MockHttpServletResponse();
@@ -270,7 +270,7 @@ public class DefaultServerResponseBuilderTests {
 				.lastModified(oneMinuteBeforeNow)
 				.body("bar");
 
-		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example.com");
+		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example1.com");
 		mockRequest.addHeader(HttpHeaders.IF_MODIFIED_SINCE, DateTimeFormatter.RFC_1123_DATE_TIME.format(now));
 
 		MockHttpServletResponse mockResponse = new MockHttpServletResponse();
@@ -285,7 +285,7 @@ public class DefaultServerResponseBuilderTests {
 		String body = "foo";
 		ServerResponse response = ServerResponse.ok().body(body);
 
-		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example.com");
+		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example1.com");
 		MockHttpServletResponse mockResponse = new MockHttpServletResponse();
 		ServerResponse.Context context = () -> Collections.singletonList(new StringHttpMessageConverter());
 
@@ -302,7 +302,7 @@ public class DefaultServerResponseBuilderTests {
 		body.add("bar");
 		ServerResponse response = ServerResponse.ok().body(body, new ParameterizedTypeReference<List<String>>() {});
 
-		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example.com");
+		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example1.com");
 		MockHttpServletResponse mockResponse = new MockHttpServletResponse();
 		ServerResponse.Context context = () -> Collections.singletonList(new MappingJackson2HttpMessageConverter());
 
@@ -318,7 +318,7 @@ public class DefaultServerResponseBuilderTests {
 		CompletionStage<String> completionStage = CompletableFuture.completedFuture(body);
 		ServerResponse response = ServerResponse.ok().body(completionStage);
 
-		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example.com");
+		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example1.com");
 		MockHttpServletResponse mockResponse = new MockHttpServletResponse();
 		mockRequest.setAsyncSupported(true);
 
@@ -337,7 +337,7 @@ public class DefaultServerResponseBuilderTests {
 		Publisher<String> publisher = Mono.just(body);
 		ServerResponse response = ServerResponse.ok().body(publisher);
 
-		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example.com");
+		MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "https://example1.com");
 		MockHttpServletResponse mockResponse = new MockHttpServletResponse();
 		mockRequest.setAsyncSupported(true);
 

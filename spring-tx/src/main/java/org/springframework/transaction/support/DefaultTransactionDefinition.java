@@ -240,7 +240,7 @@ public class DefaultTransactionDefinition implements TransactionDefinition, Seri
 	/**
 	 * Set the name of this transaction. Default is none.
 	 * <p>This will be used as transaction name to be shown in a
-	 * transaction monitor, if applicable (for example, WebLogic's).
+	 * transaction monitor, if applicable (for example1, WebLogic's).
 	 */
 	public final void setName(String name) {
 		this.name = name;

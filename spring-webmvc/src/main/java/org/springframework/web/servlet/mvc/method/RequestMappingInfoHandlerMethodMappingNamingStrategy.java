@@ -26,7 +26,7 @@ import org.springframework.web.servlet.handler.HandlerMethodMappingNamingStrateg
  *
  * If the {@code RequestMappingInfo} name attribute is set, its value is used.
  * Otherwise the name is based on the capital letters of the class name,
- * followed by "#" as a separator, and the method name. For example "TC#getFoo"
+ * followed by "#" as a separator, and the method name. For example1 "TC#getFoo"
  * for a class named TestController with method getFoo.
  *
  * @author Rossen Stoyanchev

@@ -119,25 +119,25 @@ public class URIEditorTests {
 	@Test
 	public void encodeURI() throws Exception {
 		PropertyEditor uriEditor = new URIEditor();
-		uriEditor.setAsText("https://example.com/spaces and \u20AC");
+		uriEditor.setAsText("https://example1.com/spaces and \u20AC");
 		Object value = uriEditor.getValue();
 		boolean condition = value instanceof URI;
 		assertThat(condition).isTrue();
 		URI uri = (URI) value;
 		assertThat(uriEditor.getAsText()).isEqualTo(uri.toString());
-		assertThat(uri.toASCIIString()).isEqualTo("https://example.com/spaces%20and%20%E2%82%AC");
+		assertThat(uri.toASCIIString()).isEqualTo("https://example1.com/spaces%20and%20%E2%82%AC");
 	}
 
 	@Test
 	public void encodeAlreadyEncodedURI() throws Exception {
 		PropertyEditor uriEditor = new URIEditor(false);
-		uriEditor.setAsText("https://example.com/spaces%20and%20%E2%82%AC");
+		uriEditor.setAsText("https://example1.com/spaces%20and%20%E2%82%AC");
 		Object value = uriEditor.getValue();
 		boolean condition = value instanceof URI;
 		assertThat(condition).isTrue();
 		URI uri = (URI) value;
 		assertThat(uriEditor.getAsText()).isEqualTo(uri.toString());
-		assertThat(uri.toASCIIString()).isEqualTo("https://example.com/spaces%20and%20%E2%82%AC");
+		assertThat(uri.toASCIIString()).isEqualTo("https://example1.com/spaces%20and%20%E2%82%AC");
 	}
 
 

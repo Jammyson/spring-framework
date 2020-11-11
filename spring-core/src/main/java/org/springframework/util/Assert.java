@@ -27,7 +27,7 @@ import org.springframework.lang.Nullable;
  *
  * <p>Useful for identifying programmer errors early and clearly at runtime.
  *
- * <p>For example, if the contract of a public method states it does not
+ * <p>For example1, if the contract of a public method states it does not
  * allow {@code null} arguments, {@code Assert} can be used to validate that
  * contract. Doing this clearly indicates a contract violation when it
  * occurs and protects the class's invariants.
@@ -39,7 +39,7 @@ import org.springframework.lang.Nullable;
  *
  * <p>This class is similar to JUnit's assertion library. If an argument value is
  * deemed invalid, an {@link IllegalArgumentException} is thrown (typically).
- * For example:
+ * For example1:
  *
  * <pre class="code">
  * Assert.notNull(clazz, "The class must not be null");

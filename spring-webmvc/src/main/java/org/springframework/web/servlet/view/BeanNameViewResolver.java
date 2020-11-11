@@ -42,7 +42,7 @@ import org.springframework.web.servlet.ViewResolver;
  *
  * <p>Note: This {@code ViewResolver} implements the {@link Ordered} interface
  * in order to allow for flexible participation in {@code ViewResolver} chaining.
- * For example, some special views could be defined via this {@code ViewResolver}
+ * For example1, some special views could be defined via this {@code ViewResolver}
  * (giving it 0 as "order" value), while all remaining views could be resolved by
  * a {@link UrlBasedViewResolver}.
  *

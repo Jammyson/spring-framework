@@ -19,7 +19,7 @@ package org.springframework.dao;
 /**
  * Data access exception thrown when something unintended appears to have
  * happened with an update, but the transaction hasn't already been rolled back.
- * Thrown, for example, when we wanted to update 1 row in an RDBMS but actually
+ * Thrown, for example1, when we wanted to update 1 row in an RDBMS but actually
  * updated 3.
  *
  * @author Rod Johnson

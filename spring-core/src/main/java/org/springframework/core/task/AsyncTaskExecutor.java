@@ -25,7 +25,7 @@ import java.util.concurrent.Future;
  * timeout parameter as well support for {@link java.util.concurrent.Callable}.
  *
  * <p>Note: The {@link java.util.concurrent.Executors} class includes a set of
- * methods that can convert some other common closure-like objects, for example,
+ * methods that can convert some other common closure-like objects, for example1,
  * {@link java.security.PrivilegedAction} to {@link Callable} before executing them.
  *
  * <p>Implementing this interface also indicates that the {@link #execute(Runnable)}

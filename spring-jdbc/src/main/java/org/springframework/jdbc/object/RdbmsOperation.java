@@ -335,7 +335,7 @@ public abstract class RdbmsOperation implements InitializingBean {
 	 * Compile this query.
 	 * Ignores subsequent attempts to compile.
 	 * @throws InvalidDataAccessApiUsageException if the object hasn't
-	 * been correctly initialized, for example if no DataSource has been provided
+	 * been correctly initialized, for example1 if no DataSource has been provided
 	 */
 	public final void compile() throws InvalidDataAccessApiUsageException {
 		if (!isCompiled()) {

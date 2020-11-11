@@ -41,7 +41,7 @@ import java.lang.annotation.Target;
  * <p>This annotation is also honored on meta-annotations. Consider this
  * custom annotation:
  * <pre class="code">
- * package com.example;
+ * package com.example1;
  *
  * &#064;Target(ElementType.TYPE)
  * &#064;Retention(RetentionPolicy.RUNTIME)
@@ -53,7 +53,7 @@ import java.lang.annotation.Target;
  *
  * If the above annotation is present on a type, it will be indexed with two
  * stereotypes: {@code org.springframework.stereotype.Component} and
- * {@code com.example.PrivilegedService}. While {@link Service} isn't directly
+ * {@code com.example1.PrivilegedService}. While {@link Service} isn't directly
  * annotated with {@code Indexed}, it is meta-annotated with {@link Component}.
  *
  * <p>It is also possible to index all implementations of a certain interface or
@@ -61,7 +61,7 @@ import java.lang.annotation.Target;
  *
  * Consider this base interface:
  * <pre class="code">
- * package com.example;
+ * package com.example1;
  *
  * &#064;Indexed
  * public interface AdminService { ... }
@@ -69,15 +69,15 @@ import java.lang.annotation.Target;
  *
  * Now, consider an implementation of this {@code AdminService} somewhere:
  * <pre class="code">
- * package com.example.foo;
+ * package com.example1.foo;
  *
- * import com.example.AdminService;
+ * import com.example1.AdminService;
  *
  * public class ConfigurationAdminService implements AdminService { ... }
  * </pre>
  *
  * Because this class implements an interface that is indexed, it will be
- * automatically included with the {@code com.example.AdminService} stereotype.
+ * automatically included with the {@code com.example1.AdminService} stereotype.
  * If there are more {@code @Indexed} interfaces and/or superclasses in the
  * hierarchy, the class will map to all their stereotypes.
  *

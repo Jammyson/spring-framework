@@ -56,11 +56,11 @@ public class JythonScriptTemplateTests {
 	@Test
 	public void renderTemplate() throws Exception {
 		Map<String, Object> model = new HashMap<>();
-		model.put("title", "Layout example");
+		model.put("title", "Layout example1");
 		model.put("body", "This is the body");
 		String url = "org/springframework/web/servlet/view/script/jython/template.html";
 		MockHttpServletResponse response = render(url, model);
-		assertThat(response.getContentAsString()).isEqualTo("<html><head><title>Layout example</title></head><body><p>This is the body</p></body></html>");
+		assertThat(response.getContentAsString()).isEqualTo("<html><head><title>Layout example1</title></head><body><p>This is the body</p></body></html>");
 	}
 
 	private MockHttpServletResponse render(String viewUrl, Map<String, Object> model) throws Exception {

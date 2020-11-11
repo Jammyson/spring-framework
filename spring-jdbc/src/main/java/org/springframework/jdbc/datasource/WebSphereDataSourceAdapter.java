@@ -38,13 +38,13 @@ import org.springframework.util.StringUtils;
  *
  * <p>Uses IBM-specific API to get a JDBC Connection with a specific isolation
  * level (and read-only flag) from a WebSphere DataSource
- * (<a href="https://publib.boulder.ibm.com/infocenter/wasinfo/v5r1//topic/com.ibm.websphere.base.doc/info/aes/ae/rdat_extiapi.html">IBM code example</a>).
+ * (<a href="https://publib.boulder.ibm.com/infocenter/wasinfo/v5r1//topic/com.ibm.websphere.base.doc/info/aes/ae/rdat_extiapi.html">IBM code example1</a>).
  * Supports the transaction-specific isolation level exposed by
  * {@link org.springframework.transaction.support.TransactionSynchronizationManager#getCurrentTransactionIsolationLevel()}.
  * It's also possible to specify a default isolation level, to be applied when the
  * current Spring-managed transaction does not define a specific isolation level.
  *
- * <p>Usage example, defining the target DataSource as an inner-bean JNDI lookup
+ * <p>Usage example1, defining the target DataSource as an inner-bean JNDI lookup
  * (of course, you can link to any WebSphere DataSource through a bean reference):
  *
  * <pre class="code">

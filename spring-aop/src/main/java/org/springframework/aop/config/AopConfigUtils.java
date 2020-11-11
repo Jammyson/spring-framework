@@ -97,6 +97,10 @@ public abstract class AopConfigUtils {
 	public static BeanDefinition registerAspectJAnnotationAutoProxyCreatorIfNecessary(
 			BeanDefinitionRegistry registry, @Nullable Object source) {
 
+		/**
+		 * 向BeanFactory中注册一个class为AnnotationAwareAspectJAutoProxyCreator、
+		 * 名称为AUTO_PROXY_CREATOR_BEAN_NAME的BD
+		 */
 		return registerOrEscalateApcAsRequired(AnnotationAwareAspectJAutoProxyCreator.class, registry, source);
 	}
 
@@ -114,6 +118,9 @@ public abstract class AopConfigUtils {
 		}
 	}
 
+	/**
+	 * 向BeanFactory中填充一个name为AUTO_PROXY_CREATOR_BEAN_NAME的BD
+	 */
 	@Nullable
 	private static BeanDefinition registerOrEscalateApcAsRequired(
 			Class<?> cls, BeanDefinitionRegistry registry, @Nullable Object source) {

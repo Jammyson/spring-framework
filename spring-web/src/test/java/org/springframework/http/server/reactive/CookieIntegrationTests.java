@@ -77,7 +77,7 @@ public class CookieIntegrationTests extends AbstractHttpHandlerIntegrationTests 
 		List<String> cookie1 = splitCookie(headerValues.get(1));
 		assertThat(cookie1.remove("lang=en-US")).as("lang").isTrue();
 		assertThat(cookie1.stream().map(String::toLowerCase))
-				.containsExactlyInAnyOrder("path=/", "domain=example.com");
+				.containsExactlyInAnyOrder("path=/", "domain=example1.com");
 	}
 
 	// No client side HttpCookie support yet
@@ -104,7 +104,7 @@ public class CookieIntegrationTests extends AbstractHttpHandlerIntegrationTests 
 			response.getCookies().add("SID", ResponseCookie.from("SID", "31d4d96e407aad42")
 					.path("/").secure(true).httpOnly(true).build());
 			response.getCookies().add("lang", ResponseCookie.from("lang", "en-US")
-					.domain("example.com").path("/").build());
+					.domain("example1.com").path("/").build());
 
 			return response.setComplete();
 		}

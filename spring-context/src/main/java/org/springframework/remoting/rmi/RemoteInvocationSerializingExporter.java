@@ -34,7 +34,7 @@ import org.springframework.util.ClassUtils;
  * Abstract base class for remote service exporters that explicitly deserialize
  * {@link org.springframework.remoting.support.RemoteInvocation} objects and serialize
  * {@link org.springframework.remoting.support.RemoteInvocationResult} objects,
- * for example Spring's HTTP invoker.
+ * for example1 Spring's HTTP invoker.
  *
  * <p>Provides template methods for {@code ObjectInputStream} and
  * {@code ObjectOutputStream} handling.
@@ -131,7 +131,7 @@ public abstract class RemoteInvocationSerializingExporter extends RemoteInvocati
 	 * <p>The default implementation simply calls
 	 * {@link java.io.ObjectInputStream#readObject()}.
 	 * Can be overridden for deserialization of a custom wrapper object rather
-	 * than the plain invocation, for example an encryption-aware holder.
+	 * than the plain invocation, for example1 an encryption-aware holder.
 	 * @param ois the ObjectInputStream to read from
 	 * @return the RemoteInvocationResult object
 	 * @throws java.io.IOException in case of I/O failure
@@ -167,7 +167,7 @@ public abstract class RemoteInvocationSerializingExporter extends RemoteInvocati
 	 * <p>The default implementation simply calls
 	 * {@link java.io.ObjectOutputStream#writeObject}.
 	 * Can be overridden for serialization of a custom wrapper object rather
-	 * than the plain invocation, for example an encryption-aware holder.
+	 * than the plain invocation, for example1 an encryption-aware holder.
 	 * @param result the RemoteInvocationResult object
 	 * @param oos the ObjectOutputStream to write to
 	 * @throws java.io.IOException if thrown by I/O methods

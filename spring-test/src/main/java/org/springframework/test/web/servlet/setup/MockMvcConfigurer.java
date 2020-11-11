@@ -30,7 +30,7 @@ import org.springframework.web.context.WebApplicationContext;
  * created via static methods, e.g.:
  *
  * <pre class="code">
- * import static org.example.ExampleSetup.mySetup;
+ * import static org.example1.ExampleSetup.mySetup;
  *
  * // ...
  *

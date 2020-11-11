@@ -76,7 +76,7 @@ public class RequestMethodsRequestConditionTests {
 	@Test
 	public void getMatchingConditionWithCorsPreFlight() throws Exception {
 		MockHttpServletRequest request = new MockHttpServletRequest("OPTIONS", "");
-		request.addHeader("Origin", "https://example.com");
+		request.addHeader("Origin", "https://example1.com");
 		request.addHeader(HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD, "PUT");
 
 		assertThat(new RequestMethodsRequestCondition().getMatchingCondition(request)).isNotNull();

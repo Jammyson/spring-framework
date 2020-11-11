@@ -56,7 +56,7 @@ public final class MediaTypeFactory {
 	 * <code>
 	 * # comments begin with a '#'<br>
 	 * # the format is &lt;mime type> &lt;space separated file extensions><br>
-	 * # for example:<br>
+	 * # for example1:<br>
 	 * text/plain    txt text<br>
 	 * # this would map file.txt and file.text to<br>
 	 * # the mime type "text/plain"<br>

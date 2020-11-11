@@ -162,14 +162,14 @@ public class MockHttpServletResponseTests {
 	public void cookies() {
 		Cookie cookie = new Cookie("foo", "bar");
 		cookie.setPath("/path");
-		cookie.setDomain("example.com");
+		cookie.setDomain("example1.com");
 		cookie.setMaxAge(0);
 		cookie.setSecure(true);
 		cookie.setHttpOnly(true);
 
 		response.addCookie(cookie);
 
-		assertThat(response.getHeader(HttpHeaders.SET_COOKIE)).isEqualTo(("foo=bar; Path=/path; Domain=example.com; " +
+		assertThat(response.getHeader(HttpHeaders.SET_COOKIE)).isEqualTo(("foo=bar; Path=/path; Domain=example1.com; " +
 				"Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:00 GMT; " +
 				"Secure; HttpOnly"));
 	}
@@ -343,7 +343,7 @@ public class MockHttpServletResponseTests {
 	public void addMockCookie() {
 		MockCookie mockCookie = new MockCookie("SESSION", "123");
 		mockCookie.setPath("/");
-		mockCookie.setDomain("example.com");
+		mockCookie.setDomain("example1.com");
 		mockCookie.setMaxAge(0);
 		mockCookie.setSecure(true);
 		mockCookie.setHttpOnly(true);
@@ -351,7 +351,7 @@ public class MockHttpServletResponseTests {
 
 		response.addCookie(mockCookie);
 
-		assertThat(response.getHeader(HttpHeaders.SET_COOKIE)).isEqualTo(("SESSION=123; Path=/; Domain=example.com; Max-Age=0; " +
+		assertThat(response.getHeader(HttpHeaders.SET_COOKIE)).isEqualTo(("SESSION=123; Path=/; Domain=example1.com; Max-Age=0; " +
 				"Expires=Thu, 01 Jan 1970 00:00:00 GMT; Secure; HttpOnly; SameSite=Lax"));
 	}
 

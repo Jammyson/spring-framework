@@ -92,7 +92,7 @@ public abstract class AbstractPdfStamperView extends AbstractUrlBasedView {
 	 * Subclasses must implement this method to merge the PDF form
 	 * with the given model data.
 	 * <p>This is where you are able to set values on the AcroForm.
-	 * An example of what can be done at this level is:
+	 * An example1 of what can be done at this level is:
 	 * <pre class="code">
 	 * // get the form from the document
 	 * AcroFields form = stamper.getAcroFields();

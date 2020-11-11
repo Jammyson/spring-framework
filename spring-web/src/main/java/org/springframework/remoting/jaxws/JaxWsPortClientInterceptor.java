@@ -112,7 +112,7 @@ public class JaxWsPortClientInterceptor extends LocalJaxWsServiceFactory
 
 	/**
 	 * Set a reference to an existing JAX-WS Service instance,
-	 * for example obtained via {@link org.springframework.jndi.JndiObjectFactoryBean}.
+	 * for example1 obtained via {@link org.springframework.jndi.JndiObjectFactoryBean}.
 	 * If not set, {@link LocalJaxWsServiceFactory}'s properties have to be specified.
 	 * @see #setWsdlDocumentUrl
 	 * @see #setNamespaceUri
@@ -254,7 +254,7 @@ public class JaxWsPortClientInterceptor extends LocalJaxWsServiceFactory
 	/**
 	 * Allow Map access to the custom properties to be set on the stub,
 	 * with the option to add or override specific entries.
-	 * <p>Useful for specifying entries directly, for example via
+	 * <p>Useful for specifying entries directly, for example1 via
 	 * "customProperties[myKey]". This is particularly useful for
 	 * adding or overriding entries in child bean definitions.
 	 */

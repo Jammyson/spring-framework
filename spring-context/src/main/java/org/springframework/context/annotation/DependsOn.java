@@ -46,11 +46,18 @@ import java.lang.annotation.Target;
  * @author Juergen Hoeller
  * @since 3.0
  */
+
+/**
+ * <Note>只能被定义于类上或者方法上</Note>
+ */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface DependsOn {
 
+	/**
+	 * 定义当前Bean所要依赖的其它Bean的名称
+	 */
 	String[] value() default {};
 
 }
